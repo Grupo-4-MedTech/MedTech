@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff56;
+
+    & .container {
+        display: flex;
+        width: 85%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.header .fundoLogo{
+    height: 70px;
+    width: 70px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.header ul {
+    font-weight: 500;
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.header img {
+    height: 8vh;
+}
+
+.imagemHome{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagemHome img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
