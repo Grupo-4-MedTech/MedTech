@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,49 +7,67 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 .header {
     width: 100%;
-    height: 10vh;
+    height: 80px;
     display: flex;
     position: fixed;
     top: 0;
     z-index: 999;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    background-color: #ffffff56;
-
-    & .container {
-        display: flex;
-        width: 85%;
-        margin: auto;
-        justify-content: space-between;
-        align-items: center;
-    }
+    background-color: #03999e6f;
 }
 
-.header .fundoLogo{
-    height: 70px;
-    width: 70px;
-    background-color: white;
+.header .container {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .MedTechLogo{
     border-radius: 50%;
+}
+.header .MedTechNome{
+    height: 50px;
+    width: 160px;
+    margin-left: 5px;
+    border-radius: 10px;
 }
 
 .header ul {
     font-weight: 500;
-    font-size: 22px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     list-style-type: none;
     display: flex;
     align-items: center;
-    width: 75%;
+    width: 60%;
     justify-content: space-between;
+}
+
+/* 089aa0 */
+
+
+.header .fundo-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 180px;
+    border-radius: 5px;
+    background-color: #089aa0;
 }
 
 .header a {
     text-decoration: none;
     color: white;
+    text-shadow: 0px 1px 0px black;
 }
 
 .header img {
@@ -59,11 +79,30 @@ html {
     height: 100%;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 .imagemHome img{
     width: 100%;
     height: 600px;
     object-fit: cover;
+}
+
+.textoHome{
+    display: flex;
+    width: 600;
+    margin-left: 50px;
+    position: absolute;
+    flex-direction: column;
+    justify-content: left;
+    align-content: left;
+}
+
+.textoHome p{
+    z-index: 1;
+    font-size: 55px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 55;
+    color: #ffffff;
+    text-shadow: 0.5px 0px 0px black;
 }
