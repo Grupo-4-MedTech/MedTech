@@ -107,6 +107,47 @@ html {
     text-shadow: 0.5px 0px 0px black;
 }
 
+/*sobre*/
+
+#section_sobre{
+    height: 600px;
+    width: 100%;
+    background-color: #E1E1E1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-sobre{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    
+}
+.titulo h2{
+    text-align: center;
+    justify-self: flex-start;
+    font-size: 50px;
+    background: -webkit-linear-gradient(180deg, rgba(3,131,135,1) 30%, rgba(55,217,223,1) 65%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.img-sobre img{
+    height: 400px;
+    width: 400px;
+
+}
+.texto-sobre{
+    width: 450px;
+    text-align:justify;
+    font-size: 18px;
+    text-indent: 25px;
+}
+
+/*footer*/
 
 #section_footer{
     width: 100%;
