@@ -1,0 +1,88 @@
+/* Cadastro */
+
+body{
+    background-color: #06a3a8;
+    color: rgb(61, 61, 61);
+}
+
+main{
+    padding: 100px 35px;
+    background-color: rgb(255, 255, 255);
+    width: 550px;
+    height: 100vh;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin: 0 0 25px 25px;
+}
+
+.banner{
+    width: 400px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: calc(50% - 275px);
+}
+
+ /* Div de inputs */
+
+ #screendiv{
+ }
+
+ h1{
+    font-size: 1.8em;
+    text-indent: 40px;
+    color: rgb(61, 61, 61);
+ }
+
+ .space{
+    height: 20px;
+ }
+
+ #screendiv > input{
+    margin: 7px 0 13px 0;
+    display: block;
+    width: 100%;
+    font-size: 1.35em;
+    padding: 5px;
+    border-radius: 9px;
+    text-indent: 5px;
+
+ }
+ input:focus{
+    border: 2px solid #03989E;
+    outline: none;
+ }
+
+ label{
+     font-size: 1.4em;
+ }
+
+ .next{
+    background-color: #03989E;
+    padding: 9px 26px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.6em;
+    display: block;
+    cursor: pointer;
+    transition: 100ms;
+    height: 50px;
+    margin: auto;
+    color: black;
+ }
+
+ .next:hover{
+    background-color: #1eafb4;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, 0.363);
+    font-size: 1.7em;
+    margin: auto;
+    height: 54px;
+    transform: translateY(-2px);
+ }

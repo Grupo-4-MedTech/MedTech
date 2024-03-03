@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: unset;
+    text-decoration: none;
+    font-style: normal;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* Header */
+
+/* Footer */
