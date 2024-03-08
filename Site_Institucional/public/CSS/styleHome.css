@@ -139,7 +139,6 @@ html {
     height: 400px;
     width: 400px;
     animation: foto-anim 3s alternate;
-    animation-range: -10% cover 30%;
 
 }
 @keyframes foto-anim {
