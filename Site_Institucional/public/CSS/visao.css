@@ -1,6 +1,6 @@
-.container{
-  width: 88%;
-  height: 80vh;
+.container_paiVisao{
+  width: 86%;
+  height: 89vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,14 +9,16 @@
 }
 
 .icon{
-    width: 25vw;
-    margin-left:10vw;
+    width: 27vw;
+    margin-left:15vw;
 }
 h1{
+    width: 26vw;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.valores{
-    
+p{
+   font-size: 1.3vw;
 }

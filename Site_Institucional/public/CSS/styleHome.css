@@ -150,7 +150,7 @@ html {
   }
 }
 .texto-sobre{
-    width: 450px;
+    width: 580px;
     text-align:justify;
     font-size: 18px;
     text-indent: 25px;
@@ -166,6 +166,42 @@ html {
   }
 }
 
+
+/*visao e valores*/
+
+.container_paiVisao{
+    width: 85%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  
+  }
+  
+  .icon{
+      width: 35vw;
+      margin-left:15vw;
+      
+  }
+  .visao{
+      width: 24vw;
+      height: 7vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      color:black;
+  }
+  .valores{
+     font-size: 1.3vw;
+     margin-top:2vw;
+     font-family: "Montserrat", sans-serif;
+     font-weight: 400;
+  } 
+  
+  
 /*footer*/
 
 #section_footer{
