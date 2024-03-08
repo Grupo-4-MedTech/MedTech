@@ -1,5 +1,5 @@
 .container{
-  width: 100%;
+  width: 88%;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -11,4 +11,12 @@
 .icon{
     width: 25vw;
     margin-left:10vw;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.valores{
+    
 }
