@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,63 +8,96 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="script/cadastro.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body>
+
+<body onload="nextInput(0); toggleVisibility();">
     <main>
         <div class="logo">
             <img src="assets/img/MedTechLogo.jpg">
             <img src="assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
-        
+
+
         <div id="screendiv">
-            
-            <h1>Crie sua conta agora</h1>
-            <div class="space"></div>
-            <div class="space"></div>
-            <label for="nomeCompleto">Nome Completo:</label>
-            <input type="text" name="nomeCompleto" id="nomeCompleto">
-            <div class="space"></div>
-            <button class="next" onclick="nextInput(1);">Prosseguir</button>
-            
-            
-            <!--
-                
+            <span class="material-symbols-outlined" id="arrowBack" onclick="prevInput();">
+                arrow_back
+            </span>
+
+            <div class="phase">
+                <h1> Crie sua conta agora</h1>
+                <div class="space"></div>
+                <div class="space"></div>
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" name="nomeCompleto" id="nomeCompleto">
+                <div class="space"></div>
+                <button class="next" onclick="nextInput(1);">Prosseguir</button>
+            </div>
+
+
+            <div class="phase">
+                <h2>Identificação</h2>
+                <div class="space"></div>
+                <div class="space"></div>
                 <label for="cnpjcpf">CNPJ/CPF:</label>
                 <input type="text" name="cnpjcpf" id="cnpjcpf">
                 <div class="space"></div>
+                <button class="next" onclick="nextInput(2);">Prosseguir</button>
+            </div>
+
+
+            <div class="phase">
+                <h2>Localização</h2>
+                <div class="space"></div>
                 <label for="CEP">CEP:</label>
                 <input type="text" name="CEP" id="CEP">
-                <label for="endereco">Endereço:</label>
-                <input type="text" name="endereco" id="endereco">
-                <div class="space"></div>
-                <div class="space"></div>
-                <button class="next" onclick="nextInput(2);">Prosseguir</button>
-                
-                <h1>Crie uma senha:</h1>
-                <div class="space"></div>
-                <label for="senha1">Senha:</label>
-                <input type="text" name="senha1" id="senha1">
-                <div class="space"></div>
-                <label for="senha2">Digite a senha novamente:</label>
-                <input type="text" name="senha2" id="senha2">
-                <div class="space"></div>
-                <div class="space"></div>
-                <button class="next" onclick="nextInput(4);">Finalizar</button>
-                
-                <label for="email">Seu email:</label>
-                <input type="text" name="email" id="email">
-                <div class="space"></div>
-                <label for="celular">Telefone celular:</label>
-                <input type="text" name="celulcar" id="celular">
+                <label for="enderecoInpt">Endereço:</label>
+                <input type="text" name="endereco" id="enderecoInpt">
                 <div class="space"></div>
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(3);">Prosseguir</button>
-            -->
-                
-                
+            </div>
+
+
+            <div class="phase">
+                <h2>Contato</h2>
+                <div class="space"></div>
+                <label for="emailInpt">Seu email:</label>
+                <input type="text" name="email" id="emailInpt">
+                <div class="space"></div>
+                <label for="celular">Telefone celular:</label>
+                <input type="tel" name="celular" id="celular" pattern="[0-9]{2}\s[0-9]{5}-[0-9]{4}">
+                <div class="space"></div>
+                <button class="next" onclick="nextInput(4);">Prosseguir</button>
+            </div>
+
+
+            <div class="phase">
+                <h2>Crie uma senha:</h2>
+                <div class="space"></div>
+                <label for="senha1">Senha:</label>
+                <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
+                    visibility
+                </span>
+                <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
+                    visibility_off
+                    </span>
+                <input type="password" name="senha1" id="senha1">
+                <div class="space"></div>
+                <label for="senha2">Digite a senha novamente:</label>
+                <input type="password" name="senha2" id="senha2">
+                <div class="space"></div>
+                <button class="next" onclick="finishForm();">Finalizar</button>
+            </div>
         </div>
     </main>
 
     <img src="assets/img/ilustrator-cad.png" class="banner">
 </body>
+
 </html>
