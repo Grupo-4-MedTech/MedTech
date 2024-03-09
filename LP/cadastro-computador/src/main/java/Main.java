@@ -22,17 +22,17 @@ public class Main {
         List<Departamento> listaDep = new ArrayList<>();
         listaDep.add(new Departamento(149, "Guichê", 1000, listaHosp.get(0)));
         listaDep.add(new Departamento(147, "Triagem", 1001, listaHosp.get(0)));
-        listaDep.add(new Departamento(145, "Consultótio", 1002, listaHosp.get(0)));
+        listaDep.add(new Departamento(145, "Consultório", 1002, listaHosp.get(0)));
         listaDep.add(new Departamento(150, "Farmácia", 1050, listaHosp.get(0)));
 
         listaDep.add(new Departamento(130, "Guichê", 1000, listaHosp.get(1)));
         listaDep.add(new Departamento(100, "Triagem", 1001, listaHosp.get(1)));
-        listaDep.add(new Departamento(209, "Consultótio", 1002, listaHosp.get(1)));
+        listaDep.add(new Departamento(209, "Consultório", 1002, listaHosp.get(1)));
         listaDep.add(new Departamento(183, "Farmácia", 1050, listaHosp.get(1)));
 
         List<Computador> listaComp = new ArrayList<>();
-        listaComp.add(new Computador("Computador da recepção", "C0578921", 1000, 1000, 1000, "sptech88", listaDep.get(0)));
-        listaComp.add(new Computador("Computador da farmácia", "C0578920", 1000, 1000, 1000, "medtech777", listaDep.get(7)));
+        listaComp.add(new Computador("Computador_da_recepção", "C0578921", 6, 4, 200, "sptech88", listaDep.get(0)));
+        listaComp.add(new Computador("Computador_da_farmácia", "C0578920", 2, 6, 350, "medtech777", listaDep.get(7)));
 
         //Gerando listas de dados mockados
         for(int i = 0; i < listaHosp.size(); i++){
@@ -49,22 +49,14 @@ public class Main {
         // FIM MOCKANDO DADOS
 
         System.out.println("""
-                              :!77777777!:             \s
-                              ?J::::::::J?             \s
-                              J?        7?             \s
-                              J?        ..             \s
-                      ....    J?    ..............     \s
-                    ^?777!    J?    ^~~~~~~~~~~~~~!:   \s
-                    ?J        J?                  !~   \s
-                    ??        !!        ..        ~~   \s
-                    ??                  ~!        ~~   \s
-                    7J~^^^^^^^^^^^^^    ~!    ::::!^   \s
-                    .^~~~~~~~~~~~~~~.   ~!    :^^^:    \s
-                                        ~!             \s
-                              ^^        ~!             \s
-                              !~        ~!             \s
-                              ^!~^^^^^^~!^             \s
-                                ........  \s
+                         
+                         :JJJ~        !JJ?.      !JJJJJJJJJ?:     :JJJJJJJJJ7~:      !JJJJJJJJJJJ~    .?JJJJJJJJJ7.      .^7?JJJJJ?!:     .?J!       ^JJ:            \s
+                         :YYYY~     .7YYYJ.      75J:.......      :YY!....:^7YY7.    ....:J57.....    :J57........      ~JY?~:..:^!?~     .J5!       ^YY:            \s
+                         :YY!?Y!   .757!YJ.      75?:......       :YY!       :J57.       .J5!         :JY!.......      ~YY~               .JY7.......~YY:            \s
+                         :YY^.J5! .?57 ~YJ.      7YYJJJJJJJ^      :YY!        !YJ:       .J5!         :JYYJJJJJJ?.     75?.               .JYYJJJJJJJJYY:            \s
+                         :YY^ .?Y?JY!  !YJ.      75?:......       :YY!       :J57.       .J5!         :JY!.......      ~YY~               .JY7:::::::~YY:            \s
+                         :YY^  .?YY!   !YJ.      75?:........     :YY!....:^!YY7.        .J5!         :J5!........      ~JY?~:...^!?^     .J5!       ^YY:            \s
+                         :JJ^   .::    ~Y?.      !YJJJJJJJJJ~     :JYJJJJJJJ?~:          .?Y!         :?YJJJJJJJJ?:      .~7JJJJJJ?~:     .?Y!       ^YY:            \s
                 """);
         System.out.println("""
         BEM-VINDO(A) AO NOSSO SISTEMA DE MONITORAMENTO DE COMPUTADORES!
@@ -77,7 +69,7 @@ public class Main {
 
         int processo;
         do {
-            processo = leitorStr.nextInt();
+            processo = leitorNum.nextInt();
              if(processo > 2 || processo < 1){
                  System.out.println("Digite um número válido.");
              } else {
@@ -202,14 +194,14 @@ public class Main {
         System.out.println("Código do patrimônio:");
         String codPatrimonio = leitorStr.next();
 
-        System.out.println("Capacidade máxima da CPU:");
-        double maxCpu = leitorNum.nextDouble();
+        System.out.println("Capacidade quantidade de núcleos da CPU:");
+        int maxCpu = leitorNum.nextInt();
 
-        System.out.println("Capacidade máxima da RAM:");
-        double maxRam = leitorNum.nextDouble();
+        System.out.println("Capacidade máxima da RAM em GB:");
+        int maxRam = leitorNum.nextInt();
 
-        System.out.println("Capacidade máxima do disco:");
-        double maxDisco = leitorNum.nextDouble();
+        System.out.println("Capacidade máxima do disco em GB:");
+        int maxDisco = leitorNum.nextInt();
 
         System.out.println("Crie uma senha de acesso:");
         String senha = leitorStr.next();

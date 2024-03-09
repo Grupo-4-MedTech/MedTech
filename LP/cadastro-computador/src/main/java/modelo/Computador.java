@@ -9,20 +9,20 @@ public class Computador {
 
     private String nomeComputador;
     private String codPatrimonio;
-    private double maxCpu;
-    private double maxRam;
-    private double maxDisco;
+    private int nucleosCpu;
+    private int maxRam;
+    private int maxDisco;
     private String senha;
 
     public Departamento departamento;
 
     private static List<Computador> listaComputadores = new ArrayList<>();
 
-    public Computador(String nomeComputador, String codPatrimonio, double maxCpu, double maxRam, double maxDisco, String senha, Departamento departamentoSelecionado)
+    public Computador(String nomeComputador, String codPatrimonio, int nucleosCpu, int maxRam, int maxDisco, String senha, Departamento departamentoSelecionado)
     {
         this.nomeComputador = nomeComputador;
         this.codPatrimonio  = codPatrimonio;
-        this.maxCpu         = maxCpu;
+        this.nucleosCpu     = nucleosCpu;
         this.maxRam         = maxRam;
         this.maxDisco       = maxDisco;
         this.senha          = senha;
@@ -34,11 +34,11 @@ public class Computador {
         return this.senha;
     }
 
-    public double getMaxCpu() {
-        return this.maxCpu;
+    public int getNucleosCpu() {
+        return this.nucleosCpu;
     }
 
-    public double getMaxRam() {
+    public int getMaxRam() {
         return this.maxRam;
     }
 
@@ -46,7 +46,7 @@ public class Computador {
         return this.codPatrimonio;
     }
 
-    public double getMaxDisco() {
+    public int getMaxDisco() {
         return this.maxDisco;
     }
 
@@ -73,15 +73,15 @@ public class Computador {
         Computador.listaComputadores = listaComputadores;
     }
 
-    public void setMaxCpu(double maxCpu) {
-        this.maxCpu = maxCpu;
+    public void setNucleosCpu(int nucleosCpu) {
+        this.nucleosCpu = nucleosCpu;
     }
 
-    public void setMaxDisco(double maxDisco) {
+    public void setMaxDisco(int maxDisco) {
         this.maxDisco = maxDisco;
     }
 
-    public void setMaxRam(double maxRam) {
+    public void setMaxRam(int maxRam) {
         this.maxRam = maxRam;
     }
 
@@ -99,9 +99,9 @@ public class Computador {
                   "=============================================================================" + "\n"
                 + "Nome do computador: " + this.getNomeComputador() + "\n"
                 + "Código do patrimônio: " + this.getCodPatrimonio() + "\n"
-                + "Capacidade máxima da CPU:" + this.getMaxCpu() + "\n"
-                + "Capacidade máxima da RAM:" + this.getMaxRam() + "\n"
-                + "Capacidade máxima do Disco:" + this.getMaxDisco() + "\n"
+                + "Capacidade quantidade de núcleos da CPU: " + this.getNucleosCpu() + "\n"
+                + "Capacidade máxima da RAM: " + this.getMaxRam() + "GB \n"
+                + "Capacidade máxima do Disco: " + this.getMaxDisco() + "GB \n"
                 + "=============================================================================" + "\n"
                 + "Identificador do departamento: " + this.departamento.getIdDepartamento() + "\n"
                 + "Nome do departamento: " + this.departamento.getNome() + "\n"
