@@ -96,16 +96,16 @@ public class Computador {
     @Override
     public String toString() {
         return
-                  "=============================================================================" + "\n"
+                  "========================================COMPUTADOR========================================" + "\n"
                 + "Nome do computador: " + this.getNomeComputador() + "\n"
                 + "Código do patrimônio: " + this.getCodPatrimonio() + "\n"
-                + "Capacidade quantidade de núcleos da CPU: " + this.getNucleosCpu() + "\n"
+                + "Quantidade de núcleos da CPU: " + this.getNucleosCpu() + "\n"
                 + "Capacidade máxima da RAM: " + this.getMaxRam() + "GB \n"
                 + "Capacidade máxima do Disco: " + this.getMaxDisco() + "GB \n"
-                + "=============================================================================" + "\n"
+                + "========================================DEPARTAMENTO========================================" + "\n"
                 + "Identificador do departamento: " + this.departamento.getIdDepartamento() + "\n"
                 + "Nome do departamento: " + this.departamento.getNome() + "\n"
-                + "=============================================================================" + "\n"
+                + "========================================HOSPITAL========================================" + "\n"
                 + "Nome fantasia: " + this.departamento.hospital.getNomeFantasia() + "\n"
                 + "Razão social: " + this.departamento.hospital.getRazaoSocial() + "\n"
                 + "CNPJ:" + this.departamento.hospital.getCnpj();

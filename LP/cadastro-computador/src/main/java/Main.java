@@ -48,6 +48,11 @@ public class Main {
         }
         // FIM MOCKANDO DADOS
 
+        telaInicial();
+    }
+
+    static void telaInicial(){
+
         System.out.println("""
                          
                          :JJJ~        !JJ?.      !JJJJJJJJJ?:     :JJJJJJJJJ7~:      !JJJJJJJJJJJ~    .?JJJJJJJJJ7.      .^7?JJJJJ?!:     .?J!       ^JJ:            \s
@@ -70,11 +75,11 @@ public class Main {
         int processo;
         do {
             processo = leitorNum.nextInt();
-             if(processo > 2 || processo < 1){
-                 System.out.println("Digite um número válido.");
-             } else {
-                 break;
-             }
+            if(processo > 2 || processo < 1){
+                System.out.println("Digite um número válido.");
+            } else {
+                break;
+            }
         }while (true);
 
         if(processo == 2){
@@ -83,6 +88,7 @@ public class Main {
             cadastro();
         }
     }
+
 
     static void login()
     {
@@ -114,6 +120,18 @@ public class Main {
 
         System.out.println(computadorAutenticado.get(0));
 
+        System.out.println("AGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
+
+        do {
+            System.out.println("\nDigite \"sair\" para parar o monitoramento e sair da conta atual.");
+            String sair = leitorStr.next();
+
+            if(sair.equals("sair")){
+                telaInicial();
+            } else{
+                System.out.println("ERRO: Comando não identificado.");
+            }
+        } while (true);
     }
 
     static void cadastro() {
