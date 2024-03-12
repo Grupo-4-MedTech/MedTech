@@ -112,7 +112,7 @@ html {
 #section_sobre{
     height: 450px;
     width: 100%;
-    background-color: #E1E1E1;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
