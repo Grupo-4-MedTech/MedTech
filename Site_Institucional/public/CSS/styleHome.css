@@ -18,7 +18,7 @@ html {
     position: fixed;
     top: 0;
     z-index: 999;
-    background-color: #03999e6f;
+    background-color: #03999e;
 }
 
 .header .container {
@@ -170,12 +170,12 @@ html {
 /*visao e valores*/
 
 .container_paiVisao{
-    width: 85%;
+    width: 100%;
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    background-color: #E1E1E1;
   
   }
   

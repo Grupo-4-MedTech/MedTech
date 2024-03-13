@@ -1,11 +1,12 @@
 
 
 .container_paiVisao{
-  width: 86%;
+  width: 100%;
   height: 89vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: blue;
 }
 
 .icon{
