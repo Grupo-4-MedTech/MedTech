@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="script/cadastro.js"></script>
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet"
@@ -44,7 +45,10 @@
                 <h2>Identificação</h2>
                 <div class="space"></div>
                 <div class="space"></div>
-                <label for="cnpjcpf">CNPJ/CPF:</label>
+                <label for="nomeHospital">Nome do Hospital:</label>
+                <input type="text" name="nomeHospital" id="nomeHospital">
+                <div class="space"></div>
+                <label for="cnpjcpf">CNPJ:</label>
                 <input type="text" name="cnpjcpf" id="cnpjcpf">
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(2);">Prosseguir</button>
@@ -67,7 +71,7 @@
             <div class="phase">
                 <h2>Contato</h2>
                 <div class="space"></div>
-                <label for="emailInpt">Seu email:</label>
+                <label for="emailInpt">Email:</label>
                 <input type="text" name="email" id="emailInpt">
                 <div class="space"></div>
                 <label for="celular">Telefone celular:</label>

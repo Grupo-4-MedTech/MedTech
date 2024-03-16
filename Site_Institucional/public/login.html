@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,52 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="script/login.js"></script>
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
-<body>
+
+<body onload="toggleVisibility();">
+
+    <div id="message">
+        Login realizado com sucesso 
+    </div>
     <main>
         <div class="logo">
             <img src="assets/img/MedTechLogo.jpg">
             <img src="assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
-        
-        <div id="screendiv">
-            
-            <h1>Bem vindo de volta</h1>
-            <div class="space"></div>
-            <label for="email">Login:</label>
-            <input type="text" name="email" id="email" placeholder="Seu Email">
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" placeholder="******">
-            <div class="space"></div>
-            <div class="space"></div>
-            <button class="next" onclick="nextInput(1);">Entrar</button>
 
-                
+        <div id="screendiv">
+
+
+            <div class="phase">
+                <h1>Bem vindo de volta</h1>
+                <div class="space"></div>
+                <label for="email">Login:</label>
+                <input type="text" name="email" id="email_input" placeholder="Seu Email">
+                <label for="senha">Senha:</label>
+                <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
+                    visibility
+                </span>
+                <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
+                    visibility_off
+                </span>
+                <input type="password" name="senha" id="senha_input" placeholder="******">
+                <div class="space"></div>
+                <div class="space"></div>
+                <button class="next" onclick="login();">Entrar</button>
+            </div>
+
+
+
         </div>
     </main>
 
     <img src="assets/img/ilustrator-log.png" class="banner">
 </body>
+
 </html>

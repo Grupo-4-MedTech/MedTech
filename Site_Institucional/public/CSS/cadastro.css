@@ -32,6 +32,21 @@ main {
    left: calc(50% - 275px);
 }
 
+/* div message */
+
+#message{
+   display: none;
+   padding: 15px 40px;
+   transform: translateX(-50%);
+   position: absolute;
+   left: 50%;
+   bottom: 15px;
+   border-radius: 10px;
+   border: 1px solid rgb(255, 255, 255);
+   color: rgb(255, 255, 255);
+   font-size: 1.7em;
+}
+
 /* Div de inputs */
 
 #screendiv {
@@ -123,5 +138,29 @@ label {
    position: relative;
    top: 40px;
    right: 10px;
-   cursor: pointer;
+}
+
+/* Responsividade login */
+
+@media screen and (max-width: 970px) {
+   main{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 35px;
+   }
+   .banner{
+      display: none;
+   }
+
+   .phase{
+      width: 100%;
+   }
+   .phase>input{
+      width: 100%;
+   }
+   h1{
+      text-indent: 0;
+   }
 }
