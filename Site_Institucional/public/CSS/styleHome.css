@@ -243,25 +243,26 @@ html {
 
 #section_footer{
     width: 100%;
-    height: 70vh;
-    background-color: #000;
+    height: 340px;
+    background-color: rgb(28, 28, 28);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    overflow: hidden;
 }
 
 #section_footer .container{
-    margin-top: 5%;
+    margin-top: 50px;
     width: 90%;
-    height: 85%;
+    height: 80%;
     display: flex;
     justify-content: space-between;
 }
 
 .icones_container{
     width: 90%;
-    height: 85%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -270,16 +271,18 @@ html {
 
 #section_footer .container .container2{
     width: 30%;
-    height: 80%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .titulo_footer{
-    color: #fff;
+    color: #e0e0e0;
     width: 100%;
-    font-size: 180%;
+    font-weight: 600;
+    /* text-shadow: 2px 0px 0px #696969; */
+    font-size: 17px;
     text-align: center;
 }
 
@@ -292,20 +295,23 @@ html {
 }
 
 .icon_social{
-    width: 30%;
+    width: 17%;
     height: auto;
     cursor: pointer;
 }
 
 .localizacao {
     width: 100%;
-    color: #fff;
+    color: #e0e0e0;
+    font-size: 90%;
+    font-weight: normal;
+    text-decoration: underline;
     text-align: center;
     cursor: pointer;
 }
 
 .contato{
-    width: 100%;
+    width: 90%;
     height: 20%;
     display: flex;
     flex-direction: row;
@@ -323,8 +329,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-weight: 600;
+    color: #e0e0e0;
+    font-weight: 0;
+    font-size: 15px;
 }
 
 .rodape{
@@ -337,5 +344,5 @@ html {
 }
 
 small{
-    color: #fff;
+    color: #e0e0e0;
 }
