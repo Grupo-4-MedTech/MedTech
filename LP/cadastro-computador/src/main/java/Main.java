@@ -17,7 +17,7 @@ public class Main {
 
         List<Hospital> listaHosp = new ArrayList<>();
         listaHosp.add(new Hospital(1, "Clínica Flores de Primavera", "Gouveia Santana", "0234567800190", "primavera6773"));
-        listaHosp.add(new Hospital(1, "Clínica Folhas de Outono", "Teixeira Gazzoli", "0000000000000", "gazzoli"));
+        listaHosp.add(new Hospital(2, "Clínica Folhas de Outono", "Teixeira Gazzoli", "0000000000000", "gazzoli"));
 
         List<Departamento> listaDep = new ArrayList<>();
         listaDep.add(new Departamento(149, "Guichê", 1000, listaHosp.get(0)));
@@ -156,7 +156,7 @@ public class Main {
             hospitalAutenticado = repositorioHospital.autenticarHospital(senhaH, cnpj);
 
             if(hospitalAutenticado.size() != 1){
-                System.out.println("CNPJ ou senha incorreta. \n Por favor, tente novamente.");
+                System.out.println("CNPJ ou senha incorreta. \n\nPor favor, tente novamente.");
             }
 
             } while(hospitalAutenticado.size() != 1);
@@ -212,7 +212,7 @@ public class Main {
         System.out.println("Código do patrimônio:");
         String codPatrimonio = leitorStr.next();
 
-        System.out.println("Capacidade quantidade de núcleos da CPU:");
+        System.out.println("Quantidade de núcleos da CPU:");
         int maxCpu = leitorNum.nextInt();
 
         System.out.println("Capacidade máxima da RAM em GB:");
