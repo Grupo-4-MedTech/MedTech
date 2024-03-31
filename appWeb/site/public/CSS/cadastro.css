@@ -51,7 +51,9 @@ main {
 
 #screendiv {
    display: flex;
-   overflow: hidden;
+   overflow-y: scroll;
+   scroll-behavior: smooth;
+   overflow-x: hidden;
    position: relative;
 } 
 

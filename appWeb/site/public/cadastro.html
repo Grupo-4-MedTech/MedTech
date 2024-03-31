@@ -34,8 +34,8 @@
                 <h1> Crie sua conta agora</h1>
                 <div class="space"></div>
                 <div class="space"></div>
-                <label for="nomeCompleto">Nome Completo:</label>
-                <input type="text" name="nomeCompleto" id="nomeCompleto">
+                <label for="razaoSocial">Razão Social:</label>
+                <input type="text" name="razaoSocial" id="input_razaoSocial">
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(1);">Prosseguir</button>
             </div>
@@ -45,11 +45,11 @@
                 <h2>Identificação</h2>
                 <div class="space"></div>
                 <div class="space"></div>
-                <label for="nomeHospital">Nome do Hospital:</label>
-                <input type="text" name="nomeHospital" id="nomeHospital">
+                <label for="nomeFantasia">Nome Fantasia:</label>
+                <input type="text" name="input_nomeFantasia" id="input_nomeFantasia">
                 <div class="space"></div>
                 <label for="cnpjcpf">CNPJ:</label>
-                <input type="text" name="cnpjcpf" id="cnpjcpf">
+                <input type="text" name="cnpjcpf" id="input_cnpj">
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(2);">Prosseguir</button>
             </div>
@@ -59,10 +59,18 @@
                 <h2>Localização</h2>
                 <div class="space"></div>
                 <label for="CEP">CEP:</label>
-                <input type="text" name="CEP" id="CEP">
-                <label for="enderecoInpt">Endereço:</label>
-                <input type="text" name="endereco" id="enderecoInpt">
+                <input type="text" name="CEP" id="input_CEP">
+                <label for="rua">Rua:</label>
+                <input type="text" name="rua" id="input_rua">
                 <div class="space"></div>
+                <label for="numero">Numero:</label>
+                <input type="text" name="numero" id="input_numero">
+                <div class="space"></div>
+                <label for="complemento">Complemento:</label>
+                <input type="text" name="complemento" id="input_complemento">
+                <div class="space"></div>
+                <label for="uf">UF:</label>
+                <input type="text" name="uf" id="input_uf">
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(3);">Prosseguir</button>
             </div>
@@ -72,10 +80,7 @@
                 <h2>Contato</h2>
                 <div class="space"></div>
                 <label for="emailInpt">Email:</label>
-                <input type="text" name="email" id="emailInpt">
-                <div class="space"></div>
-                <label for="celular">Telefone celular:</label>
-                <input type="tel" name="celular" id="celular" pattern="[0-9]{2}\s[0-9]{5}-[0-9]{4}">
+                <input type="text" name="email" id="input_email">
                 <div class="space"></div>
                 <button class="next" onclick="nextInput(4);">Prosseguir</button>
             </div>
@@ -91,7 +96,7 @@
                 <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
                     visibility_off
                     </span>
-                <input type="password" name="senha1" id="senha1">
+                <input type="password" name="senha1" id="input_senha">
                 <div class="space"></div>
                 <label for="senha2">Digite a senha novamente:</label>
                 <input type="password" name="senha2" id="senha2">
