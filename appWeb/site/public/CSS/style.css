@@ -1,7 +1,9 @@
+@charset "UTF-8";
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', Verdana, sans-serif; /* Fonte padrão do site */
     color: unset;
     text-decoration: none;
     font-style: normal;
@@ -13,7 +15,5 @@ html{
     scroll-behavior: smooth;
 }
 
-
-/* Header */
-
-/* Footer */
+/* NÃO INCREMENTAR ESTILOS POR ESTE ARQUIVO, PODE QUEBRAR OUTRAS PÁGINAS */
+/* Este arquivo tem como objetivo retirar o estilo padrão do HTML e definir alguns estilos de comportamento como box-sizing e border-collapse*/
