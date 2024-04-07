@@ -43,17 +43,17 @@ function calcNextInput(element, position) {
 
 function nextInput(position) {
 
-    let error = false;
-    razaoSocial = input_razaoSocial.value;
-    cnpj = input_cnpj.value;
-    cep = input_CEP.value;
+    let error    = false;
+    razaoSocial  = input_razaoSocial.value;
+    cnpj         = input_cnpj.value;
+    cep          = input_CEP.value;
     nomeFantasia = input_nomeFantasia.value;
-    rua = input_rua.value;
-    numero = input_numero.value;
-    complemento = input_complemento.value;
-    uf = input_uf.value;
-    email = input_email.value;
-    senha = input_senha.value;
+    rua          = input_rua.value;
+    numero       = input_numero.value;
+    complemento  = input_complemento.value;
+    uf           = input_uf.value;
+    email        = input_email.value;
+    senha        = input_senha.value;
 
     switch (position) { /* VALIDAÇÃO LÓGICA INPUTS */
         case 1:
@@ -62,103 +62,93 @@ function nextInput(position) {
                 inputColor(document.getElementById('input_razaoSocial'), error);
                 return;
             }
-            else {
-                inputColor(document.getElementById('input_razaoSocial'), error);
-            }
+            inputColor(document.getElementById('input_razaoSocial'), error);
             break;
         case 2:
             if (!/^[a-zA-Z\s]{6,25}$/.test(nomeFantasia)) {
                 error = true;
                 inputColor(document.getElementById('input_nomeFantasia'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_nomeFantasia'), error);
             }
+            inputColor(document.getElementById('input_nomeFantasia'), error);
 
             if (!/^[0-9]{14}$/.test(cnpj)) {
                 error = true;
                 inputColor(document.getElementById('input_cnpj'), error);
                 return;
             }
-            else {
                 inputColor(document.getElementById('input_cnpj'), error);
-            }
             break;
         case 3:
             if (!/^[0-9]{8}$/.test(cep)) {
                 error = true;
                 inputColor(document.getElementById('input_CEP'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_CEP'), error);
             }
+            inputColor(document.getElementById('input_CEP'), error);
 
-            if (!/^[a-zA-Z\s]{10,25}$/.test(rua)){
+            if (!/^[a-zA-Z\s]{10,25}$/.test(rua)) {
                 error = true;
                 inputColor(document.getElementById('input_rua'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_rua'), error);
             }
+            inputColor(document.getElementById('input_rua'), error);
 
-            if (!/^[1-9][0-9]{2,}$/.test(numero)) {
+
+            if (!/^[1-9][0-9]{1,}$/.test(numero)) {
                 error = true;
                 inputColor(document.getElementById('input_numero'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_numero'), error);
             }
+            inputColor(document.getElementById('input_numero'), error);
 
             if (!/^[a-zA-Z]{2}$/.test(uf)) {
                 error = true;
                 inputColor(document.getElementById('input_uf'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_uf'), error);
             }
+            inputColor(document.getElementById('input_uf'), error);
 
             if (!/^[a-zA-Z0-9\s]{0,255}$/.test(complemento)) {
                 error = true;
                 inputColor(document.getElementById('input_complemento'), error);
                 return
-            } else {
-                inputColor(document.getElementById('input_complemento'), error);
             }
+            inputColor(document.getElementById('input_complemento'), error);
+
             break;
         case 4:
             if (!/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)) {
-                error = true;
+                error = true; 
                 inputColor(document.getElementById('input_email'), error);
                 return;
-            } else {
-                inputColor(document.getElementById('input_email'), error);
             }
+            inputColor(document.getElementById('input_email'), error);
             break;
     }
 
-        // vai fazer requisição do calculo da posição de cada div.phase
-        for (let i = 0; i < phases.length; i++) {
-            calcNextInput(phases[i], position)
-        }
+    // vai fazer requisição do calculo da posição de cada div.phase
+    for (let i = 0; i < phases.length; i++) {
+        calcNextInput(phases[i], position)
+    }
 
-        if (position != 0) { // esconde ou mostra a seta de voltar nas fases de inputs
-            arrowBack.style.display = "block";
-        } else {
-            arrowBack.style.display = "none";
-        }
-        actualPhase = position;
+    if (position != 0) { // esconde ou mostra a seta de voltar nas fases de inputs
+        arrowBack.style.display = "block";
+    } else {
+        arrowBack.style.display = "none";
+    }
+    actualPhase = position;
 }
 
 
 function finishForm() {
     let error = false;
-    if (!/^[a-zA-Z0-9!@#$%^&*()]{8,}$/.test(senha)){
+    senha = input_senha.value;
+    if (!/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)) {
         error = true;
     }
-    else if (input_senha.value != senha2.value) {
-        error = true; 
-    } else {
-        senha = input_senha.value;
+    else if (senha != senha2.value) {
+        error = true;
     }
     inputColor(document.getElementById('input_senha'), error);
     inputColor(document.getElementById('senha2'), error);
@@ -183,8 +173,10 @@ function finishForm() {
             }),
         }).then((result) => {
             if (result.status == 201) {
-                console.log('cadastrado com sucesso');
+                console.log('Cadastrado com sucesso');
                 window.location.href = 'login.html';
+            } else if(result.status == 401){
+                console.log('Dados inválidos');
             }
         }).catch((error) => {
             console.log(error.message);

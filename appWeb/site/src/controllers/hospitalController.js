@@ -3,57 +3,51 @@ const enderecoModel = require("../models/enderecoModel");
 
 function cadastrar(req, res) {
 
-    const razaoSocial  = req.body.razaoSocial;
+    const razaoSocial = req.body.razaoSocial;
     const nomeFantasia = req.body.nomeFantasia;
-    const cnpj         = req.body.cnpj;
-    const cep          = req.body.cep;
-    const rua          = req.body.rua;
-    const numero       = req.body.numero;
-    const complemento  = req.body.complemento;
-    const uf           = req.body.uf;
-    const email        = req.body.email;
-    const senha        = req.body.senha;
-
-    enderecoModel.cadastrar(cep, rua, numero, complemento, uf)
-    .then((result) => {
-
-        console.log("Recebido: ", result);
-
-        const idEndereco = result.insertId;
-
-        hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco)
-        .then((result)=>{
-            res.status(201).json(result);
-        }).catch((error) => {
-            console.error("Erro:", error);
-        });
-    })
-    .catch((error) => {
-        console.error("Erro", error);
-    });  
-}
-
-function autenticar(req, res){
-
-    const senha = req.body.senha;
+    const cnpj = req.body.cnpj;
+    const cep = req.body.cep;
+    const rua = req.body.rua;
+    const numero = req.body.numero;
+    const complemento = req.body.complemento;
+    const uf = req.body.uf;
     const email = req.body.email;
+    const senha = req.body.senha;
 
-    hospitalModel.autenticar(senha, email)
-    .then((result)=>{
-        if(result.length != 1){
-            res.status(400).send('Email ou senha incorretos.');
-        }else {
-            res.status(201).json(result[0]);
-        }
-    })
-    .catch((error)=>{
+    if (
+        !/^[A-Za-z\s]{6,25}$/.test(razaoSocial) ||
+        !/^[a-zA-Z\s]{6,25}$/.test(nomeFantasia) ||
+        !/^[0-9]{14}$/.test(cnpj) ||
+        !/^[0-9]{8}$/.test(cep) ||
+        !/^[a-zA-Z\s]{10,25}$/.test(rua) ||
+        !/^[1-9][0-9]{2,}$/.test(numero) ||
+        !/^[a-zA-Z]{2}$/.test(uf) ||
+        !/^[a-zA-Z0-9\s]{0,255}$/.test(complemento) ||
+        !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
+    ) {
+        res.status(401);
+    } else {
 
-        res.status(500).send('Erro inesperado.');
-        console.log(error);
-    })
+        enderecoModel.cadastrar(cep, rua, numero, complemento, uf)
+            .then((result) => {
+
+                const idEndereco = result.insertId;
+
+                hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco)
+                    .then((result) => {
+                        res.status(201).json(result);
+                    }).catch((error) => {
+                        console.error("Erro:", error);
+                    });
+            })
+            .catch((error) => {
+                console.error("Erro:", error);
+            });
+    }
 }
+
+
 
 module.exports = {
-    cadastrar,
-    autenticar
+    cadastrar
 }
