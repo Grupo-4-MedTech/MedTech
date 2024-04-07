@@ -39,8 +39,6 @@ function prevInput() {
 function calcNextInput(element, position) {
     //calcula o espaçamento (negativo) necessário para a posição desejada
     element.style.left = `calc(-485px * ${position})`;
-    // phases[position].style.opacity = 1;
-    // phases[position].style.position = 'absolute';
 }
 
 function nextInput(position) {
@@ -59,51 +57,85 @@ function nextInput(position) {
 
     switch (position) { /* VALIDAÇÃO LÓGICA INPUTS */
         case 1:
-            if (razaoSocial.length < 3) {
-                // razaoSocial.style.border = `2px solid #b8052c`;
+            if (!/^[A-Za-z\s]{6,25}$/.test(razaoSocial)) {
                 error = true;
+                inputColor(document.getElementById('input_razaoSocial'), error);
+                return;
             }
             else {
-                // razaoSocial.style.border = `2px solid green`;
+                inputColor(document.getElementById('input_razaoSocial'), error);
             }
             break;
         case 2:
-            if (cnpj.length == 11) {
-                // cnpjcpf.style.border = `2px solid green`;
+            if (!/^[a-zA-Z\s]{6,25}$/.test(nomeFantasia)) {
+                error = true;
+                inputColor(document.getElementById('input_nomeFantasia'), error);
+                return;
+            } else {
+                inputColor(document.getElementById('input_nomeFantasia'), error);
+            }
+
+            if (!/^[0-9]{14}$/.test(cnpj)) {
+                error = true;
+                inputColor(document.getElementById('input_cnpj'), error);
+                return;
             }
             else {
-                // cnpjcpf.style.border = `2px solid #b8052c`;
-                error = true;
+                inputColor(document.getElementById('input_cnpj'), error);
             }
             break;
         case 3:
-            if (cep.length != 8) {
-                // input_CEP.style.border = `2px solid #b8052c`;
+            if (!/^[0-9]{8}$/.test(cep)) {
                 error = true;
+                inputColor(document.getElementById('input_CEP'), error);
+                return;
             } else {
-                // input_CEP.style.border = `2px solid green`;
+                inputColor(document.getElementById('input_CEP'), error);
             }
 
+            if (!/^[a-zA-Z\s]{10,25}$/.test(rua)){
+                error = true;
+                inputColor(document.getElementById('input_rua'), error);
+                return;
+            } else {
+                inputColor(document.getElementById('input_rua'), error);
+            }
+
+            if (!/^[1-9][0-9]{2,}$/.test(numero)) {
+                error = true;
+                inputColor(document.getElementById('input_numero'), error);
+                return;
+            } else {
+                inputColor(document.getElementById('input_numero'), error);
+            }
+
+            if (!/^[a-zA-Z]{2}$/.test(uf)) {
+                error = true;
+                inputColor(document.getElementById('input_uf'), error);
+                return;
+            } else {
+                inputColor(document.getElementById('input_uf'), error);
+            }
+
+            if (!/^[a-zA-Z0-9\s]{0,255}$/.test(complemento)) {
+                error = true;
+                inputColor(document.getElementById('input_complemento'), error);
+                return
+            } else {
+                inputColor(document.getElementById('input_complemento'), error);
+            }
             break;
         case 4:
-            if (email.length < 5 || email.indexOf("@") == -1 || email.indexOf(".") == -1) {
-                // emailInpt.style.border = `2px solid #b8052c`;
+            if (!/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)) {
                 error = true;
+                inputColor(document.getElementById('input_email'), error);
+                return;
             } else {
-                // emailInpt.style.border = `2px solid green`;
+                inputColor(document.getElementById('input_email'), error);
             }
-            // if (tel.length != 9 || isNaN(Number(tel))) {
-            //     celular.style.border = `2px solid #b8052c`;
-            //     error = true;
-            // } else {
-            //     celular.style.border = `2px solid green`;
-            // }
             break;
     }
 
-
-
-    if (!error) {
         // vai fazer requisição do calculo da posição de cada div.phase
         for (let i = 0; i < phases.length; i++) {
             calcNextInput(phases[i], position)
@@ -115,63 +147,52 @@ function nextInput(position) {
             arrowBack.style.display = "none";
         }
         actualPhase = position;
-    }
-
 }
 
 
 function finishForm() {
     let error = false;
-    if (input_senha.value.length < 8) {
-        input_senha.style.border = `2px solid #b8052c`;
+    if (!/^[a-zA-Z0-9!@#$%^&*()]{8,}$/.test(senha)){
         error = true;
     }
     else if (input_senha.value != senha2.value) {
-        input_senha.style.border = `2px solid green`;
-        senha2.style.border = `2px solid #b8052c`;
-        error = true;
+        error = true; 
     } else {
-        input_senha.style.border = `2px solid green`;
-        senha2.style.border = `2px solid green`;
         senha = input_senha.value;
     }
+    inputColor(document.getElementById('input_senha'), error);
+    inputColor(document.getElementById('senha2'), error);
 
-    // if (!error) {
-    //     sessionStorage.setItem("nome", nome);
-    //     sessionStorage.setItem("cnpj", cnpj);
-    //     sessionStorage.setItem("cep", cep);
-    //     sessionStorage.setItem("endereco", endereco);
-    //     sessionStorage.setItem("email", email);
-    //     sessionStorage.setItem("tel", tel);
-    //     sessionStorage.setItem("senha", senha);
-    // }
+    if (!error) {
+        fetch("/hospital/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                razaoSocial,
+                nomeFantasia,
+                cnpj,
+                cep,
+                rua,
+                numero,
+                complemento,
+                uf,
+                email,
+                senha
+            }),
+        }).then((result) => {
+            if (result.status == 201) {
+                console.log('cadastrado com sucesso');
+                window.location.href = 'login.html';
+            }
+        }).catch((error) => {
+            console.log(error.message);
+        })
+    }
+}
 
-    fetch("/hospital/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            razaoSocial,
-            nomeFantasia,
-            cnpj,
-            cep,
-            rua,
-            numero,
-            complemento,
-            uf,
-            email,
-            senha
-        }),
-    }).then((result)=>{
-        if(result.status == 201){
-            console.log('cadastrado com sucesso');
-            window.location.href = 'login.html';
-        }
-    }).catch((error)=>{
-        console.log(error.message);
-    })
-
-    
+function inputColor(input, error) {
+    input.style.border = error == true ? '2px solid #b8052c' : '2px solid green';;
 }
 
