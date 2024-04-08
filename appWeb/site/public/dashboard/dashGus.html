@@ -7,7 +7,9 @@
     <title>MedTech - Dashboard</title>
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/dashGus.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -31,7 +33,7 @@
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <!-- aqui será uma lista gerada aprtir do numero de setores cadastrados no bd, adicionando onclick para alterar a tela da dash -->
             <ul id="nav_setores">
-                <li>Geral</li>
+                <li class="navSelected">Geral</li>
                 <li>Recepção</li>
                 <li>Triagem</li>
                 <li>Consultórios</li>
@@ -39,11 +41,121 @@
             </ul>
         </nav>
 
-        <div class="dashboardScreen" id="dashboard_screendiv"> 
+        <div class="dashboardScreen" id="dashboard_screendiv">
             <!-- aqui ficará as dashboards que se alternarão -->
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est architecto eligendi autem repudiandae pariatur, deleniti nihil vitae maxime mollitia soluta enim corporis rem, voluptatem labore odit itaque, et ullam in?
+            <div class="dashDescription">
+                <h2>${Nome do hospital}</h2>
+                <span>Ultima atualização: ${dataatual}</span>
+            </div>
+            <div class="dashCards">
+                <div class="dashLine">
+                    <div class="dashCard">
+                        <h3>${nomeSetor01}</h3>
+                        <span>
+                            Quantidade de computadores: ${}
+                            <br>
+                            Computadores inativos: ${}
+                            <br>
+                            Problemas detectados: ${}
+                            <br>
+                        </span>
+                        <canvas id="chart01" class="charts"></canvas>
+                    </div>
+
+                    <div class="dashCard">
+                        <h3>${nomeSetor02}</h3>
+                        <span>
+                            Quantidade de computadores: ${}
+                            <br>
+                            Computadores inativos: ${}
+                            <br>
+                            Problemas detectados: ${}
+                            <br>
+                        </span>
+                        <canvas id="chart02" class="charts"></canvas>
+                    </div>
+
+                    <div class="dashCard">
+                        <h3>${nomeSetor03}</h3>
+                        <span>
+                            Quantidade de computadores: ${}
+                            <br>
+                            Computadores inativos: ${}
+                            <br>
+                            Problemas detectados: ${}
+                            <br>
+                        </span>
+                        <canvas id="chart03" class="charts"></canvas>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
+    <script> /* scroll vertical */
+        document.querySelector('.dashCards').addEventListener('wheel', function (e) {
+            if (e.deltaY != 0) {
+                // Previne o comportamento padrão de rolagem vertical
+                e.preventDefault();
+
+                // Rola a div horizontalmente
+                this.scrollLeft += e.deltaY;
+            }
+        });
+    </script>
+    <script> /* graficos */
+        const ctx01 = document.getElementById('chart01');
+        const ctx02 = document.getElementById('chart02');
+        const ctx03 = document.getElementById('chart03');
+        const options = {
+            scales: {
+                y: {
+                    max: 10,
+                    beginAtZero: true
+                }
+            }
+        };
+
+
+        new Chart(ctx01, {
+            type: 'line',
+            data: {
+                labels: ['Domigo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                datasets: [{
+                    label: 'Problemas nos ultimos dias',
+                    data: [8, 3, 2, 0, 6, 2, 7, 7],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx02, {
+            type: 'line',
+            data: {
+                labels: ['Domigo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                datasets: [{
+                    label: 'Problemas nos ultimos dias',
+                    data: [4, 3, 1, 5, 3, 0, 1, 2],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx03, {
+            type: 'line',
+            data: {
+                labels: ['Domigo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                datasets: [{
+                    label: 'Problemas nos ultimos dias',
+                    data: [3, 3, 3, 1, 0, 0, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+    </script>
 </body>
 
 </html>
