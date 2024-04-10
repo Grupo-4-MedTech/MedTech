@@ -348,3 +348,244 @@ html {
 small{
     color: #e0e0e0;
 }
+
+/*/ Responsivo */
+
+@media (min-width: 1024px) and (max-width:1366px){
+    /* cabeça*/
+    .header .container {
+        display: flex;
+        width: 85%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .header .MedTechLogo{
+        border-radius: 50%;
+        margin-left:-6vw;
+        width:70px;
+        height: 70px;
+    }
+
+    .header .MedTechNome{
+        height: 50px;
+        width: 120px;
+        margin-left: 13px;
+        margin-bottom:1vw;
+        border-radius: 10px;
+    }
+    .header ul {
+        font-weight: 500;
+        font-size: 15px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        width: 70%;
+        justify-content: space-between;
+
+        /* home*/
+        
+    }
+    .textoHome{
+        display: flex;
+        width: 600;
+        margin-left: 50px;
+        position: absolute;
+        flex-direction: column;
+        justify-content: left;
+        align-content: left;
+    }
+    .textoHome p{
+        z-index: 1;
+        font-size: 40px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 55;
+        color: #ffffff;
+        text-shadow: 0.5px 0px 0px black;
+    }
+    .imagemHome{
+        display: flex;
+        height: 90%;
+        width: 90%;
+        align-items: center;
+        justify-content: left;
+    }
+    /* quem somos*/
+    .texto-servicos{
+        width: 500px;
+        text-align:justify;
+        font-size: 17px;
+        text-indent: 25px;
+        margin-left:-5vw;
+    }
+
+    .container-servicos{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 350px;
+        margin-left:-6vw;
+        
+    }
+    .img-servicos img{
+        height: 350px;
+        width: 350px;
+    }
+    /* sobre */
+
+    .container-sobre{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 94%;
+        height: 350px;
+        
+    }
+    .texto-sobre{
+        width: 600px;
+        text-align:justify;
+        font-size: 17px;
+        text-indent: 1vw;
+        animation: fade-in 3s 1; /*delay iteration-count direction fill-mode;*/ 
+        margin-left:2vw;
+    }
+    /* visao e valores*/
+
+    .container_paiVisao{
+        width: 108%;
+        height: 70vh;
+        margin-left:-8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E1E1E1;
+      }
+      
+
+}
+
+ /* ipad Air*/
+
+@media (min-width: 820px) and (max-width:1180px){
+    /* cabeça*/
+    .header .container {
+        display: flex;
+        width: 85%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    
+    .header .MedTechLogo{
+        border-radius: 50%;
+        margin-left:-6vw;
+        width:70px;
+        height: 70px;
+    }
+
+    .header .MedTechNome{
+        height: 50px;
+        width: 120px;
+        margin-left: 13px;
+        margin-bottom:1vw;
+        border-radius: 10px;
+    }
+    .header ul {
+        font-weight: 500;
+        font-size: 14px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        width: 76%;
+        justify-content: space-between;
+
+
+        /* home*/
+        
+    }
+    .textoHome{
+        display: flex;
+        width: 600;
+        margin-left: 50px;
+        position: absolute;
+        flex-direction: column;
+        justify-content: left;
+        align-content: left;
+    }
+    .textoHome p{
+        z-index: 1;
+        font-size: 35px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 55;
+        color: #ffffff;
+        text-shadow: 0.5px 0px 0px black;
+    }
+    .imagemHome{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: left;
+    }
+    /* quem somos*/
+    .texto-servicos{
+        width: 500px;
+        text-align:justify;
+        font-size: 17px;
+        text-indent: 25px;
+        margin-left:2vw;
+    }
+
+    .container-servicos{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 350px;
+        margin-left:-6vw;
+        
+    }
+    .img-servicos img{
+        height: 350px;
+        width: 350px;
+    }
+    /* sobre */
+
+    .container-sobre{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 94%;
+        height: 350px;
+        margin-left:3vw;
+        
+    }
+    .texto-sobre{
+        width: 600px;
+        text-align:justify;
+        font-size: 16px;
+        text-indent: 1vw;
+        animation: fade-in 3s 1; /*delay iteration-count direction fill-mode;*/ 
+        margin-left:2vw;
+    }
+    /* visao e valores*/
+    
+    .container_paiVisao{
+        width: 108%;
+        height: 70vh;
+        margin-left:-8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E1E1E1;
+      }
+      
+
+}
