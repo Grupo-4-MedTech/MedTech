@@ -173,38 +173,66 @@ html {
 
 /*visao e valores*/
 
+
+section{
+    background-color:#E1E1E1;
+    height: 30vw;
+}
 .container_paiVisao{
-    width: 108%;
-    height: 80vh;
-    margin-left:-8vw;
     display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    
+    lord-icon{
+        display: flex;
+        justify-content: center;
+        margin-right:10vw;
+    } 
+
+}
+.container_visao{
+    display: flex;
+    width: 35%;
     justify-content: center;
     align-items: center;
-    background-color: #E1E1E1;
-  
-  }
-  
-  .icon{
-      width: 35%;
-      margin-left:10%;
-  }
-  .visao{
-      width: 33vw;
-      height: 7vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 900;
-      color:black;
-  }
-  .valores{
-     font-size: 1.3vw;
-    margin-left:-1vw;
-     margin-top:2vw;
-     font-family: "Montserrat", sans-serif;
-     font-weight: 400;
-  } 
+    flex-direction: column;
+
+}
+.container_valores{
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+p{
+    text-align: center;
+    font-size: 18px;
+}
+h2{
+    text-align: center;
+    width: 95%;
+}
+.visao{
+    width:170px;height:170px;
+}
+@media only screen and (max-width: 800px){
+    .container_paiVisao{
+        display: flex;
+        flex-direction: column;
+        p{
+            width: 79vw;
+        }
+        lord-icon{
+        margin-right: 44vw;
+    } 
+    }
+
+}
+
+
 
   /*serviços*/
 
@@ -420,6 +448,7 @@ small{
         text-indent: 25px;
         margin-left:-5vw;
     }
+    
 
     .container-servicos{
         display: flex;
@@ -434,6 +463,8 @@ small{
         height: 350px;
         width: 350px;
     }
+
+  
     /* sobre */
 
     .container-sobre{
@@ -474,7 +505,7 @@ small{
     /* cabeça*/
     .header .container {
         display: flex;
-        width: 85%;
+        width: 90%;
         margin: auto;
         justify-content: space-between;
         align-items: center;
@@ -509,6 +540,7 @@ small{
         /* home*/
         
     }
+   
     .textoHome{
         display: flex;
         width: 600;
@@ -588,4 +620,345 @@ small{
       }
       
 
+}
+
+/*samsung*/
+@media (min-width: 360px) and (max-width:740px){
+    .header {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        background-color: #03999e;
+    }
+    /* cabeça*/
+    .header .container {
+        display: flex;
+        width: 80%;
+        margin-left: 5vw;
+        
+    }
+    
+    .header .MedTechLogo{
+        border-radius: 50%;
+        margin-left:-1vw;
+        width:50px;
+        height: 50px;
+    }
+
+    .header .MedTechNome{
+        display: none;
+    }
+    .header ul {
+        font-weight: 500;
+        font-size: 11px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        justify-content: space-between;
+        
+        
+        
+
+        
+        /* home*/
+        /* mexer nisso*/
+
+        
+    }
+    .header .fundo-btn{
+        position: relative;
+        display: flex;
+        align-items: center;
+        width:4vw;
+        margin-left:1vw;
+    }
+
+    .fundo-btn{
+        width: 50%;
+        height: 50%;
+        
+    
+
+        
+    }
+    .textoHome{
+        display: flex;
+        width: 600;
+        margin-left: 50px;
+        position: absolute;
+        flex-direction: column;
+        justify-content: left;
+        align-content: left;
+    }
+    .textoHome p{
+        z-index: 1;
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 55;
+        color: ba;
+        text-shadow: 0.5px 0px 0px black;
+    }
+    .imagemHome img{
+        width: 632px;
+        height:350px;
+        object-fit: cover;
+        margin-left:-272px
+    }
+    
+    /* quem somos*/
+    .texto-servicos{
+       
+        text-align:justify;
+        font-size: 10px;
+        text-indent: 25px;
+        width:150vw;
+       
+
+    }
+
+    .container-servicos{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 84%;
+        height: 350px;
+        
+        
+    }
+    .img-servicos img{
+        height: 150px;
+        width: 150px;
+    }
+    .titulo h2{
+        text-align: center;
+        justify-self: flex-start;
+        font-size:25px;
+        background: -webkit-linear-gradient(180deg, rgba(3,131,135,1) 30%, rgba(55,217,223,1) 65%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-top:6vw;
+        
+    }
+
+    #section-servicos{
+        height: 318px;
+        width: 100%;
+        background-color: #E1E1E1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    /* sobre */
+
+    .container-sobre{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 127%;
+        height: 370px;
+        margin-left:2vw;
+        
+    }
+    #section_sobre{
+        height: 290px;
+        width: 77%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .texto-sobre{
+        width: 600px;
+        text-align:justify;
+        font-size: 10px;
+        text-indent: 1vw;
+        animation: fade-in 3s 1; /*delay iteration-count direction fill-mode;*/ 
+        margin-left:1vw;
+        
+
+    }
+    .img-sobre img{
+        height: 125px;
+        width: 125px;
+        margin-left: 5px;
+       
+    }
+    
+    /*visao e valores */
+    section{
+        background-color:#E1E1E1;
+        height:140vw;
+    }
+    .container_paiVisao{
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 60%;
+        margin-top:10vw;
+        lord-icon{
+            display: flex;
+            justify-content: center;
+            width:90%;
+            margin-left:13vw;
+        } 
+    
+    }
+    .visao{
+        width: 20vw;
+    }
+    .container_visao{
+        display: flex;
+        width: 35%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+    }
+    .container_valores{
+        display: flex;
+        width: 35%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    p{
+        text-align: center;
+        font-size: 8px;
+    }
+    h2{
+        text-align: center;
+        width: 95%;
+    }
+
+
+
+
+/* footer*/
+    .container_paiVisao{
+        width: 108%;
+        height: 44vh;
+        margin-left:-8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E1E1E1;
+      }
+
+      #section_footer{
+        width: 100%;
+        height: 340px;
+        background-color: rgb(28, 28, 28);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow: hidden;
+    }
+    
+    #section_footer .container{
+        margin-top: 50px;
+        width: 90%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .icones_container{
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    #section_footer .container .container2{
+        width: 30%;
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .titulo_footer{
+        color: #e0e0e0;
+        width: 100%;
+        font-weight: 600;
+        /* text-shadow: 2px 0px 0px #696969; */
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    .linha{
+        width: 95%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .icon_social{
+        width: 35%;
+        height: auto;
+        cursor: pointer;
+    }
+    
+    .localizacao {
+        width: 100%;
+        color: #e0e0e0;
+        font-size: 90%;
+        font-weight: normal;
+        text-decoration: underline;
+        text-align: center;
+        cursor: pointer;
+        margin-top:2vw;
+    }
+    
+    .contato{
+        width: 90%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .icon_contato{
+        width: auto;
+        height: 90%;
+    margin-left:-5vw;
+    }
+    
+    .text_contato{
+        height: 100%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #e0e0e0;
+        font-weight: 0;
+        font-size: 10px;
+    }
+    
+    .rodape{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    
+    small{
+        color: #e0e0e0;
+    }
 }
