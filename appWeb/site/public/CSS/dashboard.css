@@ -58,12 +58,8 @@ main>nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
+    justify-content: center;
     border-right: 2px solid gray;
-}
-
-main>nav::-webkit-scrollbar {
-    display: none;
 }
 
 .companyName {
@@ -72,27 +68,32 @@ main>nav::-webkit-scrollbar {
     max-width: 170px;
 }
 
-main>nav>ul {
-    width: 100%;
-    margin-top: 30px;
+ul{
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+
+}
+li{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap:10px;
+
+
+}
+.menu_lista img{
+    height: 30px;
+    width: 30px;
 }
 
-main>nav>ul li {
-    font-size: 1.3em;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    border: 2px solid rgba(0, 0, 0, 0);
-    transition: 400ms;
-}
 
-main>nav>ul>li:hover {
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
-    border-left: 2px solid gray;
-    background-color: rgba(0, 0, 0, 0.13);
-}
+
+
 
 /* TELA DA DASHBOARD */
 

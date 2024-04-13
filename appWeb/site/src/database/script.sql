@@ -19,12 +19,12 @@ senha VARCHAR(255) NOT NULL,
 email VARCHAR(100) NOT NULL,
 -- verificado VARCHAR(5) NOT NULL, CONSTRAINT CHECK (verificado IN('true', 'false')),
 verificado TINYINT,
-fkEndereco INT,
+fkEndereco INT NOT NULL,
 CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE funcionario(
-idConta INT PRIMARY KEY AUTO_INCREMENT,
+idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(100),
 cpf CHAR(11),
 telefone CHAR(11),
@@ -33,6 +33,62 @@ email VARCHAR(100),
 senha VARCHAR(255),
 fkHospital INT, CONSTRAINT fkHospitalFunc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 ) AUTO_INCREMENT = 1000;
+
+CREATE TABLE departamento(
+    idDepartamento INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    fkHospital INT NOT NULL,
+    CONSTRAINT fkDepartamentoHosp FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+) AUTO_INCREMENT = 1 ;
+
+CREATE TABLE acesso(
+    fkFuncionario INT,
+    fkDepartamento INT,
+    fkHospital INT,
+    responsavel TINYINT,
+    primary key (fkFuncionario, fkDepartamento, fkHospital),
+    CONSTRAINT fkFuncionarioAcesso FOREIGN KEY (fkFuncionario) REFERENCES funcionario(idFuncionario),
+    CONSTRAINT fkDepartamentoAcesso FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    CONSTRAINT fkHospitalAcesso FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
+CREATE TABLE computador(
+    idComputador INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR (50),
+    modeloProcessador VARCHAR(255),
+    codPatrimonio VARCHAR(50),
+    senha VARCHAR(255),
+    gbRAM FLOAT,
+    gbDisco FLOAT,
+    fkDepartamento INT NOT NULL,
+    fkHospital  INT NOT NULL,
+    CONSTRAINT fkDepartamentoComputador FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    CONSTRAINT fkHospitalComputador FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
+CREATE TABLE leituraHdw(
+    idLeitura INT PRIMARY KEY,
+    ram DOUBLE,
+    disco DOUBLE,
+    cpu DOUBLE,
+    dataLeitura DATETIME,
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    CONSTRAINT fkComputadorLeitura FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    CONSTRAINT fkDepartamentoLeitura FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    CONSTRAINT fkHospitalLeitura FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
+CREATE TABLE leituraFerramenta(
+idLeituraFerramenta INT PRIMARY KEY, 
+nomeApp VARCHAR(50),
+dtLeitura DATETIME,
+caminho VARCHAR(255),
+fkComputador INT NOT NULL,
+fkDepartamento INT NOT NULL,
+fkHospital INT NOT NULL,
+CONSTRAINT fkComputadorLeituraFer FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+CONSTRAINT fkDepartamentoLeituraFer FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+CONSTRAINT fkHospitalLeituraFer FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
 
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP');
