@@ -64,8 +64,9 @@ CREATE TABLE computador(
     CONSTRAINT fkDepartamentoComputador FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalComputador FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
+
 CREATE TABLE leituraHdw(
-    idLeitura INT PRIMARY KEY,
+    idLeitura INT PRIMARY KEY AUTO_INCREMENT,
     ram DOUBLE,
     disco DOUBLE,
     cpu DOUBLE,
@@ -77,8 +78,9 @@ CREATE TABLE leituraHdw(
     CONSTRAINT fkDepartamentoLeitura FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalLeitura FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
+
 CREATE TABLE leituraFerramenta(
-idLeituraFerramenta INT PRIMARY KEY, 
+idLeituraFerramenta INT PRIMARY KEY AUTO_INCREMENT, 
 nomeApp VARCHAR(50),
 dtLeitura DATETIME,
 caminho VARCHAR(255),
@@ -97,7 +99,12 @@ INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado,
 ('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', true, 1);
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
-('Fernando Brandão', '12345678910', '11 983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1); 
+('Fernando Brandão', '12345678910', '11 983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
+
+INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
+
+INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
+('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
