@@ -2,34 +2,28 @@ package repositorio;
 
 import modelo.Departamento;
 import modelo.Hospital;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DepartamentoRepositorio {
 
-    final boolean connection; //Simulando conexão com o BD
+    final JdbcTemplate conn;
 
-    public DepartamentoRepositorio(boolean connection)
+    public DepartamentoRepositorio(JdbcTemplate conn)
     {
-        this.connection = connection;
+        this.conn = conn;
     }
 
-    public List<Departamento> listarDepartamentosPorHospital(Hospital hospital)
-    {
-        List<Departamento> listaDepGeral = Departamento.getListaDepartamento();
-        List<Departamento> listaDepSelecionado = new ArrayList<>();
+    public Departamento buscarDepartamentoPorId(int id){
 
-        for(int i = 0; i < listaDepGeral.size(); i++){
+        HospitalRepositorio hospitalRepositorio = new HospitalRepositorio(conn);
+        Departamento departamento = conn.queryForObject("SELECT * FROM departamento WHERE idDepartamento = ?;", new BeanPropertyRowMapper<>(Departamento.class), id);
+        departamento.setHospital(hospitalRepositorio.buscarHospitalPorId(departamento.getFkHospital()));
 
-            Departamento departamento = listaDepGeral.get(i);
-
-            if(departamento.hospital.getSenha().equals(hospital.getSenha()) && departamento.hospital.getCnpj().equals(hospital.getCnpj())){ // Verificando se o departamento é do hospital selecionado
-                listaDepSelecionado.add(departamento);
-            }
-        }
-
-        return listaDepSelecionado;
+        return departamento;
     }
 
 }

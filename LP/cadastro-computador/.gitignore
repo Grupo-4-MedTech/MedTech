@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Arquivos gerados pelo Maven
+/mvnw
+/mvnw.cmd
+/.mvn/
+*.jar

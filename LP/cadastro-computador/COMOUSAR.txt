@@ -1,18 +1,3 @@
-DADOS CADASTRO
- - Opção 1
-	°CNPJ: 0000000000000
-	°SENHA: gazzoli
-
- - Opção 2
-	°CNPJ: 0234567800190
-	°SENHA: primavera6773
-
-DADOS LOGIN
-
- - Opção 1
-	°CODIGO PARIMÔNIO: C0578921
-	°SENHA: sptech88
-
- - Opção 2
-	°CODIGO PARIMÔNIO: C0578920
-	°SENHA: medtech777
+DADOS LOGIN: 
+	- Codigo do patrimonio: C057689
+	- Senha: medtech88

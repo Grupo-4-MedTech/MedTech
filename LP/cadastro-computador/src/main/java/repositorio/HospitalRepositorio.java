@@ -1,46 +1,22 @@
 package repositorio;
 
 import modelo.Hospital;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HospitalRepositorio {
     
-    final boolean connection;// simulando conexão com BD
+    final JdbcTemplate conn;// simulando conexão com BD
     
-    public HospitalRepositorio(boolean connection)
+    public HospitalRepositorio(JdbcTemplate conn)
     {
-        this.connection = connection;
+        this.conn = conn;
     };
 
-    public List autenticarHospital(String senha, String cnpj)
-    {
-
-        List<Hospital> listaHospitais = Hospital.getListaHospital();
-
-        List<Hospital> hospitalEncontrado = new ArrayList<>();
-
-        for(int i = 0; i < listaHospitais.size(); i ++){
-            Hospital hospital = listaHospitais.get(i);
-
-            if(
-                    hospital.getSenha().equals(senha) &&
-                    hospital.getCnpj().equals(cnpj)
-            ){
-                System.out.printf("""
-                        \n
-                        Hospital encontrado com sucesso!
-                        Você selecionou o hospital "%s".
-                        \n
-                        """, hospital.getNomeFantasia());
-                hospitalEncontrado.add(hospital);
-
-                return hospitalEncontrado;
-            }
-        } //Fim for
-
-        return hospitalEncontrado;
+    public Hospital buscarHospitalPorId(int id){
+        return conn.queryForObject("SELECT * FROM hospital WHERE idHospital = ?;", new BeanPropertyRowMapper<>(Hospital.class), id);
     }
-    
 }

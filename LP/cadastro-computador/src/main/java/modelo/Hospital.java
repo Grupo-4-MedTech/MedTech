@@ -7,18 +7,20 @@ public class Hospital {
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;
-    private String senha;
 
-    private static List<Hospital> listaHospital = new ArrayList<>();
-
+    private List<Departamento> departamentos;
 
     public Hospital(int idHospital, String nomeFantasia, String razaoSocial, String cnpj, String senha){
         this.idHospital = idHospital;
         this.nomeFantasia = nomeFantasia;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.senha = senha;
+        this.departamentos = new ArrayList<>();
     }
+
+    public Hospital(){
+        this.departamentos = new ArrayList<>();
+    };
 
     //Getters
 
@@ -39,13 +41,8 @@ public class Hospital {
         return this.cnpj;
     }
 
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public static List<Hospital> getListaHospital()
-    {
-        return listaHospital;
+    public List<Departamento> getDepartamentos() {
+        return departamentos;
     }
 
     //Setters
@@ -71,13 +68,16 @@ public class Hospital {
         this.cnpj = cnpj;
     }
 
-    public void setSenha(String senha)
-    {
-        this.senha = senha;
+    public void setDepartamentos(List<Departamento> departamentos) {
+        this.departamentos = departamentos;
     }
 
-    public static void atualizarLista(Hospital hospital)
-    {
-        self:listaHospital.add(hospital);
+    public void addDepartamentos(
+            Departamento departamento
+    ){
+        if(this.departamentos.contains(departamento)){
+            return;
+        }
+        this.departamentos.add(departamento);
     }
 }

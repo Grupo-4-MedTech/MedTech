@@ -1,57 +1,26 @@
-import modelo.Computador;
-import modelo.Departamento;
-import modelo.Hospital;
+import Persistencia.Conexao;
+import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
-import repositorio.DepartamentoRepositorio;
-import repositorio.HospitalRepositorio;
-import java.util.ArrayList;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import modelo.Computador;
 
 public class Main {
     static Scanner leitorStr = new Scanner(System.in);
-    static Scanner leitorNum = new Scanner(System.in);
-    
+    static Conexao conexao = new Conexao();
+    static JdbcTemplate conn = conexao.getConn();
+
+
     public static void main(String[] args) {
-        // INÍCIO MOCKANDO DADOS
-
-        List<Hospital> listaHosp = new ArrayList<>();
-        listaHosp.add(new Hospital(1, "Clínica Flores de Primavera", "Gouveia Santana", "0234567800190", "primavera6773"));
-        listaHosp.add(new Hospital(2, "Clínica Folhas de Outono", "Teixeira Gazzoli", "0000000000000", "gazzoli"));
-
-        List<Departamento> listaDep = new ArrayList<>();
-        listaDep.add(new Departamento(149, "Guichê", 1000, listaHosp.get(0)));
-        listaDep.add(new Departamento(147, "Triagem", 1001, listaHosp.get(0)));
-        listaDep.add(new Departamento(145, "Consultório", 1002, listaHosp.get(0)));
-        listaDep.add(new Departamento(150, "Farmácia", 1050, listaHosp.get(0)));
-
-        listaDep.add(new Departamento(130, "Guichê", 1000, listaHosp.get(1)));
-        listaDep.add(new Departamento(100, "Triagem", 1001, listaHosp.get(1)));
-        listaDep.add(new Departamento(209, "Consultório", 1002, listaHosp.get(1)));
-        listaDep.add(new Departamento(183, "Farmácia", 1050, listaHosp.get(1)));
-
-        List<Computador> listaComp = new ArrayList<>();
-        listaComp.add(new Computador("Computador_da_recepção", "C0578921", 6, 4, 200, "sptech88", listaDep.get(0)));
-        listaComp.add(new Computador("Computador_da_farmácia", "C0578920", 2, 6, 350, "medtech777", listaDep.get(7)));
-
-        //Gerando listas de dados mockados
-        for(int i = 0; i < listaHosp.size(); i++){
-            Hospital.atualizarLista(listaHosp.get(i));
-        }
-
-        for(int i = 0; i < listaDep.size(); i++){
-            Departamento.atualizarLista(listaDep.get(i));
-        }
-
-        for (int i = 0; i < listaComp.size(); i++){
-            Computador.atualizarLista(listaComp.get(i));
-        }
-        // FIM MOCKANDO DADOS
-
         telaInicial();
     }
 
-    static void telaInicial(){
+    static void telaInicial() {
 
         System.out.println("""
                          
@@ -64,40 +33,19 @@ public class Main {
                          :JJ^   .::    ~Y?.      !YJJJJJJJJJ~     :JYJJJJJJJ?~:          .?Y!         :?YJJJJJJJJ?:      .~7JJJJJJ?~:     .?Y!       ^YY:            \s
                 """);
         System.out.println("""
-        BEM-VINDO(A) AO NOSSO SISTEMA DE MONITORAMENTO DE COMPUTADORES!
-        
-        1 - Cadastro
-        2 - Login
-        
-        Antes de começarmos, digite o número do processo que deseja realizar:
-        """);
-
-        int processo;
-        do {
-            processo = leitorNum.nextInt();
-            if(processo > 2 || processo < 1){
-                System.out.println("Digite um número válido.");
-            } else {
-                break;
-            }
-        }while (true);
-
-        if(processo == 2){
-            login();
-        } else{
-            cadastro();
-        }
+                BEM-VINDO(A) AO NOSSO SISTEMA DE MONITORAMENTO DE COMPUTADORES!
+                """);
+        login(conn);
     }
 
 
-    static void login()
-    {
+    static void login(JdbcTemplate conn) {
         System.out.println("Login iniciado! \n");
 
-        ComputadorRepositorio repositorioComputador = new ComputadorRepositorio(true);
+        ComputadorRepositorio repositorioComputador = new ComputadorRepositorio(conn);
 
         List computadorAutenticado;
-        do{
+        do {
             System.out.println("Código do patrimônio:");
             String codPatrimonio = leitorStr.next();
             System.out.println("Senha:");
@@ -105,11 +53,11 @@ public class Main {
 
             computadorAutenticado = repositorioComputador.autenticarComputador(senhaH, codPatrimonio);
 
-            if(computadorAutenticado.size() != 1){
-                System.out.println("Código do patrimônio ou senha incorreta. \n Por favor, tente novamente. \n");
+            if (computadorAutenticado.size() != 1) {
+                System.out.println("Código do patrimônio ou senha incorreta. \nPor favor, tente novamente. \n");
             }
 
-        } while(computadorAutenticado.size() != 1);
+        } while (computadorAutenticado.size() != 1);
 
         System.out.println("""
                 \n
@@ -118,121 +66,29 @@ public class Main {
                 \n
                 """);
 
-        System.out.println(computadorAutenticado.get(0));
+        Computador computador = (Computador) computadorAutenticado.get(0);
+        System.out.println(computador);
 
-        System.out.println("AGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
+        System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
 
-        do {
-            System.out.println("\nDigite \"sair\" para parar o monitoramento e sair da conta atual.");
-            String sair = leitorStr.next();
-
-            if(sair.equals("sair")){
-                telaInicial();
-            } else{
-                System.out.println("ERRO: Comando não identificado.");
-            }
-        } while (true);
+        inserirLeituras(computador);
     }
 
-    static void cadastro() {
+    public static void inserirLeituras(Computador computador) {
+        // SUBISTITUIR DADOS DO INSERT PELOS DADOS DA API LOOCA
+        conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + 100.0 + ", " + 100.0 + ", " + 100.0 + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
+        conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES(" + "'Chrome', '" + LocalDateTime.now() + "' , 'C:/chrome/chrome.exe'," + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
 
-        System.out.println("""
-                Cadastro selecionado com sucesso!
-                Insira as informações do hospital/clínica que o computador atual pertence.
-                """);
+        Timer cronometro = new Timer();
 
-        // INÍCIO SELEÇÃO HOSPITAL
-
-        HospitalRepositorio repositorioHospital = new HospitalRepositorio(true);
-
-        List hospitalAutenticado;
-
-        do{
-            System.out.println("CNPJ (apenas números):");
-            String cnpj = leitorStr.next();
-            System.out.println("Senha:");
-            String senhaH = leitorStr.next();
-
-            hospitalAutenticado = repositorioHospital.autenticarHospital(senhaH, cnpj);
-
-            if(hospitalAutenticado.size() != 1){
-                System.out.println("CNPJ ou senha incorreta. \n\nPor favor, tente novamente.");
+        TimerTask metodo = new TimerTask() {
+            @Override
+            public void run() {
+                inserirLeituras(computador);
             }
+        };
 
-            } while(hospitalAutenticado.size() != 1);
-
-        //FIM SELEÇÃO HOSPITAL
-        //INÍCIO SELEÇÃO DEPARTAMENTO
-
-        System.out.println("\nAgora, selecione o departamento que este computador pertence \n");
-
-        DepartamentoRepositorio repositorioDepartamento = new DepartamentoRepositorio(true);
-
-        List<Departamento> departamentosDoHospital = repositorioDepartamento.listarDepartamentosPorHospital((Hospital) hospitalAutenticado.get(0));
-
-        for(int i = 0; i < departamentosDoHospital.size(); i++){
-            Departamento departamento = departamentosDoHospital.get(i);
-            System.out.println("Identificador: " + departamento.getIdDepartamento() + " - " + departamento.getNome());
-        }
-
-        System.out.println("\nDigite o número identificador do departamento que o computador atual pertence:");
-
-        int numDep;
-        boolean depValido = false;
-        Departamento departamentoSelecionado = null;
-
-        do{
-            numDep = leitorNum.nextInt();
-
-            for(int i = 0; i < departamentosDoHospital.size(); i++){
-                if(departamentosDoHospital.get(i).getIdDepartamento() == numDep){
-                    departamentoSelecionado = departamentosDoHospital.get(i);
-                    depValido = true;
-                    break;
-                }
-            }
-            if(depValido){
-                break;
-            }
-            System.out.println("Digite um número de departamento válido.");
-        }while(true);
-
-        System.out.println("\nDepartamento selecionado: " + departamentoSelecionado.getIdDepartamento() + " - " + departamentoSelecionado.getNome());
-
-        //FIM SELEÇÃO DEPARTAMENTO
-        //INÍCIO PREENCHIMENTO DE DADOS DO COMPUTADOR
-
-        System.out.println("""
-                \n
-                Insira algumas informações sobre o computador.
-                Nome:
-                """);
-        String nomeComputador = leitorStr.next();
-
-        System.out.println("Código do patrimônio:");
-        String codPatrimonio = leitorStr.next();
-
-        System.out.println("Quantidade de núcleos da CPU:");
-        int maxCpu = leitorNum.nextInt();
-
-        System.out.println("Capacidade máxima da RAM em GB:");
-        int maxRam = leitorNum.nextInt();
-
-        System.out.println("Capacidade máxima do disco em GB:");
-        int maxDisco = leitorNum.nextInt();
-
-        System.out.println("Crie uma senha de acesso:");
-        String senha = leitorStr.next();
-
-        Computador computador = new Computador(nomeComputador, codPatrimonio, maxCpu, maxRam, maxDisco, senha, departamentoSelecionado);
-        Computador.atualizarLista(computador);
-
-        System.out.println("""
-                \n
-                COMPUTADOR CADASTRADO COM SUCESSO!
-                Redirecionando para o login...
-                """);
-
-        login();
-        }
+        //AJUSTAR INTERVALO DE INSERÇÃO DE DADOS
+        cronometro.schedule(metodo, 5000);
     }
+}

@@ -7,17 +7,23 @@ public class Departamento {
 
     private int idDepartamento;
     private String nome;
-    private int fkFuncResponsavel;
-    public Hospital hospital;
-    static List<Departamento> listaDepartamento = new ArrayList<>();
+    private Hospital hospital;
 
-    public Departamento(int idDepartamento, String nome, int fkFuncResponsavel, Hospital hospital)
+    private int fkHospital;
+    private List<Computador> computadores;
+
+    public Departamento(int idDepartamento, String nome, Hospital hospital)
     {
         this.idDepartamento = idDepartamento;
         this.nome = nome;
-        this.fkFuncResponsavel = fkFuncResponsavel;
         this.hospital = hospital;
+        this.computadores = new ArrayList<>();
     };
+
+    public Departamento(){
+        this.hospital = new Hospital();
+        this.computadores = new ArrayList<>();
+    }
 
     //GETTERS
     public int getIdDepartamento()
@@ -30,13 +36,12 @@ public class Departamento {
         return this.nome;
     }
 
-    public int getFkFuncResponsavel()
-    {
-        return this.fkFuncResponsavel;
+    public Hospital getHospital() {
+        return hospital;
     }
 
-    public static List<Departamento> getListaDepartamento() {
-        return listaDepartamento;
+    public List<Computador> getComputadores() {
+        return computadores;
     }
 
     //Setters
@@ -51,19 +56,27 @@ public class Departamento {
         this.nome = nome;
     }
 
-    public void setFkFuncResponsavel(int fkFuncResponsavel)
-    {
-        this.fkFuncResponsavel = fkFuncResponsavel;
-    }
-
-    public void setFkHospital(Hospital hospital)
-    {
+    public void setHospital(Hospital hospital) {
         this.hospital = hospital;
+        hospital.addDepartamentos(this);
     }
 
-    public static void atualizarLista(Departamento departamento)
-    {
-        self:listaDepartamento.add(departamento);
+    public void setFkHospital(int fkHospital) {
+        this.fkHospital = fkHospital;
     }
 
+    public void setComputadores(List<Computador> computadores) {
+        this.computadores = computadores;
+    }
+
+    public int getFkHospital() {
+        return this.fkHospital;
+    }
+
+    public void addComputadores(Computador computador){
+        if(this.computadores.contains(computador)){
+            return;
+        }
+        this.computadores.add(computador);
+    }
 }
