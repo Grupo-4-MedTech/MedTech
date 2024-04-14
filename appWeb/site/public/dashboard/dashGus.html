@@ -10,13 +10,28 @@
     <link rel="stylesheet" href="../css/dashGus.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../script/dashboard.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
     <header>
         <div class="profileHeader">
-            <div class="profileFrame" id="profile_img_header">
-                <img src="../assets/img/MedTechLogo.jpg"> <!--EXEMPLO DE IMG, SUBSTITUR ONLOAD-->
+            <div class="profileFrame">
+                <img src="../assets/img/MedTechLogo.jpg" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
+                <div id="profile_content">
+                    <div class="arrowTop"></div>
+                    <div class="opContent">
+                        <ul>
+                            <li onclick="openConfig();">Configurações</li>
+                            <div id="protectedOptions">
+                                <li onclick="openUserManagement();">Gerenciar usuários</li>
+                                <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
+                            </div>
+                            <li onclick="logout();">Logout</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="profileName" id="profile_name_header">User0123123</div> <!-- SUBSTITUIR ONLOAD -->
         </div>
@@ -26,6 +41,21 @@
             <img src="../assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
     </header>
+
+    <div id="backgrounddiv">
+        <div class="screendiv">
+            <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
+                close
+            </span>
+            <div id="configContent">
+
+            </div>
+            <div id="computerRegistrationContent">
+
+            </div>
+
+        </div>
+    </div>
 
     <main>
         <!-- LEFT NAVIGATION -->

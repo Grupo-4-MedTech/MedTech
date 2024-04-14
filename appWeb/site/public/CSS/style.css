@@ -9,6 +9,7 @@
     font-style: normal;
     box-sizing: border-box;
     border-collapse: collapse;
+    list-style: none;
 }
 
 html{
