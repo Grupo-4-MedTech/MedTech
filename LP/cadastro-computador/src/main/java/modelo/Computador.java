@@ -1,10 +1,21 @@
 package modelo;
 
+
+
+import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import com.github.britooo.looca.api.group.discos.Volume;
+import com.github.britooo.looca.api.group.janelas.Janela;
+import com.github.britooo.looca.api.group.janelas.JanelaGrupo;
+import com.github.britooo.looca.api.group.memoria.Memoria;
+import com.github.britooo.looca.api.util.Conversor;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Computador {
-
     private int idComputador;
     private String nome;
     private String modeloProcessador;
@@ -16,6 +27,14 @@ public class Computador {
 
     private int fkHospital;
     private Departamento departamento;
+
+    Looca looca = new Looca();
+    Memoria memoria = looca.getMemoria();
+    JanelaGrupo janelaGrupo = looca.getGrupoDeJanelas();
+    List<Janela> listaJanelas = janelaGrupo.getJanelas();
+    DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
+    List<Volume> volumes = grupoDeDiscos.getVolumes();
+    List<Long> porcentagemVolumes = new ArrayList<>();
 
     public Computador(int idComputador, String modeloProcessador,  String nome, String codPatrimonio, int maxRam, int maxDisco)
     {
@@ -29,9 +48,60 @@ public class Computador {
 
     public Computador(){
         this.departamento = new Departamento();
-    };
+    }
 
     //GETTERS
+    public String getQuantidadeMaximaMemoria(){
+        return Conversor.formatarBytes(memoria.getTotal());
+    }
+
+    public String getUsoMemoria(){
+        return Conversor.formatarBytes(memoria.getEmUso());
+    }
+
+    public Double getPorcentagemConsumoMemoria(){
+        return memoria.getEmUso() * 100.0 / memoria.getTotal();
+    }
+
+
+    List<Janela> listaGuias = new ArrayList<>();
+    public List<Janela> getJanelas() {
+        for (Janela listaJanela : listaJanelas) {
+            if (listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Edge") || listaJanela.getTitulo().contains("Firefox") || listaJanela.getTitulo().contains("Opera")) {
+                listaGuias.add(listaJanela);
+            }
+        }
+        return listaGuias;
+    }
+
+    public List<Long> getPorcentagemDeTodosVolumes(){
+        for (Volume volume : volumes) {
+            porcentagemVolumes.add((volume.getTotal() - volume.getDisponivel()) * 100 / volume.getTotal());
+        }
+        return porcentagemVolumes;
+    }
+
+    // percorrer a lista de % de consumo de discos e pegar o maior número da lista
+    public Double getDiscoComMaisConsumo(List<Long>porcentagemVolumes){
+        Optional<Double> menorPorcentDisco = porcentagemVolumes.stream()
+                .map(e -> e.doubleValue())
+                .max(Comparator.naturalOrder());
+
+        return menorPorcentDisco.get();
+    }
+
+    public String getNomeProcessador(){
+        return looca.getProcessador().getNome();
+    }
+    public Integer getCpusFisicas(){
+        return looca.getProcessador().getNumeroCpusFisicas();
+    }
+    public Integer getCpusLogicas(){
+        return looca.getProcessador().getNumeroCpusLogicas();
+    }
+    public Double getPorcentagemConsumoCpu(){
+        return looca.getProcessador().getUso();
+    }
 
     public int getIdComputador() {
         return this.idComputador;
@@ -115,4 +185,6 @@ public class Computador {
                 + "Razão social: " + this.departamento.getHospital().getRazaoSocial() + "\n"
                 + "CNPJ:" + this.departamento.getHospital().getCnpj();
     }
+
+
 }

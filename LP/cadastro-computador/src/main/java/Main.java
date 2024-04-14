@@ -1,12 +1,11 @@
 import Persistencia.Conexao;
+import com.github.britooo.looca.api.group.janelas.Janela;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import modelo.Computador;
 
@@ -17,6 +16,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+
         telaInicial();
     }
 
@@ -75,9 +75,14 @@ public class Main {
     }
 
     public static void inserirLeituras(Computador computador) {
+        Date dataHoraAtual = new Date();
+        String data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dataHoraAtual);
         // SUBISTITUIR DADOS DO INSERT PELOS DADOS DA API LOOCA
-        conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + 100.0 + ", " + 100.0 + ", " + 100.0 + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
-        conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES(" + "'Chrome', '" + LocalDateTime.now() + "' , 'C:/chrome/chrome.exe'," + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
+        conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + computador.getPorcentagemConsumoMemoria() + ", " + computador.getDiscoComMaisConsumo(computador.getPorcentagemDeTodosVolumes()) + ", " + computador.getPorcentagemConsumoCpu() + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
+
+        for (Janela janela : computador.getJanelas()) {
+            conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '" + janela.getTitulo() + "', '" + data + "', '" + janela.getComando() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() +");");
+        }
 
         Timer cronometro = new Timer();
 
@@ -89,6 +94,6 @@ public class Main {
         };
 
         //AJUSTAR INTERVALO DE INSERÇÃO DE DADOS
-        cronometro.schedule(metodo, 5000);
+        cronometro.schedule(metodo, 50000);
     }
 }
