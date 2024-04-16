@@ -15,12 +15,12 @@ public class Main {
     static JdbcTemplate conn = conexao.getConn();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         telaInicial();
     }
 
-    static void telaInicial() {
+    static void telaInicial() throws InterruptedException {
 
         System.out.println("""
                          
@@ -39,7 +39,7 @@ public class Main {
     }
 
 
-    static void login(JdbcTemplate conn) {
+    static void login(JdbcTemplate conn) throws InterruptedException {
         System.out.println("Login iniciado! \n");
 
         ComputadorRepositorio repositorioComputador = new ComputadorRepositorio(conn);
@@ -74,26 +74,18 @@ public class Main {
         inserirLeituras(computador);
     }
 
-    public static void inserirLeituras(Computador computador) {
+    public static void inserirLeituras(Computador computador) throws InterruptedException {
         Date dataHoraAtual = new Date();
         String data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dataHoraAtual);
         // SUBISTITUIR DADOS DO INSERT PELOS DADOS DA API LOOCA
-        conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + computador.getPorcentagemConsumoMemoria() + ", " + computador.getDiscoComMaisConsumo(computador.getPorcentagemDeTodosVolumes()) + ", " + computador.getPorcentagemConsumoCpu() + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
+        while(true){
+            conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + computador.getPorcentagemConsumoMemoria() + ", " + computador.getDiscoComMaisConsumo(computador.getPorcentagemDeTodosVolumes()) + ", " + computador.getPorcentagemConsumoCpu() + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
 
-        for (Janela janela : computador.getJanelas()) {
-            conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '" + janela.getTitulo() + "', '" + data + "', '" + janela.getComando() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() +");");
-        }
-
-        Timer cronometro = new Timer();
-
-        TimerTask metodo = new TimerTask() {
-            @Override
-            public void run() {
-                inserirLeituras(computador);
+            for (Janela janela : computador.getJanelas()) {
+                conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '" + janela.getTitulo() + "', '" + data + "', '" + janela.getComando() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() +");");
             }
-        };
 
-        //AJUSTAR INTERVALO DE INSERÇÃO DE DADOS
-        cronometro.schedule(metodo, 50000);
+        Thread.sleep(50000);
+        }
     }
 }
