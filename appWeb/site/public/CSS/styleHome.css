@@ -384,6 +384,15 @@ small{
 /*/ Responsivo */
 
 @media (min-width: 1024px) and (max-width:1366px){
+    .titulo h2 {
+        margin-top: -12vw;
+        text-align: center;
+        justify-self: flex-start;
+        font-size: 50px;
+        background: -webkit-linear-gradient(180deg, rgba(3, 131, 135, 1) 30%, rgba(55, 217, 223, 1) 65%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
     /* cabeça*/
     .header .container {
         display: flex;
@@ -480,15 +489,7 @@ small{
         height: 350px;
         
     }
-    .titulo h2 {
-        margin-top: -7vw;
-        text-align: center;
-        justify-self: flex-start;
-        font-size: 50px;
-        background: -webkit-linear-gradient(180deg, rgba(3, 131, 135, 1) 30%, rgba(55, 217, 223, 1) 65%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+    
     .texto-sobre{
         width: 600px;
         text-align:justify;
@@ -518,9 +519,6 @@ small{
         height: 45vw;
       }
 
-
-
-
 }
 
  /* ipad Air*/
@@ -535,7 +533,12 @@ small{
         align-items: center;
     }
     
-    
+    .imagemHome img {
+        width: 801px;
+        height: 350px;
+        object-fit: cover;
+
+    }
     .header .MedTechLogo{
         border-radius: 50%;
         margin-left:-6vw;
@@ -703,6 +706,7 @@ small{
         margin-left: 5vw;
         
     }
+    
     
     .header .MedTechLogo{
         border-radius: 50%;
@@ -1039,6 +1043,22 @@ small{
 
 
 
-
-
-/* teste*/
+/* iphone*
+@media (min-width: 390px) and (max-width:884px){
+    .imagemHome img {
+        width: 664px;
+        height: 350px;
+        object-fit: cover;
+        margin-left: -272px;
+    }
+   
+}
+/*@media (min-width: 430px) and (max-width:932px){
+    .imagemHome img {
+        width: 700px;
+        height: 350px;
+        object-fit: cover;
+        margin-left: -272px;
+    }
+   
+}
