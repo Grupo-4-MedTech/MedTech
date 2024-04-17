@@ -81,7 +81,7 @@ CREATE TABLE leituraHdw(
 
 CREATE TABLE leituraFerramenta(
 idLeituraFerramenta INT PRIMARY KEY AUTO_INCREMENT, 
-nomeApp VARCHAR(50),
+nomeApp VARCHAR(255),
 dtLeitura DATETIME,
 caminho VARCHAR(255),
 fkComputador INT NOT NULL,
@@ -96,10 +96,10 @@ INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP');
 
 INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
-('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', true, 1);
+('Clinica Folhas de Outono', 'Gazzoli Silva', '0000000000000', 'gazzoli123','clinicafoutono@outlook.com', true, 1);
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
-('Fernando Brandão', '12345678910', '11 983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
+('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 
@@ -109,5 +109,3 @@ INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gb
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
 FLUSH PRIVILEGES;
-
-
