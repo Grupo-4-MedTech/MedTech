@@ -79,13 +79,27 @@ public class Main {
         String data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dataHoraAtual);
         // SUBISTITUIR DADOS DO INSERT PELOS DADOS DA API LOOCA
         while(true){
+            System.out.printf("""
+            COMANDO DE INSERÇÃO DE LEITURAS DE HARDWARE:
+            INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES( %.2f ,  %.2f , %.2f , %s , %d,  %d , %d );)\s
+            """, computador.getPorcentagemConsumoMemoria(), computador.getDiscoComMaisConsumo(computador.getPorcentagemDeTodosVolumes()), computador.getPorcentagemConsumoCpu(), LocalDateTime.now(), computador.getIdComputador(), computador.getFkDepartamento(), computador.getFkHospital() );
+
             conn.execute("INSERT INTO leituraHdw (ram, disco, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES(" + computador.getPorcentagemConsumoMemoria() + ", " + computador.getDiscoComMaisConsumo(computador.getPorcentagemDeTodosVolumes()) + ", " + computador.getPorcentagemConsumoCpu() + ", '" + LocalDateTime.now() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() + ");");
 
+
+
+
             for (Janela janela : computador.getJanelas()) {
+
+                System.out.printf("""
+            COMANDO DE INSERÇÃO DE LEITURAS DE HARDWARE:
+            INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '%s', '%s', '%s', %d, %d, %d);\s
+            """, janela.getTitulo(),data, janela.getComando(),computador.getIdComputador(), computador.getFkDepartamento(), computador.getFkHospital() );
+
                 conn.execute("INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '" + janela.getTitulo() + "', '" + data + "', '" + janela.getComando() + "', " + computador.getIdComputador() + ", " + computador.getFkDepartamento() + ", " + computador.getFkHospital() +");");
             }
 
-        Thread.sleep(50000);
+            Thread.sleep(10000);
         }
     }
 }
