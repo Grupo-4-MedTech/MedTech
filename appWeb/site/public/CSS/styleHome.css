@@ -502,7 +502,7 @@ small{
 
     .container_paiVisao{
         width: 108%;
-        height: 29vh;
+        height: auto;
         margin-left:-8vw;
         display: flex;
         justify-content: center;
@@ -763,12 +763,14 @@ small{
         align-content: left;
     }
     .textoHome p{
+        display: none;
         z-index: 1;
         font-size: 20px;
         font-family: "Montserrat", sans-serif;
         font-weight: 55;
         color: ba;
         text-shadow: 0.5px 0px 0px black;
+        
     }
     .imagemHome img{
         width: 632px;
@@ -783,23 +785,22 @@ small{
         text-align:justify;
         font-size: 10px;
         text-indent: 25px;
-        width:150vw;
+        width:100vw;
        
 
     }
 
-    .container-servicos{
+    .container-servicos {
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
-        width: 84%;
-        height: 350px;
-        
-        
+        /* width: 27%; */
+        height: 368px;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
     }
     .img-servicos img{
-        height: 150px;
-        width: 150px;
+        height: 250px;
+        width: 250px;
     }
     .titulo h2{
         text-align: center;
@@ -808,12 +809,12 @@ small{
         background: -webkit-linear-gradient(180deg, rgba(3,131,135,1) 30%, rgba(55,217,223,1) 65%);
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-top:6vw;
+        margin-top: -19vw;
         
     }
 
     #section-servicos{
-        height: 400px;
+        height: 600px;
         width: 100%;
         background-color: #E1E1E1;
         display: flex;
@@ -822,21 +823,29 @@ small{
         margin-right: 2vw;
         
     }
+    .container_paiVisao {
+    width: 100%;
+    height: auto;
+    margin-left: -1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E1E1E1;
+}
     /* sobre */
 
-    .container-sobre{
+    .container-sobre {
         display: flex;
-        flex-direction:row;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 127%;
-        height: 370px;
-        margin-left:2vw;
-        
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        /* align-items: center; */
+        width: 35%;
+        height: 330px;
+        /* margin-left: 2vw; */
     }
     #section_sobre{
-        height: 350px;
-        width: 77%;
+        height: 525px;
+        width: 100%;
         background-color: #fff;
         display: flex;
         flex-direction: column;
@@ -844,27 +853,44 @@ small{
         
     }
     .texto-sobre{
-        width: 600px;
         text-align:justify;
         font-size: 10px;
         text-indent: 1vw;
         animation: fade-in 3s 1; /*delay iteration-count direction fill-mode;*/ 
-        margin-left:1vw;
         margin-top:2vw;
+        p {
+            /* width: 98%; */
+            margin-left: 65vw;
+    width: 60%;
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            font-size: 12px;
         
+        }
 
     }
-    .img-sobre img{
-        height: 125px;
-        width: 125px;
-        margin-left: 5px;
-       
+    .img-sobre img {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        height: 250px;
+        width: 250px;
+        margin-left: 57vw;
     }
-    
+    #section_sobre .titulo h2{
+        width: 76%;
+        display: flex;
+        justify-content: end;
+    }
+    .container_paiVisao p {
+        margin-left: -3vw;
+       text-align: center;
+    }
     /*visao e valores */
     section{
         background-color:#E1E1E1;
-        height:180vw;
+        height:200vw;
     }
     .container_paiVisao{
         display: flex;
@@ -872,7 +898,7 @@ small{
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
-        height: 71%;
+        height: 79%;
         margin-top:10vw;
         lord-icon{
             display: flex;
@@ -901,9 +927,14 @@ small{
         align-items: center;
     }
     p{
-        text-align: center;
-        font-size: 12px;
-        width: 205px;
+        
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    font-size: 12px;
+    
+
+    
     }
     h2{
         text-align: center;
@@ -917,7 +948,7 @@ small{
 /* footer*/
     .container_paiVisao{
         width: 100%;
-        height: 80vh;
+        height: 90vh;
         margin-left:-1vw;
         display: flex;
         justify-content: center;
