@@ -562,7 +562,7 @@ small{
 @media (min-width: 820px) and (max-width:1180px){
 
     menu{
-        display: none;
+    
         display:none;
         font-weight: 500;
         font-size: 20px;
@@ -574,7 +574,7 @@ small{
         justify-content: space-between;
     }
     .header ul {
-        display:none;
+        
         font-weight: 500;
         font-size: 20px;
         padding: 0;
@@ -776,7 +776,7 @@ small{
     
     
     #burger{
-        background-color: grey;
+        background-color: white;
         display: block;
         text-align: center;
         padding: 10px;
