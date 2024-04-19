@@ -5,6 +5,20 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+.material-symbols-outlined{
+    font-size:50vw;
+}
+#burger{
+    display: none;
+    background-color: grey;
+    text-align: cemter;
+    padding: 10px;
+}
+#burger:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
 
 html {
     scroll-behavior: smooth;
@@ -38,8 +52,9 @@ html {
     margin-left: 5px;
     border-radius: 10px;
 }
-
-.header ul {
+menu{
+    display: none;
+    display:none;
     font-weight: 500;
     font-size: 20px;
     padding: 0;
@@ -47,6 +62,17 @@ html {
     display: flex;
     align-items: center;
     width: 60%;
+    justify-content: space-between;
+}
+.header ul {
+    display:none;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -356,7 +382,10 @@ h2{
     width: auto;
     height: 80%;
 }
-
+.icon_contato2{
+    width: auto;
+    height: 80%;
+}
 .text_contato{
     height: 100%;
     width: 80%;
@@ -515,6 +544,13 @@ small{
     margin-left: -4vw;
 }
       }
+      .container_visao {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
       section{
         height: 45vw;
       }
@@ -524,6 +560,31 @@ small{
  /* ipad Air*/
 
 @media (min-width: 820px) and (max-width:1180px){
+
+    menu{
+        display: none;
+        display:none;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        justify-content: space-between;
+    }
+    .header ul {
+        display:none;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        justify-content: space-between;
+    }
+    
     /* cabeça*/
     .header .container {
         display: flex;
@@ -534,14 +595,14 @@ small{
     }
     
     .imagemHome img {
-        width: 801px;
+        width: 881px;
         height: 350px;
         object-fit: cover;
 
     }
     .header .MedTechLogo{
         border-radius: 50%;
-        margin-left:-6vw;
+        margin-left:2vw;
         width:70px;
         height: 70px;
     }
@@ -560,7 +621,7 @@ small{
         list-style-type: none;
         display: flex;
         align-items: center;
-        width: 76%;
+        width: 90%;
         justify-content: space-between;
 
 
@@ -670,7 +731,7 @@ small{
     display: flex;
     justify-content: center;
     margin-right: 10vw;
-    margin-left: -4vw;
+    margin-left: -10vw;
 }
       }
       section{
@@ -685,11 +746,51 @@ small{
         flex-direction: column;
         align-items: center;
     }
-
+    .container_visao {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container_valores {
+        margin-top: -43px;
+        display: flex;
+        width: 45%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /*samsung*/
 @media (min-width: 360px) and (max-width:740px){
+
+    menu{
+        display: none;
+        position:absolute;
+        width: 100%;
+      margin-left: 32vw;
+        margin-top:17vw;
+    }
+    
+    
+    #burger{
+        background-color: grey;
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+    #burger:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    
+    
+    .hamburger{
+        display: block;
+    }
     .header {
         width: 100%;
         height: 80px;
@@ -703,45 +804,52 @@ small{
     .header .container {
         display: flex;
         width: 80%;
-        margin-left: 5vw;
+        align-items: baseline;
         
     }
     
     
     .header .MedTechLogo{
         border-radius: 50%;
-        margin-left:-1vw;
+        margin-left:2vw;
         width:50px;
         height: 50px;
+        margin-top:4vw;
     }
 
     .header .MedTechNome{
         display: none;
     }
     .header ul {
+        border-radius: 5%;
+           flex-direction: column; 
         font-weight: 500;
         font-size: 11px;
         padding: 0;
         list-style-type: none;
-        display: flex;
         align-items: center;
-        width: 80%;
+        width: 51vw;
+        height: 75vw;
         justify-content: space-between;
+        background-color: #03999e;
+        display: flex;
         
         
-        
-
-        
+     
         /* home*/
         /* mexer nisso*/
 
         
     }
+    .icon_contato2{
+        display: none;
+        }
+           
     .header .fundo-btn{
         position: relative;
         display: flex;
         align-items: center;
-        width:4vw;
+        width:29vw;
         margin-left:1vw;
     }
 
@@ -778,6 +886,7 @@ small{
         object-fit: cover;
         margin-left:-272px
     }
+    
     
     /* quem somos*/
     .texto-servicos{
@@ -876,7 +985,7 @@ small{
         flex-direction: column-reverse;
         height: 250px;
         width: 250px;
-        margin-left: 57vw;
+        margin-left: 65vw;
     }
     #section_sobre .titulo h2{
         width: 76%;

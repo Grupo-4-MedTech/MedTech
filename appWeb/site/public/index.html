@@ -5,17 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedTech</title>
+    
     <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styleHome.css">
 </head>
 
 <body>
+   
     <div class="header">
+        <img class="MedTechLogo" src="assets/img/MedTechLogo.jpg" alt="">
         <div class="container">
             <a href="#">
-                <img class="MedTechLogo" src="assets/img/MedTechLogo.jpg" alt="">
+               
                 <img class="MedTechNome" src="assets/img/MedTechNome.jpg" alt="">
             </a>
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100" rel="stylesheet" />
+
+            <span  id="burger" class="material-symbols-outlined" onclick="clickMenu()">menu</span>
+            <menu id="items">
             <ul>
                 <li> <a href="#localSobre">Sobre nós</a></li>
                 <li> <a href="#Servicos"> Serviços </a></li>
@@ -27,6 +34,7 @@
                         <div class="fundo-btn">Quero ser cliente</div>
                     </a></li>
             </ul>
+        </menu>
         </div> <!--container-->
     </div> <!--header-->
 
@@ -134,7 +142,7 @@ ambientes hospitalares, Facilitando uma melhor experiência para os pacientes no
                 </h1>
                 <div class="icones_container">
                     <div class="contato">
-                        <img class="icon_contato" src="./assets/img/email.png" alt="ícone email">
+                        <img class="icon_contato2" src="./assets/img/email.png" alt="ícone email">
                         <a class="text_contato" href="mailto:medtech@outlook.com">medtech@outlook.com</a>
                     </div>
                     <div class="contato">
@@ -182,6 +190,15 @@ ambientes hospitalares, Facilitando uma melhor experiência para os pacientes no
             <small><u>Política de Privacidade</u> – <u>Como protegemos seus dados</u></small>
         </div>
     </section>
+    <script>
+        function clickMenu(){
+            if(items.style.display == 'block'){
+                items.style.display = 'none'
+            }else{
+                items.style.display = 'block'
+            }
+        }
+    </script>
 </body>
 
 </html>
