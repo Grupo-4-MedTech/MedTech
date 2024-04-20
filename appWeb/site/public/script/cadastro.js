@@ -11,7 +11,7 @@ let email;
 let senha;
 
 let listaProximasPaginas = [
-                            `<h2>Localização</h2>
+                            `<h1>Localização</h1>
                             <label for="input_CEP">CEP:</label>
                             <input type="text" name="CEP" id="input_CEP">
                             <label for="input_rua">Rua:</label>
@@ -24,7 +24,7 @@ let listaProximasPaginas = [
                             <input type="text" name="uf" id="input_uf">
                             <button class="next" onclick="nextInput(2), toggleVisibility()">Prosseguir</button>
                             `,
-                            `<h2>Credenciais</h2>
+                            `<h1>Credenciais</h1>
                             <label for="input_email">Email:</label>
                             <input type="text" name="email" id="input_email">
                             <label for="input_senha">Senha:</label>
@@ -35,8 +35,8 @@ let listaProximasPaginas = [
                                 <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
                                     visibility_off
                                 </span>
+                                <input type="password" name="senha1" id="input_senha">
                             </div>
-                            <input type="password" name="senha1" id="input_senha">
                             <label for="senha2">Digite a senha novamente:</label>
                             <input type="password" name="senha2" id="senha2">
                             <button class="next" onclick="finishForm()">Finalizar</button>`
@@ -72,8 +72,8 @@ function prevInput() {
 function printInputs(indiceLista){
     div_inputs.innerHTML = `${listaProximasPaginas[indiceLista-1]}`
 }
-let error = false;
 function nextInput(position) {    
+    let error = false;
     switch (position) { /* VALIDAÇÃO LÓGICA INPUTS */
         case 1:
             razaoSocial  = input_razaoSocial.value;

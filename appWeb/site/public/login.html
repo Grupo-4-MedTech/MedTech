@@ -7,7 +7,6 @@
     <title>MedTech - Login</title>
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script/login.js"></script>
     <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -26,34 +25,26 @@
             <img src="assets/img/MedTechLogo.jpg">
             <img src="assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
-
-        <div id="screendiv">
-
-
-            <div class="phase">
+            <div class="phase" id="div_inputs">
                 <h1>Bem vindo de volta</h1>
-                <div class="space"></div>
                 <label for="email">Login:</label>
                 <input type="text" name="email" id="email_input" placeholder="Seu Email">
                 <label for="senha">Senha:</label>
-                <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
-                    visibility
-                </span>
-                <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
-                    visibility_off
-                </span>
-                <input type="password" name="senha" id="senha_input" placeholder="******">
-                <div class="space"></div>
-                <div class="space"></div>
+                <div class="olho_senha">
+                    <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
+                        visibility
+                    </span>
+                    <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
+                        visibility_off
+                    </span>
+                    <input type="password" name="senha" id="senha_input" placeholder="******">
+                </div>
                 <button class="next" onclick="login();">Entrar</button>
             </div>
-
-
-
-        </div>
     </main>
 
     <img src="assets/img/ilustrator-log.png" class="banner">
+    <script src="script/login.js"></script>
 </body>
 
 </html>
