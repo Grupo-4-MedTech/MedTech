@@ -10,6 +10,37 @@ let uf;
 let email;
 let senha;
 
+let listaProximasPaginas = [
+                            `<h2>Localização</h2>
+                            <label for="input_CEP">CEP:</label>
+                            <input type="text" name="CEP" id="input_CEP">
+                            <label for="input_rua">Rua:</label>
+                            <input type="text" name="rua" id="input_rua">
+                            <label for="input_numero">Numero:</label>
+                            <input type="text" name="numero" id="input_numero">
+                            <label for="input_complemento">Complemento:</label>
+                            <input type="text" name="complemento" id="input_complemento">
+                            <label for="input_uf">UF:</label>
+                            <input type="text" name="uf" id="input_uf">
+                            <button class="next" onclick="nextInput(2), toggleVisibility()">Prosseguir</button>
+                            `,
+                            `<h2>Credenciais</h2>
+                            <label for="input_email">Email:</label>
+                            <input type="text" name="email" id="input_email">
+                            <label for="input_senha">Senha:</label>
+                            <div class="olho_senha">
+                                <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
+                                    visibility
+                                </span>
+                                <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
+                                    visibility_off
+                                </span>
+                            </div>
+                            <input type="password" name="senha1" id="input_senha">
+                            <label for="senha2">Digite a senha novamente:</label>
+                            <input type="password" name="senha2" id="senha2">
+                            <button class="next" onclick="finishForm()">Finalizar</button>`
+                        ]
 /* */
 
 let phases = document.getElementsByClassName("phase");
@@ -18,14 +49,14 @@ let passwordVisibility = true;
 
 function toggleVisibility() {
     if (passwordVisibility) {
-        visibilityOn.style.display = "block"
+        visibilityOn.style.display = "flex"
         visibilityOff.style.display = "none"
         passwordVisibility = false;
         input_senha.type = "password";
     }
     else {
         visibilityOn.style.display = "none"
-        visibilityOff.style.display = "block"
+        visibilityOff.style.display = "flex"
         passwordVisibility = true;
         input_senha.type = "text";
     }
@@ -33,38 +64,29 @@ function toggleVisibility() {
 
 function prevInput() {
     actualPhase--
-    nextInput(actualPhase);
+    position = actualPhase
 }
 
-function calcNextInput(element, position) {
-    //calcula o espaçamento (negativo) necessário para a posição desejada
-    element.style.left = `calc(-485px * ${position})`;
+
+
+function printInputs(indiceLista){
+    div_inputs.innerHTML = `${listaProximasPaginas[indiceLista-1]}`
 }
-
-function nextInput(position) {
-
-    let error    = false;
-    razaoSocial  = input_razaoSocial.value;
-    cnpj         = input_cnpj.value;
-    cep          = input_CEP.value;
-    nomeFantasia = input_nomeFantasia.value;
-    rua          = input_rua.value;
-    numero       = input_numero.value;
-    complemento  = input_complemento.value;
-    uf           = input_uf.value;
-    email        = input_email.value;
-    senha        = input_senha.value;
-
+let error = false;
+function nextInput(position) {    
     switch (position) { /* VALIDAÇÃO LÓGICA INPUTS */
         case 1:
+            razaoSocial  = input_razaoSocial.value;
+            cnpj         = input_cnpj.value;
+            nomeFantasia = input_nomeFantasia.value;
+
             if (!/^[A-Za-z\s]{6,25}$/.test(razaoSocial)) {
                 error = true;
                 inputColor(document.getElementById('input_razaoSocial'), error);
                 return;
             }
             inputColor(document.getElementById('input_razaoSocial'), error);
-            break;
-        case 2:
+
             if (!/^[a-zA-Z\s]{6,25}$/.test(nomeFantasia)) {
                 error = true;
                 inputColor(document.getElementById('input_nomeFantasia'), error);
@@ -77,9 +99,17 @@ function nextInput(position) {
                 inputColor(document.getElementById('input_cnpj'), error);
                 return;
             }
-                inputColor(document.getElementById('input_cnpj'), error);
-            break;
-        case 3:
+
+            inputColor(document.getElementById('input_cnpj'), error);
+            printInputs(position);
+        break;
+
+        case 2:
+            cep          = input_CEP.value;
+            rua          = input_rua.value;
+            numero       = input_numero.value;
+            complemento  = input_complemento.value;
+            uf           = input_uf.value;
             if (!/^[0-9]{8}$/.test(cep)) {
                 error = true;
                 inputColor(document.getElementById('input_CEP'), error);
@@ -112,31 +142,15 @@ function nextInput(position) {
             if (!/^[a-zA-Z0-9\s]{0,255}$/.test(complemento)) {
                 error = true;
                 inputColor(document.getElementById('input_complemento'), error);
-                return
+                return;
             }
             inputColor(document.getElementById('input_complemento'), error);
 
+            printInputs(position);
             break;
-        case 4:
-            if (!/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)) {
-                error = true; 
-                inputColor(document.getElementById('input_email'), error);
-                return;
-            }
-            inputColor(document.getElementById('input_email'), error);
-            break;
-    }
-
-    // vai fazer requisição do calculo da posição de cada div.phase
-    for (let i = 0; i < phases.length; i++) {
-        calcNextInput(phases[i], position)
-    }
-
-    if (position != 0) { // esconde ou mostra a seta de voltar nas fases de inputs
-        arrowBack.style.display = "block";
-    } else {
-        arrowBack.style.display = "none";
-    }
+        
+        }
+    
     actualPhase = position;
 }
 
@@ -144,6 +158,14 @@ function nextInput(position) {
 function finishForm() {
     let error = false;
     senha = input_senha.value;
+    email = input_email.value;
+    if (!/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)) {
+        error = true; 
+        inputColor(document.getElementById('input_email'), error);
+        return;
+    }
+    inputColor(document.getElementById('input_email'), error);
+
     if (!/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)) {
         error = true;
     }
@@ -154,6 +176,18 @@ function finishForm() {
     inputColor(document.getElementById('senha2'), error);
 
     if (!error) {
+        console.log({
+            razaoSocial,
+            nomeFantasia,
+            cnpj,
+            cep,
+            rua,
+            numero,
+            complemento,
+            uf,
+            email,
+            senha
+        });
         fetch("/hospital/cadastrar", {
             method: "POST",
             headers: {
@@ -179,6 +213,7 @@ function finishForm() {
                 console.log('Dados inválidos');
             }
         }).catch((error) => {
+            console.log("Erro ao cadastrar");
             console.log(error.message);
         })
     }

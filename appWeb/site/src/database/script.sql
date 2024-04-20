@@ -14,7 +14,7 @@ CREATE TABLE hospital(
 idHospital INT PRIMARY KEY AUTO_INCREMENT,
 nomeFantasia VARCHAR(100), 
 razaoSocial VARCHAR(100) NOT NULL,
-cnpj CHAR(13) NOT NULL,
+cnpj CHAR(14) NOT NULL,
 senha VARCHAR(255) NOT NULL,
 email VARCHAR(100) NOT NULL,
 -- verificado VARCHAR(5) NOT NULL, CONSTRAINT CHECK (verificado IN('true', 'false')),

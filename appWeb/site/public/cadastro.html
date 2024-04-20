@@ -7,7 +7,6 @@
     <title>MedTech - Cadastro</title>
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script/cadastro.js"></script>
     <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -17,78 +16,66 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body onload="nextInput(0); toggleVisibility();">
+<body onload="nextInput(0)">
     <main>
+        
         <div class="logo">
             <img src="assets/img/MedTechLogo.jpg">
             <img src="assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
 
 
-        <div id="screendiv">
-            <span class="material-symbols-outlined" id="arrowBack" onclick="prevInput();">
-                arrow_back
-            </span>
-
-            <div class="phase">
-                <h1> Crie sua conta agora</h1>
-                <div class="space"></div>
-                <div class="space"></div>
-                <label for="razaoSocial">Razão Social:</label>
-                <input type="text" name="razaoSocial" id="input_razaoSocial">
-                <div class="space"></div>
-                <button class="next" onclick="nextInput(1);">Prosseguir</button>
+            
+            <div class="phase" id="div_inputs">
+                <h1>
+                    Crie sua conta agora
+                    </h1>
+                    <label for="input_razaoSocial">Razão Social:</label>
+                    <input type="text" name="razaoSocial" id="input_razaoSocial">
+                    <label for="input_nomeFantasia">Nome Fantasia:</label>
+                    <input type="text" name="input_nomeFantasia" id="input_nomeFantasia">
+                    <label for="input_cnpj">CNPJ:</label>
+                    <input type="text" name="cnpjcpf" id="input_cnpj">
+                    <button class="next" onclick="nextInput(1)">Prosseguir</button> 
             </div>
 
 
-            <div class="phase">
+            <!-- <div class="phase">
                 <h2>Identificação</h2>
-                <div class="space"></div>
-                <div class="space"></div>
                 <label for="nomeFantasia">Nome Fantasia:</label>
                 <input type="text" name="input_nomeFantasia" id="input_nomeFantasia">
-                <div class="space"></div>
                 <label for="cnpjcpf">CNPJ:</label>
                 <input type="text" name="cnpjcpf" id="input_cnpj">
-                <div class="space"></div>
                 <button class="next" onclick="nextInput(2);">Prosseguir</button>
             </div>
 
-
+            
             <div class="phase">
                 <h2>Localização</h2>
-                <div class="space"></div>
                 <label for="CEP">CEP:</label>
                 <input type="text" name="CEP" id="input_CEP">
                 <label for="rua">Rua:</label>
                 <input type="text" name="rua" id="input_rua">
-                <div class="space"></div>
                 <label for="numero">Numero:</label>
                 <input type="text" name="numero" id="input_numero">
-                <div class="space"></div>
                 <label for="complemento">Complemento:</label>
                 <input type="text" name="complemento" id="input_complemento">
-                <div class="space"></div>
                 <label for="uf">UF:</label>
                 <input type="text" name="uf" id="input_uf">
-                <div class="space"></div>
                 <button class="next" onclick="nextInput(3);">Prosseguir</button>
             </div>
 
 
             <div class="phase">
                 <h2>Contato</h2>
-                <div class="space"></div>
                 <label for="emailInpt">Email:</label>
                 <input type="text" name="email" id="input_email">
-                <div class="space"></div>
                 <button class="next" onclick="nextInput(4);">Prosseguir</button>
             </div>
 
 
             <div class="phase">
                 <h2>Crie uma senha:</h2>
-                <div class="space"></div>
                 <label for="senha1">Senha:</label>
                 <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
                     visibility
@@ -97,13 +84,12 @@
                     visibility_off
                     </span>
                 <input type="password" name="senha1" id="input_senha">
-                <div class="space"></div>
                 <label for="senha2">Digite a senha novamente:</label>
                 <input type="password" name="senha2" id="senha2">
-                <div class="space"></div>
                 <button class="next" onclick="finishForm();">Finalizar</button>
-            </div>
-        </div>
+            </div> -->
+            <script src="script/cadastro.js"></script>
+
     </main>
 
     <img src="assets/img/ilustrator-cad.png" class="banner">
