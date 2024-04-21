@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# Criando usuário linux máquina cliente
-
-# Adiciona usuário, definindo a senha automaticamente como "medtech123"
-echo "\n\nCRIANDO USUÁRIO...\n\n"
-echo "medtech123" | sudo useradd cliente-medtech
-
-if [ $? = 0 ]
-	then
-		echo "\n\nUSUÁRIO CRIADO COM SUCESSO\n\n."
-	else
-		echo "\n\nERRO: USUÁRIO JÁ EXISTE\n\n"
-fi
-
 # Atualizar
 echo "\n\nATUALIZANDO O SISTEMA\n\n"
 yes | sudo apt update
@@ -21,16 +8,17 @@ yes | sudo apt upgrade
 # NMON
 echo "\n\nINSTALANDO NMON\n\n"
 yes | sudo apt install nmon
+sudo nmon -f -s 5 -c 10
 
 # JDK
-which java | grep –q /usr/bin/java
+java --version
 
 if [ $? = 0 ]
-	then
-		echo "\n\nJAVA JÁ ESTÁ INSTALADO\n\n"
-	else
-		echo "\n\nJAVA NÃO ENCONTRADO! INSTALANDO...\n\n"
-		yes | sudo apt install openjdk-17-jre-headless
+        then
+                echo "\n\nJAVA JÁ ESTÁ INSTALADO\n\n"
+        else
+                echo "\n\nJAVA NÃO ENCONTRADO! INSTALANDO...\n\n"
+                yes | sudo apt install openjdk-17-jre-headless
 fi
 
 # GitHub
@@ -38,13 +26,19 @@ echo "\n\nBUSCANDO DIRETÓRIO DA APLICAÇÃO...\n\n"
 cd MedTech
 
 if [ $? = 0 ]
-	then
-		echo "\n\nDIRETÓRIO ENCONTRADO.\n\n"
-	else
-		echo "\n\nDIRETÓRIO NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
-		git clone https://github.com/Grupo-4-MedTech/MedTech
-		cd MedTech
+        then
+                echo "\n\nDIRETÓRIO ENCONTRADO.\n\n"
+                cd ..
+        else
+                echo "\n\nDIRETÓRIO NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
+                git clone https://github.com/Grupo-4-MedTech/MedTech
 fi
+
+sudo chmod 111 MedTech
+sudo chmod 111 script.sh
+cd MedTech
+git pull
+
 
 # MYSQL
 echo "\n\nCONFIGURANDO BANCO DE DADOS\n\n"
@@ -59,5 +53,5 @@ sudo mysql < "$SQL_SCRIPT"
 
 # exec Jar
 echo "\n\nINICIANDO APLICACÃO\n\n"
-cd LP/appCliente/out/artifacts/jar
-java -jar appCliente.jar
+cd appCliente/java/out/artifacts/jar
+java -jar appCliente.jar'
