@@ -51,14 +51,14 @@ function login() {
 
 function toggleVisibility() {
     if (passwordVisibility) {
-        visibilityOn.style.display = "block";
+        visibilityOn.style.display = "flex";
         visibilityOff.style.display = "none";
         passwordVisibility = false;
         senha_input.type = "password";
     }
     else {
         visibilityOn.style.display = "none";
-        visibilityOff.style.display = "block";
+        visibilityOff.style.display = "flex";
         passwordVisibility = true;
         senha_input.type = "text";
     }

@@ -59,7 +59,6 @@ main {
 
 h1 {
    font-size: 1.8em;
-   text-indent: 40px;
    color: rgb(61, 61, 61);
 }
 
@@ -67,10 +66,14 @@ h1 {
 .phase {
    position: relative;
    height: 70vh;
+   width: 75%;
    transition: 200ms;
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
+   h1{
+      text-align: center; 
+   }
 } 
 
 
@@ -79,9 +82,8 @@ input {
    font-size: 1.35em;
    padding: 5px;
    border-radius: 9px;
-   text-indent: 5px;
-   width: 425px;
-
+   text-indent: 5px; 
+   width: 100%;
 }
 
 input::selection{
@@ -135,21 +137,18 @@ label {
 
 .olho_senha{
    display: flex;
+   width: 100%;
    justify-content: end;
    align-items: center;
-   position: absolute;  
-   right: 20px;
-   :hover{
-      cursor: pointer;
-   }
+   position: relative;  
+   margin: 0px;
 }
 
 .visibility{
-   margin-top: 3vh;
+   position: absolute;
    z-index: 1;
-   height: 20px;
-   width: 20px;
-   
+   margin-right: 10px;
+   cursor: pointer;
 }
 
 /* Responsividade login */
