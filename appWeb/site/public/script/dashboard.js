@@ -15,7 +15,6 @@ function toggleOptions() {
 
     /* protectedOptionsv <= verificar se o usuário tem permissão de gerenciar usuários*/
     // protectedOptions.style.display = block
-
 }
 
 function openConfig() {

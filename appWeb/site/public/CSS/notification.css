@@ -1,0 +1,80 @@
+.dashNotification{
+    display: flex;
+    width: fit-content;
+}
+
+.notificationCard{
+    width: 300px;
+    height: 150px;
+    margin: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.notificationStatus{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.statusRed{
+    background-color: red;
+}
+
+.statusYellow{
+    background-color: gold;
+}
+
+.statusGray{
+    background-color: gray;
+}
+
+.notificationCard> h3{
+    font-weight: normal;
+}
+
+.notificationNumber{
+    font-size: 2.9em;
+}
+
+.notificationNumber > img{
+    width: 30px;
+}
+
+.upArrow{
+    filter: hue-rotate(250deg);
+    rotate: 180deg;
+}
+
+/* chart */
+
+.dashContent{
+    display: flex;
+    justify-content: space-around;
+}
+
+.mainChart{
+    width: 400px;
+}
+
+.dashboardScreen table{
+    border: 1px solid black;
+    width: 250px;
+}
+
+.dashboardScreen table th{
+    background-color: rgba(0, 0, 0, 0.226);
+    padding: 15px;
+}
+
+.dashboardScreen table td{
+    padding: 15px;
+}

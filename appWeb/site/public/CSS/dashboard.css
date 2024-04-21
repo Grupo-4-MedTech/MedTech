@@ -79,6 +79,10 @@ header .profileFrame {
     display: none;
 }
 
+#profile_content{
+    display: none;
+}
+
 .profileName {
     margin-left: 20px;
     font-size: 1.3em;
@@ -161,6 +165,7 @@ main>nav ul>li {
 
 /* divscreen (configurações) */
 #backgrounddiv{
+    display: none;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -192,5 +197,4 @@ main>nav ul>li {
 
 .screendiv .closeBtn:hover {
     transform: scale(1.65);
-    rotate: -90deg;
 }
