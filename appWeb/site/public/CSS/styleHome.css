@@ -45,6 +45,8 @@ html {
 
 .header .MedTechLogo{
     border-radius: 50%;
+    margin-left: 22px;
+    margin-top:0.5vw;
 }
 .header .MedTechNome{
     height: 50px;
@@ -611,8 +613,13 @@ small{
         height: 50px;
         width: 120px;
         margin-left: 13px;
-        margin-bottom:1vw;
+        margin-bottom:-1vw;
         border-radius: 10px;
+    }
+    .icon_contato2 {
+        display: none;
+        width: auto;
+        height: 80%;
     }
     .header ul {
         font-weight: 500;
@@ -660,6 +667,11 @@ small{
         width: 100%;
         align-items: center;
         justify-content: left;
+    }
+    .imagemHome img {
+        width: 803px;
+        height: 350px;
+        object-fit: cover;
     }
     /* quem somos*/
     .texto-servicos{
@@ -776,6 +788,7 @@ small{
     
     
     #burger{
+        margin-right: 3vw;
         background-color: white;
         display: block;
         text-align: center;
@@ -811,7 +824,6 @@ small{
     
     .header .MedTechLogo{
         border-radius: 50%;
-        margin-left:2vw;
         width:50px;
         height: 50px;
         margin-top:4vw;
@@ -830,7 +842,7 @@ small{
         align-items: center;
         width: 51vw;
         height: 75vw;
-        justify-content: space-between;
+        justify-content: space-evenly;
         background-color: #03999e;
         display: flex;
         
