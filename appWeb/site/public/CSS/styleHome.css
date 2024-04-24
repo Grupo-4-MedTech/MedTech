@@ -41,6 +41,10 @@ html {
     margin: auto;
     justify-content: space-between;
     align-items: center;
+    a{
+        display: flex; 
+        align-items: center;
+    }
 }
 
 .header .MedTechLogo{
@@ -54,7 +58,6 @@ html {
 }
 menu{
     display: none;
-    display:none;
     font-weight: 500;
     font-size: 20px;
     padding: 0;
@@ -411,6 +414,9 @@ small{
 }
 
 /*/ Responsivo */
+@media (min-width: 1367px) {
+    
+}
 
 @media (min-width: 1024px) and (max-width:1366px){
     .titulo h2 {
@@ -767,11 +773,11 @@ small{
 @media (min-width: 360px) and (max-width:740px){
 
     menu{
-        display: none;
         position:absolute;
         width: 100%;
-      margin-left: 32vw;
-        margin-top:17vw;
+        display: none;
+        justify-content: end;
+        margin-top: 47.4vh;
     }
     
     
@@ -804,17 +810,15 @@ small{
     .header .container {
         display: flex;
         width: 80%;
-        align-items: baseline;
+        align-items: center;
         
     }
     
     
     .header .MedTechLogo{
         border-radius: 50%;
-        margin-left:2vw;
         width:50px;
         height: 50px;
-        margin-top:4vw;
     }
 
     .header .MedTechNome{
