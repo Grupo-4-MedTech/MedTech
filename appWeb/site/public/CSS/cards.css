@@ -1,7 +1,4 @@
  /* mesclar com dashboard.css */
- .navSelected {
-     background-color: rgba(0, 0, 0, 0.192);
- }
 
  .dashboardScreen .dashDescription h2 {
      text-indent: 30px;
