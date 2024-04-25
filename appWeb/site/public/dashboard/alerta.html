@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTech - Dashboard</title>
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../script/dashboard.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <header>
+        <div class="profileHeader">
+            <div class="profileFrame">
+                <img src="../assets/img/MedTechLogo.jpg" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
+                <div id="profile_content">
+                    <div class="arrowTop"></div>
+                    <div class="opContent">
+                        <ul>
+                            <li onclick="openConfig();">Configurações</li>
+                            <div id="protectedOptions">
+                                <li onclick="openUserManagement();">Gerenciar usuários</li>
+                                <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
+                            </div>
+                            <li onclick="logout();">Logout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileName" id="profile_name_header">User0123123</div> <!-- SUBSTITUIR ONLOAD -->
+        </div>
+
+        <div class="headerLogo">
+            <img src="../assets/img/MedTechLogo.jpg">
+            <img src="../assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
+        </div>
+    </header>
+
+    <div id="backgrounddiv">
+        <div class="screendiv">
+            <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
+                close
+            </span>
+            <div id="configContent">
+
+            </div>
+            <div id="computerRegistrationContent">
+
+            </div>
+
+        </div>
+    </div>
+
+    <main>
+        <!-- LEFT NAVIGATION -->
+        <nav>
+            <div class="companyName" id="company_nav_name">Santacruz</div>
+            <ul id="nav_setores">
+                <li>Geral</li>
+                <li>Critico</li>
+                <li class="navSelected">Alerta</li>
+                <li>Offline</li>
+                <li>Estável</li>
+            </ul>
+        </nav>
+
+        <div class="dashboardScreen" id="dashboard_screendiv">
+            <!-- aqui ficará as dashboards que se alternarão -->
+            <div class="dashDescription">
+                <h2>Estado de alerta</h2>
+                <span>Ultima atualização: ${dataatual}</span>
+            </div>
+            <div class="dashCards">
+                <div class="dashLine">
+                    <div class="dashCard">
+                        <h3>${nome do computador}</h3>
+                        <span>
+                            Código : ${} 
+                            
+                            <br>
+                            Especificações técnicas:
+                            <br>
+                            Modelo do processador: 
+                            <br>
+                            ${}
+                            <br>
+                            Memória:
+                            <br>
+                            ${}
+                            <br>
+                            Armazenamento:
+                            <br>
+                            ${}
+                            <br>
+                        </span>
+                        <canvas id="chart01" class="charts"></canvas>
+                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
+                    </div>
+
+                    <div class="dashCard">
+                        <h3>${nome do computador}</h3>
+                        <span>
+                            Código : ${} 
+                            
+                            <br>
+                            Especificações técnicas:
+                            <br>
+                            Modelo do processador: 
+                            <br>
+                            ${}
+                            <br>
+                            Memória:
+                            <br>
+                            ${}
+                            <br>
+                            Armazenamento:
+                            <br>
+                            ${}
+                            <br>
+                        </span>
+                        <canvas id="chart02" class="charts"></canvas>
+                        <div class="chartStatus"><img src="../assets/img/warnin-icon.png"></div>
+                    </div>
+
+                    <div class="dashCard">
+                        <h3>${nome do computador}</h3>
+                        <span>
+                            Código : ${} 
+                            
+                            <br>
+                            Especificações técnicas:
+                            <br>
+                            Modelo do processador: 
+                            <br>
+                            ${}
+                            <br>
+                            Memória:
+                            <br>
+                            ${}
+                            <br>
+                            Armazenamento:
+                            <br>
+                            ${}
+                            <br>
+                        </span>
+                        <canvas id="chart03" class="charts"></canvas>
+                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
+                    </div>
+
+                    <div class="dashCard">
+                        <h3>${nome do computador}</h3>
+                        <span>
+                            Código : ${} 
+                            
+                            <br>
+                            Especificações técnicas:
+                            <br>
+                            Modelo do processador: 
+                            <br>
+                            ${}
+                            <br>
+                            Memória:
+                            <br>
+                            ${}
+                            <br>
+                            Armazenamento:
+                            <br>
+                            ${}
+                            <br>
+                        </span>
+                        <canvas id="chart04" class="charts"></canvas>
+                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
+                    </div>
+
+            </div>
+        </div>
+    </main>
+    <script> /* graficos */
+        const ctx01 = document.getElementById('chart01');
+        const ctx02 = document.getElementById('chart02');
+        const ctx03 = document.getElementById('chart03');
+        const ctx04 = document.getElementById('chart04');
+        const options = {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    max: 10,
+                    beginAtZero: true
+                }
+            }
+        };
+
+
+        new Chart(ctx01, {
+            type: 'bar',
+            data: {
+                labels: ['CPU', 'Memória', 'Armazenamento'],
+                datasets: [{
+                    label: 'Porcentagem de uso',
+                    data: [8, 3, 2,],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx02, {
+            type: 'bar',
+            data: {
+                labels: ['CPU', 'Memória', 'Armazenamento'],
+                datasets: [{
+                    label: 'Porcentagem de uso',
+                    data: [8, 3, 2,],
+                    borderWidth: 1                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx03, {
+            type: 'bar',
+            data: {
+                labels: ['CPU', 'Memória', 'Armazenamento'],
+                datasets: [{
+                    label: 'Porcentagem de uso',
+                    data: [8, 3, 2,],
+                    borderWidth: 1                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx04, {
+            type: 'bar',
+            data: {
+                labels: ['CPU', 'Memória', 'Armazenamento'],
+                datasets: [{
+                    label: 'Porcentagem de uso',
+                    data: [8, 3, 2,],
+                    borderWidth: 1                }]
+            },
+            options: options
+        });
+    </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@
     <title>MedTech - Dashboard</title>
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/dashGus.css">
+    <link rel="stylesheet" href="../css/cards.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../script/dashboard.js"></script>
@@ -181,17 +181,6 @@
             </div>
         </div>
     </main>
-    <script> /* scroll vertical */
-        document.querySelector('.dashCards').addEventListener('wheel', function (e) {
-            if (e.deltaY != 0) {
-                // Previne o comportamento padrão de rolagem vertical
-                e.preventDefault();
-
-                // Rola a div horizontalmente
-                this.scrollLeft += e.deltaY;
-            }
-        });
-    </script>
     <script> /* graficos */
         const ctx01 = document.getElementById('chart01');
         const ctx02 = document.getElementById('chart02');

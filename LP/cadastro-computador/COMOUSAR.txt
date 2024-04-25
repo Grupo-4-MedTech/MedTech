@@ -1,3 +1,0 @@
-DADOS LOGIN: 
-	- Codigo do patrimonio: C057689
-	- Senha: medtech88
