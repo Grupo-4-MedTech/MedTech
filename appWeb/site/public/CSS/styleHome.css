@@ -232,6 +232,7 @@ section{
 
 }
 .container_valores{
+    margin-bottom: 1.5vw;
     display: flex;
     width: 35%;
     justify-content: center;
@@ -560,7 +561,7 @@ small{
     flex-direction: column;
 }
       section{
-        height: 45vw;
+        height: auto;
       }
 
 }
@@ -609,6 +610,7 @@ small{
 
     }
     .header .MedTechLogo{
+
         border-radius: 50%;
         margin-left:2vw;
         width:70px;
@@ -616,6 +618,7 @@ small{
     }
 
     .header .MedTechNome{
+        display: none;
         height: 50px;
         width: 120px;
         margin-left: 13px;
@@ -1200,22 +1203,4 @@ small{
 
 
 
-/* iphone*
-@media (min-width: 390px) and (max-width:884px){
-    .imagemHome img {
-        width: 664px;
-        height: 350px;
-        object-fit: cover;
-        margin-left: -272px;
-    }
-   
-}
-/*@media (min-width: 430px) and (max-width:932px){
-    .imagemHome img {
-        width: 700px;
-        height: 350px;
-        object-fit: cover;
-        margin-left: -272px;
-    }
-   
-}
+ 
