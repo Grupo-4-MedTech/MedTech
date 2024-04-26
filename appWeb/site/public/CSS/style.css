@@ -14,6 +14,7 @@
 
 html{
     scroll-behavior: smooth;
+    background-color: #ebf4f4;
 }
 
 /* NÃO INCREMENTAR ESTILOS POR ESTE ARQUIVO, PODE QUEBRAR OUTRAS PÁGINAS */

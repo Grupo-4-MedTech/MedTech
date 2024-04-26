@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="../css/notification.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../script/dashboard.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
     <header>
         <div class="profileHeader">
             <div class="profileFrame">
-                <img src="../assets/img/MedTechLogo.jpg" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
+                <img src="../assets/img/user-avatar.png" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
                 <div id="profile_content">
                     <div class="arrowTop"></div>
                     <div class="opContent">
@@ -38,8 +39,7 @@
         </div>
 
         <div class="headerLogo">
-            <img src="../assets/img/MedTechLogo.jpg">
-            <img src="../assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
+            <img src="../assets/img/medtech-logo2.png">
         </div>
     </header>
 
@@ -73,29 +73,51 @@
 
         <div class="dashboardScreen" id="dashboard_screendiv">
             <!-- aqui ficará as dashboards que se alternarão -->
+            <div class="containerCardsTopo">
+                <div class="dashNotification">
+                    <div class="notificationCard statusRed">
+                        <h3>Crítico</h3>
+                            <div class="subtextos">
+                                <span class="notificationNumber">4<img src="../assets/img/arrow.png">
+                                </span>
 
-            <div class="dashNotification">
-                <div class="notificationCard">
-                    <div class="notificationStatus statusRed"></div>
-                    <h3>Máquinas em estado Crítico</h3>
-                    <span class="notificationNumber">${}<img src="../assets/img/notification-arrow.png"></span>Um aumento de ${}% desde a ultima semana
+                                <span class="porcentagem">
+                                    Um aumento de 17% desde a última semana
+                                </span>
+                            </div>
+                    </div>
+                    <div class="notificationCard statusYellow">
+                        <h3>Alerta</h3>
+                        <div class="subtextos">
+                            <span class="notificationNumber">19<img class="upArrow" src="../assets/img/arrow.png">
+                            </span>
+
+                            <span class="porcentagem">
+                                Um aumento de 20% desde a última semana
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="notificationCard statusGray">
+                        <h3>Offline</h3>
+                        <div class="subtextos">
+                            <span class="notificationNumber">8<img src="../assets/img/arrow.png">
+                            </span>
+
+                            <span class="porcentagem">
+                                Um aumento de 30% desde a última semana
+                            </span>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="notificationCard">
-                    <div class="notificationStatus statusYellow"></div>
-                    <h3>Máquinas em Alerta</h3>
-                    <span class="notificationNumber">${}<img class="upArrow" src="../assets/img/notification-arrow.png"></span>Um aumento de ${}% desde a ultima semana
-                </div>
-                <div class="notificationCard">
-                    <div class="notificationStatus statusGray"></div>
-                    <h3>Máquinas offline</h3>
-                    <span class="notificationNumber">${}<img src="../assets/img/notification-arrow.png"></span>Um aumento de ${}% desde a ultima semana
-                </div>
+
             </div>
 
             <div class="dashDescription">
                 <h2>Recorrência de incidentes</h2>
                 <span>Ultima atualização: ${dataatual}</span>
-                <select >
+                <select>
                     <option value="" selected>Ultima semana</option>
                 </select>
             </div>
@@ -105,14 +127,22 @@
                     <canvas id="chart01" class="mainChart"></canvas>
                 </div>
                 <table>
-                    <tr><th>Causas</th></tr>
-                    <tr><td>CPU ${}</td></tr>
-                    <tr><td>RAM ${}</td></tr>
-                    <tr><td>Disco ${}</td></tr>
+                    <tr>
+                        <th>Causas</th>
+                    </tr>
+                    <tr>
+                        <td>CPU ${}</td>
+                    </tr>
+                    <tr>
+                        <td>RAM ${}</td>
+                    </tr>
+                    <tr>
+                        <td>Disco ${}</td>
+                    </tr>
                 </table>
             </div>
 
-            </div>
+        </div>
         </div>
     </main>
     <script> /* scroll vertical */
