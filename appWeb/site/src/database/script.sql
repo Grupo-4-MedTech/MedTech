@@ -12,16 +12,16 @@ CREATE TABLE endereco(
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE hospital(
-idHospital INT PRIMARY KEY AUTO_INCREMENT,
-nomeFantasia VARCHAR(100), 
-razaoSocial VARCHAR(100) NOT NULL,
-cnpj CHAR(14) NOT NULL,
-senha VARCHAR(255) NOT NULL,
-email VARCHAR(100) NOT NULL,
--- verificado VARCHAR(5) NOT NULL, CONSTRAINT CHECK (verificado IN('true', 'false')),
-verificado TINYINT,
-fkEndereco INT NOT NULL,
-CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
+	idHospital INT PRIMARY KEY AUTO_INCREMENT,
+	nomeFantasia VARCHAR(100), 
+	razaoSocial VARCHAR(100) NOT NULL,
+	cnpj CHAR(14) NOT NULL,
+	senha VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	-- verificado VARCHAR(5) NOT NULL, CONSTRAINT CHECK (verificado IN('true', 'false')),
+	verificado TINYINT,
+	fkEndereco INT NOT NULL,
+	CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE funcionario(
@@ -117,19 +117,6 @@ INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
-
-SELECT * FROM computador c
-JOIN leituraRamCpu lr
-ON lr.fkComputador = c.idComputador
-JOIN leituraDisco ld
-ON ld.fkComputador = lr.fkComputador
-JOIN leituraFerramenta lf
-ON lf.fkComputador = ld.fkComputador;
-
-select c.nome computador, ld.* from computador c
-join leituraDisco ld
-on ld.fkComputador = c.idComputador;
-
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';

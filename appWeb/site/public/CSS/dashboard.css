@@ -1,7 +1,7 @@
 /* HEADER */
-.navSelected {
+/*.navSelected {
     background-color: rgba(0, 0, 0, 0.192);
-}
+}*/
 
 header {
     width: 100%;
@@ -24,14 +24,15 @@ header .profileFrame {
     width: 80px;
     height: 80px;
     display: flex;
+    align-items: center;
     justify-content: center;
     position: relative;
 }
 
 .profileFrame>img {
     cursor: pointer;
-    border-radius: 50%;
-    width: 100%;
+    height: 45px;
+    width: 45px;
 }
 
 .profileFrame>div {
@@ -85,7 +86,7 @@ header .profileFrame {
 }
 
 .profileName {
-    margin-left: 20px;
+    color: white;
     font-size: 1.3em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);
 }
@@ -94,12 +95,15 @@ header .profileFrame {
     display: flex;
     align-items: center;
 }
+.headerLogo img{
+    height: 40px;
+}
 
 /* MAIN (screen) */
 
 main {
     width: 100%;
-    height: calc(100% - 120px);
+    height: 100%;
     position: absolute;
 }
 
@@ -108,19 +112,21 @@ main {
 main>nav {
     position: absolute;
     /* remover na responsividade */
-    width: 250px;
+    width: 110px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-right: 2px solid gray;
+    background-color:#06a3a8;
 }
 
 .companyName {
-    font-size: 1.4em;
-    padding: 40px 0;
-    max-width: 170px;
+    font-size: 1em;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 main>nav ul {
@@ -131,6 +137,9 @@ main>nav ul {
     justify-content: center;
     list-style: none;
     gap: 40px;
+    color: white;
+    font-size: 20px;
+    text-transform:capitalize;
 
 }
 
@@ -138,8 +147,6 @@ main>nav ul>li {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 10px;
-
 
 }
 
