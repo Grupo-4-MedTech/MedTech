@@ -1196,6 +1196,417 @@ small{
         color: #e0e0e0;
     }
 }
+@media (max-width: 360px){
+
+    menu{
+        position:absolute;
+        width: 100%;
+        display: none;
+        justify-content: end;
+        margin-top: 47.4vh;
+    }
+    
+    
+    #burger{
+        margin-right: 3vw;
+        background-color: white;
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+    #burger:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    
+    
+    .hamburger{
+        display: block;
+    }
+    .header {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        background-color: #03999e;
+    }
+    /* cabeça*/
+    .header .container {
+        display: flex;
+        width: 80%;
+        align-items: center;
+        
+    }
+    
+    
+    .header .MedTechLogo{
+        border-radius: 50%;
+        width:50px;
+        height: 50px;
+    }
+
+    .header .MedTechNome{
+        display: none;
+    }
+    .header ul {
+        border-radius: 5%;
+           flex-direction: column; 
+        font-weight: 500;
+        font-size: 11px;
+        padding: 0;
+        list-style-type: none;
+        align-items: center;
+        width: 51vw;
+        height: 75vw;
+        justify-content: space-evenly;
+        background-color: #03999e;
+        display: flex;
+        
+        
+     
+        /* home*/
+        /* mexer nisso*/
+
+        
+    }
+    .icon_contato2{
+        display: none;
+        }
+           
+    .header .fundo-btn{
+        position: relative;
+        display: flex;
+        align-items: center;
+        width:29vw;
+        margin-left:1vw;
+    }
+
+    .fundo-btn{
+        width: 50%;
+        height: 50%;
+        
+    
+
+        
+    }
+    .textoHome{
+        display: flex;
+        width: 600;
+        margin-left: 50px;
+        position: absolute;
+        flex-direction: column;
+        justify-content: left;
+        align-content: left;
+    }
+    .textoHome p{
+        display: none;
+        z-index: 1;
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 55;
+        color: ba;
+        text-shadow: 0.5px 0px 0px black;
+        
+    }
+    .imagemHome img{
+        width: 632px;
+        height:350px;
+        object-fit: cover;
+        margin-left:-272px
+    }
+    
+    
+    /* quem somos*/
+    .texto-servicos{
+       
+        text-align:justify;
+        font-size: 10px;
+        text-indent: 25px;
+        width:100vw;
+       
+
+    }
+
+    .container-servicos {
+        display: flex;
+        align-items: center;
+        /* width: 27%; */
+        height: 368px;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    .img-servicos img{
+        height: 250px;
+        width: 250px;
+    }
+    .titulo h2{
+        text-align: center;
+        justify-self: flex-start;
+        font-size:25px;
+        background: -webkit-linear-gradient(180deg, rgba(3,131,135,1) 30%, rgba(55,217,223,1) 65%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-top: -19vw;
+        
+    }
+
+    #section-servicos{
+        height: 600px;
+        width: 100%;
+        background-color: #E1E1E1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 2vw;
+        
+    }
+    .container_paiVisao {
+    width: 100%;
+    height: auto;
+    margin-left: -1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E1E1E1;
+}
+    /* sobre */
+
+    .container-sobre {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        /* align-items: center; */
+        width: 35%;
+        height: 330px;
+        /* margin-left: 2vw; */
+    }
+    #section_sobre{
+        height: 525px;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .texto-sobre{
+        text-align:justify;
+        font-size: 10px;
+        text-indent: 1vw;
+        animation: fade-in 3s 1; /*delay iteration-count direction fill-mode;*/ 
+        margin-top:2vw;
+        p {
+            /* width: 98%; */
+            margin-left: 65vw;
+    width: 60%;
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            font-size: 12px;
+        
+        }
+
+    }
+    .img-sobre img {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        height: 250px;
+        width: 250px;
+        margin-left: 65vw;
+    }
+    #section_sobre .titulo h2{
+        width: 76%;
+        display: flex;
+        justify-content: end;
+    }
+    .container_paiVisao p {
+        margin-left: -3vw;
+       text-align: center;
+    }
+    /*visao e valores */
+    section{
+        background-color:#E1E1E1;
+        height:200vw;
+    }
+    .container_paiVisao{
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 79%;
+        margin-top:10vw;
+        lord-icon{
+            display: flex;
+            justify-content: center;
+            width:90%;
+            margin-left:13vw;
+        } 
+    
+    }
+    .visao{
+        width: 20vw;
+    }
+    .container_visao{
+        display: flex;
+        width: 35%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+    }
+    .container_valores{
+        display: flex;
+        width: 35%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    p{
+        
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    font-size: 12px;
+    
+
+    
+    }
+    h2{
+        text-align: center;
+        width: 95%;
+        
+    }
+
+
+
+
+/* footer*/
+    .container_paiVisao{
+        width: 100%;
+        height: 90vh;
+        margin-left:-1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E1E1E1;
+      }
+
+      #section_footer{
+        width: 100%;
+        height: 340px;
+        background-color: rgb(28, 28, 28);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow: hidden;
+    }
+    
+    #section_footer .container{
+        margin-top: 50px;
+        width: 90%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .icones_container{
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    #section_footer .container .container2{
+        width: 30%;
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .titulo_footer{
+        color: #e0e0e0;
+        width: 100%;
+        font-weight: 600;
+        /* text-shadow: 2px 0px 0px #696969; */
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    .linha{
+        width: 95%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .container_paiVisao p{
+        margin-top: 5vw;
+    }
+    
+    .icon_social{
+        width: 35%;
+        height: auto;
+        cursor: pointer;
+    }
+    
+    .localizacao {
+        width: 100%;
+        color: #e0e0e0;
+        font-size: 90%;
+        font-weight: normal;
+        text-decoration: underline;
+        text-align: center;
+        cursor: pointer;
+        margin-top:2vw;
+    }
+    
+    .contato{
+        width: 90%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .icon_contato{
+        width: auto;
+        height: 90%;
+    margin-left:-5vw;
+    }
+    
+    .text_contato{
+        height: 100%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #e0e0e0;
+        font-weight: 0;
+        font-size: 10px;
+    }
+    
+    .rodape{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    
+    small{
+        color: #e0e0e0;
+    }
+}
 
 
 
