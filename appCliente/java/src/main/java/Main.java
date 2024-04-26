@@ -75,10 +75,7 @@ public class Main {
     }
 
     public static void inserirLeituras(Computador computador) throws InterruptedException {
-        Date dataHoraAtual = new Date();
-        String data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dataHoraAtual);
 
-        // SUBISTITUIR DADOS DO INSERT PELOS DADOS DA API LOOCA
         for (int i = 1; true; i++) {
 
             String queryRamCpu = "INSERT INTO leituraRamCpu (ram, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES("
