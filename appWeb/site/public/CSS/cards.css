@@ -1,40 +1,49 @@
+/* cards */
+.data .dashCards {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
 
-
-
- /* cards */
-.data
- .dashCards {
-     overflow-y: hidden;
-     overflow-x: auto;
- }
-
- .dashCards::-webkit-scrollbar {
+.dashCards::-webkit-scrollbar {
     display: none;
- }
+}
 
- .dashCards .dashLine {
-     display: flex;
-     width: fit-content;
- }
+.dashCards .dashLine {
+    display: flex;
+    width: fit-content;
+}
 
- .dashCards .dashCard {
-     width: 330px;
-     height: 380px;
-     margin: 10px 20px;
-     border-radius: 5px;
-     border: 1px solid black;
-     padding: 10px;
-     position: relative;
- }
- /* graficos */
+.dashCards .dashCard {
+    width: 330px;
+    height: 380px;
+    margin: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+}
 
- .chartStatus{
+/* graficos */
+
+.chartStatus {
     position: absolute;
     width: 20px;
     height: 20px;
     right: 5px;
     bottom: 5px;
- }
- .chartStatus>img{
+}
+
+.chartStatus>img {
     width: 100%;
- }
+}
+
+.dashCard>table {
+    background-color: antiquewhite;
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.dashCard>table>td,
+.dashCard>table>th {
+    height: 20px;
+}

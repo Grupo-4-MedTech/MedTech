@@ -71,10 +71,8 @@
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <ul id="nav_setores">
                 <li class="navSelected">Geral</li>
-                <li>Critico</li>
-                <li>Alerta</li>
-                <li>Offline</li>
-                <li>Estável</li>
+                <li>Triagem</li>
+                <li>Recepção</li>
             </ul>
         </nav>
 
@@ -82,8 +80,8 @@
             <!-- aqui ficará as dashboards que se alternarão -->
             <div class="containerCardsTopo">
                 <div class="dashNotification">
-                    <div class="notificationCard statusRed">
-                        <h3>Crítico</h3>
+                    <div class="notificationCard statusGreen">
+                        <h3>Online</h3>
                         <div class="subtextos">
                             <span class="notificationNumber">4<img src="../assets/img/arrow.png">
                             </span>
@@ -92,18 +90,6 @@
                                 Um aumento de 17% desde a última semana
                             </span>
                         </div>
-                    </div>
-                    <div class="notificationCard statusYellow">
-                        <h3>Alerta</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">19<img class="upArrow" src="../assets/img/arrow.png">
-                            </span>
-
-                            <span class="porcentagem">
-                                Um aumento de 20% desde a última semana
-                            </span>
-                        </div>
-
                     </div>
                     <div class="notificationCard statusGray">
                         <h3>Offline</h3>
@@ -123,7 +109,7 @@
             <br><br>
             <div class="dashDescription">
                 <span class="titulo">
-                    <h2>Recorrência de incidentes</h2>
+                    <h2>Guias mais acessadas</h2>
                 </span>
 
             </div><br><br>
@@ -145,21 +131,6 @@
                     <canvas id="chart01" class="mainChart"></canvas>
                 </div>
 
-
-                <table>
-                    <tr>
-                        <th>Principais causas</th>
-                    </tr>
-                    <tr>
-                        <td>CPU ${}</td>
-                    </tr>
-                    <tr>
-                        <td>RAM ${}</td>
-                    </tr>
-                    <tr>
-                        <td>Disco ${}</td>
-                    </tr>
-                </table>
             </div>
 
         </div>
@@ -180,7 +151,6 @@
         const options = {
             scales: {
                 y: {
-                    max: 10,
                     beginAtZero: true
                 }
             }
@@ -188,12 +158,12 @@
 
 
         new Chart(ctx01, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                labels: ['Epicgames', 'Aws', 'Wikipédia', 'Globo esporte', 'Pesquisas google', 'Youtube', 'Santacruz site'],
                 datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [8, 3, 2, 6, 4, 2, 1],
+                    label: 'Acessos de uso',
+                    data: [13, 30, 66, 30, 96, 40, 135],
                     borderWidth: 1
                 }]
             },

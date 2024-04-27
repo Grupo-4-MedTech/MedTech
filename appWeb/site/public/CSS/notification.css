@@ -1,93 +1,103 @@
-.dashNotification{
+.dashNotification {
     display: flex;
     width: fit-content;
 }
 
-.notificationCard{
+.notificationCard {
     width: 300px;
     height: 150px;
     margin: 10px 20px;
     border-radius: 8px;
-    box-shadow: 1px 1px rgba(75, 75, 75, 0.458);
+    box-shadow: 1px 1px #4b4b4b75;
     padding: 10px;
     position: relative;
     text-align: center;
     font-size: 0.8em;
+    color: white;
 }
-.containerTextos{
+
+.containerTextos {
     display: flex;
+    height: 100%;
     align-items: center;
     align-self: center;
     justify-self: center;
 }
-.statusRed{
+
+.statusRed {
     background-color: rgb(231, 86, 86);
-    color: white;
 }
 
-.statusYellow{
+.statusGreen {
+    background-color: rgb(120, 231, 86);
+}
+
+.statusYellow {
     background-color: rgb(231, 200, 86);
-    color: white;
 }
 
-.statusGray{
+.statusGray {
     background-color: #5e5d5d;
-    color: white;
 }
 
-.notificationCard> h3{
+.notificationCard>h3 {
     font-weight: normal;
 }
 
-.notificationNumber{
+.notificationNumber {
     font-size: 2.9em;
 }
 
-.notificationNumber > img{
+.notificationNumber>img {
     width: 30px;
 }
 
-.upArrow{
+.upArrow {
     filter: hue-rotate(250deg);
     rotate: 180deg;
 }
-.porcentagem{
+
+.porcentagem {
     width: 105px;
 }
-.dashNotification .notificationNumber{
-    font-weight:700;
+
+.dashNotification .notificationNumber {
+    font-weight: 700;
 }
 
-.subtextos{
+.subtextos {
     display: flex;
     align-self: center;
     justify-content: space-evenly;
     text-align: justify;
-
+    align-items: center;
+    height: calc(100% - 18px);
+    /* altura calculada apartir do tamanho máximo menos a altura do header (18px) */
 }
 
- /* textos */
+/* textos */
 
-.data-atualizacao h3{
-    text-decoration:none;
+.data-atualizacao h3 {
+    text-decoration: none;
     color: #383838;
     font-weight: 300;
     font-size: small;
-    text-align:right;
- }
- .data-atualizacao{
+    text-align: right;
+}
+
+.data-atualizacao {
     display: flex;
     align-items: center;
- }
- 
-.dashDescription{
+}
+
+.dashDescription {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
 /* select */
-.att-select{
+.att-select {
     display: flex;
     justify-content: space-between;
     width: 1000px;
@@ -97,7 +107,8 @@
     gap: 10px;
     padding: 0% 16.5%;
 }
-.select-data{
+
+.select-data {
     width: 140px;
     height: 26px;
     background-color: #37dadf;
@@ -107,30 +118,32 @@
     border-width: 0px;
     border-color: #37dadf;
 }
-select{
+
+select {
     appearance: none;
     border-radius: 4px;
     text-align: center;
     font-weight: 600;
 }
+
 /* chart */
 
-.dashContent{
+.dashContent {
     display: flex;
     justify-content: space-evenly;
 }
 
-.mainChart{
+.mainChart {
     width: 750px;
 }
 
 /* tabela */
-.dashboardScreen table{
+.dashContent table {
     border: 1px solid black;
     width: 200px;
 }
 
-.dashboardScreen table th{
+.dashContent table th {
     background-color: rgba(55, 218, 223, 0.651);
     padding: 15px;
     padding: 15px;
