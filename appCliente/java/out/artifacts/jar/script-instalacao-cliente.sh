@@ -1,9 +1,14 @@
 #!/bin/bash
 
+yes | sudo adduser cliente_medtech
+
+echo "cliente_medtech:medtech123" | sudo chpasswd
+
+
 # Atualizar
 echo "\n\nATUALIZANDO O SISTEMA\n\n"
-yes | sudo apt update
-yes | sudo apt upgrade
+#yes | sudo apt update
+#yes | sudo apt upgrade
 
 # NMON
 echo "\n\nINSTALANDO NMON\n\n"
@@ -23,22 +28,17 @@ fi
 
 # GitHub
 echo "\n\nBUSCANDO DIRETÓRIO DA APLICAÇÃO...\n\n"
-cd MedTech
+sudo ls  ../cliente_medtech/medtech
 
 if [ $? = 0 ]
         then
                 echo "\n\nDIRETÓRIO ENCONTRADO.\n\n"
-                cd ..
         else
                 echo "\n\nDIRETÓRIO NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
-                git clone https://github.com/Grupo-4-MedTech/MedTech
+                sudo git clone https://github.com/Grupo-4-MedTech/MedTech ../cliente_medtech/medtech
 fi
-
-sudo chmod 111 MedTech
 sudo chmod 111 script.sh
-cd MedTech
-git pull
-
+sudo chmod 111 ../cliente_medtech/medtech
 
 # MYSQL
 echo "\n\nCONFIGURANDO BANCO DE DADOS\n\n"
@@ -47,11 +47,9 @@ yes | sudo apt install mysql-server
 yes | sudo systemctl start mysql
 yes | sudo systemctl enable mysql
 
-SQL_SCRIPT="appWeb/site/src/database/script.sql"
+SQL_SCRIPT="../cliente_medtech/medtech/appWeb/site/src/database/script.sql"
 
 sudo mysql < "$SQL_SCRIPT"
 
-# exec Jar
-echo "\n\nINICIANDO APLICACÃO\n\n"
-cd appCliente/java/out/artifacts/jar
-java -jar appCliente.jar'
+echo "\n\nTUDO CONFIGURADO! EXECUTE OS SEGUINTES COMANDOS PARA RODAR A APLICAÇÃO:\n 1- cd ../cliente_medtech/medtech/appCliente/java/out/artifacts/jar \n 2- java -jar appCliente.jar"
+sudo su cliente_medtech

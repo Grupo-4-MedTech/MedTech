@@ -20,3 +20,17 @@ OBSERVAÇÕES:
 Caso precise fazer alguma alteração no script: chmod 777 script.sh, nano script.sh
 
 Caso precise fazer alguma manutenção no banco de dados: mysql ("ctrl + d" para sair)
+
+Selects:
+
+select c.nome computador, ld.* from computador c
+join leituraDisco ld
+on ld.fkComputador = c.idComputador;
+
+select c.nome computador, lr.* from computador c
+join leituraRamCpu lr
+on lr.fkComputador = c.idComputador;
+
+select c.nome computador, lf.* from computador c
+join leituraFerramenta lf
+on lf.fkComputador = c.idComputador;
