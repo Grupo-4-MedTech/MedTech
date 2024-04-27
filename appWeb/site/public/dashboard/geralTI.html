@@ -18,6 +18,14 @@
 
 <body>
     <header>
+        <div>
+            <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        </div>
+
+        <div class="headerLogo">
+            <img src="../assets/img/medtech-logo2.png">
+        </div>
+
         <div class="profileHeader">
             <div class="profileFrame">
                 <img src="../assets/img/user-avatar.png" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
@@ -38,9 +46,7 @@
             <div class="profileName" id="profile_name_header">User0123123</div> <!-- SUBSTITUIR ONLOAD -->
         </div>
 
-        <div class="headerLogo">
-            <img src="../assets/img/medtech-logo2.png">
-        </div>
+
     </header>
 
     <div id="backgrounddiv">
@@ -60,7 +66,8 @@
 
     <main>
         <!-- LEFT NAVIGATION -->
-        <nav>
+
+        <nav class="navbar">
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <ul id="nav_setores">
                 <li class="navSelected">Geral</li>
@@ -77,14 +84,14 @@
                 <div class="dashNotification">
                     <div class="notificationCard statusRed">
                         <h3>Crítico</h3>
-                            <div class="subtextos">
-                                <span class="notificationNumber">4<img src="../assets/img/arrow.png">
-                                </span>
+                        <div class="subtextos">
+                            <span class="notificationNumber">4<img src="../assets/img/arrow.png">
+                            </span>
 
-                                <span class="porcentagem">
-                                    Um aumento de 17% desde a última semana
-                                </span>
-                            </div>
+                            <span class="porcentagem">
+                                Um aumento de 17% desde a última semana
+                            </span>
+                        </div>
                     </div>
                     <div class="notificationCard statusYellow">
                         <h3>Alerta</h3>
@@ -113,22 +120,35 @@
                 </div>
 
             </div>
-
+            <br><br>
             <div class="dashDescription">
-                <h2>Recorrência de incidentes</h2>
-                <span>Ultima atualização: ${dataatual}</span>
-                <select>
-                    <option value="" selected>Ultima semana</option>
-                </select>
-            </div>
+                <span class="titulo">
+                    <h2>Recorrência de incidentes</h2>
+                </span>
+                
+            </div><br><br>
+            <div class="att-select">
+<div class="data-atualizacao">
+                    <h3> Atualizado em: 30/04/2024, às 20:32. </h3>
+                </div>
 
+                    <select class="select-data">
+                        <option value="" selected>Última semana</option>
+                        <option value="">Último mês</option>
+                        <option value="">Últimos 3 meses</option>
+                        <option value="">Todos os tempos</option>
+                    </select>
+        
+            </div>
             <div class="dashContent">
                 <div class="mainChart">
                     <canvas id="chart01" class="mainChart"></canvas>
                 </div>
+
+
                 <table>
                     <tr>
-                        <th>Causas</th>
+                        <th>Principais causas</th>
                     </tr>
                     <tr>
                         <td>CPU ${}</td>
@@ -156,7 +176,17 @@
             }
         });
     </script>
-    <script> /* graficos */
+    <script>
+        /* nav */
+
+        const menu = document.querySelector(".menu");
+        const navi = document.querySelector(".navbar");
+
+        menu.addEventListener('click', () => {
+            navi.classList.toggle('close');
+        })
+
+        /* graficos */
         const ctx01 = document.getElementById('chart01');
         const options = {
             scales: {

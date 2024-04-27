@@ -31,7 +31,7 @@
 }
 
 .statusGray{
-    background-color: rgb(68, 68, 68);
+    background-color: #5e5d5d;
     color: white;
 }
 
@@ -66,27 +66,72 @@
 
 }
 
+ /* textos */
+
+.data-atualizacao h3{
+    text-decoration:none;
+    color: #383838;
+    font-weight: 300;
+    font-size: small;
+    text-align:right;
+ }
+ .data-atualizacao{
+    display: flex;
+    align-items: center;
+ }
+ 
+.dashDescription{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* select */
+.att-select{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+    gap: 10px;
+    padding: 0% 16.5%;
+}
+.select-data{
+    width: 140px;
+    height: 26px;
+    background-color: #37dadf;
+    color: white;
+    box-sizing: unset;
+    border-style: none;
+    border-width: 0px;
+    border-color: #37dadf;
+}
+select{
+    appearance: none;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+}
 /* chart */
 
 .dashContent{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .mainChart{
-    width: 400px;
+    width: 750px;
 }
 
+/* tabela */
 .dashboardScreen table{
     border: 1px solid black;
-    width: 250px;
+    width: 200px;
 }
 
 .dashboardScreen table th{
-    background-color: rgba(0, 0, 0, 0.226);
+    background-color: rgba(55, 218, 223, 0.651);
     padding: 15px;
-}
-
-.dashboardScreen table td{
     padding: 15px;
 }

@@ -7,10 +7,10 @@ header {
     width: 100%;
     height: 70px;
     display: flex;
-    padding: 20px 5%;
+    padding: -20px 5%;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.418);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.185);
     background-color: #06a3a8;
 }
 
@@ -18,6 +18,7 @@ header {
     z-index: 5;
     display: flex;
     align-items: center;
+    padding-right: 20px;
 }
 
 header .profileFrame {
@@ -98,13 +99,19 @@ header .profileFrame {
 .headerLogo img{
     height: 40px;
 }
+.foto-menu{
+    display: flex;
+    gap: 100px;
+}
 
 /* MAIN (screen) */
 
 main {
+    display: flex;
     width: 100%;
     height: 100%;
     position: absolute;
+    background-color: #e2dfdf;
 }
 
 /* NAVEGAÇÃO ESQUERDA */
@@ -112,7 +119,7 @@ main {
 main>nav {
     position: absolute;
     /* remover na responsividade */
-    width: 110px;
+    width: 185px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -120,6 +127,7 @@ main>nav {
     justify-content: center;
     border-right: 2px solid gray;
     background-color:#06a3a8;
+    transition:  ease 700ms;
 }
 
 .companyName {
@@ -156,14 +164,25 @@ main>nav ul>li {
 }
 
 
-
+.menu{
+    margin: 20px 50px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    top:0;
+}
+.navbar.close{
+    margin-left: -185px;
+}
 
 
 /* TELA DA DASHBOARD */
 
 .dashboardScreen {
     position: absolute;
-    width: calc(100% - 250px);
+    width: 100%;
     /* ajustar na responsividade */
     height: 100%;
     right: 0;
@@ -205,4 +224,18 @@ main>nav ul>li {
 
 .screendiv .closeBtn:hover {
     transform: scale(1.65);
+}
+.titulo h2{
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(180deg, rgba(3,131,135,1) 30%, rgb(55, 217, 223) 65%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.containerCardsTopo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
