@@ -7,8 +7,8 @@ echo "cliente_medtech:medtech123" | sudo chpasswd
 
 # Atualizar
 echo "\n\nATUALIZANDO O SISTEMA\n\n"
-#yes | sudo apt update
-#yes | sudo apt upgrade
+yes | sudo apt update
+yes | sudo apt upgrade
 
 # NMON
 echo "\n\nINSTALANDO NMON\n\n"
@@ -38,7 +38,7 @@ if [ $? = 0 ]
                 sudo git clone https://github.com/Grupo-4-MedTech/MedTech ../cliente_medtech/medtech
 fi
 sudo chmod 111 script.sh
-sudo chmod 111 ../cliente_medtech/medtech
+sudo chmod 777 ../cliente_medtech
 
 # MYSQL
 echo "\n\nCONFIGURANDO BANCO DE DADOS\n\n"
@@ -51,5 +51,6 @@ SQL_SCRIPT="../cliente_medtech/medtech/appWeb/site/src/database/script.sql"
 
 sudo mysql < "$SQL_SCRIPT"
 
+sudo chmod 777 ../cliente_medtech/medtech
 echo "\n\nTUDO CONFIGURADO! EXECUTE OS SEGUINTES COMANDOS PARA RODAR A APLICAÇÃO:\n 1- cd ../cliente_medtech/medtech/appCliente/java/out/artifacts/jar \n 2- java -jar appCliente.jar"
 sudo su cliente_medtech
