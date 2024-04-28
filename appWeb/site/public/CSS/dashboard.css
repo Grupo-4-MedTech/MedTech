@@ -128,6 +128,7 @@ main>nav {
     border-right: 2px solid gray;
     background-color:#06a3a8;
     transition:  ease 700ms;
+    z-index: 2;
 }
 
 .companyName {
