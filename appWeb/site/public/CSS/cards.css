@@ -4,17 +4,26 @@
     overflow-x: auto;
 }
 
+.dashCards{
+    display: flex;
+    justify-content: center;
+}
+
 .dashCards::-webkit-scrollbar {
     display: none;
 }
 
 .dashCards .dashLine {
     display: flex;
-    width: fit-content;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .dashCards .dashCard {
-    width: 330px;
+    width: 350px;
     height: 380px;
     margin: 10px 20px;
     border-radius: 5px;

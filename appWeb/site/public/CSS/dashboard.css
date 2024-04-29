@@ -103,6 +103,9 @@ header .profileFrame {
     display: flex;
     gap: 100px;
 }
+.header img{
+    position: absolute;
+}
 
 /* MAIN (screen) */
 
@@ -142,7 +145,7 @@ main>nav ul {
     display: flex;
     height: 80%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     list-style: none;
     gap: 40px;

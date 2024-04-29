@@ -17,6 +17,14 @@
 
 <body>
     <header>
+        <div>
+            <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        </div>
+
+        <div class="headerLogo">
+            <img src="../assets/img/medtech-logo2.png">
+        </div>
+
         <div class="profileHeader">
             <div class="profileFrame">
                 <img src="../assets/img/user-avatar.png" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
@@ -34,12 +42,10 @@
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">User0123123</div> <!-- SUBSTITUIR ONLOAD -->
+            <div class="profileName" id="profile_name_header">Marcelo</div> <!-- SUBSTITUIR ONLOAD -->
         </div>
 
-        <div class="headerLogo">
-            <img src="../assets/img/medtech-logo2.png">
-        </div>
+
     </header>
 
     <div id="backgrounddiv">
@@ -59,7 +65,6 @@
 
     <main>
         <!-- LEFT NAVIGATION -->
-        <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
         <nav class="navbar">
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <ul id="nav_setores">
@@ -122,6 +127,13 @@
     <script>
 
         /* nav */
+
+        const menu = document.querySelector(".menu");
+        const navi = document.querySelector(".navbar");
+
+        menu.addEventListener('click', () => {
+            navi.classList.toggle('close');
+        })
         // const menu = document.querySelector() tava dando erro
 
         /* graficos */

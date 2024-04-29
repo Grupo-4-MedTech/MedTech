@@ -16,9 +16,17 @@
 
 <body>
     <header>
+        <div>
+            <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        </div>
+
+        <div class="headerLogo">
+            <img src="../assets/img/medtech-logo2.png">
+        </div>
+
         <div class="profileHeader">
             <div class="profileFrame">
-                <img src="../assets/img/MedTechLogo.jpg" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
+                <img src="../assets/img/user-avatar.png" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
                 <div id="profile_content">
                     <div class="arrowTop"></div>
                     <div class="opContent">
@@ -33,13 +41,10 @@
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">User0123123</div> <!-- SUBSTITUIR ONLOAD -->
+            <div class="profileName" id="profile_name_header">Marcelo</div> <!-- SUBSTITUIR ONLOAD -->
         </div>
 
-        <div class="headerLogo">
-            <img src="../assets/img/MedTechLogo.jpg">
-            <img src="../assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
-        </div>
+
     </header>
 
     <div id="backgrounddiv">
@@ -59,7 +64,7 @@
 
     <main>
         <!-- LEFT NAVIGATION -->
-        <nav>
+        <nav class="navbar">
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <ul id="nav_setores">
                 <a href="geralTI.html">
@@ -191,7 +196,18 @@
             </div>
         </div>
     </main>
-    <script> /* graficos */
+    <script>
+        /* nav */
+
+        const menu = document.querySelector(".menu");
+        const navi = document.querySelector(".navbar");
+
+        menu.addEventListener('click', () => {
+            navi.classList.toggle('close');
+        })
+    
+    
+    /* graficos */
         const ctx01 = document.getElementById('chart01');
         const ctx02 = document.getElementById('chart02');
         const ctx03 = document.getElementById('chart03');
