@@ -90,132 +90,123 @@
             <!-- aqui ficará as dashboards que se alternarão -->
             <div class="dashDescription">
                 <h2>Estado crítico</h2>
-                <span>Ultima atualização: ${dataatual}</span>
+                <span>Ultima atualização: 30/04/2024 4:55PM</span>
             </div>
             <div class="dashCards">
                 <div class="dashLine">
                     <div class="dashCard">
-                        <h3>${nome do computador}</h3>
+                        <h3>triagem02</h3>
                         <span>
-                            Código : ${}
-
+                            Código: 0123456
                             <br>
                             Especificações técnicas:
                             <br>
                             Modelo do processador:
                             <br>
-                            ${}
+                            Intel Celeron
                             <br>
                             Memória:
                             <br>
-                            ${}
+                            DDR4 - 4GB
                             <br>
                             Armazenamento:
                             <br>
-                            ${}
+                            HD - 500GB
                             <br>
                         </span>
                         <canvas id="chart01" class="charts"></canvas>
-                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
                     </div>
+                    
                     <div class="dashCard">
-                        <h3>${nome do computador}</h3>
+                        <h3>triagem58</h3>
                         <span>
-                            Código : ${}
-
+                            Código: 0123789
                             <br>
                             Especificações técnicas:
                             <br>
                             Modelo do processador:
                             <br>
-                            ${}
+                            AMD Athlon
                             <br>
                             Memória:
                             <br>
-                            ${}
+                            DDR4 - 4GB
                             <br>
                             Armazenamento:
                             <br>
-                            ${}
+                            SSD - 250GB
                             <br>
                         </span>
                         <canvas id="chart02" class="charts"></canvas>
-                        <div class="chartStatus"><img src="../assets/img/warnin-icon.png"></div>
                     </div>
-
+                    
                     <div class="dashCard">
-                        <h3>${nome do computador}</h3>
+                        <h3>consultorio76</h3>
                         <span>
-                            Código : ${}
-
+                            Código: 0123987
                             <br>
                             Especificações técnicas:
                             <br>
                             Modelo do processador:
                             <br>
-                            ${}
+                            Intel Pentium
                             <br>
                             Memória:
                             <br>
-                            ${}
+                            DDR4 - 4GB
                             <br>
                             Armazenamento:
                             <br>
-                            ${}
-                            <br>
-                        </span>
-                        <canvas id="chart02" class="charts"></canvas>
-                        <div class="chartStatus"><img src="../assets/img/warnin-icon.png"></div>
-                    </div>
-
-                    <div class="dashCard">
-                        <h3>${nome do computador}</h3>
-                        <span>
-                            Código : ${}
-
-                            <br>
-                            Especificações técnicas:
-                            <br>
-                            Modelo do processador:
-                            <br>
-                            ${}
-                            <br>
-                            Memória:
-                            <br>
-                            ${}
-                            <br>
-                            Armazenamento:
-                            <br>
-                            ${}
+                            HD - 500GB
                             <br>
                         </span>
                         <canvas id="chart03" class="charts"></canvas>
-                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
                     </div>
-
+                    
                     <div class="dashCard">
-                        <h3>${nome do computador}</h3>
+                        <h3>consultorio21</h3>
                         <span>
-                            Código : ${}
-
+                            Código: 0123123
                             <br>
                             Especificações técnicas:
                             <br>
                             Modelo do processador:
                             <br>
-                            ${}
+                            AMD Athlon
                             <br>
                             Memória:
                             <br>
-                            ${}
+                            DDR4 - 4GB
                             <br>
                             Armazenamento:
                             <br>
-                            ${}
+                            SSD - 250GB
                             <br>
                         </span>
                         <canvas id="chart04" class="charts"></canvas>
-                        <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div>
+                    </div>
+                    
+                    <div class="dashCard">
+                        <h3>recepcao72</h3>
+                        <span>
+                            Código: 0123678
+                            <br>
+                            Especificações técnicas:
+                            <br>
+                            Modelo do processador:
+                            <br>
+                            Intel Celeron
+                            <br>
+                            Memória:
+                            <br>
+                            DDR4 - 4GB
+                            <br>
+                            Armazenamento:
+                            <br>
+                            HD - 500GB
+                            <br>
+                        </span>
+                        <canvas id="chart05" class="charts"></canvas>
                     </div>
 
                 </div>
@@ -237,24 +228,31 @@
         const ctx02 = document.getElementById('chart02');
         const ctx03 = document.getElementById('chart03');
         const ctx04 = document.getElementById('chart04');
+        const ctx05 = document.getElementById('chart05');
         const options = {
             indexAxis: 'y',
             scales: {
                 y: {
-                    max: 10,
+                    max: 100,
                     beginAtZero: true
                 }
             }
         };
 
 
+        // Função para gerar um número aleatório entre 30 e 100
+        function randomNumber() {
+            return Math.floor(Math.random() * (100 - 30 + 1)) + 30;
+        }
+
+        // Atualização dos gráficos com dados aleatórios
         new Chart(ctx01, {
             type: 'bar',
             data: {
                 labels: ['CPU', 'Memória', 'Armazenamento'],
                 datasets: [{
                     label: 'Porcentagem de uso',
-                    data: [8, 3, 2,],
+                    data: [randomNumber(), randomNumber(), randomNumber()],
                     borderWidth: 1
                 }]
             },
@@ -267,7 +265,7 @@
                 labels: ['CPU', 'Memória', 'Armazenamento'],
                 datasets: [{
                     label: 'Porcentagem de uso',
-                    data: [8, 3, 2,],
+                    data: [randomNumber(), randomNumber(), randomNumber()],
                     borderWidth: 1
                 }]
             },
@@ -280,7 +278,7 @@
                 labels: ['CPU', 'Memória', 'Armazenamento'],
                 datasets: [{
                     label: 'Porcentagem de uso',
-                    data: [8, 3, 2,],
+                    data: [randomNumber(), randomNumber(), randomNumber()],
                     borderWidth: 1
                 }]
             },
@@ -293,7 +291,20 @@
                 labels: ['CPU', 'Memória', 'Armazenamento'],
                 datasets: [{
                     label: 'Porcentagem de uso',
-                    data: [8, 3, 2,],
+                    data: [randomNumber(), randomNumber(), randomNumber()],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx05, {
+            type: 'bar',
+            data: {
+                labels: ['CPU', 'Memória', 'Armazenamento'],
+                datasets: [{
+                    label: 'Porcentagem de uso',
+                    data: [randomNumber(), randomNumber(), randomNumber()],
                     borderWidth: 1
                 }]
             },

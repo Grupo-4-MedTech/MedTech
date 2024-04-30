@@ -84,7 +84,7 @@
             <!-- aqui ficará as dashboards que se alternarão -->
             <div class="dashDescription">
                 <h2>Estado de alerta</h2>
-                <span>Ultima atualização: ${dataatual}</span>
+                <span>Ultima atualização: 30/04/2024 4:55PM</span>
             </div>
             <div class="dashCards">
                 <div class="dashLine">
@@ -121,6 +121,39 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="dashCard">
+                        <h3>Recepcao002</h3>
+                        <span>
+                            Código : 002124
+
+                            <br>
+                            Status: Ativo
+                            <br>
+                        </span>
+                        <canvas id="chart02" class="charts"></canvas>
+                        <table>
+                            <tr>
+                                <th>Ultimos acessos</th>
+                                <th>Data</th>
+                            </tr>
+                            <tr>
+                                <td>Click jogos</td>
+                                <td>27/04/2024 02:13PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friv</td>
+                                <td>27/04/2024 03:33PM</td>
+                            </tr>
+                            <tr>
+                                <td>Trivago</td>
+                                <td>27/04/2024 07:43PM</td>
+                            </tr>
+                            <tr>
+                                <td>Santacruz</td>
+                                <td>27/04/2024 09:53PM</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
     </main>
@@ -144,6 +177,7 @@
         const options = {
             scales: {
                 y: {
+                    max: 100,
                     beginAtZero: true
                 }
             }
@@ -156,7 +190,20 @@
                 labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
                 datasets: [{
                     label: 'Tempo de atividade',
-                    data: [95, 89, 76, 92, 20, 65, 88],
+                    data: [92, 87, 79, 91, 83, 69, 81],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+
+        new Chart(ctx02, {
+            type: 'line',
+            data: {
+                labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                datasets: [{
+                    label: 'Tempo de atividade',
+                    data: [95, 89, 76, 92, 90, 65, 88],
                     borderWidth: 1
                 }]
             },
