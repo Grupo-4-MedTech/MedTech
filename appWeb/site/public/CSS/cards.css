@@ -36,6 +36,14 @@
     color: #027375;    
 }
 
+.tecnicalEspecification{
+    padding-left: 20px;
+}
+
+.tecnicalEspecification strong{
+    font-weight: bold;
+}
+
 /* graficos */
 
 .chartStatus {
