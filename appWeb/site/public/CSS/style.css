@@ -11,12 +11,15 @@
     box-sizing: border-box;
     border-collapse: collapse;
     list-style: none;
+    height: auto;
 }
 
 html{
     scroll-behavior: smooth;
-    background-color: #ebf4f4;
+    background-color: #a3a3a35b;
+    
 }
+
 
 /* NÃO INCREMENTAR ESTILOS POR ESTE ARQUIVO, PODE QUEBRAR OUTRAS PÁGINAS */
 /* Este arquivo tem como objetivo retirar o estilo padrão do HTML e definir alguns estilos de comportamento como box-sizing e border-collapse*/

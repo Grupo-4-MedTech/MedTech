@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/cards.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/notification.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../script/dashboard.js"></script>
     <link rel="stylesheet"
@@ -66,119 +65,70 @@
 
     <main>
         <!-- LEFT NAVIGATION -->
-
         <nav class="navbar">
             <div class="companyName" id="company_nav_name">Santacruz</div>
             <ul id="nav_setores">
-                <a href="geralTI.html">
+                <a href="geralGerencia.html">
                     <li class="navSelected">Geral</li>
                 </a>
-                <a href="critico.html">
-                    <li>Crítico</li>
+                <a href="triagem.html">
+                    <li>Triagem</li>
                 </a>
-                <a href="alerta.html">
-                    <li>Alerta</li>
-                </a>
-                <a href="offline.html">
-                    <li>Offline</li>
-                </a>
-                <a href="estavel.html">
-                    <li>Estável</li>
+                <a href="recepcao.html">
+                    <li>Recepção</li>
                 </a>
             </ul>
         </nav>
 
         <div class="dashboardScreen" id="dashboard_screendiv">
             <!-- aqui ficará as dashboards que se alternarão -->
-            <div class="containerCardsTopo">
-                <div class="dashNotification">
-                    <div class="notificationCard statusRed">
-                        <h3>Crítico</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">4<img src="../assets/img/arrow.png">
-                            </span>
-
-                            <span class="porcentagem">
-                                Aumento de 17% desde a última semana
-                            </span>
-                        </div>
-                    </div>
-                    <div class="notificationCard statusYellow">
-                        <h3>Alerta</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">19<img class="upArrow" src="../assets/img/arrow.png">
-                            </span>
-
-                            <span class="porcentagem">
-                                Diminuição de 20% desde a última semana
-                            </span>
-                        </div>
-
-                    </div>
-                    <div class="notificationCard statusGray">
-                        <h3>Offline</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">8<img src="../assets/img/arrow.png">
-                            </span>
-
-                            <span class="porcentagem">
-                                Aumento de 30% desde a última semana
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <br><br>
             <div class="dashDescription">
-                <span class="titulo">
-                    <h2>Recorrência de incidentes</h2>
-                </span>
-
-            </div><br>
-            <div class="att-select">
-                <div class="data-atualizacao">
-                    <h3>Atualizado em: 30/04/2024 às 18:45 </h3>
+                <div class="titulo">
+                   <h2>Triagem</h2> 
                 </div>
-
-                <select class="select-data">
-                    <option value="" selected>Última semana</option>
-                    <option value="">Último mês</option>
-                    <option value="">Últimos 3 meses</option>
-                    <option value="">Todos os tempos</option>
-                </select>
-
+                
+                <span>Última atualização: 30/04/2024 às 18:45</span>
             </div>
-            <div class="dashContent">
-                <div class="mainChart">
-                    <canvas id="chart01" class="mainChart"></canvas>
+            <div class="dashCards">
+                <div class="dashLine">
+                    <div class="dashCard" id="gerente">
+                        <h3>Triagem001</h3>
+                        <span>
+                            Código: 002123
+
+                            <br>
+                            Status: Ativo
+                            <br>
+                        </span>
+                        <canvas id="chart01" class="charts"></canvas>
+                        <table>
+                            <tr>
+                                <th>Últimos acessos</th>
+                                <th>Data</th>
+                            </tr>
+                            <tr>
+                                <td>Netflix</td>
+                                <td>27/04/2024 02:13PM</td>
+                            </tr>
+                            <tr>
+                                <td>Santacruz</td>
+                                <td>27/04/2024 03:33PM</td>
+                            </tr>
+                            <tr>
+                                <td>Wikipédia</td>
+                                <td>27/04/2024 07:43PM</td>
+                            </tr>
+                            <tr>
+                                <td>Moodle</td>
+                                <td>27/04/2024 09:53PM</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-
-
-                <table>
-                    <tr>
-                        <th>Principais causas</th>
-                    </tr>
-                    <tr>
-                        <td>CPU</td>
-                        <td> 8</td>
-                    </tr>
-                    <tr>
-                        <td>RAM</td>
-                        <td> 7 </td>
-                    </tr>
-                    <tr>
-                        <td>Disco </td>
-                        <td> 2 </td>
-                    </tr>
-                </table>
             </div>
-
-        </div>
-        </div>
     </main>
     <script>
+
         /* nav */
 
         const menu = document.querySelector(".menu");
@@ -187,13 +137,16 @@
         menu.addEventListener('click', () => {
             navi.classList.toggle('close');
         })
+        // const menu = document.querySelector() tava dando erro
 
         /* graficos */
         const ctx01 = document.getElementById('chart01');
+        const ctx02 = document.getElementById('chart02');
+        const ctx03 = document.getElementById('chart03');
+        const ctx04 = document.getElementById('chart04');
         const options = {
             scales: {
                 y: {
-                    max: 10,
                     beginAtZero: true
                 }
             }
@@ -205,10 +158,9 @@
             data: {
                 labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
                 datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [8, 3, 2, 6, 4, 2, 1],
-                    borderWidth: 1,
-                    borderColor: '#37dadf'
+                    label: 'Tempo de atividade',
+                    data: [95, 89, 76, 92, 20, 65, 88],
+                    borderWidth: 1
                 }]
             },
             options: options

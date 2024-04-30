@@ -71,7 +71,7 @@
                 <a href="geralGerencia.html">
                     <li class="navSelected">Geral</li>
                 </a>
-                <a href="recepcao.html">
+                <a href="triagem.html">
                     <li>Triagem</li>
                 </a>
                 <a href="recepcao.html">
@@ -83,15 +83,18 @@
         <div class="dashboardScreen" id="dashboard_screendiv">
             <!-- aqui ficará as dashboards que se alternarão -->
             <div class="dashDescription">
-                <h2>Estado de alerta</h2>
-                <span>Ultima atualização: ${dataatual}</span>
+                <span class="titulo">
+                   <h2>Recepção</h2> 
+                </span>
+                
+                <span>Última atualização: 30/04/2024 às 18:45</span>
             </div>
             <div class="dashCards">
                 <div class="dashLine">
-                    <div class="dashCard">
+                    <div class="dashCard" id="gerente">
                         <h3>Recepcao001</h3>
                         <span>
-                            Código : 002123
+                            Código: 002123
 
                             <br>
                             Status: Ativo
@@ -100,7 +103,7 @@
                         <canvas id="chart01" class="charts"></canvas>
                         <table>
                             <tr>
-                                <th>Ultimos acessos</th>
+                                <th>Últimos acessos</th>
                                 <th>Data</th>
                             </tr>
                             <tr>

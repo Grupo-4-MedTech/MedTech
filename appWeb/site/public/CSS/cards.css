@@ -23,13 +23,17 @@
 }
 
 .dashCards .dashCard {
-    width: 350px;
-    height: 380px;
+    width: 330px;
+    height: 350px;
     margin: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid black;
+    border-radius: 2px;
+    border: 1px solid #06a3a8;
     padding: 10px;
     position: relative;
+    color: rgb(42, 42, 42);
+}
+.dashCard th, .dashCard h3{
+    color: #027375;    
 }
 
 /* graficos */
@@ -47,7 +51,6 @@
 }
 
 .dashCard>table {
-    background-color: antiquewhite;
     height: 100px;
     overflow-y: scroll;
 }
@@ -55,4 +58,13 @@
 .dashCard>table>td,
 .dashCard>table>th {
     height: 20px;
+}
+.dashDescription span{
+    display: flex;
+    justify-content: center;
+}
+
+#gerente{
+    width: 360px;
+    height: 380px;
 }
