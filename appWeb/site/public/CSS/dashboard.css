@@ -41,7 +41,7 @@ header .profileFrame {
     z-index: 10;
     width: 300px;
     bottom: calc(-110px + -20px);
-    left: 0;
+    left: -130px;
     border-radius: 10px;
     background-color: gray;
     outline: 1px solid rgba(0, 0, 0, 0.5);
@@ -52,7 +52,7 @@ header .profileFrame {
 .profileFrame .arrowTop {
     width: 30px;
     height: 30px;
-    margin-left: 25px;
+    margin-left: 230px;
     margin-top: -10px;
     margin-bottom: -10px;
     rotate: 45deg;
