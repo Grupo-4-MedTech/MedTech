@@ -16,13 +16,9 @@ function buscarPorId(id){
 }
 
 function deleteHospital(hospital){
-    let query = `DELETE FROM hospital WHERE idHospital = ${hospital.idHospital};`;
+    const query = `DELETE FROM hospital WHERE idHospital = ${hospital.idHospital};`;
     console.log("Executando a instrução SQL: \n" + query);
-    database.executar(query);
-
-    query = `DELETE FROM endereco WHERE idEndereco = ${hospital.fkEndereco};`;
-    console.log("Executando a instrução SQL: \n" + query);
-    database.executar(query);
+    return database.executar(query);
 }
 
 module.exports= {
