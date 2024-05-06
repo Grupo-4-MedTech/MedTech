@@ -30,8 +30,7 @@ public class Computador {
 
     Looca looca = new Looca();
     Memoria memoria = looca.getMemoria();
-    JanelaGrupo janelaGrupo = looca.getGrupoDeJanelas();
-    List<Janela> listaJanelas = janelaGrupo.getJanelas();
+
     DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
     List<Volume> volumes = grupoDeDiscos.getVolumes();
     List<Long> porcentagemVolumes = new ArrayList<>();
@@ -66,6 +65,8 @@ public class Computador {
 
     List<Janela> listaGuias = new ArrayList<>();
     public List<Janela> getJanelas() {
+        JanelaGrupo janelaGrupo = looca.getGrupoDeJanelas();
+        List<Janela> listaJanelas = janelaGrupo.getJanelas();
         for (Janela listaJanela : listaJanelas) {
             if (listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Edge") || listaJanela.getTitulo().contains("Firefox") || listaJanela.getTitulo().contains("Opera")) {
                 listaGuias.add(listaJanela);
