@@ -209,8 +209,10 @@ function finishForm() {
             if (result.status == 201) {
                 console.log('Cadastrado com sucesso');
                 window.location.href = 'login.html';
-            } else if(result.status == 401){
-                console.log('Dados inválidos');
+            } else {
+                result.text().then(text => {
+                    alert(text);
+                })
             }
         }).catch((error) => {
             console.log("Erro ao cadastrar");

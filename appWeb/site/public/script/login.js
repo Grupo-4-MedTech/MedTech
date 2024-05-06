@@ -38,13 +38,10 @@ function login() {
             setTimeout(() => {
                 window.location = "index.html";
             }, 2000);
-
-        } else if (result.status == 400) {
-            showMessage(true, 'Email ou senha incorretos');
-        } else if(result.status == 401){
-            showMessage(true, 'Dados inválidos');
         } else {
-            showMessage(true, 'Erro inesperado');
+            result.text().then(text =>{
+                showMessage(true, text);
+            })
         }
     })
 }

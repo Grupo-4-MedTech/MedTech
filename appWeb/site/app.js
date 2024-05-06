@@ -1,20 +1,19 @@
 process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 // process.env.AMBIENTE_PROCESSO = "producao";
 
-var express = require("express");
-var cors = require("cors");
-var path = require("path");
-var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
 
-var app = express();
+const PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
 
-var indexRouter = require("./src/routes/index");
-var usuarioRouter = require("./src/routes/usuarios");
+const app = express();
+
+const indexRouter = require("./src/routes/index");
 const hospitalRouter = require("./src/routes/hospital");
 const funcionarioRouter = require("./src/routes/funcionario");
-var medidasRouter = require("./src/routes/medidas");
-var aquariosRouter = require("./src/routes/aquarios");
-var empresasRouter = require("./src/routes/empresas");
+const emailRouter = require("./src/routes/email");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,13 +22,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-// app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/funcionario", funcionarioRouter);
+app.use("/send-email", emailRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

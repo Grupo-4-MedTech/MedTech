@@ -1,5 +1,6 @@
 const hospitalModel = require("../models/hospitalModel");
 const enderecoModel = require("../models/enderecoModel");
+const emailController = require("./emailController");
 
 function cadastrar(req, res) {
 
@@ -23,19 +24,29 @@ function cadastrar(req, res) {
         !/^[1-9][0-9]{2,}$/.test(numero) ||
         !/^[a-zA-Z]{2}$/.test(uf) ||
         !/^[a-zA-Z0-9\s]{0,255}$/.test(complemento) ||
-        !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
+        !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email) ||
+        !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
     ) {
-        res.status(401);
+        res.status(401).send('Dados Inválidos!');
     } else {
 
         enderecoModel.cadastrar(cep, rua, numero, complemento, uf)
             .then((result) => {
-
                 const idEndereco = result.insertId;
-
                 hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco)
                     .then((result) => {
-                        res.status(201).json(result);
+                        hospitalModel.buscarPorId(result.insertId).then((hospital) => {
+                            emailController.emailCadastro(hospital[0])
+                            .then(() => {
+                                console.log('email enviado');
+                                res.status(201).json(result);
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                hospitalModel.deleteHospital(hospital[0]);
+                                res.status(401).send('Não foi possível finalizar o cadastro!');
+                            })
+                        })
                     }).catch((error) => {
                         console.error("Erro:", error);
                     });
