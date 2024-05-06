@@ -1,7 +1,6 @@
 CREATE DATABASE medtech;
 USE medtech;
 
-
 CREATE TABLE endereco(
 	idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 	cep CHAR(8),
@@ -117,6 +116,15 @@ INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
+
+DELIMITER $$
+CREATE TRIGGER deleteEnderecoHospital
+AFTER DELETE ON hospital
+FOR EACH ROW
+BEGIN 
+	DELETE FROM endereco WHERE idEndereco = OLD.fkEndereco;
+END$$
+DELIMITER ;
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
