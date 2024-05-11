@@ -40,18 +40,16 @@ header .profileFrame {
     position: absolute;
     z-index: 10;
     width: 300px;
-    bottom: calc(-110px + -20px);
-    left: -140px;
+    bottom: calc(-110px + -20px);   
     border-radius: 10px;
     background-color:#06a3a8;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.308);
-    /* alterar no .arrowTop tbm */
 }
 
 .profileFrame .arrowTop {
     width: 30px;
     height: 30px;
-    margin-left: 230px;
+    margin-left: 55px;
     margin-top: -10px;
     margin-bottom: -10px;
     rotate: 45deg;
@@ -86,6 +84,8 @@ header .profileFrame {
 
 #profile_content{
     width: 210px;
+    position: absolute;
+    right: -100px;
 }
 
 .profileName {
