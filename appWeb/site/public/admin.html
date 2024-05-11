@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerência de hopitais</title>
+    <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS/utils.css">
+</head>
+<body>
+    <section>
+        <header>
+            <div id="message">
+            </div>
+            <input class="search" type="text" id="input_search">
+            <div class="selects">
+                <select id="select_dtCriacao">
+                    <option value="null" selected disabled>dtCriacao</option>
+                    <option value="null">Todas</option>
+                    <option value="0">Hoje</option>
+                    <option value="1">Semana</option>
+                    <option value="2">Mês</option>
+                </select>
+                <select id="select_uf">
+                    <option value="null" selected disabled>UF</option>
+                    <option value="null">Todas</option>
+                </select>
+                <select id="select_verificado">
+                    <option value="null" selected disabled>Status</option>
+                    <option value="0">Inativo</option>
+                    <option value="1">Ativo</option>
+                    <option value="null">Ambos</option>
+                </select>
+                <button onclick="buscarHospitais()">BUSCAR</button>
+            </div>
+            <img src="./assets/img/email.png" width="35px">
+        </header>
+        <main>
+            <div id="mainCard" class="mainCard">
+            </div>
+        </main>
+    </section>
+    <script src="./script/utils.js"></script>
+    <script src="./script/admin.js"></script>
+</body>
+</html>

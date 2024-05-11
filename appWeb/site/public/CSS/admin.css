@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+}
+
+.search{
+    width: 45%;
+    border-radius: 20em;
+    border: none;
+}
+
+select{
+    width: 75px;
+    border-radius: 20em;
+}
+.selects{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+main{
+    width: 100%; 
+    height: 100% ; 
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+.mainCard{
+    height: fit-content;
+    width: 80%;
+    margin-top: 50px;
+    height: fit-content;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profileCard{
+    height: 150px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.rectangle1{
+    height: 100%;
+    width: 45%;
+    border: solid 2px #000;
+    padding: 10px;
+    background-color: rgb(200, 200, 200);
+}
+
+.rectangle2{
+    height: 100%;
+    width: 30%;
+    border: solid 2px #000;
+    padding: 10px;
+    border-left: none;
+    background-color: rgb(69, 69, 69);
+}

@@ -14,10 +14,10 @@ CREATE TABLE hospital(
 	idHospital INT PRIMARY KEY AUTO_INCREMENT,
 	nomeFantasia VARCHAR(100), 
 	razaoSocial VARCHAR(100) NOT NULL,
-	cnpj CHAR(14) NOT NULL,
+	cnpj CHAR(14) UNIQUE NOT NULL,
 	senha VARCHAR(255) NOT NULL,
-	email VARCHAR(100) NOT NULL,
-	-- verificado VARCHAR(5) NOT NULL, CONSTRAINT CHECK (verificado IN('true', 'false')),
+	email VARCHAR(100) UNIQUE NOT NULL,
+    dtCriacao DATE DEFAULT current_timestamp,
 	verificado TINYINT,
 	fkEndereco INT NOT NULL,
 	CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
@@ -26,10 +26,10 @@ CREATE TABLE hospital(
 CREATE TABLE funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(100),
-	cpf CHAR(11),
+	cpf CHAR(11) UNIQUE,
 	telefone CHAR(11),
 	cargo VARCHAR(45), CONSTRAINT chkCargo CHECK (cargo in ('MEDICO_GERENTE','TECNICO_TI','GESTOR_TI')),
-	email VARCHAR(100),
+	email VARCHAR(100) UNIQUE,
 	senha VARCHAR(255),
 	fkHospital INT, CONSTRAINT fkHospitalFunc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 ) AUTO_INCREMENT = 1000;
@@ -55,7 +55,7 @@ CREATE TABLE computador(
     idComputador INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR (50),
     modeloProcessador VARCHAR(255),
-    codPatrimonio VARCHAR(50),
+    codPatrimonio VARCHAR(50) UNIQUE,
     senha VARCHAR(255),
     gbRAM FLOAT,
     gbDisco FLOAT,
@@ -105,20 +105,45 @@ CREATE TABLE leituraFerramenta(
 
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP');
+INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
+('08450160', 'rua antônio thadeo', 372, 'apt04 bl604', 'SP');
 
 INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
 ('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', true, 1);
+INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
+('Clinica Repolho verde', 'Juliana & Familia', '00000000000001', 'JUJU8978','clinicaRepolho@gmail.com', true, 2);
+
+update hospital set dtCriacao = '2024-04-07' where idHospital = 1;
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 
+select * from hospital;
+
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
 
+CREATE VIEW hospitalWithEndereco AS
+SELECT * FROM hospital JOIN endereco ON fkEndereco = idEndereco;
+
 DELIMITER $$
-CREATE TRIGGER deleteEnderecoHospital
+CREATE PROCEDURE delete_hospital(IN id INT)
+BEGIN
+	DELETE FROM leituraDisco WHERE fkHospital = id;
+	DELETE FROM leituraRamCpu WHERE fkHospital = id;
+    DELETE FROM leituraFerramenta WHERE fkHospital = id;
+	DELETE FROM computador WHERE fkHospital = id;
+    DELETE FROM acesso WHERE fkHospital = id;
+    DELETE FROM funcionario WHERE fkHospital = id;
+    DELETE FROM departamento WHERE fkHospital = id;
+    DELETE FROM hospital WHERE idHospital = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER deleteHospital
 AFTER DELETE ON hospital
 FOR EACH ROW
 BEGIN 
@@ -128,4 +153,6 @@ DELIMITER ;
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
+GRANT EXECUTE ON PROCEDURE delete_hospital TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
+

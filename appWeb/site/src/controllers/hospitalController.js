@@ -37,15 +37,15 @@ function cadastrar(req, res) {
                     .then((result) => {
                         hospitalModel.buscarPorId(result.insertId).then((hospital) => {
                             emailController.emailCadastro(hospital[0])
-                            .then(() => {
-                                console.log('email enviado');
-                                res.status(201).json(result);
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                                hospitalModel.deleteHospital(hospital[0]);
-                                res.status(401).send('Não foi possível finalizar o cadastro!');
-                            })
+                                .then(() => {
+                                    console.log('email enviado');
+                                    res.status(201).json(result);
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                    hospitalModel.deleteHospital(hospital[0].idHospital);
+                                    res.status(401).send('Não foi possível finalizar o cadastro!');
+                                })
                         })
                     }).catch((error) => {
                         console.error("Erro:", error);
@@ -57,8 +57,52 @@ function cadastrar(req, res) {
     }
 }
 
+function find(req, res) {
+    const data = Object.entries(req.params);
 
+    hospitalModel.find(data).then((result) => {
+        if (result.length > 0) {
+            res.status(201).json(result);
+        } else {
+            res.status(200).send('Nenhum registro encontrados com estas especificações.');
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+    })
+}
+
+function deleteHospital(req, res) {
+    hospitalModel.deleteHospital(req.params.idHospital).then((result) => {
+        res.status(200);
+        if (!result.affectedRows > 0) {
+            res.send('Nenhum registro foi apagado.');
+        } else {
+            res.send('Resgistro apagado com sucesso!');
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+    })
+}
+
+function updateHospital(req, res) {
+    hospitalModel.updateHospital(req.params.idHospital, req.body)
+    .then((result) => {
+        if (!result.affectedRows > 0) {
+            res.send('Nenhum registro alterado.');
+        } else {
+            res.send('Registro alterado com sucesso!');
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+    })
+}
 
 module.exports = {
-    cadastrar
+    cadastrar,
+    find,
+    deleteHospital,
+    updateHospital
 }

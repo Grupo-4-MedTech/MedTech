@@ -83,26 +83,25 @@ function nextInput(position) {
             if (!/^[A-Za-z\s]{6,25}$/.test(razaoSocial)) {
                 error = true;
                 inputColor(document.getElementById('input_razaoSocial'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_razaoSocial'), error);
 
             if (!/^[a-zA-Z\s]{6,25}$/.test(nomeFantasia)) {
                 error = true;
                 inputColor(document.getElementById('input_nomeFantasia'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_nomeFantasia'), error);
 
             if (!/^[0-9]{14}$/.test(cnpj)) {
                 error = true;
                 inputColor(document.getElementById('input_cnpj'), error);
-                return;
+                break;
             }
 
             inputColor(document.getElementById('input_cnpj'), error);
-            printInputs(position);
-        break;
+            break;
 
         case 2:
             cep          = input_CEP.value;
@@ -113,14 +112,14 @@ function nextInput(position) {
             if (!/^[0-9]{8}$/.test(cep)) {
                 error = true;
                 inputColor(document.getElementById('input_CEP'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_CEP'), error);
 
             if (!/^[a-zA-Z\s]{10,25}$/.test(rua)) {
                 error = true;
                 inputColor(document.getElementById('input_rua'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_rua'), error);
 
@@ -128,30 +127,32 @@ function nextInput(position) {
             if (!/^[1-9][0-9]{1,}$/.test(numero)) {
                 error = true;
                 inputColor(document.getElementById('input_numero'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_numero'), error);
 
             if (!/^[a-zA-Z]{2}$/.test(uf)) {
                 error = true;
                 inputColor(document.getElementById('input_uf'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_uf'), error);
 
             if (!/^[a-zA-Z0-9\s]{0,255}$/.test(complemento)) {
                 error = true;
                 inputColor(document.getElementById('input_complemento'), error);
-                return;
+                break;
             }
             inputColor(document.getElementById('input_complemento'), error);
-
-            printInputs(position);
             break;
-        
         }
-    
+
+    if(!error){
+    printInputs(position);
     actualPhase = position;
+    } else {
+        showMessage(error, 'dados inválidos!');
+    }
 }
 
 
@@ -162,15 +163,18 @@ function finishForm() {
     if (!/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)) {
         error = true; 
         inputColor(document.getElementById('input_email'), error);
+        showMessage(error, 'Email inválido!');
         return;
     }
     inputColor(document.getElementById('input_email'), error);
 
     if (!/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)) {
         error = true;
+        showMessage(error, 'Senha inválida!');
     }
     else if (senha != senha2.value) {
         error = true;
+        showMessage(error, 'As senhas são diferentes!');
     }
     inputColor(document.getElementById('input_senha'), error);
     inputColor(document.getElementById('senha2'), error);

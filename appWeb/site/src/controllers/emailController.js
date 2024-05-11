@@ -11,8 +11,6 @@ const transporter = nodeMailer.createTransport({
 
 function emailCadastro(hospital){
 
-    console.log('Hospital: ', hospital);
-
     const config = {
         from: 'medtech.it.solutions@outlook.com',
         to: 'medtech.it.solutions@outlook.com',

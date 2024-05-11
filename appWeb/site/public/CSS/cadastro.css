@@ -32,21 +32,6 @@ main {
    left: calc(50% - 275px);
 }
 
-/* div message */
-
-#message{
-   display: none;
-   padding: 15px 40px;
-   transform: translateX(-50%);
-   position: absolute;
-   left: 50%;
-   bottom: 15px;
-   border-radius: 10px;
-   border: 1px solid rgb(255, 255, 255);
-   color: rgb(255, 255, 255);
-   font-size: 1.7em;
-}
-
 /* Div de inputs */
 
 #screendiv {
