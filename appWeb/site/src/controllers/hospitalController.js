@@ -35,24 +35,32 @@ function cadastrar(req, res) {
                 const idEndereco = result.insertId;
                 hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco)
                     .then((result) => {
-                        hospitalModel.buscarPorId(result.insertId).then((hospital) => {
-                            emailController.emailCadastro(hospital[0])
-                                .then(() => {
-                                    console.log('email enviado');
-                                    res.status(201).json(result);
-                                })
-                                .catch((error) => {
-                                    console.log(error);
-                                    hospitalModel.deleteHospital(hospital[0].idHospital);
-                                    res.status(401).send('Não foi possível finalizar o cadastro!');
-                                })
-                        })
+                        hospitalModel.find(Object.entries({ idHospital: result.insertId }))
+                            .then((hospital) => {
+                                emailController.emailCadastro(hospital[0])
+                                    .then(() => {
+                                        console.log('email enviado');
+                                        res.status(201).json(result);
+                                    })
+                                    .catch((error) => {
+                                        console.log(error);
+                                        hospitalModel.deleteHospital(hospital[0].idHospital);
+                                        res.status(401).send('Não foi possível finalizar o cadastro!');
+                                    })
+                            })
                     }).catch((error) => {
                         console.error("Erro:", error);
+                        if (error.code && error.code === 'ER_DUP_ENTRY') {
+                            const send = 'Entrada duplicada no campo "';
+                            res.status(400).send(send + (error.sqlMessage.indexOf('cnpj') > -1 ? 'cnpj"' : 'email"'))
+                        } else {
+                            res.status(500).send('Erro inesperado! Por favor, tente novamente mais tarde.');
+                        }
                     });
             })
             .catch((error) => {
                 console.error("Erro:", error);
+                res.status(500).send('Erro inesperado! Por favor, tente novamente mais tarde.');
             });
     }
 }
