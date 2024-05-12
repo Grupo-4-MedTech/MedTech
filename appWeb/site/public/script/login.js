@@ -38,6 +38,7 @@ function fetchToAdm() {
             res.json().then((json) => {
                 sessionStorage.NOME_USR = json.nome;
                 sessionStorage.EMAIL_USR = json.email;
+                sessionStorage.TOKEN = json.token;
                 sessionStorage.CPF = json.cpf;
             });
 

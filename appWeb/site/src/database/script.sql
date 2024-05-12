@@ -107,6 +107,7 @@ CREATE TABLE contaMedtech(
 	idContaMedtech INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
     cpf CHAR(11) UNIQUE,
+    token CHAR(255) UNIQUE,
     email VARCHAR(100) UNIQUE,
     senha VARCHAR(255)
 );

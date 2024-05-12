@@ -1,3 +1,4 @@
+let showing = false;
 const ufs = [
     'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
     'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN',
@@ -30,7 +31,7 @@ function printUserInfos() {
     <br>
     <div class="buttons">
         <button class="btn">Adicionar usuário</button>
-        <button class="btn">Sair</button>
+        <button class="btn" onclick="logout()">Sair</button>
     </div>`
 }
 
@@ -61,10 +62,13 @@ function buscarHospitais(
                 showMessage(error, text);
             });
         } else {
-            return res.json()
+            return res.json();
         }
     }).then((json) => {
         if (json && json.length > 0) {
+            if(!showing) {
+                showMessage(false, 'Tabela atualizada!');
+            }
             printResult(json);
         } else {
             printResult([]);
@@ -212,7 +216,28 @@ function showOptions(show){
 }
 
 function chkLogin() {
+    setTimeout(() => {
+        fetch(`admin/islogged/${sessionStorage.TOKEN}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            if (res.status != 200) {
+                logout();
+            } else {
+                printUserInfos();
+                buscarHospitais();
+            }
+        }).catch(() => {
+            logout();
+        });
+    }, 200);
 }
 
-printUserInfos();
-buscarHospitais();
+function logout(){
+    sessionStorage.clear();
+    window.location.href = 'index.html';
+}
+
+chkLogin();
