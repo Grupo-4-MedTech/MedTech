@@ -51,7 +51,7 @@ header .profileFrame {
     height: 30px;
     margin-left: 55px;
     margin-top: -10px;
-    margin-bottom: -10px;
+    margin-bottom: 0;
     rotate: 45deg;
     border-radius: 2px;
     background-color:#06a3a8;
