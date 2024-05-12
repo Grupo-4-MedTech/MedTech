@@ -13,6 +13,7 @@ const indexRouter = require("./src/routes/index");
 const hospitalRouter = require("./src/routes/hospital");
 const funcionarioRouter = require("./src/routes/funcionario");
 const emailRouter = require("./src/routes/email");
+const adminRouter = require("./src/routes/admin")
 
 
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use("/", indexRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/funcionario", funcionarioRouter);
 app.use("/send-email", emailRouter);
+app.use("/admin", adminRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

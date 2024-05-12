@@ -60,7 +60,9 @@ function cadastrar(req, res) {
 function find(req, res) {
     const data = Object.entries(req.params);
 
-    hospitalModel.find(data).then((result) => {
+    hospitalModel.find(
+        data.map((x) => { if (x[1] != 'null') { return x; } }).filter(x => x != undefined)
+    ).then((result) => {
         if (result.length > 0) {
             res.status(201).json(result);
         } else {
@@ -88,16 +90,16 @@ function deleteHospital(req, res) {
 
 function updateHospital(req, res) {
     hospitalModel.updateHospital(req.params.idHospital, req.body)
-    .then((result) => {
-        if (!result.affectedRows > 0) {
-            res.send('Nenhum registro alterado.');
-        } else {
-            res.send('Registro alterado com sucesso!');
-        }
-    }).catch((error) => {
-        console.log(error);
-        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
-    })
+        .then((result) => {
+            if (!result.affectedRows > 0) {
+                res.send('Nenhum registro alterado.');
+            } else {
+                res.send('Registro alterado com sucesso!');
+            }
+        }).catch((error) => {
+            console.log(error);
+            res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+        })
 }
 
 module.exports = {

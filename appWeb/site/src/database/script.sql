@@ -103,6 +103,17 @@ CREATE TABLE leituraFerramenta(
 	CONSTRAINT fkHospitalLeituraFer FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
+CREATE TABLE contaMedtech(
+	idContaMedtech INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    cpf CHAR(11) UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    senha VARCHAR(255)
+);
+
+INSERT INTO contaMedtech (nome, cpf, email, senha) VALUES
+('Caique Lucio', '59696032907', 'caiquedeandradelucio@gmail.com', 'medtech88');
+
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP');
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
@@ -119,8 +130,6 @@ INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) V
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
-
-select * from hospital;
 
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);

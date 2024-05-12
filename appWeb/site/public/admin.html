@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang=pt-br>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerência de hopitais</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="CSS/admin.css">
     <link rel="stylesheet" href="CSS/utils.css">
 </head>
+
 <body>
     <section>
         <header>
-            <div id="message">
-            </div>
-            <input class="search" type="text" id="input_search">
+            <input class="search" placeholder="Nome Fantasia" type="text" id="input_search">
             <div class="selects">
                 <select id="select_dtCriacao">
                     <option value="null" selected disabled>dtCriacao</option>
@@ -31,16 +32,22 @@
                     <option value="1">Ativo</option>
                     <option value="null">Ambos</option>
                 </select>
-                <button onclick="buscarHospitais()">BUSCAR</button>
+                <button class="btn" onclick="buscarHospitais()">BUSCAR</button>
             </div>
-            <img src="./assets/img/email.png" width="35px">
+            <img id="img_config" src="./assets/img/hamburger.png" width="35px">
+            <div id="div_config">
+                
+            </div>
         </header>
         <main>
             <div id="mainCard" class="mainCard">
             </div>
         </main>
+        <div id="message">
+        </div>
     </section>
     <script src="./script/utils.js"></script>
     <script src="./script/admin.js"></script>
 </body>
+
 </html>

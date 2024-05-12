@@ -17,7 +17,7 @@ function buscarPorId(id) {
 
 function deleteHospital(idHospital) {
     const query = `CALL delete_hospital(${idHospital});`
-    
+
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
@@ -26,43 +26,38 @@ function find(data) {
     let query = 'SELECT * FROM hospitalWithEndereco';
     let i = 0;
 
-    data = data.map((x) => {
-        if (x[1] != 'null') {
-            return x;
-        };
-    }).filter(x => x != undefined);
+    for (let [field, value] of data) {
+        if (i === 0) {
+            query += ' WHERE ';
+        } else {
+            query += ' AND ';
+        }
 
-    if (data.length > 0) {
-
-        for (let [field, value] of data) {
-            if (i === 0) {
-                query += ' WHERE ';
-            } else {
-                query += ' AND ';
-            }
+        if (field === 'dtCriacao') {
+            query += value;
+        } else {
             query += `${field} = `;
 
             if (/^[0-9]$/.test(value) && ['cnpj', 'senha', 'complemento', 'cep'].indexOf(field) < 0) {
                 value = Number(value);
             }
-
-            if (field === 'dtCriacao') {
-                query += value;
-            } else if (typeof value === 'string') {
+    
+            if (typeof value === 'string') {
                 query += `'${value}'`;
             } else {
                 query += `${value}`;
             }
-
-            i++;
         }
+
+        i++;
     }
+
     query += ';';
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
 
-function updateHospital(id, data){
+function updateHospital(id, data) {
     const query = `UPDATE hospital SET verificado = ${Number(data.verificado)} WHERE idHospital = ${id}`;
     console.log("Executando a instrução SQL: \n" + query);
 

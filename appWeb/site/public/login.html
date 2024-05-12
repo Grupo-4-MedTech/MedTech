@@ -25,22 +25,23 @@
             <img src="assets/img/MedTechLogo.jpg">
             <img src="assets/img/MedTechNome.jpg" alt="MedTech monitoramento">
         </div>
-            <div class="phase" id="div_inputs">
-                <h1>Bem vindo de volta</h1>
-                <label for="email">Login:</label>
-                <input type="text" name="email" id="email_input" placeholder="Seu Email">
-                <label for="senha">Senha:</label>
-                <div class="olho_senha">
-                    <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
-                        visibility
-                    </span>
-                    <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
-                        visibility_off
-                    </span>
-                    <input type="password" name="senha" id="senha_input" placeholder="******">
-                </div>
-                <button class="next" onclick="login();">Entrar</button>
+        <div class="phase" id="div_inputs">
+            <h1>Bem vindo de volta</h1>
+            <label for="email">Login:</label>
+            <input type="text" name="email" id="email_input" placeholder="Seu Email">
+            <label for="senha">Senha:</label>
+            <div class="olho_senha">
+                <span class="material-symbols-outlined visibility" id="visibilityOn" onclick="toggleVisibility();">
+                    visibility
+                </span>
+                <span class="material-symbols-outlined visibility" id="visibilityOff" onclick="toggleVisibility();">
+                    visibility_off
+                </span>
+                <input type="password" name="senha" id="senha_input" placeholder="******">
             </div>
+            <span class="checkbox"><input style="width: 50px;" type="checkbox" id="input_accType"> Logar como administrador</span>
+            <button class="next" onclick="login();">Entrar</button>
+        </div>
     </main>
 
     <img src="assets/img/ilustrator-log.png" class="banner">

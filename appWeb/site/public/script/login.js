@@ -1,9 +1,11 @@
 let passwordVisibility = true;
+let email;
+let senha;
 
 function login() {
-    const email = email_input.value;
-    const senha = senha_input.value;
 
+    email = email_input.value;
+    senha = senha_input.value;
     if(
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha) ||
         !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
@@ -12,6 +14,50 @@ function login() {
         return;
     }
 
+    const admAcc = document.getElementById('input_accType').checked;
+
+    if (admAcc) {
+        fetchToAdm();
+    } else {
+        fetchToFunc();
+    } 
+}
+
+function fetchToAdm() {
+    fetch("/admin/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email,
+            senha
+        })
+    }).then((res) => {
+        if (res.status == 200) {
+            res.json().then((json) => {
+                sessionStorage.NOME_USR = json.nome;
+                sessionStorage.EMAIL_USR = json.email;
+                sessionStorage.CPF = json.cpf;
+            });
+
+            showMessage(false, "Login realizado com sucesso");
+
+            setTimeout(() => {
+                window.location = "admin.html";
+            }, 2000);
+        } else {
+            result.text().then(text =>{
+                showMessage(true, text);
+            })
+        }
+    }).catch((error) => {
+        console.log(error)
+        showMessage(true, 'Houve um erro inesperado! entre em contato com o nosso suporte.');
+    })
+}
+
+function fetchToFunc() {
     fetch("/funcionario/autenticar", {
         method: "POST",
         headers: {
@@ -43,6 +89,9 @@ function login() {
                 showMessage(true, text);
             })
         }
+    }).catch((error) => {
+        console.log(error)
+        showMessage(true, 'Houve um erro inesperado! entre em contato com o nosso suporte.');
     })
 }
 
