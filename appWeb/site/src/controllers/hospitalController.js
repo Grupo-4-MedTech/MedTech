@@ -21,7 +21,7 @@ function cadastrar(req, res) {
         !/^[0-9]{14}$/.test(cnpj) ||
         !/^[0-9]{8}$/.test(cep) ||
         !/^[a-zA-Z\s]{10,25}$/.test(rua) ||
-        !/^[1-9][0-9]{2,}$/.test(numero) ||
+        !/^[1-9][0-9]{1,}$/.test(numero) ||
         !/^[a-zA-Z]{2}$/.test(uf) ||
         !/^[a-zA-Z0-9\s]{0,255}$/.test(complemento) ||
         !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email) ||

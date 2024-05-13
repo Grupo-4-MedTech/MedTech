@@ -248,11 +248,11 @@ function finishForm() {
             }),
         }).then((result) => {
             if (result.status == 201) {
-                showMessage(false, 'Cadastro realizado com sucesso! Rediecionando para o login...');
+                showMessage(false, 'Cadastro realizado com sucesso! Nossa equipe entrará em contato pelo e-mail cadastrado!');
 
                 setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000)
+                    window.location.href = 'index.html';
+                }, 5000)
             } else {
                 result.text().then(text => {
                     showMessage(true, text)
