@@ -7,4 +7,8 @@ router.post('/autenticar', function(req, res){
     funcionarioControler.autenticar(req, res)
 });
 
+router.get('/islogged/:token', function(req,res){
+    funcionarioControler.chkLogin(req, res)
+});
+
 module.exports = router

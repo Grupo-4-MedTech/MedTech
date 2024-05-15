@@ -1,6 +1,7 @@
 CREATE DATABASE medtech;
 USE medtech;
 
+
 CREATE TABLE endereco(
 	idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 	cep CHAR(8),
@@ -29,6 +30,7 @@ CREATE TABLE funcionario(
 	cpf CHAR(11) UNIQUE,
 	telefone CHAR(11),
 	cargo VARCHAR(45), CONSTRAINT chkCargo CHECK (cargo in ('MEDICO_GERENTE','TECNICO_TI','GESTOR_TI')),
+    token CHAR(255) UNIQUE,
 	email VARCHAR(100) UNIQUE,
 	senha VARCHAR(255),
 	fkHospital INT, CONSTRAINT fkHospitalFunc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
@@ -115,6 +117,8 @@ CREATE TABLE contaMedtech(
 INSERT INTO contaMedtech (nome, cpf, email, senha) VALUES
 ('Caique Lucio', '59696032907', 'caiquedeandradelucio@gmail.com', 'medtech88');
 
+select * from contaMedtech;
+
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP');
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
@@ -128,7 +132,10 @@ INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado,
 update hospital set dtCriacao = '2024-04-07' where idHospital = 1;
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
-('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
+('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
+('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
+
+select * from funcionario;
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 

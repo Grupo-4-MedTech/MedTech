@@ -15,7 +15,7 @@ function login(req, res){
         .then((result) => {
             if (result.length > 0) {
                 const token = utils.tokenGenerator();
-                result[0].token= token;
+                result[0].token = token;
                 adminModel.update(result[0])
                 .then((result2) => {
                     if (result2.affectedRows > 0) {

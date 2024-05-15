@@ -1,5 +1,8 @@
-function autenticar(senha, email){
-    const query = `SELECT nome, email, cpf, telefone, cargo, fkHospital FROM funcionario 
+
+const database = require("../database/config");
+
+function autenticar(senha, email) {
+    const query = `SELECT * FROM funcionario 
     WHERE senha = '${senha}' 
     AND email = '${email}';`;
 
@@ -7,8 +10,23 @@ function autenticar(senha, email){
     return database.executar(query);
 }
 
-const database = require("../database/config");
+function update(funcionario) {
+    const query = `UPDATE funcionario SET token = '${funcionario.token}' 
+    WHERE idFuncionario = ${funcionario.idFuncionario};`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function chkLogin(token) {
+    const query = `SELECT * FROM funcionario WHERE token = '${token}';`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
 
 module.exports = {
-    autenticar
+    autenticar,
+    update,
+    chkLogin
 }

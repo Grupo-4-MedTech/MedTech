@@ -26,10 +26,35 @@ function tokenGenerator() {
     let token = '';
 
     while (token.length < 255) {
-        token += chars[Math.round(Math.random() * chars.length)];
+        token += chars[Number((Math.random() * chars.length).toFixed(0))];
     }
 
     return token;
+}
+
+function chkLoginDash() {
+    setTimeout(() => {
+        fetch(`/funcionario/islogged/${sessionStorage.TOKEN}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            if (res.status != 200) {
+                logout();
+            } else {
+                // configurar dash
+            }
+        }).catch(() => {
+            logout();
+        });
+    }, 200);
+}
+
+
+function logout(){
+    sessionStorage.clear();
+    window.location.href = '../index.html';
 }
 
 module.exports = {
