@@ -20,6 +20,15 @@ html{
     
 }
 
+:root{
+    --verde-primario:#03999e;
+    --verde-claro:#37d9df;
+    --verde-escuro: #066467;
+    --cinza-fundo:#a3a3a35b;
+    --cinza-escuro: #5e5d5d;
+    --cinza-clarinho: #d9d6d6;
+}
+
 
 /* NÃO INCREMENTAR ESTILOS POR ESTE ARQUIVO, PODE QUEBRAR OUTRAS PÁGINAS */
 /* Este arquivo tem como objetivo retirar o estilo padrão do HTML e definir alguns estilos de comportamento como box-sizing e border-collapse*/
