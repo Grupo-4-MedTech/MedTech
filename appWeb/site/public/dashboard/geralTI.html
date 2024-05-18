@@ -16,6 +16,7 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -35,10 +36,10 @@
                 <!-- <div class="arrowTop"></div> -->
                 <div class="opContent">
                     <ul>
-                        <li onclick="openConfig();"> <img src="../assets/img/engrenagem.png" alt="">Configurações</li>
+                        <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações</li>
                         <!-- <div id="protectedOptions"> -->
                         <li> <img src="../assets/img/config-usuario.png" alt=""> <a href="config-usuarios.html">Usuários</a></li>
-                        <li onclick="openComputerRegistration();"> <img src="../assets/img/config-computador.png" alt="">Máquinas</li>
+                        <li onclick="openComputerRegistration();"> <img src="../assets/img/config-computador.png" alt=""><a href="config-maquinas.html">Máquinas</a></li>
                         <!-- </div> -->
 
                         <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
@@ -61,12 +62,19 @@
                 close
             </span>
         <div id="configContent">
+            <h3>Configurações</h3>
+            <div class="box">
+                <div id="nomeUsuario">Nome usuário</div>
+                <div id="cpfUsuario">CPF:</div>
+                <div id="telefoneUsuario">Telefone: <i class="fa-regular fa-pen-to-square"></i>
+                </div>
+                <div id="emailusuario"> Email: <i class="fa-regular fa-pen-to-square"></i>
+                </div> 
+            </div>
+            <div class="suporte"> <img src="../assets/img/suporte-online.png" alt=""> Suporte MedTech</div>
 
         </div>
-        <div id="computerRegistrationContent">
-
-        </div>
-
+       
     </div>
 </div>
 

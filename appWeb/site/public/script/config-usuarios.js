@@ -46,3 +46,4 @@ function editar(idFuncionario){
 }
 
 buscarUsuarios()
+
