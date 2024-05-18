@@ -44,7 +44,6 @@ function autenticar(req, res){
 }
 
 function chkLogin(req, res) {
-    console.log('CHECA')
     funcionarioModel.chkLogin(req.params.token)
     .then((result) => {
         if (result.length > 0) {
@@ -59,7 +58,24 @@ function chkLogin(req, res) {
     });
 }
 
+function buscarUsuarios(req, res){
+    funcionarioModel.buscar(req.params.idHospital)
+    .then((result) => {
+        if(result.length > 0){
+            res.status(200).json(result);
+        }
+        else{
+            res.status(100).send('Nenhum funcionário encontrado');
+        }
+    })
+    .catch((error)=> {
+        console.log(error);
+        res.status(500).send('Erro inesperado! Entre em contato com o nosso suporte.');
+    });
+}
+
 module.exports = {
     autenticar,
-    chkLogin
+    chkLogin,
+    buscarUsuarios
 }

@@ -25,8 +25,15 @@ function chkLogin(token) {
     return database.executar(query);
 }
 
+function buscar(idHospital){
+    const query = `SELECT * FROM funcionario WHERE fkHospital = '${idHospital}';`;
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     autenticar,
     update,
-    chkLogin
+    chkLogin,
+    buscar
 }

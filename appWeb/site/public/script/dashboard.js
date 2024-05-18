@@ -23,11 +23,11 @@ function openConfig() {
 
 }
 
-function openUserManagement() {
-    profile_content.style.display = 'none';
-    backgrounddiv.style.display = 'block';
+// function openUserManagement() {
+//     profile_content.style.display = 'none';
+//     backgrounddiv.style.display = 'block';
 
-}
+// }
 
 function openComputerRegistration() {
     profile_content.style.display = 'none';
