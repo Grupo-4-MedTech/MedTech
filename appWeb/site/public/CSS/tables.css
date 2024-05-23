@@ -116,7 +116,7 @@ td form button.button:hover {
     border-color: #37dadf;
 }
 
-#btn-voltar{
+#btn-voltar, #btn-add-pc{
     width: 80px;
     height: 26px;
     background-color: var(--verde-escuro);
