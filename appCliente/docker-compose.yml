@@ -1,0 +1,11 @@
+version: '3.8'  
+
+services:
+  appcliente:  
+    image: nathancavalcante/appcliente:1.0
+    tty: true
+    stdin_open: true
+    command: ["/bin/bash"]
+
+  
+    
