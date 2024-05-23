@@ -17,7 +17,7 @@ CREATE TABLE hospital(
 	cnpj CHAR(14) UNIQUE NOT NULL,
 	senha VARCHAR(255) NOT NULL,
 	email VARCHAR(100) UNIQUE NOT NULL,
-    dtCriacao DATE DEFAULT current_timestamp,
+    dtCriacao DATETIME DEFAULT current_timestamp,
 	verificado TINYINT,
 	fkEndereco INT NOT NULL,
 	CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
