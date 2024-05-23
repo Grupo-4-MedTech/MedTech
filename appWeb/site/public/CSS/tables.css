@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* fundo */
+.fundo-tabela {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 1200px;
+    height: 550px;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 25px;
+
+}
+
+/* tabelas */
+th {
+    text-align: center;
+}
+
+.glyphicon {
+    margin-right: 10px;
+}
+
+.crud-table {
+    display: flex;
+    padding: 40px 0;
+    align-items: center;
+}
+
+.form-alert {
+    margin-top: 10px;
+}
+
+.form-inline {
+    margin-bottom: 20px;
+}
+
+tr, th{
+    border: 1px solid var(--cinza-fundo);
+    border-style:outset;
+}
+
+
+table {
+    /* display: flex; */
+    width: 70%;
+    /* align-items: center;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+
+td form {
+    margin: 0;
+    padding: 0;
+}
+
+td form button.button {
+    padding: 0.25em;
+    margin: 0.25em;
+    background: none;
+    color: blue;
+}
+
+td form button.button:hover {
+    background: none;
+    color: steelblue;
+}
+
+/* ícones */
+
+.tabela {
+    display: flex;
+    width: 900px;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--cinza-escuro);
+}
+
+.tabela th {
+    color: var(--verde-escuro);
+}
+
+.fa {
+    color: var(--verde-primario);
+}
+
+.tabela h1 {
+    color: var(--verde-primario);
+}
+
+.botoes {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#add-user {
+    width: 190px;
+    height: 26px;
+    background-color: var(--verde-escuro);
+    color: white;
+    box-sizing: unset;
+    border-radius: 10px;
+    border-style: none;
+    border-width: 0px;
+    border-color: #37dadf;
+}
+
+#btn-voltar, #btn-add-pc{
+    width: 80px;
+    height: 26px;
+    background-color: var(--verde-escuro);
+    color: white;
+    box-sizing: unset;
+    border-radius: 10px;
+    border-style: none;
+    border-width: 0px;
+    border-color: #37dadf;
+}
+table a{
+    color: #3772df;
+    font-weight: 600;
+}
+td, th{
+    padding: 8px;
+    text-align:left;
+}
+.editar{
+    width: 50px;
+}

@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="../css/cards.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/notification.css">
+    <link rel="stylesheet" href="../CSS/utils.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../script/dashboard.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -30,25 +32,29 @@
 
         <div class="profileHeader">
             <div class="profileFrame">
-                <img src="../assets/img/user-avatar.png" > <!--EXEMPLO DE IMG, TROCAR-->
+                <img src="../assets/img/user-avatar.png"> <!--EXEMPLO DE IMG, TROCAR-->
                 <div id="profile_content">
                     <!-- <div class="arrowTop"></div> -->
-                    <div class="opContent"> 
+                    <div class="opContent">
                         <ul>
-                            <li onclick="openConfig();"> <img src="../assets/img/engrenagem.png" alt=""> Configurações</li>
-                            <div id="protectedOptions">
-                                <li onclick="openUserManagement();">Gerenciar usuários</li>
-                                <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
-                            </div>
-                            
+                            <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
+                            </li>
+                            <!-- <div id="protectedOptions"> -->
+                            <li> <img src="../assets/img/config-usuario.png" alt=""> <a
+                                    href="config-usuarios.html">Usuários</a></li>
+                            <li onclick="openComputerRegistration();"> <img src="../assets/img/config-computador.png"
+                                    alt=""><a href="config-maquinas.html">Máquinas</a></li>
+                            <!-- </div> -->
+
                             <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">Marcelo<i class="fa fa-angle-down" onclick="toggleOptions();"></i>
-            
-        </div>
+            <div class="profileName" id="profile_name_header">Marcelo<i class="fa fa-angle-down"
+                    onclick="toggleOptions();"></i>
+
+            </div>
             <!-- SUBSTITUIR ONLOAD -->
         </div>
 
@@ -61,9 +67,16 @@
                 close
             </span>
             <div id="configContent">
-
-            </div>
-            <div id="computerRegistrationContent">
+                <h3>Configurações</h3>
+                <div class="box">
+                    <div id="nomeUsuario">Nome usuário</div>
+                    <div id="cpfUsuario">CPF:</div>
+                    <div id="telefoneUsuario">Telefone: <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+                    <div id="emailusuario"> Email: <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+                </div>
+                <div class="suporte"> <img src="../assets/img/suporte-online.png" alt=""> Suporte MedTech</div>
 
             </div>
 
@@ -96,7 +109,7 @@
 
         <div class="dashboardScreen" id="dashboard_screendiv">
             <!-- aqui ficará as dashboards que se alternarão -->
-            <div class="containerCardsTopo">
+            <div class="containerCardsTopo" id="div_kpis">
                 <div class="dashNotification">
                     <div class="notificationCard statusRed">
                         <h3>Crítico</h3>
@@ -148,11 +161,12 @@
                     <h3>Atualizado em: 30/04/2024 às 18:45 </h3>
                 </div>
 
-                <select class="select-data">
-                    <option value="" selected>Última semana</option>
-                    <option value="">Último mês</option>
-                    <option value="">Últimos 3 meses</option>
-                    <option value="">Todos os tempos</option>
+                <select class="select-data" id="select_data">
+                    <option value="null" selected disabled>Período de busca</option>
+                    <option value="1">Última semana</option>
+                    <option value="2">Último mês</option>
+                    <option value="3">Últimos 3 meses</option>
+                    <option value="null">Todos os tempos</option>
                 </select>
 
             </div>
@@ -162,7 +176,7 @@
                 </div>
 
 
-                <table>
+                <table id="table_causas">
                     <tr>
                         <th>Principais causas</th>
                     </tr>
@@ -183,7 +197,12 @@
 
         </div>
         </div>
+
+        <div id="message">
+        </div>
     </main>
+    <script src="../script/utils.js"></script>
+    <script src="../script/geralTI.js"></script>
     <script>
         /* nav */
 
@@ -193,32 +212,6 @@
         menu.addEventListener('click', () => {
             navi.classList.toggle('close');
         })
-
-        /* graficos */
-        const ctx01 = document.getElementById('chart01');
-        const options = {
-            scales: {
-                y: {
-                    max: 10,
-                    beginAtZero: true
-                }
-            }
-        };
-
-
-        new Chart(ctx01, {
-            type: 'line',
-            data: {
-                labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [8, 3, 2, 6, 4, 2, 1],
-                    borderWidth: 1,
-                    borderColor: '#37dadf'
-                }]
-            },
-            options: options
-        });
     </script>
 </body>
 

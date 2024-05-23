@@ -66,12 +66,12 @@ function buscarHospitais(
         }
     }).then((json) => {
         if (json && json.length > 0) {
-            if(!showing) {
+            if (!showing) {
                 showMessage(false, 'Tabela atualizada!');
             }
             printResult(json);
         } else {
-            printResult([]);
+            printResult();
         }
     }).catch((error) => {
         console.log(error);
@@ -233,11 +233,6 @@ function chkLogin() {
             logout();
         });
     }, 200);
-}
-
-function logout(){
-    sessionStorage.clear();
-    window.location.href = 'index.html';
 }
 
 chkLogin();

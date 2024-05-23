@@ -72,19 +72,8 @@ function fetchToFunc() {
         if (result.status == 201) {
             console.log('Logado com sucesso');
             result.json().then((json) => {
-                sessionStorage.NOME_USR = json.nome;
-                sessionStorage.EMAIL_USR = json.email;
-                sessionStorage.TEL_USR = json.telefone;
-                sessionStorage.CARGO = json.cargo;
-                sessionStorage.CPF = json.cpf;
-                sessionStorage.HOSP = json.fkHospital;
+                redirect(json);
             });
-
-            showMessage(false, "Login realizado com sucesso");
-
-            setTimeout(() => {
-                window.location = "index.html";
-            }, 2000);
         } else {
             result.text().then(text =>{
                 showMessage(true, text);
@@ -122,4 +111,27 @@ function showMessage(error, text) {
     message.style.display = "block";
 
     setTimeout(()=>{message.style.opacity = 0}, 5000);
+}
+
+function redirect(json) {
+    showMessage(false, "Login realizado com sucesso");
+
+    console.log(json.token);
+    sessionStorage.NOME_USR = json.nome;
+    sessionStorage.EMAIL_USR = json.email;
+    sessionStorage.TEL_USR = json.telefone;
+    sessionStorage.CARGO = json.cargo;
+    sessionStorage.CPF = json.cpf;
+    sessionStorage.TOKEN = json.token;
+    sessionStorage.HOSP = json.fkHospital;
+
+    if (['GESTOR_TI', 'TECNICO_TI'].indexOf(json.cargo) > -1) {
+        setTimeout(() => {
+            window.location.href = './dashboard/geralTI.html';
+        }, 2000);
+    } else {
+        setTimeout(() => {
+            window.location.href = './dashboard/geralGerencia.html';
+        }, 2000);
+    }
 }

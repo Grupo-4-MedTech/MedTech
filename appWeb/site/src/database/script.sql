@@ -1,5 +1,5 @@
 CREATE DATABASE medtech;
-USE medtech;
+USE medtech; 
 
 CREATE TABLE endereco(
 	idEndereco INT PRIMARY KEY AUTO_INCREMENT,
@@ -17,7 +17,7 @@ CREATE TABLE hospital(
 	cnpj CHAR(14) UNIQUE NOT NULL,
 	senha VARCHAR(255) NOT NULL,
 	email VARCHAR(100) UNIQUE NOT NULL,
-    dtCriacao DATE DEFAULT current_timestamp,
+    dtCriacao DATETIME DEFAULT current_timestamp,
 	verificado TINYINT,
 	fkEndereco INT NOT NULL,
 	CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
@@ -29,6 +29,7 @@ CREATE TABLE funcionario(
 	cpf CHAR(11) UNIQUE,
 	telefone CHAR(11),
 	cargo VARCHAR(45), CONSTRAINT chkCargo CHECK (cargo in ('MEDICO_GERENTE','TECNICO_TI','GESTOR_TI')),
+    token CHAR(255) UNIQUE,
 	email VARCHAR(100) UNIQUE,
 	senha VARCHAR(255),
 	fkHospital INT, CONSTRAINT fkHospitalFunc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
@@ -53,16 +54,34 @@ CREATE TABLE acesso(
 );
 CREATE TABLE computador(
     idComputador INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR (50),
+    nome VARCHAR(50),
+    status VARCHAR(50) DEFAULT 'estável',
+    dtStatusUpdate DATETIME DEFAULT CURRENT_TIMESTAMP,
     modeloProcessador VARCHAR(255),
-    codPatrimonio VARCHAR(50) UNIQUE,
+    codPatrimonio VARCHAR(7) UNIQUE,
     senha VARCHAR(255),
     gbRAM FLOAT,
     gbDisco FLOAT,
     fkDepartamento INT NOT NULL,
     fkHospital  INT NOT NULL,
+	CONSTRAINT chkStatus CHECK (status IN('crítico', 'alerta', 'offline', 'estável')),
     CONSTRAINT fkDepartamentoComputador FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalComputador FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
+
+CREATE TABLE logComputador (
+	idLogComputador INT PRIMARY KEY AUTO_INCREMENT,
+    grau VARCHAR(7),
+    causa VARCHAR(50),
+    dtOcorrencia DATETIME DEFAULT CURRENT_TIMESTAMP,
+	fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    CONSTRAINT chkGrau CHECK (grau IN('crítico', 'alerta', 'estável')),
+    CONSTRAINT chkCausa CHECK (causa IN('ram', 'cpu', 'disco')),
+    CONSTRAINT fkComputadorLog FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    CONSTRAINT fkDepartamentoLog FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    CONSTRAINT fkHospitalLog FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraRamCpu(
@@ -103,6 +122,22 @@ CREATE TABLE leituraFerramenta(
 	CONSTRAINT fkHospitalLeituraFer FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
+CREATE TABLE metrica (
+	idMetrica INT PRIMARY KEY AUTO_INCREMENT,
+    alertaCpu DOUBLE,
+    alertaCritCpu DOUBLE,
+    alertaRam DOUBLE,
+    alertaCritRam DOUBLE,
+    alertaDisco DOUBLE,
+    alertaCritDisco DOUBLE,
+    fkComputador INT,
+    fkDepartamento INT,
+    fkHospital INT,
+    CONSTRAINT fkCompMetric FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    CONSTRAINT fkHospMetric FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital),
+    CONSTRAINT fkDepMetric FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento)
+);
+
 CREATE TABLE contaMedtech(
 	idContaMedtech INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
@@ -120,6 +155,7 @@ INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
 ('08450160', 'rua antônio thadeo', 372, 'apt04 bl604', 'SP');
 
+select * from medtech.logComputador;
 INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
 ('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', true, 1);
 INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
@@ -128,12 +164,19 @@ INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado,
 update hospital set dtCriacao = '2024-04-07' where idHospital = 1;
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
-('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1);
+('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
+('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
 
+INSERT INTO acesso (fkFuncionario, fkDepartamento, fkHospital) VALUES 
+(1000, 1, 1);
+
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES 
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
+
+INSERT INTO metrica (alertaCpu, alertaCritCpu, alertaRam, alertaCritRam, alertaDisco, alertaCritDisco, fkComputador, fkDepartamento, fkHospital) VALUES 
+(0.70, 1.00, 0.75, 1.00, 0.80, 1.00, 1, 1, 1);
 
 CREATE VIEW hospitalWithEndereco AS
 SELECT * FROM hospital JOIN endereco ON fkEndereco = idEndereco;
@@ -153,6 +196,92 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE TRIGGER insertLogCompAfterRamCpu
+AFTER INSERT ON leituraRamCpu
+FOR EACH ROW
+BEGIN
+	IF NEW.ram / 100 >= (SELECT alertaCritRam FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('crítico', 'ram', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSEIF NEW.ram / 100 >= (SELECT alertaRam FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('alerta', 'ram', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSE
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('estável', 'ram', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+    END IF;
+    
+    IF NEW.cpu / 100 >= (SELECT alertaCritCpu FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('crítico', 'cpu', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSEIF NEW.cpu / 100 >= (SELECT alertaCpu FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('alerta', 'cpu', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSE
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('estável', 'cpu', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+    END IF;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER insertLogCompAfterLeituraDisco
+AFTER INSERT ON leituraDisco
+FOR EACH ROW
+BEGIN
+	IF NEW.disco / 100 >= (SELECT alertaCritDisco FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('crítico', 'disco', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSEIF NEW.disco / 100 >= (SELECT alertaDisco FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('alerta', 'disco', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+	ELSE
+		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
+        ('estável', 'disco', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
+    END IF;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER verifyComputadorStatus
+AFTER INSERT ON logComputador
+FOR EACH ROW
+BEGIN
+	IF NOT (
+	(SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'cpu' 
+	AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'cpu' AND fkComputador = NEW.fkComputador)) = (SELECT status FROM computador WHERE idComputador = NEW.fkComputador)
+	AND (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'ram' 
+	AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'ram' AND fkComputador = NEW.fkComputador)) = (SELECT status FROM computador WHERE idComputador = NEW.fkComputador)
+	AND (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'disco' 
+	AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'disco' AND fkComputador = NEW.fkComputador)) = (SELECT status FROM computador WHERE idComputador = NEW.fkComputador)
+	) THEN
+		IF (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'cpu' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'cpu' AND fkComputador = NEW.fkComputador)) = 'crítico'
+		OR (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'ram' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'ram' AND fkComputador = NEW.fkComputador)) = 'crítico'
+		OR (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'disco' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'disco' AND fkComputador = NEW.fkComputador)) = 'crítico'
+		THEN
+			UPDATE computador SET status = 'crítico' WHERE idComputador = NEW.fkComputador;
+            UPDATE computador SET dtStatusUpdate = NEW.dtOcorrencia WHERE idComputador = NEW.fkComputador;
+		ELSEIF (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'cpu' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'cpu' AND fkComputador = NEW.fkComputador)) = 'alerta'
+		OR	(SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'ram' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'ram' AND fkComputador = NEW.fkComputador)) = 'alerta'
+		OR (SELECT grau FROM logComputador WHERE fkComputador = NEW.fkComputador AND causa = 'disco' 
+		AND dtOcorrencia = (SELECT MAX(dtOcorrencia) FROM logComputador WHERE causa = 'disco' AND fkComputador = NEW.fkComputador)) = 'alerta'
+		THEN
+			UPDATE computador SET status = 'alerta' WHERE idComputador = NEW.fkComputador;
+			UPDATE computador SET dtStatusUpdate = NEW.dtOcorrencia WHERE idComputador = NEW.fkComputador;
+		ELSE 
+			UPDATE computador SET status = 'estável' WHERE idComputador = NEW.fkComputador;
+            UPDATE computador SET dtStatusUpdate = NEW.dtOcorrencia WHERE idComputador = NEW.fkComputador;
+		END IF;
+	END IF;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE TRIGGER deleteHospital
 AFTER DELETE ON hospital
 FOR EACH ROW
@@ -161,8 +290,61 @@ BEGIN
 END$$
 DELIMITER ;
 
+INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital) VALUES
+(0, 0, 1, 1, 1);
+INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES
+(70, 1, 1, 1);
+
+INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES 
+('crítico', 'cpu', '2024-06-18 21:47:13', 1, 1, 1),
+('crítico', 'cpu', '2024-06-18 21:47:14', 1, 1, 1),
+('crítico', 'cpu', '2024-06-18 21:47:15', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:16', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:17', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:18', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:19', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:20', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:21', 1, 1, 1);
+
+INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES 
+('crítico', 'ram', '2024-06-18 21:49:13', 1, 1, 1),
+('crítico', 'ram', '2024-06-18 21:49:14', 1, 1, 1),
+('crítico', 'ram', '2024-06-18 21:49:15', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:16', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:17', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:18', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:19', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:20', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:21', 1, 1, 1);
+
+INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES 
+('crítico', 'disco', '2024-06-18 21:49:13', 1, 1, 1),
+('crítico', 'disco', '2024-06-18 21:49:14', 1, 1, 1),
+('crítico', 'disco', '2024-06-18 21:49:15', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:16', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:17', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:18', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:19', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:20', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:21', 1, 1, 1);
+
+SELECT * FROM COMPUTADOR;
+
+insert into computador (nome, status, dtStatusUpdate, codPatrimonio, senha, fkDepartamento, fkHospital) VALUES
+('PC_TRIAGEM03', 'alerta', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OL', 'ilovepizza', 1, 1),
+('PC_TRIAGEM04', 'alerta', NOW(), '67890ON', 'ilovepizza', 1, 1),
+('PC_TRIAGEM05', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890O89', 'ilovepizza', 1, 1),
+('PC_TRIAGEM06', 'crítico', NOW(), '67890OO', 'ilovepizza', 1, 1),
+('PC_TRIAGEM07', 'alerta', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OK', 'ilovepizza', 1, 1),
+('PC_TRIAGEM08', 'alerta', NOW(), '67890OP', 'ilovepizza', 1, 1),
+('PC_TRIAGEM09', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OF', 'ilovepizza', 1, 1),
+('PC_TRIAGEM010', 'alerta', NOW(), '67890OQ', 'ilovepizza', 1, 1),
+('PC_TRIAGEM011', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OZ', 'ilovepizza', 1, 1);
+
+SELECT * FROM COMPUTADOR;
+UPDATE computador SET dtStatusUpdate = NOW() where idComputador = 1;
+
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
 GRANT EXECUTE ON PROCEDURE delete_hospital TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
-

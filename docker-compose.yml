@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  appWeb:
+    image: caiqueluci0/appweb
+    ports:
+      - "80:80"

@@ -17,7 +17,16 @@
 html{
     scroll-behavior: smooth;
     background-color: #a3a3a35b;
-    
+    height: 100%;
+}
+
+:root{
+    --verde-primario:#03999e;
+    --verde-claro:#37d9df;
+    --verde-escuro: #066467;
+    --cinza-fundo:#a3a3a35b;
+    --cinza-escuro: #5e5d5d;
+    --cinza-clarinho: #d9d6d6;
 }
 
 
