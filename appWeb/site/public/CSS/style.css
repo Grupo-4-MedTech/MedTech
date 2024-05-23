@@ -17,7 +17,7 @@
 html{
     scroll-behavior: smooth;
     background-color: #a3a3a35b;
-    
+    height: 100%;
 }
 
 :root{

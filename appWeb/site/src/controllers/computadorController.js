@@ -48,8 +48,27 @@ function historic(req, res) {
         res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
     })
 }
+
+function adicionarPC(req, res){
+
+    const nome = req.body.nome;
+    const codPatrimonio = req.body.codPatrimonio;
+    const departamento = req.body.departamento;
+    const senha = req.body.senha;
+
+    if( !/^[a-zA-Z\s]{3,25}$/.test(nome) ||
+        !/^[a-zA-Z0-9\s]{7,50}$/.test(codPatrimonio) ||
+        !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
+    ){
+        res.status(401).send('Dados incorretos');
+    }
+    //nao finalizado!!
+
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
-    historic
+    historic,
+    adicionarPC
 }

@@ -14,5 +14,8 @@ router.get('/logs/:dtOcorrencia/:grau/:fkHospital', function(req, res){
 router.get('/historico/:fkHospital', function(req, res){
     computadorController.historic(req, res);
 })
+router.post('/adicionarPC', function(req, res){
+    computadorController.adicionarPC(req, res)
+});
 
 module.exports = router;

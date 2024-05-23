@@ -55,8 +55,15 @@ function historic(fkHospital) {
     return database.executar(query);
 }
 
+function adicionarPC(nome, codPatrimonio, fkDepartamento){
+    const query = `INSERT INTO computador (nome, codPatrimonio, fkDepartamento, senha) VALUES (${nome}, ${codPatrimonio}, ${fkDepartamento}, ${senha})`
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
-    historic
+    historic,
+    adicionarPC
 }

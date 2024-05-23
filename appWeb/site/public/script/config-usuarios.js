@@ -41,8 +41,9 @@ function preencherTabela(json){
 
 }
 
-function editar(idFuncionario){
-    alert(idFuncionario)
+function editar(){
+    popup.style.display = 'none';
+    backgrounddiv.style.display = 'block';
 }
 
 buscarUsuarios()
