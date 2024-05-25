@@ -110,9 +110,17 @@ function updateHospital(req, res) {
         })
 }
 
+function listar(req, res) {
+    hospitalModel.listar()
+    .then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
 module.exports = {
     cadastrar,
     find,
     deleteHospital,
-    updateHospital
+    updateHospital,
+    listar
 }
