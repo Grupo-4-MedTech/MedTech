@@ -23,16 +23,12 @@ function openConfig() {
 
 }
 
-// function openUserManagement() {
-//     profile_content.style.display = 'none';
-//     backgrounddiv.style.display = 'block';
-
-// }
+function openUserManagement() {
+   window.location = "../dashboard/config-usuarios.html";
+}
 
 function openComputerRegistration() {
-    profile_content.style.display = 'none';
-    backgrounddiv.style.display = 'block';
-
+    window.location = "../dashboard/config-maquinas.html";
 }
 
 function closeConfig() {

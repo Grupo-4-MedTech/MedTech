@@ -30,7 +30,7 @@
             <img src="../assets/img/medtech-logo2.png">
         </div>
 
-        <div class="profileHeader">
+        <div class="profileHeader" onclick="toggleOptions()">
             <div class="profileFrame">
                 <img src="../assets/img/user-avatar.png"> <!--EXEMPLO DE IMG, TROCAR-->
                 <div id="profile_content">
@@ -40,20 +40,21 @@
                             <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
                             </li>
                             <!-- <div id="protectedOptions"> -->
-                            <li> <img src="../assets/img/config-usuario.png" alt=""> <a
-                                    href="config-usuarios.html">Usuários</a></li>
-                            <li onclick="openComputerRegistration();"> <img src="../assets/img/config-computador.png"
-                                    alt=""><a href="config-maquinas.html">Máquinas</a></li>
-                            <!-- </div> -->
-
+                            <li onclick="openUserManagement()">
+                                <img src="../assets/img/config-usuario.png" alt="">
+                                Usuários
+                            </li>
+                            <li onclick="openComputerRegistration()">
+                                <img src="../assets/img/config-computador.png" alt="">
+                                Máquinas
+                            </li>
                             <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">Marcelo<i class="fa fa-angle-down"
-                    onclick="toggleOptions();"></i>
-
+            <div class="profileName" id="profile_name_header">Marcelo
+                <i class="fa fa-angle-down"></i>
             </div>
             <!-- SUBSTITUIR ONLOAD -->
         </div>

@@ -13,7 +13,7 @@ function buscarUsuarios(){
         }
         else{
             result.text().then(function(text){
-                alert(text)
+                // alert(text)
             })
         }
     })
@@ -44,6 +44,9 @@ function preencherTabela(json){
 function editar(){
     popup.style.display = 'none';
     backgrounddiv.style.display = 'block';
+}
+function voltar() {
+    window.location = document.referrer;
 }
 
 buscarUsuarios()
