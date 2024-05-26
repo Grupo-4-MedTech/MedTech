@@ -63,11 +63,18 @@ function updateHospital(id, data) {
 
     return database.executar(query);
 }
+function listar() {
+    const query = `SELECT * FROM departamento;`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
 
 module.exports = {
     cadastrar,
     buscarPorId,
     deleteHospital,
     find,
-    updateHospital
+    updateHospital,
+    listar
 }

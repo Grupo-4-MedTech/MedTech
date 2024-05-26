@@ -40,7 +40,7 @@ function historic(req, res) {
         if (result.length > 0) {
             res.status(200).json(result);
         } else {
-            res.status(400).send('Nenhúm registro encontrado.');
+            res.status(400).send('Nenhum registro encontrado.');
         }
     })
     .catch((error) => {
@@ -60,15 +60,30 @@ function adicionarPC(req, res){
         !/^[a-zA-Z0-9\s]{7,50}$/.test(codPatrimonio) ||
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
     ){
-        res.status(401).send('Dados incorretos');
+        res.status(400).send('Dados incorretos');
+    }else{
+        computadoresModel.adicionarPC(nome, codPatrimonio, departamento, senha)
+        .then(
+            function (result) {
+                res.json(result);
+            }
+        ).catch(
+            function (erro) {
+                res.status(500).send('Não foi possível adicionar a máquina.');
+            }
+        );
     }
-    //nao finalizado!!
 
+}
+
+function deletarPC(req, res){
+    computadoresModel.deletePC(req.params.idComputador)
 }
 
 module.exports = {
     buscarPorId,
     findLogs,
     historic,
-    adicionarPC
+    adicionarPC,
+    deletarPC
 }

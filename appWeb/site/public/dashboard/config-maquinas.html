@@ -168,7 +168,9 @@
         <input type="text" id="input_codPatrimonio">
         <br>
         <span>Departamento</span>
-        <input type="text" id="input_departamento"><br>
+        <select name="departamentos" id="listaDepartamentos">
+          <option selected>Selecione um departamento</option>
+        </select>
         <span>
           Senha
         </span>
@@ -179,7 +181,7 @@
         </div>
 
 
-        <button id="btn-add-pc">Adicionar</button>
+        <button id="btn-add-pc" onclick="novoComputador()">Adicionar</button>
       </div>
 
 

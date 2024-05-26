@@ -55,36 +55,69 @@ function btnNovoComputador() {
 function voltar() {
     window.location = document.referrer;
 }
+function novoComputador() {
+
+    let nome = input_nome.value
+    let codPatrimonio = input_codPatrimonio.value
+    let departamento = listaDepartamentos.value
+    let senha = input_senha.value
+
+    fetch(`/computador/adicionarPC`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nome,
+            codPatrimonio,
+            departamento,
+            senha
+        }),
+    }).then((result) => {
+        if (result.status == 201) {
+            result.json().then(function (json) {
+                alert(`maquina cadastrada!`)
+                window.location.href= '../config-maquinas.html'
+            })
+        } else {
+            alert(`Não deu`)
+
+        }
+    })
+}
+
+
+function listar() {
+    fetch(`/hospital/listar`, {
+        method: "GET",
+    })
+
+        .then(function (resposta) {
+            resposta.json().then((departamentos) => {
+                departamentos.forEach((departamento) => {
+                    listaDepartamentos.innerHTML += `<option value='${departamento.idDepartamento}'>${departamento.nome}</option>`;
+                });
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+
+    // const select = document.getElementById(`listaDepartamentos`);
+    //  let lista = '';
+
+    //  json.forEach(opcao =>{
+    //     lista += `<option value='${opcao.idDepartamento}'>${opcao.nome}</option>`;
+    //  })
+    //       select.innerHTML = lista;
+}
+
+function deletarPC(idComputador){
+    fetch(`/computador/deletar/${idComputador}`, {
+        method: 'DELETE',
+    })
+}
+
 buscarComputadores()
 
-// function novoComputador() {
-//     fetch("/computador/adicionarPC", {
-//         method: "POST",
-//             headers: {
-//             "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify({
-//                 nome,
-//                 codPatrimonio,
-//                 departamento,
-//                 senha
-//             }),
-//         }).then((result) => {
-//             if (result.status == 201) {
-//                 showMessage(false, 'Cadastro realizado com sucesso! Nossa equipe entrará em contato pelo e-mail cadastrado!');
-
-//                 setTimeout(() => {
-//                     window.location.href = 'index.html';
-//                 }, 5000)
-//             } else {
-//                 result.text().then(text => {
-//                     showMessage(true, text)
-//                 })
-//             }
-//         }).catch((error) => {
-//             console.log(error);
-//             showMessage(true, 'Erro inesperado! por favor, tente novamente mais tarde.');
-//         })
-//     }
-
-//nao finalizado ^
