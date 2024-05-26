@@ -46,7 +46,6 @@ header .profileFrame {
     position: absolute;
     z-index: 10;
     width: 300px;
-    bottom: calc(-110px + -20px);   
     border-radius: 10px;
     background-color:#06a3a8;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.308);
@@ -69,6 +68,7 @@ header .profileFrame {
 }
 
 .profileFrame ul li {
+    color: white;
     display: flex;
     align-items: center;
     justify-content:left;
@@ -81,7 +81,6 @@ header .profileFrame {
 
 .profileFrame ul li:hover {
     background-color: rgba(0, 0, 0, 0.151);
-    color: white;
 }
 
 #protectedOptions{
@@ -90,11 +89,12 @@ header .profileFrame {
 
 #profile_content{
     display: none;
-    top: 50px;
     width: 210px;
-    height: 182px;
+    height: auto;
     position: absolute;
-    right: -100px;
+    margin: 0px;
+    top: 50px;
+    left: 10px;
 }
 
 .profileName {

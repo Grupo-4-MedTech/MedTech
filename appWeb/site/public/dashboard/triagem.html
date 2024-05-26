@@ -13,39 +13,52 @@
     <script src="../script/dashboard.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body onload="loadUser()">
     <header>
         <div>
             <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        </div>
         </div>
 
         <div class="headerLogo">
             <img src="../assets/img/medtech-logo2.png">
         </div>
 
-        <div class="profileHeader">
+        <div class="profileHeader" onclick="toggleOptions()">
             <div class="profileFrame">
-                <img src="../assets/img/user-avatar.png" onclick="toggleOptions();"> <!--EXEMPLO DE IMG, TROCAR-->
+                <img src="../assets/img/user-avatar.png">
                 <div id="profile_content">
-                    <div class="arrowTop"></div>
                     <div class="opContent">
                         <ul>
-                            <li onclick="openConfig();">Configurações</li>
-                            <div id="protectedOptions">
-                                <li onclick="openUserManagement();">Gerenciar usuários</li>
-                                <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
-                            </div>
-                            <li onclick="logout();">Logout</li>
+                            <ul>
+                                <li onclick="openConfig()">
+                                    <img src="../assets/img/engrenagem.png" alt="">
+                                    Configurações
+                                </li>
+                                <div id="protectedOptions">
+                                    <li onclick="openUserManagement();">Gerenciar usuários</li>
+                                    <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
+                                </div>
+                                <li onclick="logout();">
+                                    <img src="../assets/img/logout.png" alt="">
+                                    Logout
+                                </li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">Marcelo</div> <!-- SUBSTITUIR ONLOAD -->
+            <div class="profileName" id="profile_name_header">
+                <span id="profileUserName">
+
+                </span>
+                <i class="fa fa-angle-down"></i>
+            </div>
         </div>
-
-
     </header>
 
     <div id="backgrounddiv">
@@ -84,9 +97,9 @@
             <!-- aqui ficará as dashboards que se alternarão -->
             <div class="dashDescription">
                 <div class="titulo">
-                   <h2>Triagem</h2> 
+                    <h2>Triagem</h2>
                 </div>
-                
+
                 <span>Última atualização: 30/04/2024 às 18:45</span>
             </div>
             <div class="dashCards">

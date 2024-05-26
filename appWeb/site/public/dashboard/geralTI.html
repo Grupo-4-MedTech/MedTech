@@ -20,10 +20,12 @@
 
 </head>
 
-<body>
+<body onload="loadUser()">
     <header>
         <div>
             <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        </div>
+        
         </div>
 
         <div class="headerLogo">
@@ -53,7 +55,10 @@
                     </div>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">Marcelo
+            <div class="profileName" id="profile_name_header">
+                <span id="profileUserName">
+
+                </span>
                 <i class="fa fa-angle-down"></i>
             </div>
             <!-- SUBSTITUIR ONLOAD -->

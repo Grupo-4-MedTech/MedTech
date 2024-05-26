@@ -17,6 +17,10 @@ function toggleOptions() {
     // protectedOptions.style.display = block
 }
 
+function loadUser(){
+    document.getElementById('profileUserName').innerHTML = sessionStorage.getItem('NOME_USR');
+}
+
 function openConfig() {
     profile_content.style.display = 'none';
     backgrounddiv.style.display = 'block';
