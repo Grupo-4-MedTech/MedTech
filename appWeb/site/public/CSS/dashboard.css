@@ -2,8 +2,14 @@
 /*.navSelected {
     background-color: rgba(0, 0, 0, 0.192);
 }*/
+body {
+    margin-top: 70px;
+}
 
 header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
     width: 100%;
     height: 70px;
     display: flex;
@@ -19,11 +25,11 @@ header {
     display: flex;
     align-items: center;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 header .profileFrame {
-    width: 80px;
-    height: 80px;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +89,10 @@ header .profileFrame {
 }
 
 #profile_content{
+    display: none;
+    top: 50px;
     width: 210px;
+    height: 182px;
     position: absolute;
     right: -100px;
 }
@@ -122,10 +131,11 @@ main {
 /* NAVEGAÇÃO ESQUERDA */
 
 main>nav {
-    position: absolute;
+    position: fixed;
     /* remover na responsividade */
+    top: 70px;
     width: 185px;
-    height: 120%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

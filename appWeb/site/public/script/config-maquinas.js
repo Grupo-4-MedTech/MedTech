@@ -13,7 +13,7 @@ function buscarComputadores() {
             }
             else {
                 result.text().then(function (text) {
-                    alert(text)
+                    // alert(text)
                 })
             }
         })
@@ -50,6 +50,10 @@ function editar() {
 function btnNovoComputador() {
     PCpopup.style.display = 'block';
     fundotabela.style.display = 'none';
+}
+
+function voltar() {
+    window.location = document.referrer;
 }
 function novoComputador() {
 
