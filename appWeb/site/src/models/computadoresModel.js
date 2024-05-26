@@ -55,8 +55,8 @@ function historic(fkHospital) {
     return database.executar(query);
 }
 
-function adicionarPC(nome, codPatrimonio, fkDepartamento, senha){
-    const query = `INSERT INTO computador (nome, codPatrimonio, fkDepartamento, senha) VALUES (${nome}, ${codPatrimonio}, ${fkDepartamento}, ${senha})`
+function adicionarPC(nome, codPatrimonio, fkDepartamento, senha, fkHospital){
+    const query = `INSERT INTO computador (nome, codPatrimonio, fkDepartamento, senha, fkHospital) VALUES ('${nome}', '${codPatrimonio}', ${fkDepartamento}, '${senha}', ${fkHospital})`
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }

@@ -58,6 +58,7 @@ function novoComputador() {
     let departamento = listaDepartamentos.value
     let senha = input_senha.value
 
+
     fetch(`/computador/adicionarPC`, {
         method: "POST",
         headers: {
@@ -67,10 +68,11 @@ function novoComputador() {
             nome,
             codPatrimonio,
             departamento,
-            senha
+            senha,
+            fkHospital: sessionStorage.HOSP
         }),
     }).then((result) => {
-        if (result.status == 201) {
+        if (result.status == 200) {
             result.json().then(function (json) {
                 alert(`maquina cadastrada!`)
                 window.location.href= '../config-maquinas.html'
@@ -98,15 +100,6 @@ function listar() {
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
-
-
-    // const select = document.getElementById(`listaDepartamentos`);
-    //  let lista = '';
-
-    //  json.forEach(opcao =>{
-    //     lista += `<option value='${opcao.idDepartamento}'>${opcao.nome}</option>`;
-    //  })
-    //       select.innerHTML = lista;
 }
 
 function deletarPC(idComputador){
@@ -116,4 +109,4 @@ function deletarPC(idComputador){
 }
 
 buscarComputadores()
-
+listar()

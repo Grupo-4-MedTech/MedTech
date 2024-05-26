@@ -55,6 +55,7 @@ function adicionarPC(req, res){
     const codPatrimonio = req.body.codPatrimonio;
     const departamento = req.body.departamento;
     const senha = req.body.senha;
+    const fkHospital = req.body.fkHospital;
 
     if( !/^[a-zA-Z\s]{3,25}$/.test(nome) ||
         !/^[a-zA-Z0-9\s]{7,50}$/.test(codPatrimonio) ||
@@ -62,7 +63,8 @@ function adicionarPC(req, res){
     ){
         res.status(400).send('Dados incorretos');
     }else{
-        computadoresModel.adicionarPC(nome, codPatrimonio, departamento, senha)
+        computadoresModel.adicionarPC(nome, codPatrimonio, departamento, senha, fkHospital)
+        res.status(200).send('Máquina cadastrada com sucesso!')
         .then(
             function (result) {
                 res.json(result);
