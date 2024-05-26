@@ -25,6 +25,13 @@ public class Departamento {
         this.computadores = new ArrayList<>();
     }
 
+    public void addComputador(Computador computador){
+        if(this.computadores.contains(computador)){
+            return;
+        }
+        this.computadores.add(computador);
+    }
+
     //GETTERS
     public int getIdDepartamento()
     {
@@ -40,8 +47,11 @@ public class Departamento {
         return hospital;
     }
 
-    public List<Computador> getComputadores() {
+    public List<Computador> getComputador() {
         return computadores;
+    }
+    public int getFkHospital() {
+        return this.fkHospital;
     }
 
     //Setters
@@ -58,7 +68,7 @@ public class Departamento {
 
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
-        hospital.addDepartamentos(this);
+        hospital.addDepartamento(this);
     }
 
     public void setFkHospital(int fkHospital) {
@@ -67,16 +77,5 @@ public class Departamento {
 
     public void setComputadores(List<Computador> computadores) {
         this.computadores = computadores;
-    }
-
-    public int getFkHospital() {
-        return this.fkHospital;
-    }
-
-    public void addComputadores(Computador computador){
-        if(this.computadores.contains(computador)){
-            return;
-        }
-        this.computadores.add(computador);
     }
 }

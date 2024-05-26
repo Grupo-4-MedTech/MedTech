@@ -22,8 +22,14 @@ public class Hospital {
         this.departamentos = new ArrayList<>();
     };
 
-    //Getters
+    public void addDepartamento(Departamento departamento){
+        if(this.departamentos.contains(departamento)){
+            return;
+        }
+        this.departamentos.add(departamento);
+    }
 
+    //Getters
 
     public int getIdHospital() {
         return this.idHospital;
@@ -47,7 +53,6 @@ public class Hospital {
 
     //Setters
 
-
     public void setIdHospital(int idHospital)
     {
         this.idHospital = idHospital;
@@ -70,14 +75,5 @@ public class Hospital {
 
     public void setDepartamentos(List<Departamento> departamentos) {
         this.departamentos = departamentos;
-    }
-
-    public void addDepartamentos(
-            Departamento departamento
-    ){
-        if(this.departamentos.contains(departamento)){
-            return;
-        }
-        this.departamentos.add(departamento);
     }
 }

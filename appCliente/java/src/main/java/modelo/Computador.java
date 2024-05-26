@@ -146,14 +146,11 @@ public class Computador {
     public void setModeloProcessador(String modeloProcessador) {
         this.modeloProcessador = modeloProcessador;
     }
-
-    public void setnome(String nome) {
-        this.nome = nome;
-    }
+    
 
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
-        departamento.addComputadores(this);
+        departamento.addComputador(this);
     }
     public void setIdComputador(int idComputador) {
         this.idComputador = idComputador;
