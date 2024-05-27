@@ -5,7 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-const PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
+const PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 80;
 
 const app = express();
 

@@ -1,8 +1,10 @@
 chkLoginDash();
+let timeoutSetted = false;
 const table_causas = document.getElementById('table_causas');
 const div_kpis = document.getElementById('div_kpis');
 const select = document.getElementById('select_data');
 const ctx01 = document.getElementById('chart01');
+const lastUpdate = document.getElementById('h3_lastUpdate');
 const options = {
     scales: {
         y: {
@@ -32,7 +34,7 @@ const chart = new Chart(ctx01, {
 select.addEventListener('change', () => searchChartData());
 
 function searchChartData(data = select.value) {
-    const date = new Date
+    const date = new Date();
     if (data == 1) {
         const day = Number(date.toISOString().slice(8, 10));
         data = `DAY(dtOcorrencia) IN (${day}, ${day - 1}, ${day - 2}, ${day - 3}, ${day - 4}, ${day - 5}, ${day - 6}) AND MONTH(dtOcorrencia) = ${date.getMonth() + 1} AND YEAR(dtOcorrencia) = ${date.toISOString().slice(0, 4)}`
@@ -61,7 +63,7 @@ function searchChartData(data = select.value) {
             }
                 
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
 }
 
 function fillChart(json = []) {
@@ -69,6 +71,15 @@ function fillChart(json = []) {
     dataChart.datasets[0].data = data.occurences;
     dataChart.labels = data.date;
     chart.update();
+
+    if (!timeoutSetted) {
+        timeoutSetted = true;
+            setTimeout(() => {
+                searchChartData();
+                searchStatusKpis();
+                timeoutSetted = false;
+            }, 10000);
+        }
 }
 
 function mapOcurrences(json) {
@@ -114,7 +125,7 @@ function mapOcurrences(json) {
         }
     }
     // console.log('DEPOIS')
-    // console.log(JSON.stringify(resultsByDate))
+    // console.log(resultsByDate);
     let cpu = 0;
     let ram = 0;
     let disco = 0;
@@ -136,7 +147,7 @@ function mapOcurrences(json) {
 
     table_causas.innerHTML = `
         <tr>
-            <th>Principais causas</th>
+            <th>Causas</th>
         </tr>
         <tr>
             <td>CPU</td>
@@ -151,6 +162,9 @@ function mapOcurrences(json) {
             <td> ${disco} </td>
         </tr>
     `;
+
+    const date = new Date().toISOString();
+    lastUpdate.innerHTML = `Atualizado em: ${date.slice(0, 10).replace(/\-/g, '/')} às ${date.slice(11, 19)}`
 
     return data;
 }
@@ -181,42 +195,70 @@ function printKpis(json = []) {
 
     // > 100 = - 100
 
-    const prctCrit = json.critAtual * 100 / json.critUltimaSem;
-    const prctAlerta = json.alertaAtual * 100 / json.alertaUltimaSem;
+    json.critAtual = ([null, undefined, 0].indexOf(json.critAtual) > -1 ? 0 : json.critAtual);
+    json.alertaAtual = ([null, undefined, 0].indexOf(json.alertaAtual) > -1 ? 0 : json.alertaAtual);
+    json.offlineAtual = ([null, undefined, 0].indexOf(json.offlineAtual) > -1 ? 0 : json.offlineAtual);
+    json.critUltimaSem = ([null, undefined, 0].indexOf(json.critUltimaSem) > -1 ? 0 : json.critUltimaSem);
+    json.alertaUltimaSem = ([null, undefined, 0].indexOf(json.alertaUltimaSem) > -1 ? 0 : json.alertaUltimaSem);
 
-    div_kpis.innerHTML = `<div class="dashNotification">
+    const prctCrit = (
+        json.critUltimaSem === 0 && json.critAtual > 0 ? 200 : 
+        json.critAtual === 0 && json.critUltimaSem > 0 ? 100 :
+        json.critAtual * 100 / json.critUltimaSem
+    );
+    const prctAlerta = (
+        json.alertaUltimaSem === 0 && json.alertaAtual > 0 ? 200 : 
+        json.alertaAtual === 0 && json.alertatUltimaSem > 0 ? 100 :
+        json.alertaAtual * 100 / json.alertaUltimaSem
+    );
+
+    div_kpis.innerHTML = `
     <div class="notificationCard statusRed">
         <h3>Crítico</h3>
         <div class="subtextos">
-            <span class="notificationNumber">${json.critAtual}<img ${prctCrit > 100 ? null : 'class="upArrow"' } src="../assets/img/arrow.png">
+            <span class="notificationNumber">${json.critAtual}<img ${(json.prctCrit > 100 ? 'class="upArrow"' : null)} src="../assets/img/arrow.png">
             </span>
 
             <span class="porcentagem">
-                ${prctCrit > 100 ? `Aumento de ${Math.round(prctCrit - 100)}% em relação a última semana` : `Diminuição de ${Math.round(prctCrit)}% desde a última semana`}
+                ${buildKpiText(prctCrit)}
             </span>
         </div>
     </div>
     <div class="notificationCard statusYellow">
         <h3>Alerta</h3>
         <div class="subtextos">
-            <span class="notificationNumber">${json.alertaAtual}<img ${prctAlerta > 100 ? null: 'class="upArrow"' } src="../assets/img/arrow.png">
+            <span class="notificationNumber">${json.alertaAtual}<img ${(json.prctAlerta > 100 ? 'class="upArrow"' : null)} src="../assets/img/arrow.png">
             </span>
+
             <span class="porcentagem">
-            ${prctAlerta > 100 ? `Aumento de ${Math.round(prctAlerta - 100)}% em relação a última semana` : `Diminuição de ${Math.round(prctAlerta)}% desde a última semana`}
+                ${buildKpiText(prctAlerta)}
             </span>
         </div>
-
     </div>
     <div class="notificationCard statusGray">
         <h3>Offline</h3>
         <div class="subtextos">
-            <span class="notificationNumber">8<img src="../assets/img/arrow.png">
+            <span class="notificationNumber">${json.offlineAtual}
             </span>
 
             <span class="porcentagem">
-                Aumento de 30% desde a última semana
+                ${json.offlineAtual == 1 ? 'Computador' : 'Computadores'} offline
             </span>
-        </div>`
+        </div>
+    </div>
+    `
+}
+
+function buildKpiText(prct){
+    if (prct > 100) {
+        return `Aumento de ${prct - 100}% em relação aos últimos 7 dias`;
+    }
+
+    if (prct <= 100 && prct > 0) {
+        return `Diminuição de ${prct}% em relação aos últimos 7 dias`;
+    }
+
+    return `Nenhuma mudança em relação os últimos 7 dias`;
 }
 
 searchChartData();

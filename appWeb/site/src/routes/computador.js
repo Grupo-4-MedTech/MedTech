@@ -17,7 +17,17 @@ router.get('/historico/:fkHospital', function(req, res){
 router.post('/adicionarPC', function(req, res){
     computadorController.adicionarPC(req, res)
 });
+
 router.delete('/deletar', function(req, res){
     computadorController.deletarPC(req, res)
 })
+
+router.get('/buscar-ultimas-leituras/:fkHospital/:status', function(req, res) {
+    computadorController.ultimasLeituras(req,res);
+})
+
+router.get('/historico-ferramentas/:fkHospital/:dtLeitura', function(req, res) {
+    computadorController.historicFerramentas(req, res);
+})
+
 module.exports = router;

@@ -26,7 +26,7 @@ function tokenGenerator() {
     let token = '';
 
     while (token.length < 255) {
-        token += chars[Number((Math.random() * chars.length).toFixed(0))];
+        token += chars[Math.floor(Math.random() * chars.length)];
     }
 
     return token;
