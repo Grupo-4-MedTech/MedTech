@@ -56,6 +56,7 @@ CREATE TABLE computador(
     idComputador INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     status VARCHAR(50) DEFAULT 'estável',
+    atividade TINYINT DEFAULT 0,
     dtStatusUpdate DATETIME DEFAULT CURRENT_TIMESTAMP,
     modeloProcessador VARCHAR(255),
     codPatrimonio VARCHAR(7) UNIQUE,
@@ -64,7 +65,7 @@ CREATE TABLE computador(
     gbDisco FLOAT,
     fkDepartamento INT NOT NULL,
     fkHospital  INT NOT NULL,
-	CONSTRAINT chkStatus CHECK (status IN('crítico', 'alerta', 'offline', 'estável')),
+	CONSTRAINT chkStatus CHECK (status IN('crítico', 'alerta', 'estável')),
     CONSTRAINT fkDepartamentoComputador FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalComputador FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
@@ -290,6 +291,34 @@ BEGIN
 END$$
 DELIMITER ;
 
+SHOW VARIABLES LIKE 'event_scheduler';
+SET GLOBAL event_scheduler = ON;
+
+DELIMITER $$
+CREATE EVENT setOffline
+ON SCHEDULE EVERY 20 MINUTE 
+DO 
+BEGIN
+	UPDATE computador c
+    LEFT JOIN (
+      SELECT fkComputador, MAX(dataLeitura) as ultimaLeitura
+      FROM leituraRamCpu
+      GROUP BY fkComputador
+    ) l ON c.idComputador = l.fkComputador
+    SET c.atividade = 0
+    WHERE (l.ultimaLeitura IS NULL OR TIMESTAMPDIFF(HOUR, l.ultimaLeitura, NOW()) > 1);
+    
+	UPDATE computador c
+    LEFT JOIN (
+      SELECT fkComputador, MAX(dataLeitura) as ultimaLeitura
+      FROM leituraRamCpu
+      GROUP BY fkComputador
+    ) l ON c.idComputador = l.fkComputador
+    SET c.atividade = 1
+    WHERE NOT(l.ultimaLeitura IS NULL OR TIMESTAMPDIFF(HOUR, l.ultimaLeitura, NOW()) > 1);
+END$$
+DELIMITER ;
+
 INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital) VALUES
 (0, 0, 1, 1, 1);
 INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES
@@ -328,12 +357,10 @@ INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDe
 ('crítico', 'disco', '2024-10-18 21:49:20', 1, 1, 1),
 ('crítico', 'disco', '2024-10-18 21:49:21', 1, 1, 1);
 
-SELECT * FROM COMPUTADOR;
-
 insert into computador (nome, status, dtStatusUpdate, codPatrimonio, senha, fkDepartamento, fkHospital) VALUES
 ('PC_TRIAGEM03', 'alerta', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OL', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM04', 'alerta', NOW(), '67890ON', 'ilovepizza', 1, 1),
-('PC_TRIAGEM05', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890O89', 'ilovepizza', 1, 1),
+('PC_TRIAGEM05', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '6090O89', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM06', 'crítico', NOW(), '67890OO', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM07', 'alerta', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OK', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM08', 'alerta', NOW(), '67890OP', 'ilovepizza', 1, 1),
@@ -341,8 +368,7 @@ insert into computador (nome, status, dtStatusUpdate, codPatrimonio, senha, fkDe
 ('PC_TRIAGEM010', 'alerta', NOW(), '67890OQ', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM011', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OZ', 'ilovepizza', 1, 1);
 
-SELECT * FROM COMPUTADOR;
-UPDATE computador SET dtStatusUpdate = NOW() where idComputador = 1;
+	
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';

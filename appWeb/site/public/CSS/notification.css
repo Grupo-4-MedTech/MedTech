@@ -59,7 +59,8 @@
 }
 
 .porcentagem {
-    width: 105px;
+    width: 50%;
+    text-align: start;
 }
 
 .dashNotification .notificationNumber {

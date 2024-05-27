@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/notification.css">
 
@@ -63,241 +64,68 @@
         </div>
 
 
-    </header>
+</header>
 
-    <div id="backgrounddiv">
-        <div class="screendiv">
+<div id="backgrounddiv">
+    <div class="screendiv">
             <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
                 close
             </span>
-            <div id="configContent">
+        <div id="configContent">
 
-            </div>
-            <div id="computerRegistrationContent">
+        </div>
+        <div id="computerRegistrationContent">
 
-            </div>
+        </div>
 
         </div>
     </div>
+    </div>
+</div>
 
-    <main>
-        <!-- LEFT NAVIGATION -->
-        <nav class="navbar">
-            <div class="companyName" id="company_nav_name">Santacruz</div>
-            <ul id="nav_setores">
-                <a href="geralTI.html">
-                    <li class="navSelected">Geral</li>
-                </a>
-                <a href="critico.html">
-                    <li>Critico</li>
-                </a>
-                <a href="alerta.html">
-                    <li>Alerta</li>
-                </a>
-                <a href="offline.html">
-                    <li>Offline</li>
-                </a>
-                <a href="estavel.html">
-                    <li>Estável</li>
-                </a>
-            </ul>
-        </nav>
+<main>
+    <!-- LEFT NAVIGATION -->
+    <nav class="navbar">
+        <div class="companyName" id="company_nav_name">Santacruz</div>
+        <ul id="nav_setores">
+            <a href="geralTI.html">
+                <li>Geral</li>
+            </a>
+            <a href="critico.html">
+                <li>Critico</li>
+            </a>
+            <a href="alerta.html">
+                <li>Alerta</li>
+            </a>
+            <a class="navSelected" href="offline.html">
+                <li>Offline</li>
+            </a>
+            <a href="estavel.html">
+                <li>Estável</li>
+            </a>
+        </ul>
+    </nav>
 
-        <div class="dashboardScreen" id="dashboard_screendiv">
-            <!-- aqui ficará as dashboards que se alternarão -->
-            <div class="dashDescription">
-                <div class="titulo">
-                    <h2>Computadores offline</h2>
-                </div>
-                <span>Última atualização: 30/04/2024 às 18:45</span>
+    <div class="dashboardScreen" id="dashboard_screendiv">
+        <!-- aqui ficará as dashboards que se alternarão -->
+        <div class="dashDescription">
+            <div class="titulo">
+                <h2>Computadores offline</h2>
             </div>
-            <div class="dashCards">
-                <div class="dashLine">
-                    <div class="dashCard">
-                        <h3>recepcao42</h3>
-                        <span>
-                            Código: 0123456
-                            <br>
-                            <div class="tecnicalEspecification">
-                                <strong>Especificações técnicas:</strong>
-                                <br>
-                                Modelo do processador:
-                                <br>
-                                Intel Celeron
-                                <br>
-                                Memória:
-                                <br>
-                                DDR4 - 4GB
-                                <br>
-                                Armazenamento:
-                                <br>
-                                HD - 500GB
-                            </div>
-                        </span>
-                        <canvas id="chart01" class="charts"></canvas>
-                        <!-- <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div> -->
-                    </div>
-
-                    <div class="dashCard">
-                        <h3>triagem58</h3>
-                        <span>
-                            Código: 0123789
-                            <br>
-                            <div class="tecnicalEspecification">
-                                <strong>Especificações técnicas:</strong> <br>
-                                Modelo do processador:
-                                <br>
-                                AMD Athlon
-                                <br>
-                                Memória:
-                                <br>
-                                DDR4 - 4GB
-                                <br>
-                                Armazenamento:
-                                <br>
-                                SSD - 250GB
-                            </div>
-                        </span>
-                        <canvas id="chart02" class="charts"></canvas>
-                        <!-- <div class="chartStatus"><img src="../assets/img/warnin-icon.png"></div> -->
-                    </div>
-
-                    <div class="dashCard">
-                        <h3>consultorio76</h3>
-                        <span>
-                            Código: 0123987
-                            <br>
-                            <div class="tecnicalEspecification">
-                                <strong>Especificações técnicas:</strong> <br>
-                                Modelo do processador:
-                                <br>
-                                Intel Pentium
-                                <br>
-                                Memória:
-                                <br>
-                                DDR4 - 4GB
-                                <br>
-                                Armazenamento:
-                                <br>
-                                HD - 500GB
-                            </div>
-                        </span>
-                        <canvas id="chart03" class="charts"></canvas>
-                        <!-- <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div> -->
-                    </div>
-
-                    <div class="dashCard">
-                        <h3>triagem13</h3>
-                        <span>
-                            Código : 0123414
-                            <br>
-                            <div class="tecnicalEspecification">
-                                <strong>Especificações técnicas:</strong> <br>
-                                Modelo do processador:
-                                <br>
-                                AMD Athlon
-                                <br>
-                                Memória:
-                                <br>
-                                DDR4 - 4GB
-                                <br>
-                                Armazenamento:
-                                <br>
-                                HD - 500GB
-                            </div>
-                        </span>
-                        <canvas id="chart04" class="charts"></canvas>
-                        <!-- <div class="chartStatus"><img src="../assets/img/ok-icon.png"></div> -->
-                    </div>
-
-                </div>
+            <span>Última atualização: 30/04/2024 às 18:45</span>
+        </div>
+        <div class="dashCards">
+            <div class="dashLine">
             </div>
-    </main>
-    <script>
-
-        /* nav */
-
-        const menu = document.querySelector(".menu");
-        const navi = document.querySelector(".navbar");
-
-        menu.addEventListener('click', () => {
-            navi.classList.toggle('close');
-        })
-
-        /* graficos */
-        const ctx01 = document.getElementById('chart01');
-        const ctx02 = document.getElementById('chart02');
-        const ctx03 = document.getElementById('chart03');
-        const ctx04 = document.getElementById('chart04');
-        const options = {
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    max: 100,
-                    beginAtZero: true
-                }
-            }
-        };
-
-
-        // Função para gerar um número aleatório entre 30 e 100
-        function randomNumber() {
-            return Math.floor(Math.random() * (100 - 30 + 1)) + 30;
-        }
-
-        // Atualização dos gráficos com dados aleatórios
-        new Chart(ctx01, {
-            type: 'bar',
-            data: {
-                labels: ['CPU', 'Memória', 'Armazenamento'],
-                datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [randomNumber(), randomNumber(), randomNumber()],
-                    borderWidth: 1
-                }]
-            },
-            options: options
-        });
-
-        new Chart(ctx02, {
-            type: 'bar',
-            data: {
-                labels: ['CPU', 'Memória', 'Armazenamento'],
-                datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [randomNumber(), randomNumber(), randomNumber()],
-                    borderWidth: 1
-                }]
-            },
-            options: options
-        });
-
-        new Chart(ctx03, {
-            type: 'bar',
-            data: {
-                labels: ['CPU', 'Memória', 'Armazenamento'],
-                datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [randomNumber(), randomNumber(), randomNumber()],
-                    borderWidth: 1
-                }]
-            },
-            options: options
-        });
-
-        new Chart(ctx04, {
-            type: 'bar',
-            data: {
-                labels: ['CPU', 'Memória', 'Armazenamento'],
-                datasets: [{
-                    label: 'Porcentagem de uso',
-                    data: [randomNumber(), randomNumber(), randomNumber()],
-                    borderWidth: 1
-                }]
-            },
-            options: options
-        });
-    </script>
+        </div>
+        <div id="message">
+        </div>
+</main>
+<script src="../script/utils.js"></script>
+<script src="../script/statusTI.js"></script>
+<script>
+    searchByState('offline');
+</script>
 </body>
 
 </html>

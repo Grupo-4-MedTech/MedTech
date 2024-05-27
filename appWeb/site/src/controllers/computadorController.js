@@ -82,10 +82,45 @@ function deletarPC(req, res){
     computadoresModel.deletePC(req.params.idComputador)
 }
 
+function ultimasLeituras (req, res) {
+    computadoresModel.ultimasLeituras(req.params.status, req.params.fkHospital)
+    .then((result) => {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).send('Nenhum registro encontrado.');
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    })
+}
+
+
+function historicFerramentas(req, res) {
+    computadoresModel.historicFerramentas(
+        Object.entries(req.params).map((x) => {if (x[1] != 'null') { return x; }}).filter(x => x != undefined)
+    )
+    .then((result) => {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).send('Nenhum registro encontrado.');
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    })
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
     historic,
     adicionarPC,
-    deletarPC
+    deletarPC,
+    historicFerramentas,
+    ultimasLeituras
 }
