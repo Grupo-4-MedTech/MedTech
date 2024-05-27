@@ -31,9 +31,16 @@ function buscar(idHospital){
     return database.executar(query);
 }
 
+function adicionarUsuario(nome, email, cargo, fkHospital){
+    const query = `INSERT INTO funcionario (nome, email, cargo, fkHospital) VALUES ('${nome}', '${email}', '${cargo}', ${fkHospital});`
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     autenticar,
     update,
     chkLogin,
-    buscar
+    buscar,
+    adicionarUsuario
 }

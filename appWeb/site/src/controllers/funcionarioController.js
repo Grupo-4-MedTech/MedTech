@@ -74,8 +74,37 @@ function buscarUsuarios(req, res){
     });
 }
 
+function adicionarUsuario(req, res){
+
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const cargo = req.body.cargo;
+    const fkHospital = req.body.fkHospital;
+
+    if( !/^[a-zA-Z\s]{3,25}$/.test(nome) ||
+        !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email) // ||
+        // !/^[a-zA-Z\s]{3,25}$/.test(cargo)
+    ){
+        res.status(400).send('Dados incorretos');
+    }else{
+        funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital)
+        res.status(200).send('Usuário cadastrado com sucesso!')
+        .then(
+            function (result) {
+                res.json(result);
+            }
+        ).catch(
+            function (erro) {
+                res.status(500).send('Não foi possível adicionar o usuário.');
+            }
+        );
+    }
+
+}
+
 module.exports = {
     autenticar,
     chkLogin,
-    buscarUsuarios
+    buscarUsuarios,
+    adicionarUsuario
 }

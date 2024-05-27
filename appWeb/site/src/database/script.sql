@@ -163,6 +163,7 @@ INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado,
 
 update hospital set dtCriacao = '2024-04-07' where idHospital = 1;
 
+
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
 ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);

@@ -45,8 +45,45 @@ function editar(){
     popup.style.display = 'none';
     backgrounddiv.style.display = 'block';
 }
+
+function btnNovoFuncionario() {
+    popupFuncionario.style.display = 'block';
+    fundotabela.style.display = 'none';
+}
+
+
 function voltar() {
     window.location = document.referrer;
+}
+
+function novoFuncionario() {
+
+    let nome = input_nome_funcionario.value
+    let email = input_email.value
+    let cargo = input_cargo.value
+
+    fetch(`/funcionario/adicionarUsuario`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nome,
+            email,
+            cargo,
+            fkHospital: sessionStorage.HOSP
+        }),
+    }).then((result) => {
+        if (result.status == 200) {
+            result.json().then(function (json) {
+                alert(`usuário cadastrado!`)
+                window.location.href= '../config-usuarios.html'
+            })
+        } else {
+            alert(`Não deu`)
+
+        }
+    })
 }
 
 buscarUsuarios()

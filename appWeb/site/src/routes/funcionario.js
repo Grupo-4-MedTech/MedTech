@@ -14,4 +14,8 @@ router.get('/buscar/:idHospital', function(req, res){
     funcionarioController.buscarUsuarios(req, res)
 })
 
+router.post('/adicionarUsuario/', function(req, res){
+    funcionarioController.adicionarUsuario(req, res)
+});
+
 module.exports = router
