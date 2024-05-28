@@ -1,9 +1,15 @@
 /* HEADER */
-.navSelected {
+/*.navSelected {
     background-color: rgba(0, 0, 0, 0.192);
+}*/
+body {
+    margin-top: 70px;
 }
 
 header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
     width: 100%;
     height: 70px;
     display: flex;
@@ -19,11 +25,11 @@ header {
     display: flex;
     align-items: center;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 header .profileFrame {
-    width: 80px;
-    height: 80px;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +46,6 @@ header .profileFrame {
     position: absolute;
     z-index: 10;
     width: 300px;
-    bottom: calc(-110px + -20px);
     border-radius: 10px;
     background-color:#06a3a8;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.308);
@@ -63,6 +68,7 @@ header .profileFrame {
 }
 
 .profileFrame ul li {
+    color: white;
     display: flex;
     align-items: center;
     justify-content:left;
@@ -75,7 +81,6 @@ header .profileFrame {
 
 .profileFrame ul li:hover {
     background-color: rgba(0, 0, 0, 0.151);
-    color: white;
 }
 
 #protectedOptions{
@@ -83,9 +88,13 @@ header .profileFrame {
 }
 
 #profile_content{
+    display: none;
     width: 210px;
+    height: auto;
     position: absolute;
-    right: -100px;
+    margin: 0px;
+    top: 50px;
+    left: 10px;
 }
 
 .profileName {
@@ -122,10 +131,11 @@ main {
 /* NAVEGAÇÃO ESQUERDA */
 
 main>nav {
-    position: absolute;
+    position: fixed;
     /* remover na responsividade */
+    top: 70px;
     width: 185px;
-    height: 120%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,7 +156,6 @@ main>nav {
 main>nav ul {
     display: flex;
     height: 80%;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -158,13 +167,11 @@ main>nav ul {
 
 }
 
-main>nav ul>a {
+main>nav ul>li {
     display: flex;
     list-style: none;
     align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 100%
+
 }
 
 .menu_lista img {
