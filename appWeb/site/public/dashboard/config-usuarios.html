@@ -67,20 +67,23 @@
       <div class="tabela">
         <h1>Configurar usuários</h1>
         <p><a href="#">Nome Hospital</a></p>
-        <table id="test-table">
-          <thead>
-            <tr>
-              <th>Funcionário</th>
-              <th>Email</th>
-              <th>Cargo</th>
-              <th></th>
-            </tr>
-          </thead>
+        <button id="add-user" onclick="btnNovoFuncionario()">Adicionar novo usuário</button>
 
-          <button id="add-user" onclick="btnNovoFuncionario()">Adicionar novo usuário</button>
+        <div class="table_scroll">
+          <table id="test-table">
+            <thead>
+              <tr>
+                <th>Funcionário</th>
+                <th>Email</th>
+                <th>Cargo</th>
+                <th></th>
+              </tr>
+            </thead>
+
+        
 
 
-          <tbody id="table-body">
+        <tbody id="table-body">
 
           
             <tr>
@@ -94,6 +97,7 @@
             
           </tbody>
         </table>
+      </div>
       </div>
       <!-- <button class="tiny button right">Add Vehicle</button> -->
     </div>
