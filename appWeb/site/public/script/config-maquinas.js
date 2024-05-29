@@ -110,7 +110,21 @@ function listar() {
 function deletarPC(idComputador){
     fetch(`/computador/deletar/${idComputador}`, {
         method: 'DELETE',
-    })
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(function (resposta) {
+        if (resposta.status = 200) {
+            alert(`Máquina deletada com sucesso!`)
+            window.location = "./dashboard/config-maquinas.html"
+        } else if (resposta.status == 404) {
+            alert("Não foi possível deletar a máquina.");
+        } else {
+           alert("Erro ao deletar a máquina. Contate nosso suporte!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 buscarComputadores()

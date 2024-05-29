@@ -18,4 +18,7 @@ router.post('/adicionarUsuario/', function(req, res){
     funcionarioController.adicionarUsuario(req, res)
 });
 
+router.delete('/deletar/:idComputador', function(req, res){
+    funcionarioController.deletarFuncionario(req, res)
+});
 module.exports = router
