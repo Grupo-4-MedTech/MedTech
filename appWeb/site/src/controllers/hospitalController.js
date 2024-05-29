@@ -88,7 +88,7 @@ function deleteHospital(req, res) {
         if (!result.affectedRows > 0) {
             res.send('Nenhum registro foi apagado.');
         } else {
-            res.send('Resgistro apagado com sucesso!');
+            res.send('Registro apagado com sucesso!');
         }
     }).catch((error) => {
         console.log(error);

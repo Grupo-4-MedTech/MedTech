@@ -33,7 +33,8 @@ function preencherTabelaPC(json) {
         <td>${row.codPatrimonio}</td>
         <td>${row.fkDepartamento}</td>
         <td>${row.senha}</td>
-        <td class="editar" onclick="editar()"> <a>Editar </a></td>
+        <td class="editar" onclick="editar()"><a>Editar </a></td>
+        <td class="deletar" onclick=""><a> Excluir </a></td>
       </tr>`
 
     });

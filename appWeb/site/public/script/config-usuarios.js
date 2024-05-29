@@ -32,7 +32,8 @@ function preencherTabela(json){
         <td>${linha.nome}</td>
         <td>${linha.email}</td>
         <td>${linha.cargo}</td>
-        <td class="editar" onclick="editar(${linha.idFuncionario})"> <a>Editar </a></td>
+        <td class="editar" onclick="editar(${linha.idFuncionario})"><a> Editar </a></td>
+        <td class="deletar" onclick=""><a> Excluir </a></td>
       </tr>`
 
     });
@@ -60,7 +61,7 @@ function novoFuncionario() {
 
     let nome = input_nome_funcionario.value
     let email = input_email.value
-    let cargo = input_cargo.value
+    let cargo = select_cargo.value
 
     fetch(`/funcionario/adicionarUsuario`, {
         method: "POST",
@@ -75,15 +76,21 @@ function novoFuncionario() {
         }),
     }).then((result) => {
         if (result.status == 200) {
-            result.json().then(function (json) {
-                alert(`usuário cadastrado!`)
-                window.location.href= '../config-usuarios.html'
+            result.json()
+            .then(
+                function (json) {
+                resposta.innerHTML = `Usuário adicionado com sucesso!`
+                window.location.href= './config-usuarios.html'
             })
-        } else {
-            alert(`Não deu`)
-
+        }
+        else if (result.status == 400){
+            resposta.innerHTML += `Dados inválidos!`
         }
     })
+    .catch((erro) => {
+            resposta.innerHTML = `Não foi possível adicionar o usuário.`
+        }
+    )
 }
 
 buscarUsuarios()

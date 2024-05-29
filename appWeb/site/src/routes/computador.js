@@ -18,7 +18,7 @@ router.post('/adicionarPC', function(req, res){
     computadorController.adicionarPC(req, res)
 });
 
-router.delete('/deletar', function(req, res){
+router.delete('/deletar/:idComputador', function(req, res){
     computadorController.deletarPC(req, res)
 })
 

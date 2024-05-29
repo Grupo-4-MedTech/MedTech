@@ -82,68 +82,16 @@
 
           <tbody id="table-body">
 
+          
             <tr>
               <td>lorem1</td>
               <td>lorem2</td>
               <td>lorem3</td>
               <td class="editar"> <a onclick="editar()">Editar</a></td>
+              <td class="deletar"><a onclick="">Excluir</a></td>
 
             </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a onclick="editar()">Editar</a></td>
-
-            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -171,14 +119,19 @@
         <span>
           Cargo
         </span>
-        <input type="text" id="input_cargo"><br>
-
+        <select name="cargo" id="select_cargo">
+          <option value="MEDICO_GERENTE"> Médico gerente </option>
+          <option value="TECNICO_TI"> Técnico TI </option>
+          <option value="GESTOR_TI"> Gestor TI </option>
+        </select>
+        <button id="btn-add-pc" onclick="novoFuncionario()">Adicionar</button>
+        
         <div id="resposta">
 
         </div>
 
 
-        <button id="btn-add-pc" onclick="novoFuncionario()">Adicionar</button>
+        
       </div>
 
 

@@ -79,7 +79,24 @@ function adicionarPC(req, res){
 }
 
 function deletarPC(req, res){
-    computadoresModel.deletePC(req.params.idComputador)
+   
+    const idComputador = req.params.idComputador;
+    
+    computadoresModel.deletar(idComputador)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+    
 }
 
 function ultimasLeituras (req, res) {
