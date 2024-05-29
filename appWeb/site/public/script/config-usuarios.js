@@ -93,5 +93,25 @@ function novoFuncionario() {
     )
 }
 
+function deletarFuncionario(idFuncionario){
+    fetch(`/funcionario/deletar/${idFuncionario}`, {
+        method: 'DELETE',
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(function (resposta) {
+        if (resposta.status = 200) {
+            alert(`Usuário deletado com sucesso!`);
+            window.location = "./dashboard/config-maquinas.html"
+        } else if (resposta.status == 404) {
+            alert("Não foi possível deletar a máquina.");
+        } else {
+           alert("Erro ao deletar a máquina. Contate nosso suporte!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
 buscarUsuarios()
 

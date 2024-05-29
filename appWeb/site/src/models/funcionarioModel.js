@@ -36,11 +36,17 @@ function adicionarUsuario(nome, email, cargo, fkHospital){
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
+function deletar(idFuncionario){
+    const query = `DELETE FROM computador WHERE idComputador = ${idFuncionario}`
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
 
 module.exports = {
     autenticar,
     update,
     chkLogin,
     buscar,
-    adicionarUsuario
+    adicionarUsuario,
+    deletar
 }

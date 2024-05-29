@@ -193,7 +193,7 @@ function historicFerramentas(data) {
     return database.executar(query);
 }
 
-function deletePC(idComputador){
+function deletar(idComputador){
     const query = `DELETE FROM computador WHERE idComputador = ${idComputador}`
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
@@ -205,5 +205,6 @@ module.exports = {
     historic,
     adicionarPC,
     ultimasLeituras,
-    historicFerramentas
+    historicFerramentas,
+    deletar
 }
