@@ -33,7 +33,7 @@ function preencherTabela(json){
         <td>${linha.email}</td>
         <td>${linha.cargo}</td>
         <td class="editar" onclick="editar(${linha.idFuncionario})"><a> Editar </a></td>
-        <td class="deletar" onclick=""><a> Excluir </a></td>
+        <td class="deletar" onclick=""><a onclick="abrirPopup()"> Excluir </a></td>
       </tr>`
 
     });
@@ -91,6 +91,11 @@ function novoFuncionario() {
             resposta.innerHTML = `Não foi possível adicionar o usuário.`
         }
     )
+}
+
+function abrirPopup(){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'flex';
 }
 
 buscarUsuarios()
