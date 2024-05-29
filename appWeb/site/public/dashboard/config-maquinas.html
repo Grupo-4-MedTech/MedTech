@@ -21,9 +21,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
-<body>
-
-
+<body onload="loadUser()">
 
   <header>
     <div>
@@ -34,32 +32,37 @@
       <img src="../assets/img/medtech-logo2.png">
     </div>
 
-    <div class="profileHeader">
+    <div class="profileHeader" onclick="toggleOptions()">
       <div class="profileFrame">
         <img src="../assets/img/user-avatar.png"> <!--EXEMPLO DE IMG, TROCAR-->
         <div id="profile_content">
           <!-- <div class="arrowTop"></div> -->
           <div class="opContent">
             <ul>
-              <li onclick="openConfig();"> <img src="../assets/img/engrenagem.png" alt=""> Configurações</li>
-              <!-- <div id="protectedOptions"> -->
-              <li onclick="openUserManagement();"> <img src="../assets/img/config-usuario.png" alt=""> Usuários</li>
-              <li onclick="openComputerRegistration();"> <img src="../assets/img/config-computador.png" alt="">Máquinas
+              <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
               </li>
-              <!-- </div> -->
-
+              <!-- <div id="protectedOptions"> -->
+              <li onclick="openUserManagement()">
+                <img src="../assets/img/config-usuario.png" alt="">
+                Usuários
+              </li>
+              <li onclick="openComputerRegistration()">
+                <img src="../assets/img/config-computador.png" alt="">
+                Máquinas
+              </li>
               <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="profileName" id="profile_name_header"> <i class="fa fa-angle-down"
-          onclick="toggleOptions();"></i>
+      <div class="profileName" id="profile_name_header">
+        <span id="profileUserName">
 
+        </span>
+        <i class="fa fa-angle-down"></i>
       </div>
       <!-- SUBSTITUIR ONLOAD -->
     </div>
-
   </header>
 
   <div class="fundo-popup" id="popup" style="display: none;">
@@ -94,56 +97,53 @@
       <div class="tabela">
         <h1>Configurar máquinas</h1>
         <p><a href="#">Nome Hospital</a></p>
-        <table id="test-table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Código de patrimônio</th>
-              <th>Departamento</th>
-              <th>Senha</th>
-              <th></th>
-            </tr>
-          </thead>
+        <button id="add-user" onclick="btnNovoComputador()">Adicionar nova máquina</button>
+        <div class="table_scroll">
 
-          <button id="add-user" onclick="btnNovoComputador()">Adicionar nova máquina</button>
+          <table id="test-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Código de patrimônio</th>
+                <th>Departamento</th>
+                <th>Senha</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="table-body-maquina">
 
+              <tr>
+                <td>lorem1</td>
+                <td>lorem2</td>
+                <td>lorem3</td>
+                <td>Lorem ipsum dolor sit.</td>
+                <td class="editar"> <a href="#" onclick="editar()">Editar</a></td>
 
+              </tr>
+              <tr>
+                <td>lorem1</td>
+                <td>lorem2</td>
+                <td>lorem3</td>
+                <td class="editar"> <a href="#">Editar</a></td>
 
+              </tr>
+              <tr>
+                <td>lorem1</td>
+                <td>lorem2</td>
+                <td>lorem3</td>
+                <td class="editar"> <a href="#">Editar</a></td>
 
+              </tr>
+              <tr>
+                <td>lorem1</td>
+                <td>lorem2</td>
+                <td>lorem3</td>
+                <td class="editar"> <a href="#">Editar</a></td>
+              </tr>
 
-          <tbody id="table-body-maquina">
-
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td>Lorem ipsum dolor sit.</td>
-              <td class="editar"> <a href="#" onclick="editar()">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a href="#">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a href="#">Editar</a></td>
-
-            </tr>
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td class="editar"> <a href="#">Editar</a></td>
-            </tr>
-
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
 
 
         <!-- <button class="tiny button right">Add Vehicle</button> -->
@@ -151,7 +151,7 @@
 
     </div>
   </div>
-  
+
   <div class="PCfundo-popup" id="PCpopup" style="display: none;">
     <div class="fundo-tabela">
       <div class="topo">

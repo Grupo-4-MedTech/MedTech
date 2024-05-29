@@ -53,7 +53,7 @@ function btnNovoComputador() {
 }
 
 function voltar() {
-    window.location = document.referrer;
+    window.location = "/geralTI.html";
 }
 function novoComputador() {
 
