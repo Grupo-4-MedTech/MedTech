@@ -116,7 +116,7 @@ function deletarPC(idComputador){
     }).then(function (resposta) {
         if (resposta.status = 200) {
             alert(`Máquina deletada com sucesso!`)
-            window.location = "./dashboard/config-maquinas.html"
+            window.location = "./config-maquinas.html"
         } else if (resposta.status == 404) {
             alert("Não foi possível deletar a máquina.");
         } else {
@@ -125,6 +125,13 @@ function deletarPC(idComputador){
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
     });
+}
+
+function editarPC(){
+    let updateNome = update_input_nome.value
+    let updateCodPatrimonio = update_input_codPatrimonio.value
+    let updateDepartamento = listaDepartamentos.value
+    let updateSenha = update_input_senha.value
 }
 
 buscarComputadores()

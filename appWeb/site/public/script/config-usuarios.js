@@ -1,3 +1,5 @@
+const { response } = require("express")
+
 function buscarUsuarios(){
     fetch(`/funcionario/buscar/${sessionStorage.HOSP}`, {
         method: "GET",
@@ -83,7 +85,7 @@ function novoFuncionario() {
                 window.location.href= './config-usuarios.html'
             })
         }
-        else if (result.status == 400){
+        else if (result.status == 400 || result.status == 500){
             resposta.innerHTML += `Dados inválidos!`
         }
     })

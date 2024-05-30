@@ -1,4 +1,5 @@
 const database = require("../database/config");
+const { update } = require("./funcionarioModel");
 
 function buscarPorId(idHospital) {
     const query = `SELECT * FROM computador WHERE fkHospital = '${idHospital}';`;
@@ -199,6 +200,14 @@ function deletar(idComputador){
     return database.executar(query);
 }
 
+function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
+    var instrucaoSql = `
+        UPDATE computador SET nome = '${updateNome}', codPatrimonio = '${updateCodPatrimonio}', senha = '${updateSenha}', fkDepartamento = ${updateDepartamento}  WHERE id = ${idComputador};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -206,5 +215,6 @@ module.exports = {
     adicionarPC,
     ultimasLeituras,
     historicFerramentas,
-    deletar
+    deletar,
+    editarPC
 }

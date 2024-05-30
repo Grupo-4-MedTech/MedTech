@@ -68,27 +68,33 @@
   <div class="fundo-popup" id="popup" style="display: none;">
     <div class="fundo-tabela">
       <div class="topo">
-        Editar <ion-icon name="close"></ion-icon>
+        Editar
       </div>
 
       <div class="conteudo">
         <span>
           Nome
         </span>
-        <input type="text"><br>
+        <input type="text" id="update_input_nome"><br>
         <span>
           Código de patrimônio
         </span>
-        <input type="text">
+        <input type="text" id="update_input_codPatrimonio">
         <br>
-        <span>Departamento</span>
-        <input type="text"><br>
+        <span>
+          Departamento
+        </span>
+        <select name="departamentos" id="listaDepartamentos">
+          <option selected>Selecione um departamento</option>
+        </select><br>
+        <span>Senha</span>
+        <input type="text" id="update_input_senha">
 
 
         <button>Salvar</button>
+        <button>Cancelar</button>
+
       </div>
-
-
     </div>
   </div>
 
