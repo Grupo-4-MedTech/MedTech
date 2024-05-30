@@ -65,6 +65,14 @@ function updateHospital(id, data) {
 }
 function listar() {
     const query = `SELECT * FROM departamento;`;
+    // FAZER SELECT TRAZENDO APENAS OS DEPARTAMENTOS DO HOSPITAL QUE QUEM ESTÁ CADASTRANDO PERTENCE
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function findDepsByFunc(id) {
+    const query = `SELECT d.* FROM departamento d JOIN acesso a ON d.idDepartamento = a.fkDepartamento WHERE a.fkFuncionario = ${id};`;
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
@@ -76,5 +84,6 @@ module.exports = {
     deleteHospital,
     find,
     updateHospital,
-    listar
+    listar,
+    findDepsByFunc
 }

@@ -13,7 +13,7 @@ router.post('/autenticar', function(req, res){
 
 router.get('/buscar/:nomeFantasia/:dtCriacao/:uf/:verificado', function(req, res){
     hospitalController.find(req, res);
-})
+});
 
 router.delete('/deletar/:idHospital', function(req, res){
     hospitalController.deleteHospital(req, res);
@@ -21,8 +21,12 @@ router.delete('/deletar/:idHospital', function(req, res){
 
 router.put('/update/:idHospital', function(req, res){
     hospitalController.updateHospital(req, res);
-})
+});
 router.get('/listar', function(req, res){
     hospitalController.listar(req, res);
+});
+
+router.get('/departamentos/:idFuncionario', function(req, res) {
+    hospitalController.findDepsByFunc(req, res);
 })
 module.exports = router;

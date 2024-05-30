@@ -57,6 +57,11 @@ function logout(){
     window.location.href = '../index.html';
 }
 
+function calcActivity(json) {
+
+}
+
 module.exports = {
-    tokenGenerator
+    tokenGenerator,
+    calcActivity
 }
