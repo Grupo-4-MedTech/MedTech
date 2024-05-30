@@ -33,7 +33,7 @@ function preencherTabela(json){
         <td>${linha.email}</td>
         <td>${linha.cargo}</td>
         <td class="editar" onclick="editar(${linha.idFuncionario})"><a> Editar </a></td>
-        <td class="deletar" onclick=""><a onclick="abrirPopup()"> Excluir </a></td>
+        <td class="deletar" onclick="abrirPopup(${linha.idFuncionario})"><a> Excluir </a></td>
       </tr>`
 
     });
@@ -102,7 +102,7 @@ function deletarFuncionario(idFuncionario){
     }).then(function (resposta) {
         if (resposta.status = 200) {
             alert(`Usuário deletado com sucesso!`);
-            window.location = "./dashboard/config-maquinas.html"
+            window.location = "./config-usuarios.html"
         } else if (resposta.status == 404) {
             alert("Não foi possível deletar a máquina.");
         } else {
@@ -112,9 +112,22 @@ function deletarFuncionario(idFuncionario){
         console.log(`#ERRO: ${resposta}`);
     });
 }
-function abrirPopup(){
+function abrirPopup(idFuncionario){
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'flex';
+    popup.innerHTML = `<div class="popupDelecao">
+    <h1>
+      Deseja mesmo deletar?
+    </h1>
+    <div class="botoesDelecao">
+      <button class="botaoExclusao" onclick="deletarFuncionario(${idFuncionario})">Excluir</button>
+      <button class="botaoCancelar" onclick="fecharPopup()">Cancelar</button>
+    </div>
+  </div>` 
+}
+function fecharPopup(){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'none';
 }
 
 buscarUsuarios()
