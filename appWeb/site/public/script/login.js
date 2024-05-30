@@ -117,6 +117,7 @@ function redirect(json) {
     showMessage(false, "Login realizado com sucesso");
 
     console.log(json.token);
+    sessionStorage.ID = json.idFuncionario;
     sessionStorage.NOME_USR = json.nome;
     sessionStorage.EMAIL_USR = json.email;
     sessionStorage.TEL_USR = json.telefone;

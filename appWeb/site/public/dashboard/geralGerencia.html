@@ -63,113 +63,113 @@
 
     </header>
 
-<div id="backgrounddiv">
-    <div class="screendiv">
+    <div id="backgrounddiv">
+        <div class="screendiv">
             <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
                 close
             </span>
-        <div id="configContent">
+            <div id="configContent">
 
-        </div>
-        <div id="computerRegistrationContent">
+            </div>
+            <div id="computerRegistrationContent">
 
-        </div>
-
-    </div>
-</div>
-
-<main>
-    <!-- LEFT NAVIGATION -->
-
-    <nav class="navbar">
-        <div class="companyName" id="company_nav_name">Santacruz</div>
-        <ul id="nav_setores">
-            <a href="#" class="navSelected">
-                <li>Geral</li>
-            </a>
-            <a href="triagem.html">
-                <li>Triagem</li>
-            </a>
-            <a href="recepcao.html">
-                <li>Recepção</li>
-            </a>
-        </ul>
-    </nav>
-
-    <div class="dashboardScreen" id="dashboard_screendiv">
-        <!-- aqui ficará as dashboards que se alternarão -->
-        <div class="containerCardsTopo">
-            <div class="dashNotification" id="div_notification">
-                <div class="notificationCard statusGreen">
-                    <h3>Online</h3>
-                    <div class="subtextos">
-                            <span class="notificationNumber">
-                            </span>
-
-                        <span class="porcentagem">
-                            </span>
-                    </div>
-                </div>
-                <div class="notificationCard statusGray">
-                    <h3>Offline</h3>
-                    <div class="subtextos">
-                            <span class="notificationNumber">
-                            </span>
-
-                        <span class="porcentagem">
-                            </span>
-                    </div>
-
-                </div>
             </div>
 
         </div>
-        <br><br>
-        <div class="dashDescription">
+    </div>
+
+    <main>
+        <!-- LEFT NAVIGATION -->
+
+        <nav class="navbar">
+            <div class="companyName" id="company_nav_name">Santacruz</div>
+            <ul id="nav_setores">
+                <a href="#" class="navSelected">
+                    <li>Geral</li>
+                </a>
+                <a href="triagem.html">
+                    <li>Triagem</li>
+                </a>
+                <a href="recepcao.html">
+                    <li>Recepção</li>
+                </a>
+            </ul>
+        </nav>
+
+        <div class="dashboardScreen" id="dashboard_screendiv">
+            <!-- aqui ficará as dashboards que se alternarão -->
+            <div class="containerCardsTopo">
+                <div class="dashNotification" id="div_notification">
+                    <div class="notificationCard statusGreen">
+                        <h3>Online</h3>
+                        <div class="subtextos">
+                            <span class="notificationNumber">
+                            </span>
+
+                            <span class="porcentagem">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="notificationCard statusGray">
+                        <h3>Offline</h3>
+                        <div class="subtextos">
+                            <span class="notificationNumber">
+                            </span>
+
+                            <span class="porcentagem">
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <div class="dashDescription">
                 <span class="titulo">
                     <h2>Guias mais acessadas</h2>
                 </span>
 
-        </div><br><br>
-        <div class="att-select">
-            <div class="data-atualizacao">
-                <h3 id="lastUpdate"> Atualizado em: 30/04/2024, às 20:32. </h3>
+            </div><br><br>
+            <div class="att-select">
+                <div class="data-atualizacao">
+                    <h3 id="lastUpdate"> Atualizado em: 30/04/2024, às 20:32. </h3>
+                </div>
+
+                <select class="select-data" id="select_data">
+                    <option value="null" selected disabled>Período de busca</option>
+                    <option value="1">Última semana</option>
+                    <option value="2">Último mês</option>
+                    <option value="3">Últimos 3 meses</option>
+                    <option value="null">Todos os tempos</option>
+                </select>
+
+            </div>
+            <div class="dashContent">
+                <div class="mainChart">
+                    <canvas id="chart01" class="mainChart"></canvas>
+                </div>
+
             </div>
 
-            <select class="select-data" id="select_data">
-                <option value="null" selected disabled>Período de busca</option>
-                <option value="1">Última semana</option>
-                <option value="2">Último mês</option>
-                <option value="3">Últimos 3 meses</option>
-                <option value="null">Todos os tempos</option>
-            </select>
-
         </div>
-        <div class="dashContent">
-            <div class="mainChart">
-                <canvas id="chart01" class="mainChart"></canvas>
-            </div>
-
         </div>
 
-    </div>
-    </div>
+        <div id="message">
+        </div>
+    </main>
+    <script src="../script/utils.js"></script>
+    <script src="../script/geralGerencia.js"></script>
+    <script>
+        /* nav */
 
-    <div id="message">
-    </div>
-</main>
-<script src="../script/utils.js"></script>
-<script src="../script/geralGerencia.js"></script>
-<script>
-    /* nav */
+        const menu = document.querySelector(".menu");
+        const navi = document.querySelector(".navbar");
 
-    const menu = document.querySelector(".menu");
-    const navi = document.querySelector(".navbar");
-
-    menu.addEventListener('click', () => {
-        navi.classList.toggle('close');
-    })
-</script>
+        menu.addEventListener('click', () => {
+            navi.classList.toggle('close');
+        })
+    </script>
 </body>
 
 </html>

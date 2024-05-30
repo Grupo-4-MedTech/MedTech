@@ -70,6 +70,18 @@ CREATE TABLE computador(
     CONSTRAINT fkHospitalComputador FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
+CREATE TABLE logAtividade(
+	idLogAtividade INT PRIMARY KEY AUTO_INCREMENT,
+    atividade TINYINT NOT NULL,
+    dtOcorrencia DATETIME DEFAULT CURRENT_TIMESTAMP,
+	fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    CONSTRAINT fkComputadorLA FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    CONSTRAINT fkDepartamentaLA FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    CONSTRAINT fkHospitalLA FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+);
+
 CREATE TABLE logComputador (
 	idLogComputador INT PRIMARY KEY AUTO_INCREMENT,
     grau VARCHAR(7),
@@ -180,6 +192,8 @@ INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gb
 INSERT INTO metrica (alertaCpu, alertaCritCpu, alertaRam, alertaCritRam, alertaDisco, alertaCritDisco, fkComputador, fkDepartamento, fkHospital) VALUES 
 (0.70, 1.00, 0.75, 1.00, 0.80, 1.00, 1, 1, 1);
 
+SELECT * FROM logAtividade;
+
 CREATE VIEW hospitalWithEndereco AS
 SELECT * FROM hospital JOIN endereco ON fkEndereco = idEndereco;
 
@@ -194,6 +208,16 @@ BEGIN
     DELETE FROM funcionario WHERE fkHospital = id;
     DELETE FROM departamento WHERE fkHospital = id;
     DELETE FROM hospital WHERE idHospital = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER insertMetrica 
+AFTER INSERT ON computador
+FOR EACH ROW
+BEGIN
+	INSERT INTO metrica (alertaCpu, alertaCritCpu, alertaRam, alertaCritRam, alertaDisco, alertaCritDisco, fkComputador, fkDepartamento, fkHospital) VALUES
+    (0.7, 1, 0.75, 1, 0.8, 1, NEW.idComputador, NEW.fkDepartamento, NEW.fkHospital);
 END$$
 DELIMITER ;
 
@@ -320,6 +344,22 @@ BEGIN
 END$$
 DELIMITER ;
 
+DELIMITER $$
+CREATE TRIGGER insertLogAtvAfterCompUpdate
+AFTER UPDATE ON computador
+FOR EACH ROW
+BEGIN
+	IF OLD.atividade <> NEW.atividade THEN
+		INSERT INTO logAtividade (atividade, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES 
+        (NEW.atividade, NOW(), NEW.idComputador, NEW.fkDepartamento, NEW.fkHospital);
+    END IF;
+END $$
+DELIMITER ;
+
+UPDATE computador SET atividade = 0 WHERE idComputador = 1;
+SELECT * FROM logAtividade;
+
+
 INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital) VALUES
 (0, 0, 1, 1, 1);
 INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES
@@ -368,8 +408,6 @@ insert into computador (nome, status, dtStatusUpdate, codPatrimonio, senha, fkDe
 ('PC_TRIAGEM09', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OF', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM010', 'alerta', NOW(), '67890OQ', 'ilovepizza', 1, 1),
 ('PC_TRIAGEM011', 'crítico', DATE_SUB(NOW(), INTERVAL 7 DAY), '67890OZ', 'ilovepizza', 1, 1);
-
-	
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, update, delete, select ON medtech.* to 'usuario'@'localhost';
