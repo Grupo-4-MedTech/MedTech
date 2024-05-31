@@ -26,7 +26,9 @@ function preencherTabelaPC(json) {
     const table = document.getElementById(`table-body-maquina`);
     let content = '';
     table.innerHTML = "";
-
+    
+    console.log(json);
+    
     json.forEach(row => {
         content += `<tr>
         <td>${row.nome}</td>
@@ -34,7 +36,7 @@ function preencherTabelaPC(json) {
         <td>${row.fkDepartamento}</td>
         <td>${row.senha}</td>
         <td class="editar" onclick="editar()"><a>Editar </a></td>
-        <td class="deletar" onclick=""><a> Excluir </a></td>
+        <td class="deletar" onclick="abrirPopup(${row.idComputador})"><a> Excluir </a></td>
       </tr>`
 
     });
@@ -132,6 +134,24 @@ function editarPC(){
     let updateCodPatrimonio = update_input_codPatrimonio.value
     let updateDepartamento = listaDepartamentos.value
     let updateSenha = update_input_senha.value
+}
+
+function abrirPopup(idComputador){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'flex';
+    popup.innerHTML = `<div class="popupDelecao">
+    <h1>
+      Deseja mesmo deletar?
+    </h1>
+    <div class="botoesDelecao">
+      <button class="botaoExclusao" onclick="deletarPC(${idComputador})">Excluir</button>
+      <button class="botaoCancelar" onclick="fecharPopup()">Cancelar</button>
+    </div>
+  </div>` 
+}
+function fecharPopup(){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'none';
 }
 
 buscarComputadores()
