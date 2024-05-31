@@ -16,7 +16,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -25,7 +25,7 @@
         <div>
             <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
         </div>
-        
+
         </div>
 
         <div class="headerLogo">
@@ -65,160 +65,170 @@
         </div>
 
 
-</header>
+    </header>
 
-<div id="backgrounddiv">
-    <div class="screendiv">
+    <div id="backgrounddiv">
+        <div class="screendiv">
             <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
                 close
             </span>
-        <div id="configContent">
-            <h3>Configurações</h3>
-            <div class="box">
-                <div id="nomeUsuario">Nome usuário</div>
-                <div id="cpfUsuario">CPF:</div>
-                <div id="telefoneUsuario">Telefone: <i class="fa-regular fa-pen-to-square"></i>
+            <div id="configContent">
+                <h3>Configurações</h3>
+                <div class="box">
+                    <div id="nomeUsuario">
+                        <i class="fa fa-user-o configIcons"></i>
+                        Nome usuário
+                    </div>
+                    <div id="cpfUsuario">
+                        <i class="fa fa-id-badge configIcons"></i>
+                        CPF:
+                    </div>
+                    <div id="telefoneUsuario">
+                        <i class="fa fa-phone configIcons"></i>
+                        Telefone:
+                    </div>
+                    <div id="emailusuario">
+                        <i class="fa fa-envelope configIcons"></i>
+                        Email:
+                    </div>
                 </div>
-                <div id="emailusuario"> Email: <i class="fa-regular fa-pen-to-square"></i>
-                </div>
+                <div class="suporte"> <img src="../assets/img/suporte-online.png" alt=""> Suporte MedTech</div>
+
             </div>
-            <div class="suporte"> <img src="../assets/img/suporte-online.png" alt=""> Suporte MedTech</div>
 
         </div>
-
     </div>
-</div>
 
-<main>
-    <!-- LEFT NAVIGATION -->
+    <main>
+        <!-- LEFT NAVIGATION -->
 
-    <nav class="navbar">
-        <div class="companyName" id="company_nav_name">Santacruz</div>
-        <ul id="nav_setores">
-            <a class="navSelected" id="li_geral">
-                <li>Geral</li>
-            </a>
-            <a id="li_critico" href="critico.html">
-                <li>Critico</li>
-            </a>
-            <a id="li_alerta" href="alerta.html">
-                <li>Alerta</li>
-            </a>
-            <a id="li_offline" href="offline.html">
-                <li>Offline</li>
-            </a>
-            <a id="li_estavel" href="estavel.html">
-                <li>Estável</li>
-            </a>
-        </ul>
-    </nav>
+        <nav class="navbar">
+            <div class="companyName" id="company_nav_name">Santacruz</div>
+            <ul id="nav_setores">
+                <a class="navSelected" id="li_geral">
+                    <li>Geral</li>
+                </a>
+                <a id="li_critico" href="critico.html">
+                    <li>Critico</li>
+                </a>
+                <a id="li_alerta" href="alerta.html">
+                    <li>Alerta</li>
+                </a>
+                <a id="li_offline" href="offline.html">
+                    <li>Offline</li>
+                </a>
+                <a id="li_estavel" href="estavel.html">
+                    <li>Estável</li>
+                </a>
+            </ul>
+        </nav>
 
-    <div class="dashboardScreen" id="dashboard_screendiv">
-        <!-- aqui ficará as dashboards que se alternarão -->
-        <div class="containerCardsTopo">
-            <div id="div_kpis" class="dashNotification">
-                <div class="notificationCard statusRed">
-                    <h3>Crítico</h3>
-                    <div class="subtextos">
+        <div class="dashboardScreen" id="dashboard_screendiv">
+            <!-- aqui ficará as dashboards que se alternarão -->
+            <div class="containerCardsTopo">
+                <div id="div_kpis" class="dashNotification">
+                    <div class="notificationCard statusRed">
+                        <h3>Crítico</h3>
+                        <div class="subtextos">
                             <span class="notificationNumber">
                             </span>
 
-                        <span class="porcentagem">
+                            <span class="porcentagem">
 
                             </span>
+                        </div>
                     </div>
-                </div>
-                <div class="notificationCard statusYellow">
-                    <h3>Alerta</h3>
-                    <div class="subtextos">
+                    <div class="notificationCard statusYellow">
+                        <h3>Alerta</h3>
+                        <div class="subtextos">
                             <span class="notificationNumber">
                             </span>
 
-                        <span class="porcentagem">
+                            <span class="porcentagem">
 
                             </span>
-                    </div>
+                        </div>
 
-                </div>
-                <div class="notificationCard statusGray">
-                    <h3>Offline</h3>
-                    <div class="subtextos">
+                    </div>
+                    <div class="notificationCard statusGray">
+                        <h3>Offline</h3>
+                        <div class="subtextos">
                             <span class="notificationNumber">
                             </span>
 
-                        <span class="porcentagem">
+                            <span class="porcentagem">
 
                             </span>
-                    </div>
+                        </div>
 
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-        <br><br>
-        <div class="dashDescription">
+            <br><br>
+            <div class="dashDescription">
                 <span class="titulo">
                     <h2>Recorrência de incidentes</h2>
                 </span>
 
-        </div><br>
-        <div class="att-select">
-            <div class="data-atualizacao">
-                <h3 id="h3_lastUpdate"></h3>
+            </div><br>
+            <div class="att-select">
+                <div class="data-atualizacao">
+                    <h3 id="h3_lastUpdate"></h3>
+                </div>
+
+                <select class="select-data" id="select_data">
+                    <option value="null" selected disabled>Período de busca</option>
+                    <option value="1">Última semana</option>
+                    <option value="2">Último mês</option>
+                    <option value="3">Últimos 3 meses</option>
+                    <option value="null">Todos os tempos</option>
+                </select>
+
+            </div>
+            <div class="dashContent">
+                <div class="mainChart">
+                    <canvas id="chart01" class="mainChart"></canvas>
+                </div>
+
+
+                <table id="table_causas">
+                    <tr>
+                        <th>Causas</th>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td> 0</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td> 0 </td>
+                    </tr>
+                    <tr>
+                        <td>Disco </td>
+                        <td> 0 </td>
+                    </tr>
+                </table>
             </div>
 
-            <select class="select-data" id="select_data">
-                <option value="null" selected disabled>Período de busca</option>
-                <option value="1">Última semana</option>
-                <option value="2">Último mês</option>
-                <option value="3">Últimos 3 meses</option>
-                <option value="null">Todos os tempos</option>
-            </select>
-
         </div>
-        <div class="dashContent">
-            <div class="mainChart">
-                <canvas id="chart01" class="mainChart"></canvas>
-            </div>
-
-
-            <table id="table_causas">
-                <tr>
-                    <th>Causas</th>
-                </tr>
-                <tr>
-                    <td>CPU</td>
-                    <td> 0</td>
-                </tr>
-                <tr>
-                    <td>RAM</td>
-                    <td> 0 </td>
-                </tr>
-                <tr>
-                    <td>Disco </td>
-                    <td> 0 </td>
-                </tr>
-            </table>
         </div>
 
-    </div>
-    </div>
+        <div id="message">
+        </div>
+    </main>
+    <script src="../script/utils.js"></script>
+    <script src="../script/geralTI.js"></script>
+    <script>
+        /* nav */
 
-    <div id="message">
-    </div>
-</main>
-<script src="../script/utils.js"></script>
-<script src="../script/geralTI.js"></script>
-<script>
-    /* nav */
+        const menu = document.querySelector(".menu");
+        const navi = document.querySelector(".navbar");
 
-    const menu = document.querySelector(".menu");
-    const navi = document.querySelector(".navbar");
-
-    menu.addEventListener('click', () => {
-        navi.classList.toggle('close');
-    })
-</script>
+        menu.addEventListener('click', () => {
+            navi.classList.toggle('close');
+        })
+    </script>
 </body>
 
 </html>

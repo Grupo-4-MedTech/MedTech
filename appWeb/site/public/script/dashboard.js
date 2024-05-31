@@ -23,7 +23,7 @@ function loadUser(){
 
 function openConfig() {
     profile_content.style.display = 'none';
-    backgrounddiv.style.display = 'block';
+    backgrounddiv.style.display = 'flex';
 
 }
 
