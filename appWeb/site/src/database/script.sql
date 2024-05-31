@@ -9,7 +9,6 @@ CREATE TABLE endereco(
 	complemento VARCHAR(255),
 	uf CHAR(2) NOT NULL
 ) AUTO_INCREMENT = 1;
-
 CREATE TABLE hospital(
 	idHospital INT PRIMARY KEY AUTO_INCREMENT,
 	nomeFantasia VARCHAR(100), 
@@ -22,7 +21,6 @@ CREATE TABLE hospital(
 	fkEndereco INT NOT NULL,
 	CONSTRAINT fkEnderecoHosp FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
 ) AUTO_INCREMENT = 1;
-
 CREATE TABLE funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(100),
@@ -34,14 +32,12 @@ CREATE TABLE funcionario(
 	senha VARCHAR(255),
 	fkHospital INT, CONSTRAINT fkHospitalFunc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 ) AUTO_INCREMENT = 1000;
-
 CREATE TABLE departamento(
     idDepartamento INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     fkHospital INT NOT NULL,
     CONSTRAINT fkDepartamentoHosp FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 ) AUTO_INCREMENT = 1 ;
-
 CREATE TABLE acesso(
     fkFuncionario INT,
     fkDepartamento INT,
@@ -109,7 +105,6 @@ CREATE TABLE leituraRamCpu(
     CONSTRAINT fkDepartamentoLeitura FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalLeitura FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
-
 CREATE TABLE leituraDisco(
 	idLeituraDisco INT PRIMARY KEY AUTO_INCREMENT,
     disco DOUBLE,
@@ -121,7 +116,6 @@ CREATE TABLE leituraDisco(
     CONSTRAINT fkDepartamentoLeituraDisc FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
     CONSTRAINT fkHospitalLeituraDisc FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
-
 CREATE TABLE leituraFerramenta(
 	idLeituraFerramenta INT PRIMARY KEY AUTO_INCREMENT, 
 	nomeApp VARCHAR(255),
@@ -159,7 +153,6 @@ CREATE TABLE contaMedtech(
     email VARCHAR(100) UNIQUE,
     senha VARCHAR(255)
 );
-
 INSERT INTO contaMedtech (nome, cpf, email, senha) VALUES
 ('Caique Lucio', '59696032907', 'caiquedeandradelucio@gmail.com', 'medtech88');
 
@@ -236,7 +229,7 @@ BEGIN
 		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
         ('estável', 'ram', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
     END IF;
-    
+
     IF NEW.cpu / 100 >= (SELECT alertaCritCpu FROM metrica WHERE fkComputador = NEW.fkComputador) THEN
 		INSERT INTO logComputador (grau, causa, fkComputador, fkDepartamento, fkHospital) VALUES
         ('crítico', 'cpu', NEW.fkComputador, NEW.fkDepartamento, NEW.fkHospital);
@@ -332,7 +325,7 @@ BEGIN
     ) l ON c.idComputador = l.fkComputador
     SET c.atividade = 0
     WHERE (l.ultimaLeitura IS NULL OR TIMESTAMPDIFF(HOUR, l.ultimaLeitura, NOW()) > 1);
-    
+
 	UPDATE computador c
     LEFT JOIN (
       SELECT fkComputador, MAX(dataLeitura) as ultimaLeitura

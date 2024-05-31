@@ -130,6 +130,25 @@ function historicFerramentas(req, res) {
         })
 }
 
+function editarPC() {
+    const idComputador = req.params.idComputador;
+
+    computadoresModel.editarPC(novaDescricao, idComputador)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao editar o computador");
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -137,5 +156,6 @@ module.exports = {
     adicionarPC,
     deletarPC,
     historicFerramentas,
-    ultimasLeituras
+    ultimasLeituras,
+    editarPC
 }
