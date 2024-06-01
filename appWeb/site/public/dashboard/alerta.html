@@ -25,9 +25,11 @@
         </div>
         </div>
 
-    <div class="headerLogo">
-        <img src="../assets/img/medtech-logo2.png">
-    </div>
+        <a href="./geralTI.html">
+            <div class="headerLogo">
+                <img src="../assets/img/medtech-logo2.png">
+            </div>
+        </a>
 
         <div class="profileHeader" onclick="toggleOptions()">
             <div class="profileFrame">
@@ -64,65 +66,65 @@
 
     </header>
 
-<div id="backgrounddiv">
-    <div class="screendiv">
+    <div id="backgrounddiv">
+        <div class="screendiv">
             <span class="material-symbols-outlined closeBtn" onclick="closeConfig()">
                 close
             </span>
-        <div id="configContent">
+            <div id="configContent">
+
+            </div>
+            <div id="computerRegistrationContent">
+
+            </div>
 
         </div>
-        <div id="computerRegistrationContent">
-
-        </div>
-
     </div>
-</div>
 
-<main>
-    <!-- LEFT NAVIGATION -->
-    <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
-    <nav class="navbar">
-        <div class="companyName" id="company_nav_name">Santacruz</div>
-        <ul id="nav_setores">
-            <a href="geralTI.html">
-                <li>Geral</li>
-            </a>
-            <a href="critico.html">
-                <li>Critico</li>
-            </a>
-            <a class="navSelected" href="alerta.html">
-                <li>Alerta</li>
-            </a>
-            <a href="offline.html">
-                <li>Offline</li>
-            </a>
-            <a href="estavel.html">
-                <li>Estável</li>
-            </a>
-        </ul>
-    </nav>
+    <main>
+        <!-- LEFT NAVIGATION -->
+        <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+        <nav class="navbar">
+            <div class="companyName" id="company_nav_name">Santacruz</div>
+            <ul id="nav_setores">
+                <a href="geralTI.html">
+                    <li>Geral</li>
+                </a>
+                <a href="critico.html">
+                    <li>Critico</li>
+                </a>
+                <a class="navSelected" href="alerta.html">
+                    <li>Alerta</li>
+                </a>
+                <a href="offline.html">
+                    <li>Offline</li>
+                </a>
+                <a href="estavel.html">
+                    <li>Estável</li>
+                </a>
+            </ul>
+        </nav>
 
-    <div class="dashboardScreen" id="dashboard_screendiv">
-        <!-- aqui ficará as dashboards que se alternarão -->
-        <div class="dashDescription">
-            <div class="titulo">
-                <h2>Estado de alerta</h2>
+        <div class="dashboardScreen" id="dashboard_screendiv">
+            <!-- aqui ficará as dashboards que se alternarão -->
+            <div class="dashDescription">
+                <div class="titulo">
+                    <h2>Estado de alerta</h2>
+                </div>
+                <span>Última atualização: 30/04/2024 às 18:45</span>
             </div>
-            <span>Última atualização: 30/04/2024 às 18:45</span>
-        </div>
-        <div class="dashCards">
-            <div class="dashLine">
+            <div class="dashCards">
+                <div class="dashLine">
+                </div>
             </div>
-        </div>
-        <div id="message">
-        </div>
-</main>
-<script src="../script/utils.js"></script>
-<script src="../script/statusTI.js"></script>
-<script>
-    searchByState('alerta');
-</script>
+            <div id="message">
+            </div>
+    </main>
+    <script src="../script/utils.js"></script>
+    <script src="../script/statusTI.js"></script>
+    <script>
+        searchByState('alerta');
+    </script>
 </body>
 
 </html>

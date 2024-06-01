@@ -43,8 +43,8 @@ function preencherTabela(json){
 }
 
 function editar(){
-    popup.style.display = 'none';
-    backgrounddiv.style.display = 'block';
+    fundotabela.style.display = 'none';
+    popup.style.display = 'block';
 }
 
 function btnNovoFuncionario() {
@@ -61,7 +61,7 @@ function btnNovoFuncionario() {
 
 
 function voltar() {
-    window.location = document.referrer;
+    window.location = "./geralTI.html";
 }
 
 function novoFuncionario() {

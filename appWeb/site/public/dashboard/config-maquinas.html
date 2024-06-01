@@ -27,13 +27,15 @@
     <div>
     </div>
 
-    <div class="headerLogo">
-      <img src="../assets/img/medtech-logo2.png">
-    </div>
+    <a href="./geralTI.html">
+      <div class="headerLogo">
+        <img src="../assets/img/medtech-logo2.png">
+      </div>
+    </a>
 
     <div class="profileHeader" onclick="toggleOptions()">
       <div class="profileFrame">
-        <img src="../assets/img/user-avatar.png"> <!--EXEMPLO DE IMG, TROCAR-->
+        <img src="../assets/img/user-avatar.png">
         <div id="profile_content">
           <!-- <div class="arrowTop"></div> -->
           <div class="opContent">
@@ -70,26 +72,29 @@
       </div>
 
       <div class="conteudo">
-        <span>
-          Nome
-        </span>
-        <input type="text" id="update_input_nome"><br>
-        <span>
-          Código de patrimônio
-        </span>
-        <input type="text" id="update_input_codPatrimonio">
-        <br>
-        <span>
-          Departamento
-        </span>
-        <select name="departamentos" id="update_listaDepartamentos">
-          <option selected>Selecione um departamento</option>
-        </select><br>
-        <span>Senha</span>
-        <input type="text" id="update_input_senha">
+        <label for="nome"> Nome:</label>
+        <input type="text" id="update_input_nome" name="nome">
 
-        <button>Salvar</button>
-        <button>Cancelar</button>
+        <label for="codPatrimonio">Código de patrimônio:</label>
+        <input type="text" id="update_input_codPatrimonio" name="codPatrimonio">
+
+        <label for="senha">Senha:</label>
+        <input type="text" id="update_input_senha" name="senha">
+
+        <label for="departamento">Departamento:</label>
+        <select id="update_listaDepartamentos" name="departamento">
+          <option selected value="selected">Selecione um departamento</option>
+        </select>
+
+        <div class="buttonsEdit">
+          <button>Salvar</button>
+          <button onclick="
+          popup.style.display = 'none';
+          fundotabela.style.display = 'flex';
+        ">
+            Cancelar
+          </button>
+        </div>
 
       </div>
     </div>
