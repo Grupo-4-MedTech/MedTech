@@ -1,5 +1,3 @@
-const { response } = require("express")
-
 function buscarUsuarios(){
     fetch(`/funcionario/buscar/${sessionStorage.HOSP}`, {
         method: "GET",
@@ -78,19 +76,19 @@ function novoFuncionario() {
         }),
     }).then((result) => {
         if (result.status == 200) {
-            result.json()
+            result.text()
             .then(
-                function (json) {
-                resposta.innerHTML = `Usuário adicionado com sucesso!`
+                function (text) {
+                message.innerHTML = `Usuário adicionado com sucesso!`
                 window.location.href= './config-usuarios.html'
             })
         }
         else if (result.status == 400 || result.status == 500){
-            resposta.innerHTML += `Dados inválidos!`
+            message.innerHTML += `Dados inválidos!`
         }
     })
     .catch((erro) => {
-            resposta.innerHTML = `Não foi possível adicionar o usuário.`
+            message.innerHTML = `Não foi possível adicionar o usuário.`
         }
     )
 }

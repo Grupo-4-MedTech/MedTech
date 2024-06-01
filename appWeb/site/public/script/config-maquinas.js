@@ -9,6 +9,7 @@ function buscarComputadores() {
             if (result.status == 200) {
                 result.json().then(function (json) {
                     preencherTabelaPC(json)
+
                 })
             }
             else {
@@ -20,6 +21,7 @@ function buscarComputadores() {
         .catch((error) => {
             alert(`Erro inesperado`)
         })
+
 }
 
 function preencherTabelaPC(json) {
@@ -28,13 +30,17 @@ function preencherTabelaPC(json) {
     table.innerHTML = "";
 
     json.forEach(row => {
+
+        const jsonString = JSON.stringify(row).replace(/\"/g, '\'')
+
+        console.log(JSON.stringify(row))
         content += `<tr>
         <td>${row.nome}</td>
         <td>${row.codPatrimonio}</td>
         <td>${row.fkDepartamento}</td>
         <td>${row.senha}</td>
-        <td class="editar" onclick="editar()"><a>Editar </a></td>
-        <td class="deletar" onclick=""><a> Excluir </a></td>
+        <td class="editar" onclick="editar(${jsonString})"><a>Editar </a></td>
+        <td class="deletar" onclick="deletarPC()"><a> Excluir </a></td>
       </tr>`
 
     });
@@ -43,9 +49,19 @@ function preencherTabelaPC(json) {
 
 }
 
-function editar() {
+function editar(computador) {
+    console.log(computador)
+    //computador = JSON.parse(computador.replace(/\'/g, '"'))
+    
     popup.style.display = 'block';
     fundotabela.style.display = 'none';
+
+    update_input_nome.value = computador.nome;
+    update_input_codPatrimonio.value = computador.codPatrimonio;
+    update_listaDepartamentos.value = computador.departamento;
+    update_input_senha.value = computador.senha;
+
+    console.log(listaDeDepartamentos)
 }
 
 function btnNovoComputador() {
@@ -80,7 +96,7 @@ function novoComputador() {
         if (result.status == 200) {
             result.json().then(function (json) {
                 alert(`maquina cadastrada!`)
-                window.location.href= '../config-maquinas.html'
+                window.location.href = '../config-maquinas.html'
             })
         } else {
             alert(`Não deu`)
@@ -95,11 +111,13 @@ function listar() {
         method: "GET",
     })
 
+    
         .then(function (resposta) {
             resposta.json().then((departamentos) => {
                 departamentos.forEach((departamento) => {
                     listaDepartamentos.innerHTML += `<option value='${departamento.idDepartamento}'>${departamento.nome}</option>`;
                 });
+                listaDeDepartamentos = departamentos
             });
         })
         .catch(function (resposta) {
@@ -107,11 +125,11 @@ function listar() {
         });
 }
 
-function deletarPC(idComputador){
+function deletarPC(idComputador) {
     fetch(`/computador/deletar/${idComputador}`, {
         method: 'DELETE',
-        headers:{
-            "Content-Type":"application/json"
+        headers: {
+            "Content-Type": "application/json"
         }
     }).then(function (resposta) {
         if (resposta.status = 200) {
@@ -120,18 +138,39 @@ function deletarPC(idComputador){
         } else if (resposta.status == 404) {
             alert("Não foi possível deletar a máquina.");
         } else {
-           alert("Erro ao deletar a máquina. Contate nosso suporte!");
+            alert("Erro ao deletar a máquina. Contate nosso suporte!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
     });
 }
 
-function editarPC(){
-    let updateNome = update_input_nome.value
-    let updateCodPatrimonio = update_input_codPatrimonio.value
-    let updateDepartamento = listaDepartamentos.value
-    let updateSenha = update_input_senha.value
+
+function editarPC() {
+
+    fetch(`/computador/editarPC/${idComputador}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            updateNome: update_input_nome.value,
+            updateCodPatrimonio: update_input_codPatrimonio.value,
+            updateDepartamento: listaDepartamentos.value,
+            updateSenha: update_input_senha.value
+        })
+    }).then(function (resposta) {
+
+        if (resposta.status == 200) {
+            message.innerHTML += "Alterações salvas com sucesso!"
+        } else if (resposta.status == 400) {
+            message.innerHTML += "Dados inválidos!"
+        } else {
+            message.innerHTML += "Não foi possível realizar as alterações. Entre em contato com o nosso suporte."
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 buscarComputadores()

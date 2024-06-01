@@ -89,8 +89,7 @@ function adicionarUsuario(req, res) {
         funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital)
             .then(
                 function (result) {
-                    res.status(200).send('Usuário cadastrado com sucesso!')
-                    res.json(result);
+                    res.status(200).send("Usuário cadastrado");
                 }
             ).catch(
                 function (erro) {
