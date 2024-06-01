@@ -132,8 +132,8 @@ function historicFerramentas(req, res) {
 
 function editarPC() {
     const idComputador = req.params.idComputador;
-
-    computadoresModel.editarPC(novaDescricao, idComputador)
+    
+    computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateDepartamento, updateSenha, idComputador)
         .then(
             function (resultado) {
                 res.json(resultado);
