@@ -23,7 +23,6 @@
 
   <header>
     <div>
-      <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
     </div>
 
     <div class="headerLogo">
@@ -147,31 +146,27 @@
 
   <div class="fundo-popup" id="popupFuncionario" style="display: none;">
     <div class="fundo-tabela">
-      <div class="topo">
-        Novo usuário<ion-icon name="close"></ion-icon>
-      </div>
+      <h4 class="topo">
+        Novo usuário
+      </h4>
 
       <div class="conteudo">
-        <span>
-          Nome do funcionário
-        </span>
-        <input type="text" id="input_nome_funcionario"><br>
-        <span>
-          Email
-        </span>
-        <input type="text" id="input_email">
-        <br>
-        <span>
-          Cargo
-        </span>
-        <select name="cargo" id="select_cargo">
+        <label for="nome"> Nome do funcionário:</label>
+        <input type="text" id="input_nome_funcionario" name="nome">
+
+        <label for="Email">Email:</label>
+        <input type="email" id="input_email" name="Email">
+
+        <label for="departamento">Cargo:</label>
+        <select id="select_cargo" name="departamento">
           <option selected value="selected">Selecione o cargo</option>
           <option value="MEDICO_GERENTE"> Médico gerente </option>
           <option value="TECNICO_TI"> Técnico TI </option>
           <option value="GESTOR_TI"> Gestor TI </option>
         </select>
-        <button id="btn-add-pc" onclick="novoFuncionario()">Adicionar</button>
 
+
+        <button id="btn-add-pc" onclick="novoFuncionario()">Adicionar</button>
         <div id="resposta">
 
         </div>

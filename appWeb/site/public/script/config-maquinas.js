@@ -53,10 +53,17 @@ function editar() {
 function btnNovoComputador() {
     PCpopup.style.display = 'block';
     fundotabela.style.display = 'none';
+    document.getElementById('btn-voltar').onclick = function () {
+        PCpopup.style.display = 'none';
+        fundotabela.style.display = 'flex';
+        document.getElementById('btn-voltar').onclick = function () {
+            voltar();
+        }
+    }
 }
 
 function voltar() {
-    window.location = "/geralTI.html";
+    window.location = "./geralTI.html";
 }
 function novoComputador() {
 
@@ -64,8 +71,7 @@ function novoComputador() {
     let codPatrimonio = input_codPatrimonio.value
     let departamento = listaDepartamentos.value
     let senha = input_senha.value
-
-
+    
     fetch(`/computador/adicionarPC`, {
         method: "POST",
         headers: {

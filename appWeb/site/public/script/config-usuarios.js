@@ -52,6 +52,13 @@ function editar(){
 function btnNovoFuncionario() {
     popupFuncionario.style.display = 'block';
     fundotabela.style.display = 'none';
+    document.getElementById('btn-voltar').onclick = function () {
+        popupFuncionario.style.display = 'none';
+        fundotabela.style.display = 'flex';
+        document.getElementById('btn-voltar').onclick = function () {
+            voltar();
+        }
+    }
 }
 
 

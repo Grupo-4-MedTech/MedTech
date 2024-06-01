@@ -25,7 +25,6 @@
 
   <header>
     <div>
-      <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
     </div>
 
     <div class="headerLogo">
@@ -61,7 +60,6 @@
         </span>
         <i class="fa fa-angle-down"></i>
       </div>
-      <!-- SUBSTITUIR ONLOAD -->
     </div>
   </header>
 
@@ -89,7 +87,6 @@
         </select><br>
         <span>Senha</span>
         <input type="text" id="update_input_senha">
-
 
         <button>Salvar</button>
         <button>Cancelar</button>
@@ -119,16 +116,16 @@
             </thead>
             <tbody id="table-body-maquina">
 
-            <tr>
-              <td>lorem1</td>
-              <td>lorem2</td>
-              <td>lorem3</td>
-              <td>Lorem ipsum dolor sit.</td>
-              <td class="editar"> <a href="#" onclick="editar()">Editar</a></td>
-              <td class="deletar"><a onclick="excluir()">Excluir</a></td>
+              <tr>
+                <td>lorem1</td>
+                <td>lorem2</td>
+                <td>lorem3</td>
+                <td>Lorem ipsum dolor sit.</td>
+                <td class="editar"> <a href="#" onclick="editar()">Editar</a></td>
+                <td class="deletar"><a onclick="excluir()">Excluir</a></td>
 
-            </tr>
-            
+              </tr>
+
 
             </tbody>
           </table>
@@ -139,43 +136,34 @@
       </div>
 
     </div>
-    <div class="escurecerFundo" id="popupDelecao" ></div>
+    <div class="escurecerFundo" id="popupDelecao"></div>
   </div>
 
   <div class="PCfundo-popup" id="PCpopup" style="display: none;">
     <div class="fundo-tabela">
-      <div class="topo">
-        Nova máquina<ion-icon name="close"></ion-icon>
-      </div>
+      <h4 class="topo">
+        Nova máquina
+      </h4>
 
       <div class="conteudo">
-        <span>
-          Nome
-        </span>
-        <input type="text" id="input_nome"><br>
-        <span>
-          Código de patrimônio
-        </span>
-        <input type="text" id="input_codPatrimonio">
-        <br>
-        <span>Departamento</span>
-        <select name="departamentos" id="listaDepartamentos">
-          <option selected>Selecione um departamento</option>
+        <label for="nome">Nome:</label>
+        <input type="text" id="input_nome" name="nome">
+
+        <label for="codigo">Código de patrimônio:</label>
+        <input type="text" id="input_codPatrimonio" name="codigo">
+
+        <label for="departamento">Departamento:</label>
+        <select id="listaDepartamentos" name="departamento">
+          <option value="">Selecione um departamento</option>
         </select>
-        <span>
-          Senha
-        </span>
-        <input type="text" id="input_senha"><br>
 
-        <div id="resposta">
-
-        </div>
+        <label for="senha">Senha:</label>
+        <input type="password" id="input_senha" name="senha">
 
 
         <button id="btn-add-pc" onclick="novoComputador()">Adicionar</button>
+        <div id="resposta"></div>
       </div>
-
-
     </div>
   </div>
 
