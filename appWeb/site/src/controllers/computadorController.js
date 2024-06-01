@@ -132,12 +132,12 @@ function historicFerramentas(req, res) {
 
 function editarPC(req, res) {
     const idComputador = req.params.idComputador;
-    const updateNome = req.params.updateNome;
-    const updateCodPatrimonio = req.params.updateCodPatrimonio;
-    const updateDepartamento = req.params.updateDepartamento;
-    const updateSenha = req.params.updateSenha;
+    const updateNome = req.body.updateNome;
+    const updateCodPatrimonio = req.body.updateCodPatrimonio;
+    const updateDepartamento = req.body.updateDepartamento;
+    const updateSenha = req.body.updateSenha;
     
-    computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateDepartamento, updateSenha, idComputador)
+    computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
         .then(
             function (resultado) {
                 res.json(resultado);

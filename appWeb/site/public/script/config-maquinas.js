@@ -64,17 +64,20 @@ function editar(computador) {
     update_input_senha.value = computador.senha;
 
     console.log(listaDeDepartamentos)
-
-    for( var i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
-        update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
-        
+    document.getElementById('buttonSalvar').onclick = function(){
+        editarPC(computador.idComputador)
     }
 
+    for( let i = 0; i < listaDeDepartamentos.length && listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
+        update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+    }
+
+   
     // for(var i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
     //     update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
     // }
 
-    editarPC()
+    // editarPC()
 }
 
 function btnNovoComputador() {
@@ -175,7 +178,7 @@ function editarPC(idComputador) {
         body: JSON.stringify({
             updateNome: update_input_nome.value,
             updateCodPatrimonio: update_input_codPatrimonio.value,
-            updateDepartamento: listaDepartamentos.value,
+            updateDepartamento: update_listaDepartamentos.value,
             updateSenha: update_input_senha.value
         })
         
