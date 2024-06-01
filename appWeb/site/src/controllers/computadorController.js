@@ -57,17 +57,17 @@ function adicionarPC(req, res) {
     const senha = req.body.senha;
     const fkHospital = req.body.fkHospital;
 
-    if (!/^[a-zA-Z\s]{3,25}$/.test(nome) ||
+    if (!/^[a-zA-Z0-9!@#$%^&*()_\s]{3,100}$/.test(nome) ||
         !/^[a-zA-Z0-9\s]{7,50}$/.test(codPatrimonio) ||
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
     ) {
         res.status(400).send('Dados incorretos');
     } else {
         computadoresModel.adicionarPC(nome, codPatrimonio, departamento, senha, fkHospital)
-        res.status(200).send('Máquina cadastrada com sucesso!')
+        
             .then(
                 function (result) {
-                    res.json(result);
+                    res.status(200).send('Máquina cadastrada com sucesso!')
                 }
             ).catch(
                 function (erro) {
@@ -130,8 +130,12 @@ function historicFerramentas(req, res) {
         })
 }
 
-function editarPC() {
+function editarPC(req, res) {
     const idComputador = req.params.idComputador;
+    const updateNome = req.params.updateNome;
+    const updateCodPatrimonio = req.params.updateCodPatrimonio;
+    const updateDepartamento = req.params.updateDepartamento;
+    const updateSenha = req.params.updateSenha;
     
     computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateDepartamento, updateSenha, idComputador)
         .then(

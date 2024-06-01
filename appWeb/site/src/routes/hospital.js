@@ -22,7 +22,7 @@ router.delete('/deletar/:idHospital', function(req, res){
 router.put('/update/:idHospital', function(req, res){
     hospitalController.updateHospital(req, res);
 });
-router.get('/listar', function(req, res){
+router.get('/listar/:idHospital', function(req, res){
     hospitalController.listar(req, res);
 });
 

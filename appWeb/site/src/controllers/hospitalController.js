@@ -111,7 +111,7 @@ function updateHospital(req, res) {
 }
 
 function listar(req, res) {
-    hospitalModel.listar()
+    hospitalModel.listar(req.params.idHospital)
     .then((resultado) => {
       res.status(200).json(resultado);
     });

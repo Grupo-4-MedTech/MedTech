@@ -14,7 +14,7 @@ router.get('/logs/:dtOcorrencia/:grau/:fkHospital', function(req, res){
 router.get('/historico/:fkHospital', function(req, res){
     computadorController.historic(req, res);
 })
-router.post('/adicionarPC', function(req, res){
+router.post('/adicionarPC/', function(req, res){
     computadorController.adicionarPC(req, res)
 });
 
@@ -30,7 +30,7 @@ router.get('/historico-ferramentas/:fkHospital/:dtLeitura', function(req, res) {
     computadorController.historicFerramentas(req, res);
 })
 
-router.put("/editarPC/:idComputador", function (req, res) {
+router.put('/editarPC/:idComputador', function (req, res) {
     computadorController.editarPC(req, res);
 });
 

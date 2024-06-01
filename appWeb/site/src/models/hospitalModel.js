@@ -63,8 +63,8 @@ function updateHospital(id, data) {
 
     return database.executar(query);
 }
-function listar() {
-    const query = `SELECT * FROM departamento;`;
+function listar(idHospital) {
+    const query = `SELECT * FROM departamento WHERE fkHospital = ${idHospital};`;
     // FAZER SELECT TRAZENDO APENAS OS DEPARTAMENTOS DO HOSPITAL QUE QUEM ESTÁ CADASTRANDO PERTENCE
 
     console.log("Executando a instrução SQL: \n" + query);

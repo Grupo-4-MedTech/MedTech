@@ -202,8 +202,7 @@ function deletar(idComputador){
 
 function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
     var instrucaoSql = `
-        UPDATE computador SET nome = '${updateNome}', codPatrimonio = '${updateCodPatrimonio}', senha = '${updateSenha}', fkDepartamento = ${updateDepartamento}  WHERE id = ${idComputador};
-    `;
+        UPDATE computador SET nome = '${updateNome}', codPatrimonio = '${updateCodPatrimonio}', senha = '${updateSenha}', fkDepartamento = ${updateDepartamento}  WHERE idComputador = ${idComputador}`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

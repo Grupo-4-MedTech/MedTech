@@ -64,6 +64,17 @@ function editar(computador) {
     update_input_senha.value = computador.senha;
 
     console.log(listaDeDepartamentos)
+
+    for( var i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
+        update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+        
+    }
+
+    // for(var i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
+    //     update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+    // }
+
+    editarPC()
 }
 
 function btnNovoComputador() {
@@ -90,9 +101,6 @@ function novoComputador() {
     
     fetch(`/computador/adicionarPC`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
         body: JSON.stringify({
             nome,
             codPatrimonio,
@@ -100,14 +108,17 @@ function novoComputador() {
             senha,
             fkHospital: sessionStorage.HOSP
         }),
+        headers: {
+            "Content-Type": "application/json",
+        },
     }).then((result) => {
         if (result.status == 200) {
             result.json().then(function (json) {
-                alert(`maquina cadastrada!`)
+                message.innerHTML += `Máquina cadastrada!`
                 window.location.href = '../config-maquinas.html'
             })
         } else {
-            alert(`Não deu`)
+            message.innerHTML += `Não foi possível cadastrar a máquina`
 
         }
     })
@@ -115,7 +126,7 @@ function novoComputador() {
 
 
 function listar() {
-    fetch(`/hospital/listar`, {
+    fetch(`/hospital/listar/${sessionStorage.HOSP}`, {
         method: "GET",
     })
 
@@ -154,10 +165,10 @@ function deletarPC(idComputador) {
 }
 
 
-function editarPC() {
+function editarPC(idComputador) {
 
     fetch(`/computador/editarPC/${idComputador}`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
             "Content-Type": "application/json"
         },
@@ -167,6 +178,7 @@ function editarPC() {
             updateDepartamento: listaDepartamentos.value,
             updateSenha: update_input_senha.value
         })
+        
     }).then(function (resposta) {
 
         if (resposta.status == 200) {
@@ -180,6 +192,8 @@ function editarPC() {
         console.log(`#ERRO: ${resposta}`);
     });
 }
+
+
 
 function abrirPopup(idComputador){
     const popup = document.getElementById('popupDelecao');
