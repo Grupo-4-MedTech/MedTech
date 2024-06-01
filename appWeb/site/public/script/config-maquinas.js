@@ -28,7 +28,9 @@ function preencherTabelaPC(json) {
     const table = document.getElementById(`table-body-maquina`);
     let content = '';
     table.innerHTML = "";
-
+    
+    console.log(json);
+    
     json.forEach(row => {
 
         const jsonString = JSON.stringify(row).replace(/\"/g, '\'')
@@ -40,7 +42,7 @@ function preencherTabelaPC(json) {
         <td>${row.fkDepartamento}</td>
         <td>${row.senha}</td>
         <td class="editar" onclick="editar(${jsonString})"><a>Editar </a></td>
-        <td class="deletar" onclick="deletarPC()"><a> Excluir </a></td>
+        <td class="deletar" onclick="abrirPopup(${row.idComputador})"><a> Excluir </a></td>
       </tr>`
 
     });
@@ -171,6 +173,24 @@ function editarPC() {
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
     });
+}
+
+function abrirPopup(idComputador){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'flex';
+    popup.innerHTML = `<div class="popupDelecao">
+    <h1>
+      Deseja mesmo deletar?
+    </h1>
+    <div class="botoesDelecao">
+      <button class="botaoExclusao" onclick="deletarPC(${idComputador})">Excluir</button>
+      <button class="botaoCancelar" onclick="fecharPopup()">Cancelar</button>
+    </div>
+  </div>` 
+}
+function fecharPopup(){
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'none';
 }
 
 buscarComputadores()
