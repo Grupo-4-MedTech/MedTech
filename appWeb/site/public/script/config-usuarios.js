@@ -72,15 +72,16 @@ function novoFuncionario() {
 
     fetch(`/funcionario/adicionarUsuario`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
         body: JSON.stringify({
             nome,
             email,
             cargo,
             fkHospital: sessionStorage.HOSP
         }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+        
     }).then((result) => {
         if (result.status == 200) {
             result.text()
@@ -107,13 +108,15 @@ function deletarFuncionario(idFuncionario){
             "Content-Type":"application/json"
         }
     }).then(function (resposta) {
-        if (resposta.status = 200) {
+        if (resposta.status == 200) {
             alert(`Usuário deletado com sucesso!`);
             window.location = "./config-usuarios.html"
         } else if (resposta.status == 404) {
-            alert("Não foi possível deletar a máquina.");
+            alert("Não foi possível deletar o funcionário.");
+            fecharPopup();
         } else {
-           alert("Erro ao deletar a máquina. Contate nosso suporte!");
+           alert("Erro ao deletar o funcionário. Contate nosso suporte!");
+           fecharPopup();
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);

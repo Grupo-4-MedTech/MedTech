@@ -81,7 +81,7 @@ function adicionarUsuario(req, res) {
     const cargo = req.body.cargo;
     const fkHospital = req.body.fkHospital;
 
-    if (!/^[a-zA-Z\s]{3,25}$/.test(nome) ||
+    if (!/^[a-zA-Z\s]{3,100}$/.test(nome) ||
         !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
     ) {
         res.status(400).send('Dados incorretos');
@@ -89,10 +89,12 @@ function adicionarUsuario(req, res) {
         funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital)
             .then(
                 function (result) {
+                    console.log(result);
                     res.status(200).send("Usuário cadastrado");
                 }
             ).catch(
-                function (erro) {
+                function (error) {
+                    console.log(error);
                     res.status(500).send('Não foi possível adicionar o usuário.');
                 }
             );
