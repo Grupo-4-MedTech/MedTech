@@ -59,7 +59,7 @@ function historic(fkHospital) {
 			SELECT fkComputador, MAX(dtOcorrencia) AS ultimaOcorrencia
 			FROM logComputador
 			WHERE fkHospital = ?
-			AND grau = 'alerta'
+			AND grau = 'crítico'
 			AND DATE(dtOcorrencia) BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) - INTERVAL 6 DAY AND CURDATE()
 			GROUP BY fkComputador, DATE(dtOcorrencia)
 	) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) critUltimaSem,
@@ -83,7 +83,7 @@ function historic(fkHospital) {
     return database.executar(query);
 }
 
-function ultimasLeituras(status, fkHospital) {
+function historicLeituras(status, fkHospital) {
     let query = `
     SELECT
         c.idComputador,
@@ -268,7 +268,7 @@ module.exports = {
     findLogs,
     historic,
     adicionarPC,
-    ultimasLeituras,
+    historicLeituras,
     historicFerramentas,
     deletar,
     historicAtividade,
