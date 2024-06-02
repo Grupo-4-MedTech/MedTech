@@ -28,10 +28,6 @@ router.get('/buscar-ultimas-leituras/:fkHospital/:status', function(req, res) {
 
 router.get('/historico-ferramentas/:fkHospital/:dtLeitura', function(req, res) {
     computadorController.historicFerramentas(req, res);
-})
-
-router.put('/editarPC/:idComputador', function (req, res) {
-    computadorController.editarPC(req, res);
 });
 
 router.put('/editarPC/:idComputador', function (req, res) {
