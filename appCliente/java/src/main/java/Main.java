@@ -70,10 +70,8 @@ public class Main {
         System.out.println(computador);
 
         System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
-
-        inserirLeituras(computador);
     }
-
+        /*
     public static void inserirLeituras(Computador computador) throws InterruptedException {
 
         for (int i = 1; true; i++) {
@@ -122,8 +120,7 @@ public class Main {
 
                 i = 0;
             }
-
             Thread.sleep(3000);
         }
-    }
+    } */
 }

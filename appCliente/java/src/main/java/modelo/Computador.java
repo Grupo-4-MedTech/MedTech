@@ -50,61 +50,6 @@ public class Computador {
     }
 
     //GETTERS
-    public String getQuantidadeMaximaMemoria(){
-        return Conversor.formatarBytes(memoria.getTotal());
-    }
-
-    public String getUsoMemoria(){
-        return Conversor.formatarBytes(memoria.getEmUso());
-    }
-
-    public Double getPorcentagemConsumoMemoria(){
-        return memoria.getEmUso() * 100.0 / memoria.getTotal();
-    }
-
-
-    List<Janela> listaGuias = new ArrayList<>();
-    public List<Janela> getJanelas() {
-        JanelaGrupo janelaGrupo = looca.getGrupoDeJanelas();
-        List<Janela> listaJanelas = janelaGrupo.getJanelas();
-        for (Janela listaJanela : listaJanelas) {
-            if (listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Edge") || listaJanela.getTitulo().contains("Firefox") || listaJanela.getTitulo().contains("Opera")) {
-                listaGuias.add(listaJanela);
-            }
-        }
-        return listaGuias;
-    }
-
-    public List<Long> getPorcentagemDeTodosVolumes(){
-        for (Volume volume : volumes) {
-            if(volume.getTotal() > 0){
-                porcentagemVolumes.add((volume.getTotal() - volume.getDisponivel()) * 100 / volume.getTotal());
-            }
-        }
-        return porcentagemVolumes;
-    }
-
-    // percorrer a lista de % de consumo de discos e pegar o maior número da lista
-    public Double getDiscoComMaisConsumo(List<Long>porcentagemVolumes){
-        Optional<Double> menorPorcentDisco = porcentagemVolumes.stream()
-                .map(e -> e.doubleValue())
-                .max(Comparator.naturalOrder());
-
-        return menorPorcentDisco.get();
-    }
-
-    public String getNomeProcessador(){
-        return looca.getProcessador().getNome();
-    }
-    public Integer getCpusFisicas(){
-        return looca.getProcessador().getNumeroCpusFisicas();
-    }
-    public Integer getCpusLogicas(){
-        return looca.getProcessador().getNumeroCpusLogicas();
-    }
-    public Double getPorcentagemConsumoCpu(){
-        return looca.getProcessador().getUso();
-    }
 
     public int getIdComputador() {
         return this.idComputador;
@@ -131,41 +76,9 @@ public class Computador {
 
     //SETTERS
 
-    public void setCodPatrimonio(String codPatrimonio) {
-        this.codPatrimonio = codPatrimonio;
-    }
-
-    public void setMaxDisco(int maxDisco) {
-        this.maxDisco = maxDisco;
-    }
-
-    public void setMaxRam(int maxRam) {
-        this.maxRam = maxRam;
-    }
-
-    public void setModeloProcessador(String modeloProcessador) {
-        this.modeloProcessador = modeloProcessador;
-    }
-    
-
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
         departamento.addComputador(this);
-    }
-    public void setIdComputador(int idComputador) {
-        this.idComputador = idComputador;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setFkDepartamento(int fkDepartamento) {
-        this.fkDepartamento = fkDepartamento;
-    }
-
-    public void setFkHospital(int fkHospital) {
-        this.fkHospital = fkHospital;
     }
 
     @Override
@@ -185,6 +98,4 @@ public class Computador {
                 + "Razão social: " + this.departamento.getHospital().getRazaoSocial() + "\n"
                 + "CNPJ:" + this.departamento.getHospital().getCnpj();
     }
-
-
 }
