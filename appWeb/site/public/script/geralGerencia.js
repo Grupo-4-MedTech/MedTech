@@ -171,7 +171,7 @@ function loadNavBar(json = []) {
 
     json.forEach(row => {
         content += `
-        <a onclick="searchCompByDep(${row.idDepartamento})">
+        <a onclick="searchCompByDep(${row.idDepartamento}, '${row.nome}')">
             <li>${row.nome}</li>
         </a>
         `;
@@ -180,7 +180,7 @@ function loadNavBar(json = []) {
     nav_setores.innerHTML = content;
 }
 
-function searchCompByDep(id) {
+function searchCompByDep(id, nome) {
     fetch(`/computador/historico-atividade/${id}`, {
         method: 'GET',
         headers: {
@@ -191,11 +191,11 @@ function searchCompByDep(id) {
             if (res.status != 200) {
                 res.text().then((text) => {
                     showMessage(false, text);
-                    loadDepScreen([])
+                    loadDepScreen([], nome)
                 })
             } else {
                 res.json().then((json) => {
-                    loadDepScreen(json);
+                    loadDepScreen(json, nome);
                 })
             }
         })
@@ -269,7 +269,7 @@ function loadGeral() {
     searchKpisData();
 }
 
-function loadDepScreen(json){
+function loadDepScreen(json, nome){
     console.log(json)
 
     if (compCharts.length > 0) {
@@ -282,7 +282,7 @@ function loadDepScreen(json){
     const date = new Date().toISOString();
     dashboard_screendiv.innerHTML = `<div class="dashDescription">
     <span class="titulo">
-        <h2>${json[0].nomeDepartamento}</h2>
+        <h2>${nome}</h2>
     </span>
     <span>Última atualização: ${date.slice(0, 10).replace(/\-/g, '/')} ${date.slice(11, 19)}</span>
 </div>
