@@ -207,6 +207,57 @@ function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamen
     return database.executar(instrucaoSql);
 }
 
+function findComputerByDeps(fkDepartamento){
+    const query = `
+    SELECT
+    c.*,
+    d.nome nomeDepartamento
+    FROM computador c JOIN departamento d ON c.fkDepartamento = d.idDepartamento WHERE fkDepartamento = ${fkDepartamento};`;
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function historicAtividade(fkComputador) {
+    const query = `WITH ParesDeEventos AS (
+        SELECT
+            l.fkComputador,
+            DATE(l.dtOcorrencia) AS dia,
+            l.dtOcorrencia AS inicio,
+            MIN(ld.dtOcorrencia) AS fim
+        FROM logAtividade l
+        JOIN logAtividade ld ON l.fkComputador = ld.fkComputador AND l.atividade = 1 AND ld.atividade = 0 AND ld.dtOcorrencia > l.dtOcorrencia
+        WHERE l.dtOcorrencia >= DATE_SUB(NOW(), INTERVAL 8 DAY)
+        GROUP BY l.fkComputador, l.dtOcorrencia
+    )
+    SELECT
+        dia,
+        fkComputador,
+        (SUM(TIMESTAMPDIFF(SECOND, inicio, fim)) / 3600) AS tempo_ligado
+    FROM ParesDeEventos
+    WHERE fkComputador = ${fkComputador}
+    GROUP BY dia, fkComputador
+    ORDER BY dia, fkComputador;`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function lastFourFerramentas (idComputador){
+    const query = `SELECT *
+    FROM leituraFerramenta
+    WHERE (fkComputador, nomeApp, dtLeitura) IN (
+        SELECT fkComputador, nomeApp, MAX(dtLeitura)
+        FROM leituraFerramenta
+        WHERE fkComputador = ${idComputador}
+        GROUP BY fkComputador, nomeApp
+    )
+    ORDER BY dtLeitura
+    LIMIT 4;`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -215,5 +266,8 @@ module.exports = {
     ultimasLeituras,
     historicFerramentas,
     deletar,
+    historicAtividade,
+    findComputerByDeps,
+    lastFourFerramentas,
     editarPC
 }

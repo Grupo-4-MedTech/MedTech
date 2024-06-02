@@ -20,48 +20,41 @@
 </head>
 
 <body onload="loadUser()">
-    <header>
-        <div>
-            <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
-        </div>
-        </div>
-
-        <div class="headerLogo">
-            <img src="../assets/img/medtech-logo2.png">
-        </div>
-        <div class="profileHeader" onclick="toggleOptions()">
-            <div class="profileFrame">
-                <img src="../assets/img/user-avatar.png">
-                <div id="profile_content">
-                    <div class="opContent">
-                        <ul>
-                            <ul>
-                                <li onclick="openConfig()">
-                                    <img src="../assets/img/engrenagem.png" alt="">
-                                    Configurações
-                                </li>
-                                <div id="protectedOptions">
-                                    <li onclick="openUserManagement();">Gerenciar usuários</li>
-                                    <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
-                                </div>
-                                <li onclick="logout();">
-                                    <img src="../assets/img/logout.png" alt="">
-                                    Logout
-                                </li>
-                            </ul>
-                        </ul>
-                    </div>
+<header>
+    <div>
+        <button class="menu"> <img src="../assets/img/hamburger.png" alt=""></button>
+    </div>
+    <div class="headerLogo">
+        <img src="../assets/img/medtech-logo2.png" alt="MedTech Logo">
+    </div>
+    <div class="profileHeader" onclick="toggleOptions()">
+        <div class="profileFrame">
+            <img src="../assets/img/user-avatar.png" alt="User Avatar">
+            <div id="profile_content">
+                <div class="opContent">
+                    <ul>
+                        <li onclick="openConfig()">
+                            <img src="../assets/img/engrenagem.png" alt="Configurações">
+                            Configurações
+                        </li>
+                        <div id="protectedOptions">
+                            <li onclick="openUserManagement();">Gerenciar usuários</li>
+                            <li onclick="openComputerRegistration();">Adicionar nova máquina</li>
+                        </div>
+                        <li onclick="logout();">
+                            <img src="../assets/img/logout.png" alt="Logout">
+                            Logout
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="profileName" id="profile_name_header">
-                <span id="profileUserName">
-
-                </span>
-                <i class="fa fa-angle-down"></i>
-            </div>
         </div>
-
-    </header>
+        <div class="profileName" id="profile_name_header">
+            <span id="profileUserName"></span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+    </div>
+</header>
 
     <div id="backgrounddiv">
         <div class="screendiv">
@@ -113,75 +106,18 @@
             </ul>
         </nav>
 
-        <div class="dashboardScreen" id="dashboard_screendiv">
-            <!-- aqui ficará as dashboards que se alternarão -->
-            <div class="containerCardsTopo">
-                <div class="dashNotification" id="div_notification">
-                    <div class="notificationCard statusGreen">
-                        <h3>Online</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">
-                            </span>
+    <div class="dashboardScreen" id="dashboard_screendiv">
+        <!-- Aqui ficará as dashboards que se alternarão -->
 
-                            <span class="porcentagem">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="notificationCard statusGray">
-                        <h3>Offline</h3>
-                        <div class="subtextos">
-                            <span class="notificationNumber">
-                            </span>
-
-                            <span class="porcentagem">
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <br><br>
-            <div class="dashDescription">
-                <span class="titulo">
-                    <h2>Guias mais acessadas</h2>
-                </span>
-
-            </div><br><br>
-            <div class="att-select">
-                <div class="data-atualizacao">
-                    <h3 id="lastUpdate"> Atualizado em: 30/04/2024, às 20:32. </h3>
-                </div>
-
-                <select class="select-data" id="select_data">
-                    <option value="null" selected disabled>Período de busca</option>
-                    <option value="1">Última semana</option>
-                    <option value="2">Último mês</option>
-                    <option value="3">Últimos 3 meses</option>
-                    <option value="null">Todos os tempos</option>
-                </select>
-
-            </div>
-            <div class="dashContent">
-                <div class="mainChart">
-                    <canvas id="chart01" class="mainChart"></canvas>
-                </div>
-
-            </div>
-
-        </div>
-        </div>
-
-        <div id="message">
-        </div>
-    </main>
-    <script src="../script/utils.js"></script>
-    <script src="../script/geralGerencia.js"></script>
-    <script>
-        /* nav */
-
-        const menu = document.querySelector(".menu");
-        const navi = document.querySelector(".navbar");
+    </div>
+    <div id="message"></div>
+</main>
+<script src="../script/utils.js"></script>
+<script src="../script/geralGerencia.js"></script>
+<script>
+    /* nav */
+    const menu = document.querySelector(".menu");
+    const navi = document.querySelector(".navbar");
 
         menu.addEventListener('click', () => {
             navi.classList.toggle('close');

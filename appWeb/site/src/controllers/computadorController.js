@@ -136,7 +136,7 @@ function editarPC(req, res) {
     const updateCodPatrimonio = req.body.updateCodPatrimonio;
     const updateDepartamento = req.body.updateDepartamento;
     const updateSenha = req.body.updateSenha;
-    
+
     computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
         .then(
             function (resultado) {
@@ -150,7 +150,51 @@ function editarPC(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
+}
 
+function historicAtividade(req, res) {
+    computadoresModel.findComputerByDeps(req.params.idDepartamento)
+    .then((result) => {
+        if (result.length > 0) {
+            let promises = result.map(row => {
+                return computadoresModel.historicAtividade(row.idComputador)
+                .then((result_) => {
+                    row.leituras = result_;
+                    return row;
+                });
+            });
+
+            Promise.all(promises)
+            .then((updatedResult) => {
+                promises = updatedResult.map(row => {
+                    return computadoresModel.lastFourFerramentas(row.idComputador)
+                    .then((result_) => {
+                        row.ultimasFerramentas = result_;
+                        return row;
+                    });
+                })
+
+                Promise.all(promises)
+                .then((updatedResult) => {
+                    res.status(200).json(updatedResult);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            });
+        } else {
+            res.status(400).send('Nenhum registro encontrado.');
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    });
 }
 
 module.exports = {
@@ -161,5 +205,6 @@ module.exports = {
     deletarPC,
     historicFerramentas,
     ultimasLeituras,
+    historicAtividade,
     editarPC
 }

@@ -1,5 +1,6 @@
 chkLoginDash();
 let mainChart;
+const compCharts = [];
 listeningSelect_data = false;
 function searchHistory(data = select_data.value) {
     const date = new Date();
@@ -126,7 +127,7 @@ function printKpis(json = []) {
     <div class="notificationCard statusGray">
         <h3>Offline</h3>
         <div class="subtextos">
-            <span class="notificationNumber">8
+            <span class="notificationNumber">${json.offlineAtual}
             </span>
 
             <span class="porcentagem">
@@ -190,10 +191,11 @@ function searchCompByDep(id) {
             if (res.status != 200) {
                 res.text().then((text) => {
                     showMessage(false, text);
+                    loadDepScreen([])
                 })
             } else {
                 res.json().then((json) => {
-                    alert(json);
+                    loadDepScreen(json);
                 })
             }
         })
@@ -263,9 +265,105 @@ function loadGeral() {
     `;
 
     searchHistory();
+    searchDeps();
     searchKpisData();
 }
 
-searchDeps();
-searchHistory();
-searchKpisData();
+function loadDepScreen(json){
+    console.log(json)
+
+    if (compCharts.length > 0) {
+        compCharts.forEach(chart => {
+            chart.destroy();
+        });
+        compCharts.splice(0, compCharts.length);
+    }
+
+    const date = new Date().toISOString();
+    dashboard_screendiv.innerHTML = `<div class="dashDescription">
+    <span class="titulo">
+        <h2>${json[0].nomeDepartamento}</h2>
+    </span>
+    <span>Última atualização: ${date.slice(0, 10).replace(/\-/g, '/')} ${date.slice(11, 19)}</span>
+</div>
+<div class="dashCards">
+    <div class="dashLine" id="dash_line">
+
+    </div>
+</div>`;
+    json.forEach(row => {
+        dash_line.innerHTML += `
+        <div class="dashCard">
+        <h3>${row.nome}</h3>
+        <span>
+            Código: ${row.codPatrimonio}
+            <br>
+            Status: ${row.atividade === 0 ? 'Offline' : 'Online'}
+            <br>
+        </span>
+        <canvas id="canva_${row.idComputador}" class="charts"></canvas>
+        <table id="table_${row.idComputador}">
+            <tr>
+                <th>Últimos acessos</th>
+                <th>Data</th>
+            </tr>
+        </table>
+    </div>`;
+
+    createChart(row);
+
+    let tbRows = '';
+    if (row.ultimasFerramentas.length < 1) {
+        tbRows = `
+            <tr>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+        `;
+    } else {
+        row.ultimasFerramentas.forEach(row2 => {
+            tbRows += `
+                <tr>
+                    <td>${row2.nomeApp.length > 10 ? row2.nomeApp.slice(0, 10) + '...' : row2.nomeApp}</td>
+                    <td>${row2.dtLeitura.replace(/\-/g, '/').replace('T', ' ').replace('.000Z', '')}</td>
+                </tr>`;
+            
+        });
+    }
+
+    document.getElementById(`table_${row.idComputador}`).innerHTML += tbRows;
+    });
+}
+
+function createChart(computer) {
+    setTimeout(() => {
+        const ctx = document.getElementById(`canva_${computer.idComputador}`);
+        compCharts.push(
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: computer.leituras.map((x) => {
+                        return x.dia.slice(0, 10);
+                    }),
+                    datasets: [{
+                        label: 'Horas ligado',
+                        data: computer.leituras.map((x) => {
+                            const tempo = (Number(x.tempo_ligado));
+                            return tempo;
+                        }),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            })
+        );
+    },200)
+}
+
+loadGeral();

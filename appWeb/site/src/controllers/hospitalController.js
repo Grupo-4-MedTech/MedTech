@@ -115,12 +115,28 @@ function listar(req, res) {
     .then((resultado) => {
       res.status(200).json(resultado);
     });
-  }
+}
+
+function findDepsByFunc(req, res) {
+    hospitalModel.findDepsByFunc(req.params.idFuncionario)
+    .then((result) => {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).send('Nenhum registro encontrado.');
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    })
+}
 
 module.exports = {
     cadastrar,
     find,
     deleteHospital,
     updateHospital,
-    listar
+    listar,
+    findDepsByFunc
 }

@@ -23,7 +23,7 @@ router.delete('/deletar/:idComputador', function(req, res){
 })
 
 router.get('/buscar-ultimas-leituras/:fkHospital/:status', function(req, res) {
-    computadorController.ultimasLeituras(req,res);
+    computadorController.historicLeituras(req,res);
 })
 
 router.get('/historico-ferramentas/:fkHospital/:dtLeitura', function(req, res) {
@@ -34,5 +34,12 @@ router.put('/editarPC/:idComputador', function (req, res) {
     computadorController.editarPC(req, res);
 });
 
+router.put('/editarPC/:idComputador', function (req, res) {
+    computadorController.editarPC(req, res);
+});
+
+router.get('/historico-atividade/:idDepartamento', function(req, res) {
+    computadorController.historicAtividade(req, res);
+});
 
 module.exports = router;
