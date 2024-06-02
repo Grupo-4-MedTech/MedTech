@@ -175,15 +175,21 @@ INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado,
 
 update hospital set dtCriacao = '2024-04-07' where idHospital = 1;
 
-
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
 ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
 
-INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
+INSERT INTO departamento (nome, fkHospital) VALUES 
+('Triagem', 1),
+('Guichê', 1),
+('Farmácia', 1),
+('Consultório', 1);
 
-INSERT INTO acesso (fkFuncionario, fkDepartamento, fkHospital) VALUES
-(1000, 1, 1);
+INSERT INTO acesso (fkFuncionario, fkDepartamento, fkHospital, responsavel) VALUES
+(1001, 1, 1, 1),
+(1001, 2, 1, 1),
+(1001, 3, 1, 1),
+(1001, 4, 1, 1);
 
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES
 ('PC_triagem01', 'Intel Core I3', 'C057689', 'medtech88', 8, 250, 1, 1);
@@ -353,7 +359,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-SELECT * FROM leituraRamCpu;
 INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital, dataLeitura) VALUES
 (0, 0, 1, 1, 1, current_timestamp());
 INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES
@@ -380,12 +385,6 @@ INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDe
 ('crítico', 'ram', '2024-10-18 21:49:19', 1, 1, 1),
 ('crítico', 'ram', '2024-10-18 21:49:20', 1, 1, 1),
 ('crítico', 'ram', '2024-10-18 21:49:21', 1, 1, 1);
-
-INSERT INTO acesso VALUES
-(1001, 1, 1, 1),
-(1001, 2, 1, 1),
-(1001, 3, 1, 1),
-(1001, 4, 1, 1);
 
 INSERT INTO medtech.logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES 
 ('crítico', 'disco', '2024-06-18 21:49:13', 1, 1, 1),
