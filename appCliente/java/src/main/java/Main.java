@@ -1,4 +1,5 @@
 import Persistencia.Conexao;
+import Registro.LeituraComputador;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
@@ -71,6 +72,13 @@ public class Main {
         System.out.println(computador);
 
         System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
+
+        LeituraComputador leitura = new LeituraComputador(computador);
+        try{
+            leitura.inserirLeitura();
+        } catch (InterruptedException interruptedException){
+            System.out.println("sepa");
+        }
     }
         /*
     public static void inserirLeituras(Computador computador) throws InterruptedException {
