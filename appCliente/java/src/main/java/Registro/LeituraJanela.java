@@ -29,6 +29,7 @@ public class LeituraJanela extends Leitura{
                 listaGuias.add(listaJanela);
             }
         }
+        this.inserirLeitura();
     }
 
     @Override

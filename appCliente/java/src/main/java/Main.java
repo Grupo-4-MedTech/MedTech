@@ -51,6 +51,7 @@ public class Main {
             System.out.println("Senha:");
             String senhaH = leitorStr.next();
 
+
             computadorAutenticado = repositorioComputador.autenticarComputador(senhaH, codPatrimonio);
 
             if (computadorAutenticado.size() != 1) {

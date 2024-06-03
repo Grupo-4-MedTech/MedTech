@@ -64,8 +64,6 @@ public class LeituraComputador extends Leitura{
 
     @Override
     public void inserirLeitura() throws InterruptedException{
-    // fazer inserção da leitura no banco
-
         for (int i = 1; true; i++) {
 
             String queryRamCpu = "INSERT INTO leituraRamCpu (ram, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES("
@@ -78,6 +76,8 @@ public class LeituraComputador extends Leitura{
                     %s \n
                     """, queryRamCpu);
             conn.execute(queryRamCpu);
+
+            new LeituraJanela(super.getFkComputador()).realizarLeitura();
 
             if (i > 9) {
                 String queryDisco = "INSERT INTO leituraDisco (disco, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES ("

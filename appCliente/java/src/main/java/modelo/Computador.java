@@ -51,6 +51,19 @@ public class Computador {
 
     //GETTERS
 
+
+    public String getModeloProcessador() {
+        return modeloProcessador;
+    }
+
+    public String getCodPatrimonio() {
+        return codPatrimonio;
+    }
+
+    public int getMaxRam() {
+        return maxRam;
+    }
+
     public int getIdComputador() {
         return this.idComputador;
     }
@@ -75,6 +88,39 @@ public class Computador {
     }
 
     //SETTERS
+
+
+    public void setIdComputador(int idComputador) {
+        this.idComputador = idComputador;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setModeloProcessador(String modeloProcessador) {
+        this.modeloProcessador = modeloProcessador;
+    }
+
+    public void setCodPatrimonio(String codPatrimonio) {
+        this.codPatrimonio = codPatrimonio;
+    }
+
+    public void setMaxRam(int maxRam) {
+        this.maxRam = maxRam;
+    }
+
+    public void setMaxDisco(int maxDisco) {
+        this.maxDisco = maxDisco;
+    }
+
+    public void setFkDepartamento(int fkDepartamento) {
+        this.fkDepartamento = fkDepartamento;
+    }
+
+    public void setFkHospital(int fkHospital) {
+        this.fkHospital = fkHospital;
+    }
 
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
