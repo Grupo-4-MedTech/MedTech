@@ -37,19 +37,8 @@
                 <div id="profile_content">
                     <!-- <div class="arrowTop"></div> -->
                     <div class="opContent">
-                        <ul>
-                            <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
-                            </li>
-                            <!-- <div id="protectedOptions"> -->
-                            <li onclick="openUserManagement()">
-                                <img src="../assets/img/config-usuario.png" alt="">
-                                Usuários
-                            </li>
-                            <li onclick="openComputerRegistration()">
-                                <img src="../assets/img/config-computador.png" alt="">
-                                Máquinas
-                            </li>
-                            <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
+                        <ul id="profile_content_container">
+
                         </ul>
                     </div>
                 </div>
@@ -123,6 +112,7 @@
     <script src="../script/utils.js"></script>
     <script src="../script/statusTI.js"></script>
     <script>
+        chkLoginDash();
         searchByState('alerta');
     </script>
 </body>

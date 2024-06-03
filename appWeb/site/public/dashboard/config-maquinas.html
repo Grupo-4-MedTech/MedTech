@@ -171,5 +171,13 @@
 </body>
 
 </html>
-<script src="../script/config-maquinas.js">
+<script src="../script/utils.js"></script>
+<script src="../script/config-usuarios.js">
+</script>
+<script>
+  chkLoginDash();
+  if (sessionStorage.CARGO != 'GESTOR_TI') {
+    sessionStorage.clear();
+    window.location.href = "../index.html";
+  }
 </script>

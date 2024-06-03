@@ -59,7 +59,7 @@ function historic(fkHospital) {
 			SELECT fkComputador, MAX(dtOcorrencia) AS ultimaOcorrencia
 			FROM logComputador
 			WHERE fkHospital = ?
-			AND grau = 'alerta'
+			AND grau = 'crítico'
 			AND DATE(dtOcorrencia) BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) - INTERVAL 6 DAY AND CURDATE()
 			GROUP BY fkComputador, DATE(dtOcorrencia)
 	) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) critUltimaSem,
@@ -83,7 +83,7 @@ function historic(fkHospital) {
     return database.executar(query);
 }
 
-function ultimasLeituras(status, fkHospital) {
+function historicLeituras(status, fkHospital) {
     let query = `
     SELECT
         c.idComputador,
@@ -225,7 +225,11 @@ function historicAtividade(fkComputador) {
             l.dtOcorrencia AS inicio,
             MIN(ld.dtOcorrencia) AS fim
         FROM logAtividade l
-        JOIN logAtividade ld ON l.fkComputador = ld.fkComputador AND l.atividade = 1 AND ld.atividade = 0 AND ld.dtOcorrencia > l.dtOcorrencia
+        JOIN logAtividade ld 
+            ON l.fkComputador = ld.fkComputador 
+            AND l.atividade = 1 
+            AND ld.atividade = 0 
+            AND ld.dtOcorrencia > l.dtOcorrencia
         WHERE l.dtOcorrencia >= DATE_SUB(NOW(), INTERVAL 8 DAY)
         GROUP BY l.fkComputador, l.dtOcorrencia
     )
@@ -236,7 +240,8 @@ function historicAtividade(fkComputador) {
     FROM ParesDeEventos
     WHERE fkComputador = ${fkComputador}
     GROUP BY dia, fkComputador
-    ORDER BY dia, fkComputador;`;
+    ORDER BY dia, fkComputador;
+    `;
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
@@ -263,7 +268,7 @@ module.exports = {
     findLogs,
     historic,
     adicionarPC,
-    ultimasLeituras,
+    historicLeituras,
     historicFerramentas,
     deletar,
     historicAtividade,
