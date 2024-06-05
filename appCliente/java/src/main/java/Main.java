@@ -1,5 +1,9 @@
 import Persistencia.Conexao;
+import Registro.LeituraComputador;
+import Registro.LeituraJanela;
 import com.github.britooo.looca.api.group.janelas.Janela;
+import modelo.Departamento;
+import modelo.Hospital;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
 
@@ -8,14 +12,61 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import modelo.Computador;
+import log.HardwareType;
+import log.Log;
+import log.LogLevel;
+import log.LogManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Main {
+
+
+
+
+
     static Scanner leitorStr = new Scanner(System.in);
     static Conexao conexao = new Conexao();
     static JdbcTemplate conn = conexao.getConn();
 
 
     public static void main(String[] args) throws InterruptedException {
+        Timer timer = new Timer();
+
+        System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
+        // Tarefa a ser executada repetidamente
+        TimerTask task = new TimerTask() {
+            int count = 0;
+
+            @Override
+            public void run() {
+                Computador computador = new Computador();
+                LeituraComputador leitura = new LeituraComputador(2);
+                Hospital hospital = new Hospital();
+                Departamento departamento = new Departamento();
+                count++;
+                if(leitura.getPorcentagemConsumoMemoria() >=70) {
+                    LogManager.salvarLog(new Log(departamento.getHospital()   + " consumo de RAM muito alta", "" + leitura.getPorcentagemConsumoMemoria(), LogLevel.PERIGO, HardwareType.RAM), count);
+                }
+                if(leitura.getPorcentagemConsumoMemoria() >=30){
+                    LogManager.salvarLog(new Log(departamento.getHospital() + " consumo de RAM medio", "" + leitura.getPorcentagemConsumoMemoria(), LogLevel.AVISO, HardwareType.RAM), count);
+                }
+                if(leitura.getPorcentagemConsumoMemoria() <30){
+                    LogManager.salvarLog(new Log(departamento.getHospital() + " consumo de RAM medio", "" + leitura.getPorcentagemConsumoMemoria(), LogLevel.BAIXO, HardwareType.RAM), count);
+                }
+
+                // Cancela o timer após 8 execuções
+                if (count >= 8) {
+                    timer.cancel();
+                    System.out.println("Arquivos gravados no log!");
+                }
+            }
+        };
+
+        // Agenda a tarefa para ser executada a cada 5 segundos
+        timer.scheduleAtFixedRate(task, 0, 5000);
 
         telaInicial();
     }
@@ -123,4 +174,6 @@ public class Main {
             Thread.sleep(3000);
         }
     } */
+
+
 }

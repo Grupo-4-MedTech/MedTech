@@ -1,0 +1,1172 @@
+ID 1. 
+29/05/2024 17:36:42, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+29/05/2024 17:36:47, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+29/05/2024 17:36:52, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+29/05/2024 17:36:57, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+29/05/2024 17:37:02, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+29/05/2024 17:37:07, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+29/05/2024 17:37:12, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+29/05/2024 17:37:17, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/05/30 03:29:11, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+2024/05/30 03:29:16, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+2024/05/30 03:29:21, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+2024/05/30 03:29:26, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+2024/05/30 03:29:31, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+2024/05/30 03:29:36, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+2024/05/30 03:29:41, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+2024/05/30 03:29:46, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/30/05 03:35:48, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+2024/30/05 03:35:53, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+2024/30/05 03:35:58, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+2024/30/05 03:36:03, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+2024/30/05 03:36:08, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+2024/30/05 03:36:13, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+2024/30/05 03:36:18, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+2024/30/05 03:36:23, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/02/06 15:18:12, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+2024/02/06 15:18:17, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+2024/02/06 15:18:22, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+2024/02/06 15:18:27, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+2024/02/06 15:18:32, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+2024/02/06 15:18:37, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+2024/02/06 15:18:42, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+2024/02/06 15:18:47, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/02/06 15:20:39, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+2024/02/06 15:20:44, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+2024/02/06 15:20:49, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+2024/02/06 15:20:54, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+2024/02/06 15:20:59, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+2024/02/06 15:21:04, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+2024/02/06 15:21:09, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+2024/02/06 15:21:14, mensagem='Temperatura da CPU muito alta', porcentagem='80%', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/02/06 15:48:45, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 15:48:49, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 15:48:54, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 15:48:59, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 15:49:04, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 15:49:09, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 15:49:14, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 15:49:19, mensagem='Memoria da RAM muito alta', porcentagem='80%0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 15:55:05, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 15:55:09, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 15:55:14, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 15:55:19, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 15:55:24, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 15:55:29, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 15:55:34, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 15:55:39, mensagem='Memoria da RAM muito alta', porcentagem='null', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:05:41, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:05:46, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:05:51, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:05:56, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:06:01, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:06:05, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:06:11, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:06:15, mensagem='Memoria da RAM muito alta', porcentagem='800', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:15:25, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:15:25, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:15:27, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:15:27, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:15:31, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:15:31, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:15:36, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:15:36, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:15:41, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:15:41, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:15:46, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:15:46, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:15:51, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:15:51, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:15:56, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:15:56, mensagem='A cpu está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:17:18, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:17:18, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:17:22, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:17:22, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:17:27, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:17:27, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:17:32, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:17:32, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:17:37, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:17:37, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:17:42, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:17:42, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:17:47, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:17:47, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:17:52, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:17:52, mensagem='O disco está com', logLevel=AVISO, hardwareType=REDE
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:22:03, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:22:07, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:22:12, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:22:17, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:22:22, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:22:27, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:22:32, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:22:37, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:23:34, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:23:39, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:23:44, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:23:49, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:23:54, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:23:59, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:24:04, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:24:09, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:25:47, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:25:52, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:25:57, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:26:02, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:26:07, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:26:12, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:26:17, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:26:22, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:26:42, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:26:46, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:26:51, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:26:56, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:27:01, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:27:06, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:27:11, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:27:16, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:27:46, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:27:50, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:27:55, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:28:00, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:28:05, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:28:10, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:28:15, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:28:20, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:29:07, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:29:11, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:29:16, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:29:21, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:29:26, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:29:31, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:29:36, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:29:41, mensagem='Memoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:29:48, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:29:52, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:29:57, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:30:02, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:30:07, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:30:12, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:30:17, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:30:22, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:30:28, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:30:33, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:30:38, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:30:43, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:30:48, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:30:53, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:30:58, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:31:03, mensagem='Memoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:45:18, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:45:22, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:45:27, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:45:32, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:45:37, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:45:42, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:45:47, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:45:52, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 16:46:39, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 16:46:43, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 16:46:48, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 16:46:53, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 16:46:58, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 16:47:03, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 16:47:08, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 16:47:13, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 17:45:29, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 17:45:33, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 17:45:38, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 17:45:43, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 17:45:48, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 17:45:53, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 17:45:58, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 17:46:03, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 17:49:30, mensagem= 'nullMemoria da RAM muito alta', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 17:53:00, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 17:53:04, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 17:53:09, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 17:53:14, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 17:53:19, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 17:53:24, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 17:53:29, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 17:53:34, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 17:56:51, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 17:56:55, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 17:57:00, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 17:57:05, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 17:57:10, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 17:57:15, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 17:57:20, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 17:57:25, mensagem='nullMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:01:23, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:01:25, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:01:29, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:01:34, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:01:39, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:01:44, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:01:49, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:01:54, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzMemoria da RAM muito alta', porcentagem='0', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:06:18, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='47.97479747974798', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:06:21, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='9.61159420289855', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:06:26, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='8.217142857142857', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:06:30, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='9.77683315621679', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:06:35, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='4.5974301544265', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:06:40, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='8.479360225802658', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:06:46, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='12.860336510177667', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:06:51, mensagem='11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHzconsumo de CPU muito alta', porcentagem='12.86184984702283', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:10:44, mensagem='nullconsumo de CPU muito alta', porcentagem='12.84509645373686', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:10:46, mensagem='nullconsumo de CPU muito alta', porcentagem='11.544333529066353', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:10:51, mensagem='nullconsumo de CPU muito alta', porcentagem='9.654145671094824', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:10:56, mensagem='nullconsumo de CPU muito alta', porcentagem='6.611764705882353', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:11:01, mensagem='nullconsumo de CPU muito alta', porcentagem='5.547669742133901', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:11:06, mensagem='nullconsumo de CPU muito alta', porcentagem='3.1757402101241645', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:11:11, mensagem='nullconsumo de CPU muito alta', porcentagem='21.435395271077144', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:11:16, mensagem='nullconsumo de CPU muito alta', porcentagem='13.752201996476806', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:14:47, mensagem='nullconsumo de CPU muito alta', porcentagem='12.861624259323806', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:14:50, mensagem='nullconsumo de CPU muito alta', porcentagem='8.237232289950576', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:14:55, mensagem='nullconsumo de CPU muito alta', porcentagem='9.320410233292009', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:15:00, mensagem='nullconsumo de CPU muito alta', porcentagem='7.244825124910778', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:15:05, mensagem='nullconsumo de CPU muito alta', porcentagem='6.1275382971143575', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:15:10, mensagem='nullconsumo de CPU muito alta', porcentagem='6.495665597909987', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:15:15, mensagem='nullconsumo de CPU muito alta', porcentagem='10.50561147749624', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:15:20, mensagem='nullconsumo de CPU muito alta', porcentagem='6.161929782660616', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:16:09, mensagem='modelo.Hospital@5138114f consumo de CPU muito alta', porcentagem='10.717550274223035', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:16:12, mensagem='modelo.Hospital@67ac3ee4 consumo de CPU muito alta', porcentagem='6.138046333890614', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:16:17, mensagem='modelo.Hospital@373d5e47 consumo de CPU muito alta', porcentagem='8.390871854885898', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:16:22, mensagem='modelo.Hospital@519d8296 consumo de CPU muito alta', porcentagem='5.46218487394958', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:16:27, mensagem='modelo.Hospital@3441e859 consumo de CPU muito alta', porcentagem='5.3168244719592135', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:16:32, mensagem='modelo.Hospital@10f248b4 consumo de CPU muito alta', porcentagem='9.192298661657667', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:16:37, mensagem='modelo.Hospital@72145aae consumo de CPU muito alta', porcentagem='6.837809061871525', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:16:42, mensagem='modelo.Hospital@66aa8253 consumo de CPU muito alta', porcentagem='4.994285714285715', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:19:39, mensagem='null consumo de CPU muito alta', porcentagem='7.868777242486809', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:19:42, mensagem='null consumo de CPU muito alta', porcentagem='7.802898550724638', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:19:44, mensagem='null consumo de CPU muito alta', porcentagem='4.8746996223824235', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:19:48, mensagem='null consumo de CPU muito alta', porcentagem='37.68866861905835', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:19:53, mensagem='null consumo de CPU muito alta', porcentagem='12.118684461391801', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:19:58, mensagem='null consumo de CPU muito alta', porcentagem='6.7238581034083005', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:20:03, mensagem='null consumo de CPU muito alta', porcentagem='8.411771714524008', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:20:08, mensagem='null consumo de CPU muito alta', porcentagem='17.30681298582533', logLevel=PERIGO, hardwareType=CPU
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:22:37, mensagem='null consumo de RAM muito alta', porcentagem='94.98446865764338', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:22:39, mensagem='null consumo de RAM muito alta', porcentagem='93.63224759242152', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:22:43, mensagem='null consumo de RAM muito alta', porcentagem='93.56122757849181', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:22:48, mensagem='null consumo de RAM muito alta', porcentagem='92.70732211445683', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:22:53, mensagem='null consumo de RAM muito alta', porcentagem='92.42363389329758', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:22:58, mensagem='null consumo de RAM muito alta', porcentagem='92.74802392933655', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:23:03, mensagem='null consumo de RAM muito alta', porcentagem='93.30266574846769', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:23:08, mensagem='null consumo de RAM muito alta', porcentagem='93.43500787097672', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:28:41, mensagem='null consumo de RAM muito alta', porcentagem='95.7905213260857', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:28:44, mensagem='null consumo de RAM muito alta', porcentagem='96.4741256946492', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:28:49, mensagem='null consumo de RAM muito alta', porcentagem='93.83947909513645', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:28:54, mensagem='null consumo de RAM muito alta', porcentagem='92.14474564549356', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:28:59, mensagem='null consumo de RAM muito alta', porcentagem='90.7615206707424', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:29:05, mensagem='null consumo de RAM muito alta', porcentagem='90.43507350326546', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:29:08, mensagem='null consumo de RAM muito alta', porcentagem='90.67884357866421', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:29:13, mensagem='null consumo de RAM muito alta', porcentagem='86.48141381745799', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:31:01, mensagem='null consumo de RAM muito alta', porcentagem='93.00472454520252', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:31:04, mensagem='null consumo de RAM muito alta', porcentagem='92.8168888531884', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:31:09, mensagem='null consumo de RAM muito alta', porcentagem='91.67753191247591', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:31:14, mensagem='null consumo de RAM muito alta', porcentagem='90.56271361105914', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:31:25, mensagem='null consumo de RAM muito alta', porcentagem='93.39244484193884', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:31:29, mensagem='null consumo de RAM muito alta', porcentagem='93.14607886258264', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:31:33, mensagem='null consumo de RAM muito alta', porcentagem='92.56875961831396', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:31:39, mensagem='null consumo de RAM muito alta', porcentagem='94.42409625807791', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:31:43, mensagem='null consumo de RAM muito alta', porcentagem='93.06188341158597', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:31:48, mensagem='null consumo de RAM muito alta', porcentagem='93.9434132120736', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:31:53, mensagem='null consumo de RAM muito alta', porcentagem='93.67084329654334', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:31:58, mensagem='null consumo de RAM muito alta', porcentagem='93.45802815135393', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:33:31, mensagem='null consumo de RAM muito alta', porcentagem='94.36213741833923', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:33:34, mensagem='null consumo de RAM muito alta', porcentagem='91.76451918470983', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:33:39, mensagem='null consumo de RAM muito alta', porcentagem='92.6948323878692', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:33:44, mensagem='null consumo de RAM muito alta', porcentagem='90.50330169595793', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:33:49, mensagem='null consumo de RAM muito alta', porcentagem='90.97394398137219', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:33:54, mensagem='null consumo de RAM muito alta', porcentagem='91.14027775192758', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:33:59, mensagem='null consumo de RAM muito alta', porcentagem='93.10728724118103', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:34:04, mensagem='null consumo de RAM muito alta', porcentagem='92.73484849226959', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/02/06 18:34:34, mensagem='modelo.Hospital@5cb2e56d consumo de RAM muito alta', porcentagem='91.41867620653208', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/02/06 18:34:38, mensagem='modelo.Hospital@24076ba4 consumo de RAM muito alta', porcentagem='89.90546011662956', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/02/06 18:34:43, mensagem='modelo.Hospital@f6419c0 consumo de RAM muito alta', porcentagem='88.99552231057002', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/02/06 18:34:48, mensagem='modelo.Hospital@3c98e8d2 consumo de RAM muito alta', porcentagem='85.35567312769203', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/02/06 18:34:53, mensagem='modelo.Hospital@29d856b9 consumo de RAM muito alta', porcentagem='85.65092046835984', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/02/06 18:34:58, mensagem='modelo.Hospital@1c193005 consumo de RAM muito alta', porcentagem='86.99168037271303', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/02/06 18:35:03, mensagem='modelo.Hospital@168eb475 consumo de RAM muito alta', porcentagem='87.85582251461788', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/02/06 18:35:08, mensagem='modelo.Hospital@3df83a37 consumo de RAM muito alta', porcentagem='89.83909313809524', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------

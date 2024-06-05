@@ -22,6 +22,17 @@ public class LeituraComputador extends Leitura{
     private Double porcentagemConsumosCpus;
     private Double menorPorcentDisco;
 
+    public String getNomeProcessador() {
+        return nomeProcessador;
+    }
+
+    public Double getPorcentagemConsumosCpus() {
+        return porcentagemConsumosCpus;
+    }
+
+    public Double getPorcentagemConsumoMemoria() {
+        return porcentagemConsumoMemoria;
+    }
 
     private Memoria memoria = looca.getMemoria();
     private DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();

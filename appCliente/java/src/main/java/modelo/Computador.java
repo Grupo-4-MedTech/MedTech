@@ -51,12 +51,18 @@ public class Computador {
 
     //GETTERS
 
+
+    public String getCodPatrimonio() {
+        return codPatrimonio;
+    }
+
     public int getIdComputador() {
         return this.idComputador;
     }
     public int getMaxDisco() {
         return this.maxDisco;
     }
+
 
     public Departamento getDepartamento(){
         return this.departamento;
@@ -73,6 +79,8 @@ public class Computador {
     public int getFkDepartamento() {
         return fkDepartamento;
     }
+
+    public int getMaxRam(){return  getMaxDisco();}
 
     //SETTERS
 

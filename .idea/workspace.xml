@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d55a8005-7b24-4649-92d7-41d6e9673e3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/appWeb/site/public/CSS/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/CSS/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appWeb/site/public/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appWeb/site/public/dashboard/geralTI.html" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/dashboard/geralTI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +33,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/natha"
+    "last_opened_file_path": "C:/Users/natha/OneDrive/Documentos/MedTech/appCliente/java"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
