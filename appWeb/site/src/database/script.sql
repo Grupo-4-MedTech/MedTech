@@ -181,6 +181,7 @@ INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) V
 ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES ('Triagem', 1);
+INSERT INTO departamento (nome, fkHospital) VALUES ('Farmácia', 1);
 
 INSERT INTO acesso (fkFuncionario, fkDepartamento, fkHospital) VALUES
 (1000, 1, 1);

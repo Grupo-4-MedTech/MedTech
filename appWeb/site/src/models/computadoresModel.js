@@ -155,7 +155,7 @@ function ultimasLeituras(status, fkHospital) {
 }
 
 function adicionarPC(nome, codPatrimonio, fkDepartamento, senha, fkHospital){
-    const query = `INSERT INTO computador (nome, codPatrimonio, fkDepartamento, senha, fkHospital) VALUES ('${nome}', '${codPatrimonio}', ${fkDepartamento}, '${senha}', ${fkHospital})`
+    const query = `INSERT INTO computador (nome, codPatrimonio, fkDepartamento, senha, fkHospital) VALUES ('${nome}', '${codPatrimonio}', ${fkDepartamento}, '${senha}', ${fkHospital});`;
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
@@ -200,9 +200,13 @@ function deletar(idComputador){
     return database.executar(query);
 }
 
-function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
+function editarPCs(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
     var instrucaoSql = `
-        UPDATE computador SET nome = '${updateNome}', codPatrimonio = '${updateCodPatrimonio}', senha = '${updateSenha}', fkDepartamento = ${updateDepartamento}  WHERE idComputador = ${idComputador}`;
+        UPDATE computador SET
+        nome = '${updateNome}',
+        codPatrimonio = '${updateCodPatrimonio}',
+        senha = '${updateSenha}',
+        fkDepartamento = '${updateDepartamento}'  WHERE idComputador = ${idComputador}`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -269,5 +273,5 @@ module.exports = {
     historicAtividade,
     findComputerByDeps,
     lastFourFerramentas,
-    editarPC
+    editarPCs
 }
