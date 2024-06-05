@@ -20,7 +20,9 @@ public class Hospital {
 
     public Hospital(){
         this.departamentos = new ArrayList<>();
-    };
+    }
+
+    // outros métodos
 
     public void addDepartamento(Departamento departamento){
         if(this.departamentos.contains(departamento)){

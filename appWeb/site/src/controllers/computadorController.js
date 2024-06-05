@@ -97,8 +97,8 @@ function deletarPC(req, res) {
         );
 }
 
-function ultimasLeituras(req, res) {
-    computadoresModel.ultimasLeituras(req.params.status, req.params.fkHospital)
+function historicLeituras(req, res) {
+    computadoresModel.historicLeituras(req.params.status, req.params.fkHospital)
         .then((result) => {
             if (result.length > 0) {
                 res.status(200).json(result);
@@ -204,7 +204,7 @@ module.exports = {
     adicionarPC,
     deletarPC,
     historicFerramentas,
-    ultimasLeituras,
+    historicLeituras,
     historicAtividade,
     editarPCs
 }
