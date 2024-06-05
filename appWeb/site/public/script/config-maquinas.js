@@ -64,20 +64,24 @@ function editar(computador) {
     update_input_senha.value = computador.senha;
 
     console.log(listaDeDepartamentos)
-    document.getElementById('buttonSalvar').onclick = function(){
-        editarPC(computador.idComputador)
+
+    const deptoRepetido = 0;
+
+    for( let i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
+            update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+            deptoRepetido += i;
+    }
+    for (let i = 0; i <= listaDeDepartamentos.length; i++){
+        update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> `
+        
+        const index = indexOf(deptoRepetido)
+
+        listaDeDepartamentos.splice(index, 1)
     }
 
-    for( let i = 0; i < listaDeDepartamentos.length && listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
-        update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
-    }
+    
 
-   
-    // for(var i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
-    //     update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
-    // }
-
-    // editarPC()
+    editarPC()
 }
 
 function btnNovoComputador() {
@@ -170,7 +174,7 @@ function deletarPC(idComputador) {
 
 function editarPC(idComputador) {
 
-    fetch(`/computador/editarPC/${idComputador}`, {
+    fetch(`/computador/editarPCs/${idComputador}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -178,7 +182,7 @@ function editarPC(idComputador) {
         body: JSON.stringify({
             updateNome: update_input_nome.value,
             updateCodPatrimonio: update_input_codPatrimonio.value,
-            updateDepartamento: update_listaDepartamentos.value,
+            updateDepartamento: listaDepartamentos.value,
             updateSenha: update_input_senha.value
         })
         

@@ -30,9 +30,9 @@ public class ComputadorRepositorio {
                 WHERE senha = ?
                 AND codPatrimonio = ?;
                 """, new BeanPropertyRowMapper<>(Computador.class), senha, codPatrimonio);
-
+        if(!computadorEncontrado.isEmpty()){
         computadorEncontrado.get(0).setDepartamento(departamentoRepositorio.buscarDepartamentoPorId(computadorEncontrado.get(0).getFkDepartamento()));
+        }
         return computadorEncontrado;
     }
-
 }

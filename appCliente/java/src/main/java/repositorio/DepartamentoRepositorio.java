@@ -20,10 +20,10 @@ public class DepartamentoRepositorio {
     public Departamento buscarDepartamentoPorId(int id){
 
         HospitalRepositorio hospitalRepositorio = new HospitalRepositorio(conn);
-        Departamento departamento = conn.queryForObject("SELECT * FROM departamento WHERE idDepartamento = ?;", new BeanPropertyRowMapper<>(Departamento.class), id);
-        departamento.setHospital(hospitalRepositorio.buscarHospitalPorId(departamento.getFkHospital()));
+        List<Departamento> departamento = conn.query("SELECT * FROM departamento WHERE idDepartamento = ?;", new BeanPropertyRowMapper<>(Departamento.class), id);
+        departamento.get(0).setHospital(hospitalRepositorio.buscarHospitalPorId(departamento.get(0).getFkHospital()));
 
-        return departamento;
+        return departamento.get(0);
     }
 
 }

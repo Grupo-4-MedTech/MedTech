@@ -97,8 +97,8 @@ function deletarPC(req, res) {
         );
 }
 
-function ultimasLeituras(req, res) {
-    computadoresModel.ultimasLeituras(req.params.status, req.params.fkHospital)
+function historicLeituras(req, res) {
+    computadoresModel.historicLeituras(req.params.status, req.params.fkHospital)
         .then((result) => {
             if (result.length > 0) {
                 res.status(200).json(result);
@@ -130,14 +130,14 @@ function historicFerramentas(req, res) {
         })
 }
 
-function editarPC(req, res) {
+function editarPCs(req, res) {
     const idComputador = req.params.idComputador;
     const updateNome = req.body.updateNome;
     const updateCodPatrimonio = req.body.updateCodPatrimonio;
     const updateDepartamento = req.body.updateDepartamento;
     const updateSenha = req.body.updateSenha;
 
-    computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
+    computadoresModel.editarPCs(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -204,7 +204,7 @@ module.exports = {
     adicionarPC,
     deletarPC,
     historicFerramentas,
-    ultimasLeituras,
+    historicLeituras,
     historicAtividade,
-    editarPC
+    editarPCs
 }

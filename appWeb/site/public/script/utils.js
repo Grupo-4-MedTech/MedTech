@@ -43,7 +43,7 @@ function chkLoginDash() {
             if (res.status != 200) {
                 logout();
             } else {
-                // configurar dash
+                profileOptions();
             }
         }).catch(() => {
             logout();
@@ -57,11 +57,29 @@ function logout(){
     window.location.href = '../index.html';
 }
 
-function calcActivity(json) {
+function profileOptions() {
+    let content = `
+    <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações</li>`;
 
+    if (sessionStorage.CARGO == 'GESTOR_TI') {
+        content += `
+        <li onclick="openUserManagement()">
+            <img src="../assets/img/config-usuario.png" alt="">
+            Usuários
+        </li>
+        <li onclick="openComputerRegistration()">
+            <img src="../assets/img/config-computador.png" alt="">
+            Máquinas
+        </li>
+        `;
+    }
+
+    content += `
+    <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>`;
+
+    profile_content_container.innerHTML = content;
 }
 
 module.exports = {
-    tokenGenerator,
-    calcActivity
+    tokenGenerator
 }

@@ -23,8 +23,10 @@ function searchHistory(data = select_data.value) {
     })
         .then((res) => {
             if (res.status != 200) {
-                res.text().then(text => alert(text));
-                fillChart();
+                res.text().then((text) => {
+                    showMessage(false, text);
+                    fillChart();
+                });
             } else {
                 res.json().then((json) => {
                     console.log(json);
@@ -280,17 +282,17 @@ function loadDepScreen(json, nome){
     }
 
     const date = new Date().toISOString();
-    dashboard_screendiv.innerHTML = `<div class="dashDescription">
-    <span class="titulo">
-        <h2>${nome}</h2>
-    </span>
-    <span>Última atualização: ${date.slice(0, 10).replace(/\-/g, '/')} ${date.slice(11, 19)}</span>
-</div>
-<div class="dashCards">
-    <div class="dashLine" id="dash_line">
-
+    dashboard_screendiv.innerHTML = `
+    <div class="dashDescription">
+        <span class="titulo">
+            <h2>${nome}</h2>
+        </span>
+        <span>Última atualização: ${date.slice(0, 10).replace(/\-/g, '/')} ${date.slice(11, 19)}</span>
     </div>
-</div>`;
+    <div class="dashCards">
+        <div class="dashLine" id="dash_line">
+        </div>
+    </div>`;
     json.forEach(row => {
         dash_line.innerHTML += `
         <div class="dashCard">

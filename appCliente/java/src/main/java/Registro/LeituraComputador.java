@@ -41,8 +41,8 @@ public class LeituraComputador extends Leitura{
 
     // constructor
 
-    public LeituraComputador(int fkComputador) {
-        super(fkComputador);
+    public LeituraComputador(Computador computador) {
+        super(computador);
         this.porcentagemVolumes = new ArrayList<>();
         realizarLeitura();
     }
@@ -75,14 +75,16 @@ public class LeituraComputador extends Leitura{
 
     @Override
     public void inserirLeitura() throws InterruptedException{
-    // fazer inserção da leitura no banco
-
         for (int i = 1; true; i++) {
 
-            String queryRamCpu = "INSERT INTO leituraRamCpu (ram, cpu, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES("
-                + this.porcentagemConsumoMemoria
-                + ", " + this.porcentagemConsumosCpus
-                + ", '" + LocalDateTime.now() + "', " + super.getFkComputador();
+            this.realizarLeitura();
+
+            String queryRamCpu = "INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital) VALUES("
+                + this.porcentagemConsumoMemoria + ", "
+                + this.porcentagemConsumosCpus + ", "
+                + super.getComputador().getIdComputador() + ", "
+                + super.getComputador().getFkDepartamento() + ", "
+                + super.getComputador().getFkHospital() + "); ";
 
             System.out.printf("""
                     COMANDO DE INSERÇÃO DE LEITURAS DE RAM E CPU:
@@ -90,13 +92,17 @@ public class LeituraComputador extends Leitura{
                     """, queryRamCpu);
             conn.execute(queryRamCpu);
 
+            new LeituraJanela(super.getComputador());
+
             if (i > 9) {
-                String queryDisco = "INSERT INTO leituraDisco (disco, dataLeitura, fkComputador, fkDepartamento, fkHospital) VALUES ("
-                        + this.menorPorcentDisco
-                        + "," + super.getFkComputador();
+                String queryDisco = "INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES ("
+                        + this.menorPorcentDisco + ","
+                        + super.getComputador().getIdComputador() + ", "
+                        + super.getComputador().getFkDepartamento() + ", "
+                        + super.getComputador().getFkHospital() + "); ";
 
                 System.out.printf("""
-                        COMANDO DE INSERÇÃO DE LEITURAS DE FERRAMENTAS EM USO: \n
+                        COMANDO DE INSERÇÃO DE DISCO EM USO: \n
                         %s \n
                         """, queryDisco);
                 conn.execute(queryDisco);

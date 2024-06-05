@@ -14,8 +14,8 @@ public class LeituraJanela extends Leitura{
 
     // constructor
 
-    public LeituraJanela(int fkComputador) {
-        super(fkComputador);
+    public LeituraJanela(Computador computador) {
+        super(computador);
         this.listaGuias = new ArrayList<>();
         realizarLeitura();
     }
@@ -29,17 +29,19 @@ public class LeituraJanela extends Leitura{
                 listaGuias.add(listaJanela);
             }
         }
+        this.inserirLeitura();
     }
 
     @Override
     public void inserirLeitura() {
         for (Janela janela : this.listaGuias) {
             String queryFerramenta =
-                    "INSERT INTO leituraFerramenta (nomeApp, dtLeitura, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '"
+                    "INSERT INTO leituraFerramenta (nomeApp, caminho, fkComputador, fkDepartamento, fkHospital) VALUES( '"
                             + janela.getTitulo() + "', '"
-                            + LocalDateTime.now() + "', '"
                             + janela.getComando() + "', "
-                            + super.getFkComputador();
+                            + super.getComputador().getIdComputador() + ", "
+                            + super.getComputador().getFkDepartamento() + ", "
+                            + super.getComputador().getFkHospital() + "); ";
 
             System.out.printf("""
                         COMANDO DE INSERÇÃO DE LEITURAS DE FERRAMENTAS EM USO: \n
