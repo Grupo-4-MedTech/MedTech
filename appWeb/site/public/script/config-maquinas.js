@@ -65,13 +65,18 @@ function editar(computador) {
 
     console.log(listaDeDepartamentos)
 
-    
+    const deptoRepetido = 0;
 
     for( let i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
             update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+            deptoRepetido += i;
     }
-    for (let i = 1; i <= listaDeDepartamentos.length; i++){
+    for (let i = 0; i <= listaDeDepartamentos.length; i++){
         update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> `
+        
+        const index = indexOf(deptoRepetido)
+
+        listaDeDepartamentos.splice(index, 1)
     }
 
     
