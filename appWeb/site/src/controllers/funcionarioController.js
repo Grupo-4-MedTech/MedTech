@@ -22,12 +22,8 @@ function autenticar(req, res) {
                     const token = utils.tokenGenerator();
                     result.token = token;
                     funcionarioModel.update(result)
-                        .then((result2) => {
-                            if (result2.affectedRows > 0) {
-                                res.status(201).json(result);
-                            } else {
-                                res.status(500).send('Erro inesperado! entre em contato com o nosso suporte.');
-                            }
+                        .then(() => {
+                            res.status(201).json(result);
                         })
                         .catch(error => {
                             console.log(error);

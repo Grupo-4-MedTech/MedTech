@@ -1,8 +1,19 @@
 const database = require("../database/config");
 
-function cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco) {
-    const query = `INSERT INTO hospital (razaoSocial, nomeFantasia, cnpj, email, senha, fkEndereco, verificado) VALUES 
-    ('${razaoSocial}', '${nomeFantasia}', '${cnpj}', '${email}', '${senha}', ${idEndereco}, false);`;
+function cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, cep, rua, numero, complemento, uf) {
+    const query = `
+    EXEC InserirHospital
+    '${cep}',
+    '${rua}',
+    ${numero},
+    '${complemento}',
+    '${uf}',
+    '${razaoSocial}',
+    '${nomeFantasia}',
+    '${cnpj}',
+    '${email}',
+    '${senha}';
+    `;
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
@@ -16,7 +27,7 @@ function buscarPorId(id) {
 }
 
 function deleteHospital(idHospital) {
-    const query = `CALL delete_hospital(${idHospital});`
+    const query = `EXEC delete_hospital ${idHospital};`
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);

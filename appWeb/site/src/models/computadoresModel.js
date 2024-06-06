@@ -42,7 +42,7 @@ function findLogs(data) {
         query += ` WHERE `;
     }
 
-    query += `DATE(dtOcorrencia) != DATE(NOW())`;
+    query += `CAST(dtOcorrencia AS DATE) != CAST(GETDATE() AS DATE)`;
 
     query += ' ORDER BY dtOcorrencia;';
     console.log("Executando a instrução SQL: \n" + query);
@@ -54,16 +54,19 @@ function historic(fkHospital) {
     const query = `
     SELECT
     (SELECT COUNT(DISTINCT lc.fkComputador) AS count_critical_computers
-		FROM logComputador lc
-		INNER JOIN (
-			SELECT fkComputador, MAX(dtOcorrencia) AS ultimaOcorrencia
-			FROM logComputador
-			WHERE fkHospital = ?
-			AND grau = 'crítico'
-			AND DATE(dtOcorrencia) BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) - INTERVAL 6 DAY AND CURDATE()
-			GROUP BY fkComputador, DATE(dtOcorrencia)
-	) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) critUltimaSem,
-    (SELECT count(*) FROM computador WHERE status = 'crítico' AND fkHospital = ? GROUP BY(fkHospital)) critAtual,
+        FROM logComputador lc
+        INNER JOIN (
+            SELECT fkComputador, MAX(dtOcorrencia) AS ultimaOcorrencia
+            FROM logComputador
+            WHERE fkHospital = ?
+            AND grau = 'crítico'
+            AND CAST(dtOcorrencia AS DATE) BETWEEN CAST(DATEADD(DAY, -6, GETDATE()) AS DATE) AND CAST(GETDATE() AS DATE)
+            GROUP BY fkComputador, CAST(dtOcorrencia AS DATE)
+        ) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) AS critUltimaSem,
+    (SELECT COUNT(*) 
+        FROM computador 
+        WHERE status = 'crítico' 
+        AND fkHospital = ?) AS critAtual,
     (SELECT COUNT(DISTINCT lc.fkComputador) AS count_critical_computers
         FROM logComputador lc
         INNER JOIN (
@@ -71,12 +74,21 @@ function historic(fkHospital) {
             FROM logComputador
             WHERE fkHospital = ?
             AND grau = 'alerta'
-            AND DATE(dtOcorrencia) BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) - INTERVAL 6 DAY AND CURDATE()
-            GROUP BY fkComputador, DATE(dtOcorrencia)
-	) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) alertaUltimaSem,
-    (SELECT count(*) FROM computador WHERE status = 'alerta' AND fkHospital = ? GROUP BY(fkHospital)) alertaAtual,
-    (SELECT count(*) FROM computador WHERE atividade = 0 AND fkHospital = ? GROUP BY(fkHospital)) offlineAtual,
-    (SELECT count(*) FROM computador WHERE atividade = 1 AND fkHospital = ? GROUP BY(fkHospital)) onlineAtual;
+            AND CAST(dtOcorrencia AS DATE) BETWEEN CAST(DATEADD(DAY, -6, GETDATE()) AS DATE) AND CAST(GETDATE() AS DATE)
+            GROUP BY fkComputador, CAST(dtOcorrencia AS DATE)
+        ) max_ocorrencias ON lc.fkComputador = max_ocorrencias.fkComputador AND lc.dtOcorrencia = max_ocorrencias.ultimaOcorrencia) AS alertaUltimaSem,
+    (SELECT COUNT(*) 
+        FROM computador 
+        WHERE status = 'alerta' 
+        AND fkHospital = ?) AS alertaAtual,
+    (SELECT COUNT(*) 
+        FROM computador 
+        WHERE atividade = 0 
+        AND fkHospital = ?) AS offlineAtual,
+    (SELECT COUNT(*) 
+        FROM computador 
+        WHERE atividade = 1 
+        AND fkHospital = ?) AS onlineAtual;
     `.replace(/\?/g, fkHospital);
 
     console.log("Executando a instrução SQL: \n" + query);
@@ -161,7 +173,7 @@ function adicionarPC(nome, codPatrimonio, fkDepartamento, senha, fkHospital){
 }
 
 function historicFerramentas(data) {
-    let query = 'SELECT nomeApp, COUNT(*) qtdLeituras FROM leituraFerramenta';
+    let query = 'SELECT TOP 10 nomeApp, COUNT(*) qtdLeituras FROM leituraFerramenta';
     let i = 0;
     for (let [field, value] of data) {
         if (i === 0) {
@@ -189,7 +201,7 @@ function historicFerramentas(data) {
         i++
     }
 
-    query += ' GROUP BY nomeApp ORDER BY qtdLeituras LIMIT 10;';
+    query += ' GROUP BY nomeApp ORDER BY qtdLeituras;';
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
