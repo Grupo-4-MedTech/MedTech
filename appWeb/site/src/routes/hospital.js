@@ -11,7 +11,7 @@ router.post('/autenticar', function(req, res){
     hospitalController.autenticar(req, res);
 });
 
-router.get('/buscar/:nomeFantasia/:dtCriacao/:uf/:verificado', function(req, res){
+router.get('/buscar/:nomeFantasia/:dtCriacao/:uf/:verificado/', function(req, res){
     hospitalController.find(req, res);
 });
 

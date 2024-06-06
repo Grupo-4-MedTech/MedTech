@@ -28,9 +28,9 @@ function preencherTabelaPC(json) {
     const table = document.getElementById(`table-body-maquina`);
     let content = '';
     table.innerHTML = "";
-    
+
     console.log(json);
-    
+
     json.forEach(row => {
 
         const jsonString = JSON.stringify(row).replace(/\"/g, '\'')
@@ -54,7 +54,7 @@ function preencherTabelaPC(json) {
 function editar(computador) {
     console.log(computador)
     //computador = JSON.parse(computador.replace(/\'/g, '"'))
-    
+
     popup.style.display = 'block';
     fundotabela.style.display = 'none';
 
@@ -65,23 +65,22 @@ function editar(computador) {
 
     console.log(listaDeDepartamentos)
 
-    const deptoRepetido = 0;
 
-    for( let i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++){
-            update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
-            deptoRepetido += i;
-    }
-    for (let i = 0; i <= listaDeDepartamentos.length; i++){
-        update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> `
+    // for (let i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++) {
+
+    //     update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+    // }
+    update_listaDepartamentos.innerHTML = ""
+    for (let i = 0; i < listaDeDepartamentos.length; i++) {
+        if(listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento){
+            update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
+        }else{
+           update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> ` 
+        }
         
-        const index = indexOf(deptoRepetido)
-
-        listaDeDepartamentos.splice(index, 1)
     }
 
-    
-
-    editarPC()
+    // editarPC()
 }
 
 function btnNovoComputador() {
@@ -105,7 +104,7 @@ function novoComputador() {
     let codPatrimonio = input_codPatrimonio.value
     let departamento = listaDepartamentos.value
     let senha = input_senha.value
-    
+
     fetch(`/computador/adicionarPC`, {
         method: "POST",
         body: JSON.stringify({
@@ -137,7 +136,7 @@ function listar() {
         method: "GET",
     })
 
-    
+
         .then(function (resposta) {
             resposta.json().then((departamentos) => {
                 departamentos.forEach((departamento) => {
@@ -185,7 +184,7 @@ function editarPC(idComputador) {
             updateDepartamento: listaDepartamentos.value,
             updateSenha: update_input_senha.value
         })
-        
+
     }).then(function (resposta) {
 
         if (resposta.status == 200) {
@@ -202,7 +201,7 @@ function editarPC(idComputador) {
 
 
 
-function abrirPopup(idComputador){
+function abrirPopup(idComputador) {
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'flex';
     popup.innerHTML = `<div class="popupDelecao">
@@ -213,12 +212,13 @@ function abrirPopup(idComputador){
       <button class="botaoExclusao" onclick="deletarPC(${idComputador})">Excluir</button>
       <button class="botaoCancelar" onclick="fecharPopup()">Cancelar</button>
     </div>
-  </div>` 
+  </div>`
 }
-function fecharPopup(){
+function fecharPopup() {
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'none';
 }
+
 
 buscarComputadores()
 listar()
