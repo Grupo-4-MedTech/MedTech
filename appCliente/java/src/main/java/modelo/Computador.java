@@ -88,7 +88,6 @@ public class Computador {
         return fkDepartamento;
     }
 
-    public int getMaxRam(){return  getMaxDisco();}
 
     //SETTERS
 
