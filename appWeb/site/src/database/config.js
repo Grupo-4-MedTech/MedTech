@@ -3,19 +3,15 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "SEU_SERVIDOR",
-    database: "SEU_BANCO_DE_DADOS",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 30000
-    },
+    user: 'sa',         // Usuário do SQL Server
+    password: '#Gf24030085830',       // Senha do SQL Server
+    server: 'localhost',      // Endereço do servidor SQL
+    database: 'medtech', // Nome do banco de dados
     options: {
-        encrypt: true, // for azure
+      encrypt: true,
+      trustServerCertificate: true
     }
-}
+  };
 
 // CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {

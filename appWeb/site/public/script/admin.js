@@ -183,12 +183,12 @@ function dateToQueryCondition(dtCriacao) {
     }
 
     if (dtCriacao == 2) {
-        return `MONTH(dtCriacao) = ${date.getMonth() + 1} AND YEAR(dtCriacao) = ${date.toISOString().slice(0, 4)}`;
+        return `DATEPART(MONTH, dtCriacao) = ${date.getMonth() + 1} AND DATEPART(YEAR, dtCriacao) = ${date.toISOString().slice(0, 4)}`;
     }
 
     if (dtCriacao == 1) {
         const day = Number(date.toISOString().slice(8, 10));
-        return `DAY(dtCriacao) IN (${day}, ${day - 1}, ${day - 2}, ${day - 3}, ${day - 4}, ${day - 5}, ${day - 6}) AND MONTH(dtCriacao) = ${date.getMonth() + 1} AND YEAR(dtCriacao) = ${date.toISOString().slice(0, 4)}`
+        return `DATEPART(DAY, dtCriacao) IN (${day}, ${day - 1}, ${day - 2}, ${day - 3}, ${day - 4}, ${day - 5}, ${day - 6}) AND DATEPART(MONTH, dtCriacao) = ${date.getMonth() + 1} AND DATEPART(YEAR, dtCriacao) = ${date.toISOString().slice(0, 4)}`
     }
 
     return null;

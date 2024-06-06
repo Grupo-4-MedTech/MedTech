@@ -30,33 +30,18 @@ function cadastrar(req, res) {
         res.status(401).send('Dados Inválidos!');
     } else {
 
-        enderecoModel.cadastrar(cep, rua, numero, complemento, uf)
+        hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, cep, rua, numero, complemento, uf)
             .then((result) => {
-                const idEndereco = result.insertId;
-                hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, idEndereco)
-                    .then((result) => {
-                        hospitalModel.find(Object.entries({ idHospital: result.insertId }))
-                            .then((hospital) => {
-                                emailController.emailCadastro(hospital[0])
-                                    .then(() => {
-                                        console.log('email enviado');
-                                        res.status(201).json(result);
-                                    })
-                                    .catch((error) => {
-                                        console.log(error);
-                                        hospitalModel.deleteHospital(hospital[0].idHospital);
-                                        res.status(401).send('Não foi possível finalizar o cadastro!');
-                                    })
-                            })
-                    }).catch((error) => {
-                        console.error("Erro:", error);
-                        if (error.code && error.code === 'ER_DUP_ENTRY') {
-                            const send = 'Entrada duplicada no campo "';
-                            res.status(400).send(send + (error.sqlMessage.indexOf('cnpj') > -1 ? 'cnpj"' : 'email"'))
-                        } else {
-                            res.status(500).send('Erro inesperado! Por favor, tente novamente mais tarde.');
-                        }
-                    });
+                emailController.emailCadastro(result[0])
+                    .then(() => {
+                        console.log('email enviado');
+                        res.status(201).json(result);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        hospitalModel.deleteHospital(result[0].idHospital);
+                        res.status(401).send('Não foi possível finalizar o cadastro!');
+                    })
             })
             .catch((error) => {
                 console.error("Erro:", error);
@@ -85,11 +70,7 @@ function find(req, res) {
 function deleteHospital(req, res) {
     hospitalModel.deleteHospital(req.params.idHospital).then((result) => {
         res.status(200);
-        if (!result.affectedRows > 0) {
-            res.send('Nenhum registro foi apagado.');
-        } else {
-            res.send('Registro apagado com sucesso!');
-        }
+        res.send('Registro apagado com sucesso!');
     }).catch((error) => {
         console.log(error);
         res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
@@ -98,12 +79,8 @@ function deleteHospital(req, res) {
 
 function updateHospital(req, res) {
     hospitalModel.updateHospital(req.params.idHospital, req.body)
-        .then((result) => {
-            if (!result.affectedRows > 0) {
-                res.send('Nenhum registro alterado.');
-            } else {
-                res.send('Registro alterado com sucesso!');
-            }
+        .then(() => {
+            res.send('Registro alterado com sucesso!');
         }).catch((error) => {
             console.log(error);
             res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
@@ -112,24 +89,24 @@ function updateHospital(req, res) {
 
 function listar(req, res) {
     hospitalModel.listar(req.params.idHospital)
-    .then((resultado) => {
-      res.status(200).json(resultado);
-    });
+        .then((resultado) => {
+            res.status(200).json(resultado);
+        });
 }
 
 function findDepsByFunc(req, res) {
     hospitalModel.findDepsByFunc(req.params.idFuncionario)
-    .then((result) => {
-        if (result.length > 0) {
-            res.status(200).json(result);
-        } else {
-            res.status(400).send('Nenhum registro encontrado.');
-        }
-    })
-    .catch((error) => {
-        console.log(error);
-        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
-    })
+        .then((result) => {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(400).send('Nenhum registro encontrado.');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+        })
 }
 
 module.exports = {

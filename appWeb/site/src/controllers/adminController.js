@@ -17,12 +17,8 @@ function login(req, res){
                 const token = utils.tokenGenerator();
                 result[0].token = token;
                 adminModel.update(result[0])
-                .then((result2) => {
-                    if (result2.affectedRows > 0) {
-                        res.status(200).json(result[0]);
-                    } else {
-                        res.status(500).send('Erro inesperado! entre em contato com o nosso suporte.');
-                    }
+                .then(() => {
+                    res.status(200).json(result[0]);
                 })
                 .catch(error => {
                     console.log(error);
