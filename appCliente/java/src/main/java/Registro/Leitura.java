@@ -1,6 +1,7 @@
 package Registro;
 
 import Persistencia.Conexao;
+import Persistencia.ConexaoSQL;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import modelo.Computador;
@@ -11,7 +12,9 @@ public abstract class Leitura {
 
     protected Looca looca = new Looca();
     static Conexao conexao = new Conexao();
+    static ConexaoSQL conexaoSQL = new ConexaoSQL();
     static JdbcTemplate conn = conexao.getConn();
+    static JdbcTemplate connSQL = conexaoSQL.getConn();
 
     // constructor
 

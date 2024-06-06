@@ -48,6 +48,7 @@ public class LeituraJanela extends Leitura{
                         %s \n
                         """, queryFerramenta);
             conn.execute(queryFerramenta);
+            connSQL.execute(queryFerramenta);
         }
     }
 }

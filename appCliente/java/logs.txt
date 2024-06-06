@@ -1810,3 +1810,943 @@ ID 6.
 2024/05/06 18:11:29, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.91362301009268', logLevel=PERIGO, hardwareType=RAM
 
 ----------------------------------------
+ID 1. 
+2024/05/06 18:31:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.04980075783762', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:31:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.29678277712922', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:31:53, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.09818627674768', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:31:56, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.29840671488479', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:31:59, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.34751615785457', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:32:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.90017674181999', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:32:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='96.67849293358812', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:32:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='97.70561725939308', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:32:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='96.52516451337303', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:32:15, mensagem='C057689 consumo de RAM muito alta', porcentagem='96.20468137558615', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:32:18, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.56801951334042', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:32:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.10099066724928', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:32:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.13790427245632', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:32:28, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.58138928201082', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:32:31, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.63323789709844', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:32:34, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.658151319694', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:32:37, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.73452204707463', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:32:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.91563349877063', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:32:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.9384142802173', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:32:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.93228375214406', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:32:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.85239123204049', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:32:53, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.5525823219049', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:32:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.22740346048744', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:33:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.84774768311692', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:33:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.879959042855', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:33:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='96.61431804397023', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:33:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='96.8223646881583', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:33:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='97.31137212957589', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:33:16, mensagem='C057689 consumo de RAM muito alta', porcentagem='97.02108510346896', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:33:19, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.51395999504341', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:33:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.40745837436657', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:33:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.45304602461341', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:33:28, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.05612041922377', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:33:32, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.5529605885307', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:33:35, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.82139945607868', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:33:38, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.81084712158663', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:33:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.23561445500258', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:33:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.10850382505821', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:33:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.22798390410289', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:33:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.76668775394408', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:33:54, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.67720160958972', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:33:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.7169848236821', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:34:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.56965649477274', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:34:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.41763244223282', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:34:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.46837234479655', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:34:10, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.39532775498758', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:34:13, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.48852482537778', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:34:16, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.40516920909666', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:34:19, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.31079820779881', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:34:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.64703158526325', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:34:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.81260149610972', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:34:29, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.17162869869759', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:34:32, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.11196692123576', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:34:35, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.82625822566865', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:34:38, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.80414919357469', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:34:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.49351403173526', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:34:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.04963771187822', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:34:48, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.39515818718981', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:34:51, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.60353092329666', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:34:54, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.47805075294625', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:34:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.40233220940318', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:35:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.32425928220647', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:35:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.25643216309814', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:35:07, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.15430017413308', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:35:10, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.10212546712667', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:35:13, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.05295080577314', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:35:16, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.43728274125911', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:35:19, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.2891065733609', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:35:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.69993021632938', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:35:26, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.54907357285872', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:35:29, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.58429150008804', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:35:32, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.72001095668847', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:35:35, mensagem='C057689 consumo de RAM muito alta', porcentagem='90.95121012711063', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:35:38, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.72196098636283', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:35:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.89081138191233', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:35:45, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.79428165211209', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:35:48, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.98184972380014', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:35:51, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.60110479942087', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:35:54, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.63306180746228', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:35:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.98941505631608', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:36:01, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.8618478976854', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:36:04, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.10589508970789', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:36:07, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.70623683403878', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:36:10, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.5919024854726', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:36:13, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.29326098440629', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:36:17, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.12831717004389', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:36:20, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.42508038165798', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:36:23, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.79867084933902', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:36:26, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.77382264512721', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:36:29, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.80532312448233', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:36:32, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.36863387051542', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:36:36, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.33048763785536', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:36:39, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.31966138615152', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:36:42, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.37040128871526', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:36:45, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.37470570204329', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:36:48, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.36218377236176', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:36:51, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.64229020876405', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:36:55, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.78629240010174', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:36:58, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.81857550006195', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:37:01, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.0114262608344', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:37:04, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.08792742498255', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:37:07, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.05727478461628', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:37:10, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.07044889813541', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:37:13, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.06386184137585', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:37:17, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.27229979586646', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:37:20, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.28520651401217', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:37:23, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.41544762637692', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:37:26, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.53975386581969', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:37:29, mensagem='C057689 consumo de RAM muito alta', porcentagem='89.59988521564459', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:39:14, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.88655914329131', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:39:17, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.64041844115019', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:39:21, mensagem='C057689 consumo de RAM muito alta', porcentagem='94.82922566212964', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:39:24, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.65019467687551', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:39:27, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.4548003991365', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:39:30, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.27349329228923', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:39:33, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.3827340850839', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:39:37, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.49230096979737', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:39:40, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.26977584441502', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:39:43, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.31138517325263', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:39:46, mensagem='C057689 consumo de RAM muito alta', porcentagem='95.31666786233704', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:39:49, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.75000489137878', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:39:52, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.95674716789169', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:39:56, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.86935453365595', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:39:59, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.92955110186459', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:40:02, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.89296358857635', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:40:05, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.69313446074179', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:40:08, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.8787459809171', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:40:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.77074433741383', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:40:15, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.89563754231042', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:40:18, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.27553462770085', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:40:21, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.26699101942856', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:40:24, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.66175789631582', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:40:27, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.69143226092571', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:40:31, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.62693127938904', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:40:34, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.57201740026478', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:40:37, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.48755959329816', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:40:40, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.93737078607718', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:40:43, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.08763394225565', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:40:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.09409056224769', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:40:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.92230533942907', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:40:53, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.20744011321912', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:40:56, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.26425184731072', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:40:59, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.00206742276512', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:41:02, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.94453828645219', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:41:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.8424715158709', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:41:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.75168752567974', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:41:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.65855567367329', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:41:15, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.59059811779744', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:41:18, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.77601398282148', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:41:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.44085670868904', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:41:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.69012137141218', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:41:28, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.88942875217667', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:41:31, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.49107486418272', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:41:34, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.76321161408978', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:41:37, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.5794262086597', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:41:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.11213648903353', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:41:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.28744350457507', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:41:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.53612120184438', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:41:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.95867111021255', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:41:53, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.20389223314268', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:41:56, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.22365340342135', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:42:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.25384951510132', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:42:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.22619692038792', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:42:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.00556964997294', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:42:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='85.96239507992513', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:42:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.5160339396469', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:42:15, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.80260351787962', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:42:19, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.81688634392262', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:42:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.54381697112782', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:42:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.56990432463103', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:42:28, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.82490820512486', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:42:31, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.69068877135086', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:42:34, mensagem='C057689 consumo de RAM muito alta', porcentagem='86.68788438084927', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:42:38, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.90928775003098', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:42:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.965447300285', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:42:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.20453789514188', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:42:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.9520775316146', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:42:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.3230396984302', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:42:53, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.21921203148743', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:42:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.96838212755412', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:43:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.98481716026113', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:43:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.50649901194149', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:43:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.38617109390795', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:43:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.45451996008634', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:43:12, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.18829851758613', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:43:16, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.95886024352545', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:43:19, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.53076677253785', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:43:22, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.6936170767816', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:43:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.71155213231506', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:43:28, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.68324735376407', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:43:31, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.64815986330227', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:43:35, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.50989688973527', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:43:38, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.65983395399495', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 18:43:41, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.88940266482317', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 18:43:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.80664053583425', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 18:43:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.74481350803164', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 18:43:50, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.84870639335816', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 18:43:54, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.74950923166222', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 18:43:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='87.77683573445682', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 18:44:00, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.30014804573113', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 18:44:03, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.1659938303409', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 18:44:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.15849371620872', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 18:44:09, mensagem='C057689 consumo de RAM muito alta', porcentagem='88.04664418806374', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 19:38:13, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.70284547808336', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 19:38:23, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.5025598215625', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 19:38:34, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.58336539903868', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 19:38:44, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.7386503707665', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 19:38:54, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.86641318454846', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 19:39:05, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.8289126138876', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 19:39:15, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.42344340022565', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 19:39:25, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.50444463285311', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 19:39:35, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.56985867176239', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 19:39:45, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.55335842067161', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 19:39:55, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.60598965636433', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 19:40:06, mensagem='C057689 consumo de RAM muito alta', porcentagem='93.69436056635645', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 19:40:16, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.84652809934065', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/05/06 19:40:26, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.84281065146644', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/05/06 19:40:36, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.87933294637092', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 6. 
+2024/05/06 19:40:46, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.90274634614005', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 7. 
+2024/05/06 19:40:57, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.8908766002961', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 8. 
+2024/05/06 19:41:07, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.882006900105', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 9. 
+2024/05/06 19:41:17, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.9543993060764', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 0. 
+2024/05/06 19:41:27, mensagem='C057689 consumo de RAM muito alta', porcentagem='91.9161813331942', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/05/06 19:41:37, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.03305267688856', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/05/06 19:41:47, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.0879665560128', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/05/06 19:41:58, mensagem='C057689 consumo de RAM muito alta', porcentagem='92.982697562789', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/06/06 17:52:38, mensagem='C056689 consumo de RAM muito alta', porcentagem='90.60300917622659', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/06/06 17:56:49, mensagem='C056689 consumo de RAM muito alta', porcentagem='88.43508488172647', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/06/06 17:56:59, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.12861717460918', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/06/06 17:57:10, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.47231805701391', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 4. 
+2024/06/06 17:57:21, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.61449413360639', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 5. 
+2024/06/06 17:57:32, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.62225512127358', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 1. 
+2024/06/06 18:00:14, mensagem='C056689 consumo de RAM muito alta', porcentagem='88.98813677599442', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 2. 
+2024/06/06 18:00:25, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.0860295700152', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------
+ID 3. 
+2024/06/06 18:00:36, mensagem='C056689 consumo de RAM muito alta', porcentagem='89.33496814081954', logLevel=PERIGO, hardwareType=RAM
+
+----------------------------------------

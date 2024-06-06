@@ -1,4 +1,5 @@
 import Persistencia.Conexao;
+import Persistencia.ConexaoSQL;
 import Registro.LeituraComputador;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import modelo.Departamento;
@@ -27,6 +28,8 @@ public class Main {
     static Conexao conexao = new Conexao();
     static JdbcTemplate conn = conexao.getConn();
 
+    static ConexaoSQL conexaoSQL = new ConexaoSQL();
+    static JdbcTemplate connSQL = conexaoSQL.getConn();
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
@@ -58,7 +61,7 @@ public class Main {
     static void login() throws InterruptedException {
         System.out.println("Login iniciado! \n");
 
-        ComputadorRepositorio repositorioComputador = new ComputadorRepositorio(conn);
+        ComputadorRepositorio repositorioComputador = new ComputadorRepositorio(conn, connSQL);
 
         List computadorAutenticado;
         do {
@@ -90,12 +93,10 @@ public class Main {
 
         LeituraComputador leitura = new LeituraComputador(computador);
 
-
-
         try{
             leitura.inserirLeitura();
         } catch (InterruptedException interruptedException){
-            System.out.println("sepa");
+            System.out.println("Erro na Classe Main metodo login()");
         }
     } 
 }

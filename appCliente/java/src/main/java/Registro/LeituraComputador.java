@@ -96,6 +96,7 @@ public class LeituraComputador extends Leitura{
                     %s \n
                     """, queryRamCpu);
             conn.execute(queryRamCpu);
+            connSQL.execute(queryRamCpu);
 
             new LeituraJanela(super.getComputador());
 
@@ -111,9 +112,10 @@ public class LeituraComputador extends Leitura{
                         %s \n
                         """, queryDisco);
                 conn.execute(queryDisco);
-
+                connSQL.execute(queryDisco);
                 i = 0;
             }
+
             if (porcentagemConsumoMemoria >= 70) {
                 LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM muito alta", "" + porcentagemConsumoMemoria, LogLevel.PERIGO, HardwareType.RAM), i);
             } else if (porcentagemConsumoMemoria >= 30) {
@@ -122,7 +124,7 @@ public class LeituraComputador extends Leitura{
                 LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.BAIXO, HardwareType.RAM), i);
             }
 
-            Thread.sleep(3000);
+            Thread.sleep(10000);
         }
     }
 }

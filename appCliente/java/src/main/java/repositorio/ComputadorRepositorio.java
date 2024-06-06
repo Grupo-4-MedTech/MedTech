@@ -8,15 +8,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class ComputadorRepositorio {
 
     final JdbcTemplate conn;
+    final JdbcTemplate connSQL;
 
-    public ComputadorRepositorio(JdbcTemplate conn)
+    public ComputadorRepositorio(JdbcTemplate conn, JdbcTemplate connSQL)
     {
         this.conn = conn;
+        this.connSQL = connSQL;
     }
 
     public List<Computador> autenticarComputador(String senha, String codPatrimonio){
         DepartamentoRepositorio departamentoRepositorio = new DepartamentoRepositorio(this.conn);
-        List<Computador> computadorEncontrado = conn.query("""
+
+        String querySelect = """
                 SELECT
                 c.idComputador,
                 c.nome,
@@ -29,10 +32,12 @@ public class ComputadorRepositorio {
                 FROM computador c
                 WHERE senha = ?
                 AND codPatrimonio = ?;
-                """, new BeanPropertyRowMapper<>(Computador.class), senha, codPatrimonio);
-        if(!computadorEncontrado.isEmpty()){
-        computadorEncontrado.get(0).setDepartamento(departamentoRepositorio.buscarDepartamentoPorId(computadorEncontrado.get(0).getFkDepartamento()));
-        }
-        return computadorEncontrado;
+                """;
+            List<Computador> computadorEncontrado = connSQL.query(querySelect, new BeanPropertyRowMapper<>(Computador.class), senha, codPatrimonio);
+            if(!computadorEncontrado.isEmpty()) {
+                computadorEncontrado.get(0).setDepartamento(departamentoRepositorio.buscarDepartamentoPorId(computadorEncontrado.get(0).getFkDepartamento()));
+            }
+            return computadorEncontrado;
+
     }
 }
