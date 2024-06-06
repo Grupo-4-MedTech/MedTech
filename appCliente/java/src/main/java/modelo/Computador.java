@@ -71,6 +71,7 @@ public class Computador {
         return this.maxDisco;
     }
 
+
     public Departamento getDepartamento(){
         return this.departamento;
     }
@@ -86,6 +87,7 @@ public class Computador {
     public int getFkDepartamento() {
         return fkDepartamento;
     }
+
 
     //SETTERS
 

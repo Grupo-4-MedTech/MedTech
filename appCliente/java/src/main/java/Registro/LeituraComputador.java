@@ -4,6 +4,10 @@ import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import com.github.britooo.looca.api.group.discos.Volume;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.util.Conversor;
+import log.HardwareType;
+import log.Log;
+import log.LogLevel;
+import log.LogManager;
 import modelo.Computador;
 
 import java.time.LocalDateTime;
@@ -22,6 +26,18 @@ public class LeituraComputador extends Leitura{
     private Double porcentagemConsumosCpus;
     private Double menorPorcentDisco;
 
+
+    public String getNomeProcessador() {
+        return nomeProcessador;
+    }
+
+    public Double getPorcentagemConsumosCpus() {
+        return porcentagemConsumosCpus;
+    }
+
+    public Double getPorcentagemConsumoMemoria() {
+        return porcentagemConsumoMemoria;
+    }
 
     private Memoria memoria = looca.getMemoria();
     private DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
@@ -98,6 +114,14 @@ public class LeituraComputador extends Leitura{
 
                 i = 0;
             }
+            if (porcentagemConsumoMemoria >= 70) {
+                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM muito alta", "" + porcentagemConsumoMemoria, LogLevel.PERIGO, HardwareType.RAM), i);
+            } else if (porcentagemConsumoMemoria >= 30) {
+                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.AVISO, HardwareType.RAM), i);
+            } else if (porcentagemConsumoMemoria < 30) {
+                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.BAIXO, HardwareType.RAM), i);
+            }
+
             Thread.sleep(3000);
         }
     }

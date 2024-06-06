@@ -43,3 +43,5 @@ build/
 /mvnw.cmd
 /.mvn/
 *.jar
+
+logs.txt

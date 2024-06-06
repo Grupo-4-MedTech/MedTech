@@ -11,8 +11,8 @@ public class Conexao {
 
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         ds.setUrl("jdbc:mysql://localhost:3306/medtech");
-        ds.setUsername("usuario");
-        ds.setPassword("usuario");
+        ds.setUsername("root");
+        ds.setPassword("medtech123");
 
         this.conn = new JdbcTemplate(ds);
     }

@@ -2,6 +2,16 @@ version: '3.8'
 
 services:
   appWeb:
-    image: caiqueluci0/appweb
+    image: caiqueluci0/appweb:2.0
     ports:
       - "80:80"
+
+  mysql:
+    build: .
+    container_name: mysql
+    image: caiqueluci0/mysql:1.0
+    restart: always
+    ports: 
+      - "3306:3306"
+volumes: 
+  mysql_data:

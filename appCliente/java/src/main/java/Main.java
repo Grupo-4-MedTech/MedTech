@@ -1,6 +1,8 @@
 import Persistencia.Conexao;
 import Registro.LeituraComputador;
 import com.github.britooo.looca.api.group.janelas.Janela;
+import modelo.Departamento;
+import modelo.Hospital;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
 
@@ -9,14 +11,27 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import modelo.Computador;
+import log.HardwareType;
+import log.Log;
+import log.LogLevel;
+import log.LogManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Main {
+
+
     static Scanner leitorStr = new Scanner(System.in);
     static Conexao conexao = new Conexao();
     static JdbcTemplate conn = conexao.getConn();
 
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
+        // Tarefa a ser executada repetidamente
+
 
         telaInicial();
     }
@@ -74,10 +89,13 @@ public class Main {
         System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
 
         LeituraComputador leitura = new LeituraComputador(computador);
+
+
+
         try{
             leitura.inserirLeitura();
         } catch (InterruptedException interruptedException){
             System.out.println("sepa");
         }
-    }
+    } 
 }
