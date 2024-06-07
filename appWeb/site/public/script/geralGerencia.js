@@ -300,7 +300,7 @@ function loadDepScreen(json, nome){
         <span>
             Código: ${row.codPatrimonio}
             <br>
-            Status: ${row.atividade === 0 ? 'Offline' : 'Online'}
+            Status: ${!row.atividade ? 'Offline' : 'Online'}
             <br>
         </span>
         <canvas id="canva_${row.idComputador}" class="charts"></canvas>

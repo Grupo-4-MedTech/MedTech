@@ -39,9 +39,9 @@ function searchChartData(data = select.value) {
         const day = Number(date.toISOString().slice(8, 10));
         data = `DATEPART(DAY, dtOcorrencia) IN (${day}, ${day - 1}, ${day - 2}, ${day - 3}, ${day - 4}, ${day - 5}, ${day - 6}) AND DATEPART(MONTH, dtOcorrencia) = ${date.getMonth() + 1} AND DATEPART(YEAR, dtOcorrencia) = ${date.toISOString().slice(0, 4)}`
     } else if (data == 2) {
-        data = `DATEPART(MONTH, dtOcorrencia) = ${date.getMonth() + 1} AND DATEPART(MONTH, dtOcorrencia) = ${date.toISOString().slice(0, 4)}`;
+        data = `DATEPART(MONTH, dtOcorrencia) = ${date.getMonth() + 1} AND DATEPART(YEAR, dtOcorrencia) = ${date.toISOString().slice(0, 4)}`;
     } else if (data == 3) {
-        data = `DATEPART(MONTH, dtOcorrencia IN(${date.getMonth() + 1}, ${date.getMonth()}, ${date.getMonth() - 1}) AND DATEPART(MONTH, dtOcorrencia) = ${date.toISOString().slice(0, 4)}`
+        data = `DATEPART(MONTH, dtOcorrencia) IN(${date.getMonth() + 1}, ${date.getMonth()}, ${date.getMonth() - 1}) AND DATEPART(MONTH, dtOcorrencia) = ${date.toISOString().slice(0, 4)}`
     } else {
         data = null;
     }
