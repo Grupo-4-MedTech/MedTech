@@ -212,7 +212,7 @@ function deletar(idComputador){
     return database.executar(query);
 }
 
-function editarPCs(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
+function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
     var instrucaoSql = `
         UPDATE computador SET
         nome = '${updateNome}',
@@ -293,5 +293,5 @@ module.exports = {
     historicAtividade,
     findComputerByDeps,
     lastFourFerramentas,
-    editarPCs
+    editarPC
 }

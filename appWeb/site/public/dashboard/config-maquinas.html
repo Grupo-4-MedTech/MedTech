@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../script/dashboard.js"></script>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -23,82 +23,82 @@
 
 <body onload="loadUser()">
 
-  <header>
-    <div>
+<header>
+  <div>
+  </div>
+
+  <a href="./geralTI.html">
+    <div class="headerLogo">
+      <img src="../assets/img/medtech-logo2.png">
     </div>
+  </a>
 
-    <a href="./geralTI.html">
-      <div class="headerLogo">
-        <img src="../assets/img/medtech-logo2.png">
-      </div>
-    </a>
-
-    <div class="profileHeader" onclick="toggleOptions()">
-      <div class="profileFrame">
-        <img src="../assets/img/user-avatar.png">
-        <div id="profile_content">
-          <!-- <div class="arrowTop"></div> -->
-          <div class="opContent">
-            <ul>
-              <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
-              </li>
-              <!-- <div id="protectedOptions"> -->
-              <li onclick="openUserManagement()">
-                <img src="../assets/img/config-usuario.png" alt="">
-                Usuários
-              </li>
-              <li onclick="openComputerRegistration()">
-                <img src="../assets/img/config-computador.png" alt="">
-                Máquinas
-              </li>
-              <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
-            </ul>
-          </div>
+  <div class="profileHeader" onclick="toggleOptions()">
+    <div class="profileFrame">
+      <img src="../assets/img/user-avatar.png">
+      <div id="profile_content">
+        <!-- <div class="arrowTop"></div> -->
+        <div class="opContent">
+          <ul>
+            <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
+            </li>
+            <!-- <div id="protectedOptions"> -->
+            <li onclick="openUserManagement()">
+              <img src="../assets/img/config-usuario.png" alt="">
+              Usuários
+            </li>
+            <li onclick="openComputerRegistration()">
+              <img src="../assets/img/config-computador.png" alt="">
+              Máquinas
+            </li>
+            <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
+          </ul>
         </div>
       </div>
-      <div class="profileName" id="profile_name_header">
+    </div>
+    <div class="profileName" id="profile_name_header">
         <span id="profileUserName">
 
         </span>
-        <i class="fa fa-angle-down"></i>
-      </div>
+      <i class="fa fa-angle-down"></i>
     </div>
-  </header>
+  </div>
+</header>
 
-  <div class="fundo-popup" id="popup" style="display: none;">
-    <div class="fundo-tabela">
-      <div class="topo">
-        Editar
-      </div>
+<div class="fundo-popup" id="popup" style="display: none;">
+  <div class="fundo-tabela">
+    <div class="topo">
+      Editar
+    </div>
 
-      <div class="conteudo">
-        <label for="nome"> Nome:</label>
-        <input type="text" id="update_input_nome" name="nome">
+    <div class="conteudo">
+      <label for="nome"> Nome:</label>
+      <input type="text" id="update_input_nome" name="nome">
 
-        <label for="codPatrimonio">Código de patrimônio:</label>
-        <input type="text" id="update_input_codPatrimonio" name="codPatrimonio">
+      <label for="codPatrimonio">Código de patrimônio:</label>
+      <input type="text" id="update_input_codPatrimonio" name="codPatrimonio">
 
-        <label for="senha">Senha:</label>
-        <input type="text" id="update_input_senha" name="senha">
+      <label for="senha">Senha:</label>
+      <input type="text" id="update_input_senha" name="senha">
 
-        <label for="departamento">Departamento:</label>
-        <select id="update_listaDepartamentos" name="departamento">
-          <option selected value="selected">Selecione um departamento</option>
-        </select>
+      <label for="departamento">Departamento:</label>
+      <select id="update_listaDepartamentos" name="departamento">
+        <option selected value="selected">Selecione um departamento</option>
+      </select>
 
-        <div class="buttonsEdit" >
-          <button id="buttonSalvar" onclick="editarPC()">Salvar</button>
-          <button onclick="
+      <div class="buttonsEdit" >
+        <button id="buttonSalvar">Salvar</button>
+        <button onclick="
           popup.style.display = 'none';
           fundotabela.style.display = 'flex';
         ">
-            Cancelar
-          </button>
-        </div>
-
+          Cancelar
+        </button>
       </div>
+
     </div>
   </div>
+</div>
 
   <div class="fundo-tabela" id="fundotabela">
     <div class="row">
@@ -108,77 +108,76 @@
         <button id="add-user" onclick="btnNovoComputador()">Adicionar nova máquina</button>
         <div class="table_scroll">
 
-          <table id="test-table">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Código de patrimônio</th>
-                <th>Departamento</th>
-                <th>Senha</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="table-body-maquina">
+        <table id="test-table">
+          <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Código de patrimônio</th>
+            <th>Departamento</th>
+            <th>Senha</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody id="table-body-maquina">
 
-              <tr>
-          
-
-              </tr>
+          <tr>
 
 
-            </tbody>
-          </table>
-        </div>
+          </tr>
 
 
-        <!-- <button class="tiny button right">Add Vehicle</button> -->
+          </tbody>
+        </table>
       </div>
 
+
+      <!-- <button class="tiny button right">Add Vehicle</button> -->
     </div>
-    <div class="escurecerFundo" id="popupDelecao"></div>
+
   </div>
+  <div class="escurecerFundo" id="popupDelecao"></div>
+</div>
 
-  <div class="PCfundo-popup" id="PCpopup" style="display: none;">
-    <div class="fundo-tabela">
-      <h4 class="topo">
-        Nova máquina
-      </h4>
+<div class="PCfundo-popup" id="PCpopup" style="display: none;">
+  <div class="fundo-tabela">
+    <h4 class="topo">
+      Nova máquina
+    </h4>
 
-      <div class="conteudo">
-        <label for="nome">Nome:</label>
-        <input type="text" id="input_nome" name="nome">
+    <div class="conteudo">
+      <label for="nome">Nome:</label>
+      <input type="text" id="input_nome" name="nome">
 
-        <label for="codigo">Código de patrimônio:</label>
-        <input type="text" id="input_codPatrimonio" maxlength="7" name="codigo">
+      <label for="codigo">Código de patrimônio:</label>
+      <input type="text" id="input_codPatrimonio" maxlength="7" name="codigo">
 
-        <label for="departamento">Departamento:</label>
-        <select id="listaDepartamentos" name="departamento">
-          <option value="">Selecione um departamento</option>
-        </select>
+      <label for="departamento">Departamento:</label>
+      <select id="listaDepartamentos" name="departamento">
+        <option value="">Selecione um departamento</option>
+      </select>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="input_senha" name="senha">
+      <label for="senha">Senha:</label>
+      <input type="password" id="input_senha" name="senha">
 
 
-        <button id="btn-add-pc" onclick="novoComputador()">Adicionar</button>
-        <div id="resposta"></div>
-      </div>
+      <button id="btn-add-pc" onclick="novoComputador()">Adicionar</button>
+      <div id="resposta"></div>
     </div>
   </div>
+</div>
 
-  <button id="btn-voltar" onclick="voltar()">Voltar</button>
+<button id="btn-voltar" onclick="voltar()">Voltar</button>
 </body>
 
 </html>
 <script src="../script/utils.js"></script>
 <script src="../script/config-maquinas.js">
 </script>
-<script>
-  //
-  //chkLoginDash();
-  //if (sessionStorage.CARGO != 'GESTOR_TI') {
-    //sessionStorage.clear();
-    //window.location.href = "../index.html";
-  //}
-</script>
+<!-- <script>
+  chkLoginDash();
+  if (sessionStorage.CARGO != 'GESTOR_TI') {
+    sessionStorage.clear();
+    window.location.href = "../index.html";
+  }
+</script> -->
