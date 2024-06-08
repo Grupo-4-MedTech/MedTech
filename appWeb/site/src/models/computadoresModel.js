@@ -207,7 +207,7 @@ function historicFerramentas(data) {
 }
 
 function deletar(idComputador){
-    const query = `DELETE FROM computador WHERE idComputador = ${idComputador}`
+    const query = `EXEC delete_computador ${idComputador};`
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }

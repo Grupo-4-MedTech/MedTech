@@ -4,7 +4,7 @@ var sql = require('mssql');
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
     user: 'sa',         // Usuário do SQL Server
-    password: '#Gf24030085830',       // Senha do SQL Server
+    password: 'medtech123',       // Senha do SQL Server
     server: 'localhost',      // Endereço do servidor SQL
     database: 'medtech', // Nome do banco de dados
     options: {
