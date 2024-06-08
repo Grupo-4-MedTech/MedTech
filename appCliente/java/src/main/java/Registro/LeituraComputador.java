@@ -43,7 +43,7 @@ public class LeituraComputador extends Leitura{
     }
 
     private Memoria memoria = looca.getMemoria();
-    private int maxDisco;
+    private Double maxDisco = 0.0;
     private DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
     private List<Volume> volumes = grupoDeDiscos.getVolumes();
     private List<Long> porcentagemVolumes;
@@ -123,15 +123,6 @@ public class LeituraComputador extends Leitura{
 
                 i = 0;
             }
-
-//            if (porcentagemConsumoMemoria >= 70) {
-//                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM muito alta", "" + porcentagemConsumoMemoria, LogLevel.WARNING, HardwareType.RAM), i);
-//            } else if (porcentagemConsumoMemoria >= 30) {
-//                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.AVISO, HardwareType.RAM), i);
-//            } else if (porcentagemConsumoMemoria < 30) {
-//                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.BAIXO, HardwareType.RAM), i);
-//            }
-
             Thread.sleep(10000);
         }
     }
@@ -140,7 +131,7 @@ public class LeituraComputador extends Leitura{
         Computador comput = super.getComputador();
         comput.setModeloProcessador(this.nomeProcessador);
         comput.setMaxDisco(this.maxDisco);
-        comput.setMaxRam(Integer.parseInt(""+memoria.getTotal()));
+        comput.setMaxRam(Double.parseDouble(""+memoria.getTotal()));
         System.out.println(comput); // DEBUGANDO AINDA :)
     }
 }

@@ -1,9 +1,11 @@
 package repositorio;
 
+import com.github.britooo.looca.api.group.discos.Volume;
 import modelo.Computador;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import modelo.Departamento;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -47,9 +49,28 @@ public class ComputadorRepositorio {
         }
 
         if (!computadorEncontrado.isEmpty()) {
+            if(!Objects.equals(computadorEncontrado.get(0).getModeloProcessador(), computadorEncontrado.get(0).getProcessador().getNome())
+               ||computadorEncontrado.get(0).getMaxRam() != (computadorEncontrado.get(0).getMemoria().getTotal() / 1000000000.0)
+               || !Objects.equals(computadorEncontrado.get(0).getMaxDisco(), capturarTotalDisco(computadorEncontrado.get(0)))
+            ){
+                connExec.update(
+                        "update computador set modeloProcessador = '" + computadorEncontrado.get(0).getProcessador().getNome() + "', gbRam = "+ computadorEncontrado.get(0).getMemoria().getTotal() / 1000000000.0 +", gbDisco = "+ capturarTotalDisco(computadorEncontrado.get(0)) + " where idComputador = "+ computadorEncontrado.get(0).getIdComputador() +";");
+                computadorEncontrado = connExec.query(querySelect, new BeanPropertyRowMapper<>(Computador.class), senha, codPatrimonio);
+            }
             computadorEncontrado.get(0).setDepartamento(departamentoRepositorio.buscarDepartamentoPorId(computadorEncontrado.get(0).getFkDepartamento(), connExec));
         }
         return computadorEncontrado;
 
+    }
+    public Double capturarTotalDisco(Computador computadorDiscos){
+        Integer porcentagemMenorDiscoDisponivel = 0;
+        Volume menorVolume = computadorDiscos.getVolumes().get(0);
+        for (Volume volume : computadorDiscos.getVolumes()) {
+            if(porcentagemMenorDiscoDisponivel < (int)(((volume.getTotal() - volume.getDisponivel()) * 100 / volume.getTotal())) ){
+                porcentagemMenorDiscoDisponivel = (int) (((volume.getTotal() - volume.getDisponivel()) * 100 / volume.getTotal()));
+                menorVolume = volume;
+            }
+        }
+        return (menorVolume.getTotal() / 1000000000.0);
     }
 }

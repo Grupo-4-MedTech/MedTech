@@ -41,20 +41,6 @@ public abstract class Leitura {
             LogManager.salvarLog(new Log(clazz, "Erro inesperado ao executar query: " + e.getMessage(), LogLevel.ERROR));
         }
     }
-
-    public void executarQuery(JdbcTemplate jdbcTemplate, String query, Class<?> clazz){
-        try {
-            jdbcTemplate.execute(query);
-        } catch (CannotGetJdbcConnectionException e) {
-            System.err.println("Erro de conexão com o banco de dados ao executar query: " + e.getMessage());
-            LogManager.salvarLog(new Log(clazz, "ERRO DE CONEXÃO: " + e.getMessage(), LogLevel.INFO));
-        } catch (DataAccessException e) {
-            LogManager.salvarLog(new Log(clazz, "Erro ao executar query: " + e.getMessage(), LogLevel.WARNING));
-        } catch (Exception e) {
-            LogManager.salvarLog(new Log(clazz, "Erro inesperado ao executar query: " + e.getMessage(), LogLevel.ERROR));
-        }
-    }
-
     public abstract void inserirLeitura() throws InterruptedException, IOException;
     public abstract  void realizarLeitura() throws IOException, InterruptedException;
 

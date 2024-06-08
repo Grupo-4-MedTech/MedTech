@@ -27,7 +27,6 @@ import java.util.TimerTask;
 public class Main {
 
 
-    static Scanner leitorStr = new Scanner(System.in);
     static Conexao conexao = new Conexao();
     static JdbcTemplate conn = conexao.getConn();
 
@@ -35,12 +34,7 @@ public class Main {
     static JdbcTemplate connSQL = conexaoSQL.getConn();
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
-        // Tarefa a ser executada repetidamente
-
-        Computador computador = new Computador();
-        LeituraJanela leituraJanela = new LeituraJanela(computador);
-//        telaInicial();
+        telaInicial();
     }
 
     static void telaInicial() throws InterruptedException {
@@ -70,9 +64,9 @@ public class Main {
         List computadorAutenticado;
         do {
             System.out.println("Código do patrimônio:");
-            String codPatrimonio = leitorStr.next();
+            String codPatrimonio = System.getenv("CODIGO_PATRIMONIO");
             System.out.println("Senha:");
-            String senhaH = leitorStr.next();
+            String senhaH = System.getenv("SENHA_PC");
 
 
             computadorAutenticado = repositorioComputador.autenticarComputador(senhaH, codPatrimonio);
