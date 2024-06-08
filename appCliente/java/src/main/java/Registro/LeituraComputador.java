@@ -10,6 +10,7 @@ import log.LogLevel;
 import log.LogManager;
 import modelo.Computador;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -79,7 +80,7 @@ public class LeituraComputador extends Leitura{
     }
 
     @Override
-    public void inserirLeitura() throws InterruptedException{
+    public void inserirLeitura() throws InterruptedException, IOException {
         for (int i = 1; true; i++) {
 
             this.realizarLeitura();

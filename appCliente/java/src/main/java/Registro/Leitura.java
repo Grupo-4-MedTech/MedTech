@@ -7,6 +7,8 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import modelo.Computador;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.io.IOException;
+
 public abstract class Leitura {
     private Computador computador;
 
@@ -24,8 +26,8 @@ public abstract class Leitura {
 
     // outros métodos
 
-    public abstract void inserirLeitura() throws InterruptedException;
-    public abstract  void realizarLeitura();
+    public abstract void inserirLeitura() throws InterruptedException, IOException;
+    public abstract  void realizarLeitura() throws IOException, InterruptedException;
 
     // getter
 
