@@ -3,8 +3,10 @@ package Registro;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import com.github.britooo.looca.api.group.janelas.JanelaGrupo;
 import modelo.Computador;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
-import java.time.LocalDateTime;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +49,8 @@ public class LeituraJanela extends Leitura{
                         COMANDO DE INSERÇÃO DE LEITURAS DE FERRAMENTAS EM USO: \n
                         %s \n
                         """, queryFerramenta);
-            conn.execute(queryFerramenta);
-            connSQL.execute(queryFerramenta);
+            executarQuery(conn, queryFerramenta, LeituraJanela.class);
+            executarQuery(connSQL, queryFerramenta, LeituraJanela.class);
         }
     }
 }
