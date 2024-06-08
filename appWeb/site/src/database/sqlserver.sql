@@ -174,6 +174,9 @@ CREATE PROCEDURE delete_hospital
 @id INT
 AS
 BEGIN
+    DELETE FROM metrica WHERE fkHospital = @id;
+    DELETE FROM logComputador WHERE fkHospital = @id;
+    DELETE FROM logAtividade WHERE fkHospital = @id;
     DELETE FROM leituraDisco WHERE fkHospital = @id;
     DELETE FROM leituraRamCpu WHERE fkHospital = @id;
     DELETE FROM leituraFerramenta WHERE fkHospital = @id;
@@ -182,6 +185,50 @@ BEGIN
     DELETE FROM funcionario WHERE fkHospital = @id;
     DELETE FROM departamento WHERE fkHospital = @id;
     DELETE FROM hospital WHERE idHospital = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_computador
+@id INT
+AS
+BEGIN
+    DELETE FROM metrica WHERE fkComputador = @id;
+    DELETE FROM logComputador WHERE fkComputador = @id;
+    DELETE FROM logAtividade WHERE fkComputador = @id;
+    DELETE FROM leituraDisco WHERE fkComputador = @id;
+    DELETE FROM leituraRamCpu WHERE fkComputador = @id;
+    DELETE FROM leituraFerramenta WHERE fkComputador = @id;
+    DELETE FROM computador WHERE idComputador = @id;
+END;
+GO
+
+CREATE PROCEDURE InserirHospital
+    @cep VARCHAR(8),
+    @rua VARCHAR(100),
+    @numero INT,
+    @complemento VARCHAR(100),
+    @uf CHAR(2),
+    @razaoSocial VARCHAR(100),
+    @nomeFantasia VARCHAR(100),
+    @cnpj VARCHAR(14),
+    @email VARCHAR(100),
+    @senha VARCHAR(100)
+AS
+BEGIN
+    DECLARE @idEndereco INT
+    DECLARE @idHospital INT
+
+    INSERT INTO endereco (cep, rua, numero, complemento, uf)
+    VALUES (@cep, @rua, @numero, @complemento, @uf);
+
+    SET @idEndereco = SCOPE_IDENTITY();
+
+    INSERT INTO hospital (razaoSocial, nomeFantasia, cnpj, email, senha, fkEndereco, verificado)
+    VALUES (@razaoSocial, @nomeFantasia, @cnpj, @email, @senha, @idEndereco, 0);
+
+    SET @idHospital = SCOPE_IDENTITY();
+
+    SELECT * FROM hospitalWithEndereco WHERE idHospital = @idHospital;
 END;
 GO
 

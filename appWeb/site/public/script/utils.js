@@ -43,7 +43,11 @@ function chkLoginDash() {
             if (res.status != 200) {
                 logout();
             } else {
-                profileOptions();
+                try{
+                    profileOptions();
+                } catch(e) {
+                    return
+                } 
             }
         }).catch(() => {
             logout();

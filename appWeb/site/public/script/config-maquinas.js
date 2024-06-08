@@ -65,22 +65,18 @@ function editar(computador) {
 
     console.log(listaDeDepartamentos)
 
-
-    // for (let i = 0; listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento; i++) {
-
-    //     update_listaDepartamentos.innerHTML = `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
-    // }
     update_listaDepartamentos.innerHTML = ""
     for (let i = 0; i < listaDeDepartamentos.length; i++) {
         if(listaDeDepartamentos[i].idDepartamento == computador.fkDepartamento){
             update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}" selected>${listaDeDepartamentos[i].nome}</option> `;
         }else{
-           update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> ` 
+           update_listaDepartamentos.innerHTML += `<option value="${listaDeDepartamentos[i].idDepartamento}">${listaDeDepartamentos[i].nome}</option> `
         }
-        
-    }
 
-    // editarPC()
+    }
+    buttonSalvar.onclick = function(){
+        editarPC(computador.idComputador)
+    }
 }
 
 function btnNovoComputador() {
@@ -173,7 +169,7 @@ function deletarPC(idComputador) {
 
 function editarPC(idComputador) {
 
-    fetch(`/computador/editarPCs/${idComputador}`, {
+    fetch(`/computador/editarPC/${idComputador}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -181,7 +177,7 @@ function editarPC(idComputador) {
         body: JSON.stringify({
             updateNome: update_input_nome.value,
             updateCodPatrimonio: update_input_codPatrimonio.value,
-            updateDepartamento: listaDepartamentos.value,
+            updateDepartamento: update_listaDepartamentos.value,
             updateSenha: update_input_senha.value
         })
 
@@ -201,7 +197,7 @@ function editarPC(idComputador) {
 
 
 
-function abrirPopup(idComputador) {
+function abrirPopup(idComputador){
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'flex';
     popup.innerHTML = `<div class="popupDelecao">
@@ -214,11 +210,10 @@ function abrirPopup(idComputador) {
     </div>
   </div>`
 }
-function fecharPopup() {
+function fecharPopup(){
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'none';
 }
-
 
 buscarComputadores()
 listar()

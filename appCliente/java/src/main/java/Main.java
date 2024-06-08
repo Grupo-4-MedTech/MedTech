@@ -1,5 +1,6 @@
 import Persistencia.Conexao;
 import Persistencia.ConexaoSQL;
+import Registro.Leitura;
 import Registro.LeituraComputador;
 import Registro.LeituraJanela;
 import com.github.britooo.looca.api.group.janelas.Janela;
@@ -91,6 +92,9 @@ public class Main {
 
         Computador computador = (Computador) computadorAutenticado.get(0);
         System.out.println(computador);
+
+        Computador computadorLocal = new Computador();
+        Leitura leituraLocal = new LeituraComputador(computadorLocal);
 
         System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
 
