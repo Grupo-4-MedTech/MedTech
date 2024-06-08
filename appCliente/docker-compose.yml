@@ -9,6 +9,7 @@ services:
       - "3306:3306"
 
   appcliente:  
+    container_name: jar_medtech
     image: davifeitosa0/jar_medtech
     environment:
       -  CODIGO_PATRIMONIO=C057689
