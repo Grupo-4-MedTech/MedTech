@@ -8,6 +8,7 @@ public class Log {
     private static SimpleDateFormat formato = new SimpleDateFormat("yyyy/dd/MM HH:mm:ss");
 
     private String mensagem;
+    private Class classe;
     private String porcentagem;
     private LogLevel logLevel;
     private HardwareType hardwareType;
@@ -19,6 +20,19 @@ public class Log {
         this.hardwareType = hardwareType;
     }
 
+    public Log (Class classe, String mensagem, LogLevel logLevel){
+        this.classe = classe;
+        this.mensagem = mensagem;
+        this.logLevel = logLevel;
+    }
+
+    public String gerarTextoLog(){
+    return formato.format(new Date()) + "\n"+
+            logLevel +
+            " Classe:"
+            + classe +
+            "\nMensagem: "+ mensagem;
+    }
     public LogLevel getLogLevel() {
         return logLevel;
     }
