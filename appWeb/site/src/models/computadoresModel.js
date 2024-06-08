@@ -207,12 +207,12 @@ function historicFerramentas(data) {
 }
 
 function deletar(idComputador){
-    const query = `DELETE FROM computador WHERE idComputador = ${idComputador}`
+    const query = `EXEC delete_computador ${idComputador};`
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
 
-function editarPCs(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
+function editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento,  idComputador) {
     var instrucaoSql = `
         UPDATE computador SET
         nome = '${updateNome}',
@@ -234,29 +234,30 @@ function findComputerByDeps(fkDepartamento){
 }
 
 function historicAtividade(fkComputador) {
-    const query = `WITH ParesDeEventos AS (
+    const query = `
+    WITH ParesDeEventos AS (
         SELECT
             l.fkComputador,
-            DATE(l.dtOcorrencia) AS dia,
+            CAST(l.dtOcorrencia AS DATE) AS dia,
             l.dtOcorrencia AS inicio,
             MIN(ld.dtOcorrencia) AS fim
         FROM logAtividade l
-        JOIN logAtividade ld 
-            ON l.fkComputador = ld.fkComputador 
-            AND l.atividade = 1 
-            AND ld.atividade = 0 
-            AND ld.dtOcorrencia > l.dtOcorrencia
-        WHERE l.dtOcorrencia >= DATE_SUB(NOW(), INTERVAL 8 DAY)
+                JOIN logAtividade ld
+                ON l.fkComputador = ld.fkComputador
+                AND l.atividade = 1
+                AND ld.atividade = 0
+                AND ld.dtOcorrencia > l.dtOcorrencia
+        WHERE l.dtOcorrencia >= DATEADD(DAY, -8, GETDATE())
         GROUP BY l.fkComputador, l.dtOcorrencia
     )
-    SELECT
-        dia,
-        fkComputador,
-        (SUM(TIMESTAMPDIFF(SECOND, inicio, fim)) / 3600) AS tempo_ligado
-    FROM ParesDeEventos
-    WHERE fkComputador = ${fkComputador}
-    GROUP BY dia, fkComputador
-    ORDER BY dia, fkComputador;
+     SELECT
+         dia,
+         fkComputador,
+         (SUM(DATEDIFF(SECOND, inicio, fim)) / 3600.0) AS tempo_ligado
+     FROM ParesDeEventos
+     WHERE fkComputador = ${fkComputador}
+     GROUP BY dia, fkComputador
+     ORDER BY dia, fkComputador;
     `;
 
     console.log("Executando a instrução SQL: \n" + query);
@@ -264,16 +265,18 @@ function historicAtividade(fkComputador) {
 }
 
 function lastFourFerramentas (idComputador){
-    const query = `SELECT *
-    FROM leituraFerramenta
-    WHERE (fkComputador, nomeApp, dtLeitura) IN (
-        SELECT fkComputador, nomeApp, MAX(dtLeitura)
-        FROM leituraFerramenta
-        WHERE fkComputador = ${idComputador}
-        GROUP BY fkComputador, nomeApp
+    const query = `SELECT TOP 4 *
+    FROM leituraFerramenta AS lf1
+    WHERE EXISTS (
+        SELECT 1
+        FROM leituraFerramenta AS lf2
+        WHERE lf1.fkComputador = lf2.fkComputador
+        AND lf1.nomeApp = lf2.nomeApp
+        GROUP BY lf2.fkComputador, lf2.nomeApp
+        HAVING MAX(lf2.dtLeitura) = lf1.dtLeitura
     )
-    ORDER BY dtLeitura
-    LIMIT 4;`;
+    AND lf1.fkComputador = ${idComputador}
+    ORDER BY lf1.dtLeitura;`;
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
@@ -290,5 +293,5 @@ module.exports = {
     historicAtividade,
     findComputerByDeps,
     lastFourFerramentas,
-    editarPCs
+    editarPC
 }

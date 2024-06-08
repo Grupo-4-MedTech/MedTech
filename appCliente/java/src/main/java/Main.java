@@ -1,12 +1,15 @@
 import Persistencia.Conexao;
 import Persistencia.ConexaoSQL;
+import Registro.Leitura;
 import Registro.LeituraComputador;
+import Registro.LeituraJanela;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import modelo.Departamento;
 import modelo.Hospital;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -31,12 +34,13 @@ public class Main {
     static ConexaoSQL conexaoSQL = new ConexaoSQL();
     static JdbcTemplate connSQL = conexaoSQL.getConn();
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
         // Tarefa a ser executada repetidamente
 
-
-        telaInicial();
+        Computador computador = new Computador();
+        LeituraJanela leituraJanela = new LeituraJanela(computador);
+//        telaInicial();
     }
 
     static void telaInicial() throws InterruptedException {
@@ -89,6 +93,9 @@ public class Main {
         Computador computador = (Computador) computadorAutenticado.get(0);
         System.out.println(computador);
 
+        Computador computadorLocal = new Computador();
+        Leitura leituraLocal = new LeituraComputador(computadorLocal);
+
         System.out.println("\nAGORA ESTE COMPUTADOR ESTÁ SENDO MONITORADO EM TEMPO REAL.");
 
         LeituraComputador leitura = new LeituraComputador(computador);
@@ -97,6 +104,8 @@ public class Main {
             leitura.inserirLeitura();
         } catch (InterruptedException interruptedException){
             System.out.println("Erro na Classe Main metodo login()");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     } 
 }

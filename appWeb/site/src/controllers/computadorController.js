@@ -130,14 +130,14 @@ function historicFerramentas(req, res) {
         })
 }
 
-function editarPCs(req, res) {
+function editarPC(req, res) {
     const idComputador = req.params.idComputador;
     const updateNome = req.body.updateNome;
     const updateCodPatrimonio = req.body.updateCodPatrimonio;
     const updateDepartamento = req.body.updateDepartamento;
     const updateSenha = req.body.updateSenha;
 
-    computadoresModel.editarPCs(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
+    computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -206,5 +206,5 @@ module.exports = {
     historicFerramentas,
     historicLeituras,
     historicAtividade,
-    editarPCs
+    editarPC
 }

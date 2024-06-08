@@ -1,4 +1,4 @@
-import netscape.javascript.JSObject;
+import Comunicacao.Slack;
 import org.json.JSONObject;
 
 import java.io.IOException;

@@ -11,6 +11,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.io.IOException;
+
 public abstract class Leitura {
     private Computador computador;
 
@@ -40,8 +42,21 @@ public abstract class Leitura {
         }
     }
 
-    public abstract void inserirLeitura() throws InterruptedException;
-    public abstract  void realizarLeitura();
+    public void executarQuery(JdbcTemplate jdbcTemplate, String query, Class<?> clazz){
+        try {
+            jdbcTemplate.execute(query);
+        } catch (CannotGetJdbcConnectionException e) {
+            System.err.println("Erro de conexão com o banco de dados ao executar query: " + e.getMessage());
+            LogManager.salvarLog(new Log(clazz, "ERRO DE CONEXÃO: " + e.getMessage(), LogLevel.INFO));
+        } catch (DataAccessException e) {
+            LogManager.salvarLog(new Log(clazz, "Erro ao executar query: " + e.getMessage(), LogLevel.WARNING));
+        } catch (Exception e) {
+            LogManager.salvarLog(new Log(clazz, "Erro inesperado ao executar query: " + e.getMessage(), LogLevel.ERROR));
+        }
+    }
+
+    public abstract void inserirLeitura() throws InterruptedException, IOException;
+    public abstract  void realizarLeitura() throws IOException, InterruptedException;
 
     // getter
 

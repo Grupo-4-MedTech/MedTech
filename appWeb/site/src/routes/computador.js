@@ -30,8 +30,8 @@ router.get('/historico-ferramentas/:fkHospital/:dtLeitura', function(req, res) {
     computadorController.historicFerramentas(req, res);
 });
 
-router.put('/editarPCs/:idComputador', function (req, res) {
-    computadorController.editarPCs(req, res);
+router.put('/editarPC/:idComputador', function (req, res) {
+    computadorController.editarPC(req, res);
 });
 
 router.get('/historico-atividade/:idDepartamento', function(req, res) {

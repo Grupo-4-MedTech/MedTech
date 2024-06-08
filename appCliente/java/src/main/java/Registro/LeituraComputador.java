@@ -12,6 +12,8 @@ import modelo.Computador;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -41,6 +43,7 @@ public class LeituraComputador extends Leitura{
     }
 
     private Memoria memoria = looca.getMemoria();
+    private int maxDisco;
     private DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
     private List<Volume> volumes = grupoDeDiscos.getVolumes();
     private List<Long> porcentagemVolumes;
@@ -62,6 +65,7 @@ public class LeituraComputador extends Leitura{
 
         for (Volume volume : volumes) {
             if(volume.getTotal() > 0){
+                maxDisco += volume.getTotal();
                 porcentagemVolumes.add((volume.getTotal() - volume.getDisponivel()) * 100 / volume.getTotal());
             }
         }
@@ -81,7 +85,7 @@ public class LeituraComputador extends Leitura{
 
 
     @Override
-    public void inserirLeitura() throws InterruptedException{
+    public void inserirLeitura() throws InterruptedException, IOException {
         for (int i = 1; true; i++) {
 
             this.realizarLeitura();
@@ -130,5 +134,13 @@ public class LeituraComputador extends Leitura{
 
             Thread.sleep(10000);
         }
+    }
+
+    public void atualizarComputador(){
+        Computador comput = super.getComputador();
+        comput.setModeloProcessador(this.nomeProcessador);
+        comput.setMaxDisco(this.maxDisco);
+        comput.setMaxRam(Integer.parseInt(""+memoria.getTotal()));
+        System.out.println(comput); // DEBUGANDO AINDA :)
     }
 }
