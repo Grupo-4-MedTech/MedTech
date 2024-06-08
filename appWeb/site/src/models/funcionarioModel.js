@@ -42,11 +42,23 @@ function deletar(idFuncionario){
     return database.executar(query);
 }
 
+function editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario) {
+    var instrucaoSql = `
+        UPDATE funcionario SET
+        nome = '${updateNome}',
+        email = '${updateEmail}',
+        cargo = '${updateCargo}'
+        WHERE idFuncionario = ${idFuncionario};`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     update,
     chkLogin,
     buscar,
     adicionarUsuario,
-    deletar
+    deletar,
+    editarFuncionario
 }

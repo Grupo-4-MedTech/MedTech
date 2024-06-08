@@ -14,12 +14,13 @@ function buscarComputadores() {
             }
             else {
                 result.text().then(function (text) {
-                    // alert(text)
+                    alert(text)
                 })
             }
         })
         .catch((error) => {
             alert(`Erro inesperado`)
+            console.log(error)
         })
 
 }
@@ -53,7 +54,6 @@ function preencherTabelaPC(json) {
 
 function editar(computador) {
     console.log(computador)
-    //computador = JSON.parse(computador.replace(/\'/g, '"'))
 
     popup.style.display = 'block';
     fundotabela.style.display = 'none';
@@ -115,12 +115,15 @@ function novoComputador() {
         },
     }).then((result) => {
         if (result.status == 200) {
+            showMessage(true,`Máquina cadastrada!`)
+
             result.json().then(function (json) {
-                message.innerHTML += `Máquina cadastrada!`
+                
                 window.location.href = '../config-maquinas.html'
             })
+
         } else {
-            message.innerHTML += `Não foi possível cadastrar a máquina`
+            showMessage(true,`Não foi possível cadastrar a máquina`)
 
         }
     })

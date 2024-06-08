@@ -117,11 +117,34 @@ function deletarFuncionario(req, res) {
         );
 }
 
+function editarFuncionario(req, res) {
+    const idFuncionario = req.params.idFuncionario;
+    const updateNome = req.body.updateNome;
+    const updateEmail = req.body.updateEmail;
+    const updateCargo = req.body.updateCargo;
+    
+
+    funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao editar o usuário");
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 
 module.exports = {
     autenticar,
     chkLogin,
     buscarUsuarios,
     adicionarUsuario,
-    deletarFuncionario
+    deletarFuncionario,
+    editarFuncionario
 }

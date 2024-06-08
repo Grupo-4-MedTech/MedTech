@@ -1,3 +1,5 @@
+
+
 function buscarUsuarios(){
     fetch(`/funcionario/buscar/${sessionStorage.HOSP}`, {
         method: "GET",
@@ -28,11 +30,14 @@ function preencherTabela(json){
     tabela.innerHTML = "";
 
     json.forEach(linha => {
+
+        const jsonStringF = JSON.stringify(linha).replace(/\"/g, '\'')
+        console.log(JSON.stringify(linha))
         conteudo += `<tr>
         <td>${linha.nome}</td>
         <td>${linha.email}</td>
         <td>${linha.cargo}</td>
-        <td class="editar" onclick="editar(${linha.idFuncionario})"><a> Editar </a></td>
+        <td class="editar" onclick="editar(${jsonStringF})"><a> Editar </a></td>
         <td class="deletar" onclick="abrirPopup(${linha.idFuncionario})"><a> Excluir </a></td>
       </tr>`
 
@@ -42,7 +47,45 @@ function preencherTabela(json){
 
 }
 
-function editar(){
+function editar(funcionario){
+
+        console.log(funcionario)
+    
+        popup.style.display = 'block';
+        fundotabela.style.display = 'none';
+    
+        update_input_nome.value = funcionario.nome;
+        update_input_email.value = funcionario.email;
+        update_select_cargo.value = funcionario.cargo;
+    
+        var listaCargos = [
+            {
+            cargo: 'MEDICO_GERENTE',
+            nome: 'Médico gerente'
+            },
+            {
+            cargo:'TECNICO_TI',
+            nome: 'Técnico TI'
+            },
+            {
+            cargo:'GESTOR_TI',  
+            nome: 'Gestor TI'
+            }
+        ];
+    
+        update_select_cargo.innerHTML = ""
+        for (let i = 0; i < listaCargos.length; i++) {
+            if(listaCargos[i].cargo == funcionario.cargo){
+                update_select_cargo.innerHTML += `<option value="${listaCargos[i].cargo}" selected>${listaCargos[i].nome}</option> `;
+            }else{
+               update_select_cargo.innerHTML += `<option value="${listaCargos[i].cargo}">${listaCargos[i].nome}</option> `
+            }
+    
+        }
+        buttonSalvar.onclick = function(){
+            editarFuncionario(funcionario.idFuncionario)
+        }
+    
     fundotabela.style.display = 'none';
     popup.style.display = 'block';
 }
@@ -122,6 +165,34 @@ function deletarFuncionario(idFuncionario){
         console.log(`#ERRO: ${resposta}`);
     });
 }
+
+function editarFuncionario(idFuncionario) {
+
+    fetch(`/funcionario/editarFuncionario/${idFuncionario}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            updateNome: update_input_nome.value,
+            updateEmail: update_input_email.value,
+            updateCargo: update_select_cargo.value
+        })
+
+    }).then(function (resposta) {
+
+        if (resposta.status == 200) {
+            message.innerHTML += "Alterações salvas com sucesso!"
+        } else if (resposta.status == 400) {
+            message.innerHTML += "Dados inválidos!"
+        } else {
+            message.innerHTML += "Não foi possível realizar as alterações. Entre em contato com o nosso suporte."
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
 function abrirPopup(idFuncionario){
     const popup = document.getElementById('popupDelecao');
     popup.style.display = 'flex';

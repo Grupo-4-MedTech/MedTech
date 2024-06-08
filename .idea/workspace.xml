@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d55a8005-7b24-4649-92d7-41d6e9673e3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d55a8005-7b24-4649-92d7-41d6e9673e3d" name="Changes" comment="correção final! delete maquinas">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/public/dashboard/config-maquinas.html" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/dashboard/config-maquinas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/public/dashboard/config-usuarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/dashboard/config-usuarios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/public/script/config-maquinas.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/script/config-maquinas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/public/script/config-usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/public/script/config-usuarios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/src/controllers/funcionarioController.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/src/controllers/funcionarioController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/src/database/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/src/database/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/src/database/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/src/database/script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/src/models/funcionarioModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/src/models/funcionarioModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appWeb/site/src/routes/funcionario.js" beforeDir="false" afterPath="$PROJECT_DIR$/appWeb/site/src/routes/funcionario.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +25,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -27,19 +40,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/natha/OneDrive/Documentos/MedTech/appCliente/java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/julia/OneDrive/Área de Trabalho/SPTECH/MedTech&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;promo.database&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -51,7 +78,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713050245940</updated>
+      <workItem from="1717805904315" duration="3817000" />
+      <workItem from="1717871876716" duration="1955000" />
+      <workItem from="1717884202675" duration="5735000" />
     </task>
+    <task id="LOCAL-00001" summary="correção metodo editar maquinas">
+      <option name="closed" value="true" />
+      <created>1717803368692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717803368692</updated>
+    </task>
+    <task id="LOCAL-00002" summary="correção final! delete maquinas">
+      <option name="closed" value="true" />
+      <created>1717808480039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717808480039</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="correção metodo editar maquinas" />
+    <MESSAGE value="correção final! delete maquinas" />
+    <option name="LAST_COMMIT_MESSAGE" value="correção final! delete maquinas" />
   </component>
 </project>

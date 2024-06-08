@@ -17,6 +17,9 @@ router.get('/buscar/:idHospital', function(req, res){
 router.post('/adicionarUsuario/', function(req, res){
     funcionarioController.adicionarUsuario(req, res)
 });
+router.put('/editarFuncionario/:idFuncionario', function(req, res){
+    funcionarioController.editarFuncionario(req, res)
+});
 
 router.delete('/deletar/:idFuncionario', function(req, res){
     funcionarioController.deletarFuncionario(req, res)
