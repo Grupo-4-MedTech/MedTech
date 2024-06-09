@@ -3,180 +3,206 @@ USE medtech;
 GO
 
 CREATE TABLE endereco(
-                         idEndereco INT PRIMARY KEY IDENTITY(1,1),
-                         cep CHAR(8),
-                         rua VARCHAR(100) NOT NULL,
-                         numero INT NOT NULL,
-                         complemento VARCHAR(255),
-                         uf CHAR(2) NOT NULL
+    idEndereco INT PRIMARY KEY IDENTITY(1,1),
+    cep CHAR(8),
+    rua VARCHAR(100) NOT NULL,
+    numero INT NOT NULL,
+    complemento VARCHAR(255),
+    uf CHAR(2) NOT NULL
 );
 
 CREATE TABLE hospital(
-                         idHospital INT PRIMARY KEY IDENTITY(1,1),
-                         nomeFantasia VARCHAR(100),
-                         razaoSocial VARCHAR(100) NOT NULL,
-                         cnpj CHAR(14) UNIQUE NOT NULL,
-                         senha VARCHAR(255) NOT NULL,
-                         email VARCHAR(100) UNIQUE NOT NULL,
-                         dtCriacao DATETIME DEFAULT GETDATE(),
-                         verificado BIT,
-                         fkEndereco INT NOT NULL,
-                         FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
+     idHospital INT PRIMARY KEY IDENTITY(1,1),
+     nomeFantasia VARCHAR(100),
+     razaoSocial VARCHAR(100) NOT NULL,
+     cnpj CHAR(14) UNIQUE NOT NULL,
+     senha VARCHAR(255) NOT NULL,
+     email VARCHAR(100) UNIQUE NOT NULL,
+     dtCriacao DATETIME DEFAULT GETDATE(),
+     verificado BIT,
+     fkEndereco INT NOT NULL,
+     FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
+);
+
+CREATE TABLE filtroFerramenta (
+    idFiltroFerramenta INT PRIMARY KEY IDENTITY(1,1),
+    nome VARCHAR(100) NOT NULL,
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE funcionario(
-                            idFuncionario INT PRIMARY KEY IDENTITY(1000,1),
-                            nome VARCHAR(100),
-                            cpf CHAR(11) UNIQUE,
-                            telefone CHAR(11),
-                            cargo VARCHAR(45),
-                            CHECK (cargo IN ('MEDICO_GERENTE','TECNICO_TI','GESTOR_TI')),
-                            token CHAR(255),
-                            email VARCHAR(100) UNIQUE,
-                            senha VARCHAR(255),
-                            fkHospital INT,
-                            FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idFuncionario INT PRIMARY KEY IDENTITY(1000,1),
+    nome VARCHAR(100),
+    cpf CHAR(11) UNIQUE,
+    telefone CHAR(11),
+    cargo VARCHAR(45),
+    CHECK (cargo IN ('MEDICO_GERENTE','TECNICO_TI','GESTOR_TI')),
+    token CHAR(255),
+    email VARCHAR(100) UNIQUE,
+    senha VARCHAR(255),
+    fkHospital INT,
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE departamento(
-                             idDepartamento INT PRIMARY KEY IDENTITY(1,1),
-                             nome VARCHAR(45),
-                             fkHospital INT NOT NULL,
-                             FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+     idDepartamento INT PRIMARY KEY IDENTITY(1,1),
+     nome VARCHAR(45),
+     fkHospital INT NOT NULL,
+     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE acesso(
-                       fkFuncionario INT,
-                       fkDepartamento INT,
-                       fkHospital INT,
-                       responsavel BIT,
-                       PRIMARY KEY (fkFuncionario, fkDepartamento, fkHospital),
-                       FOREIGN KEY (fkFuncionario) REFERENCES funcionario(idFuncionario),
-                       FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                       FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    fkFuncionario INT,
+    fkDepartamento INT,
+    fkHospital INT,
+    responsavel BIT,
+    PRIMARY KEY (fkFuncionario, fkDepartamento, fkHospital),
+    FOREIGN KEY (fkFuncionario) REFERENCES funcionario(idFuncionario),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE computador(
-                           idComputador INT PRIMARY KEY IDENTITY(1,1),
-                           nome VARCHAR(50),
-                           status VARCHAR(50) DEFAULT 'estável',
-                           atividade BIT DEFAULT 0,
-                           dtStatusUpdate DATETIME DEFAULT GETDATE(),
-                           modeloProcessador VARCHAR(255),
-                           codPatrimonio VARCHAR(7) UNIQUE,
-                           senha VARCHAR(255),
-                           gbRAM FLOAT,
-                           gbDisco FLOAT,
-                           fkDepartamento INT NOT NULL,
-                           fkHospital INT NOT NULL,
-                           CHECK (status IN('crítico', 'alerta', 'estável')),
-                           FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                           FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+   idComputador INT PRIMARY KEY IDENTITY(1,1),
+   nome VARCHAR(50),
+   status VARCHAR(50) DEFAULT 'estável',
+   atividade BIT DEFAULT 0,
+   dtStatusUpdate DATETIME DEFAULT GETDATE(),
+   modeloProcessador VARCHAR(255),
+   codPatrimonio VARCHAR(7) UNIQUE,
+   senha VARCHAR(255),
+   gbRAM FLOAT,
+   gbDisco FLOAT,
+   fkDepartamento INT NOT NULL,
+   fkHospital INT NOT NULL,
+   CHECK (status IN('crítico', 'alerta', 'estável')),
+   FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+   FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE logAtividade(
-                             idLogAtividade INT PRIMARY KEY IDENTITY(1,1),
-                             atividade BIT NOT NULL,
-                             dtOcorrencia DATETIME DEFAULT GETDATE(),
-                             fkComputador INT NOT NULL,
-                             fkDepartamento INT NOT NULL,
-                             fkHospital INT NOT NULL,
-                             FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                             FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                             FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+     idLogAtividade INT PRIMARY KEY IDENTITY(1,1),
+     atividade BIT NOT NULL,
+     dtOcorrencia DATETIME DEFAULT GETDATE(),
+     fkComputador INT NOT NULL,
+     fkDepartamento INT NOT NULL,
+     fkHospital INT NOT NULL,
+     FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+     FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE logComputador (
-                               idLogComputador INT PRIMARY KEY IDENTITY(1,1),
-                               grau VARCHAR(7),
-                               causa VARCHAR(50),
-                               dtOcorrencia DATETIME DEFAULT GETDATE(),
-                               fkComputador INT NOT NULL,
-                               fkDepartamento INT NOT NULL,
-                               fkHospital INT NOT NULL,
-                               CHECK (grau IN('crítico', 'alerta', 'estável')),
-                               CHECK (causa IN('ram', 'cpu', 'disco')),
-                               FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                               FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                               FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+       idLogComputador INT PRIMARY KEY IDENTITY(1,1),
+       grau VARCHAR(7),
+       causa VARCHAR(50),
+       dtOcorrencia DATETIME DEFAULT GETDATE(),
+       fkComputador INT NOT NULL,
+       fkDepartamento INT NOT NULL,
+       fkHospital INT NOT NULL,
+       CHECK (grau IN('crítico', 'alerta', 'estável')),
+       CHECK (causa IN('ram', 'cpu', 'disco')),
+       FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+       FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+       FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraRamCpu(
-                              idLeituraRamCpu INT PRIMARY KEY IDENTITY(1,1),
-                              ram FLOAT,
-                              cpu FLOAT,
-                              dataLeitura DATETIME DEFAULT GETDATE(),
-                              fkComputador INT NOT NULL,
-                              fkDepartamento INT NOT NULL,
-                              fkHospital INT NOT NULL,
-                              FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                              FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                              FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+      idLeituraRamCpu INT PRIMARY KEY IDENTITY(1,1),
+      ram FLOAT,
+      cpu FLOAT,
+      dataLeitura DATETIME DEFAULT GETDATE(),
+      fkComputador INT NOT NULL,
+      fkDepartamento INT NOT NULL,
+      fkHospital INT NOT NULL,
+      FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+      FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+      FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraDisco(
-                             idLeituraDisco INT PRIMARY KEY IDENTITY(1,1),
-                             disco FLOAT,
-                             dataLeitura DATETIME DEFAULT GETDATE(),
-                             fkComputador INT NOT NULL,
-                             fkDepartamento INT NOT NULL,
-                             fkHospital INT NOT NULL,
-                             FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                             FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                             FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+     idLeituraDisco INT PRIMARY KEY IDENTITY(1,1),
+     disco FLOAT,
+     dataLeitura DATETIME DEFAULT GETDATE(),
+     fkComputador INT NOT NULL,
+     fkDepartamento INT NOT NULL,
+     fkHospital INT NOT NULL,
+     FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+     FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraFerramenta(
-                                  idLeituraFerramenta INT PRIMARY KEY IDENTITY(1,1),
-                                  nomeApp VARCHAR(255),
-                                  dtLeitura DATETIME DEFAULT GETDATE(),
-                                  caminho VARCHAR(255),
-                                  fkComputador INT NOT NULL,
-                                  fkDepartamento INT NOT NULL,
-                                  fkHospital INT NOT NULL,
-                                  FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                                  FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-                                  FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idLeituraFerramenta INT PRIMARY KEY IDENTITY(1,1),
+    nomeApp VARCHAR(255),
+    dtLeitura DATETIME DEFAULT GETDATE(),
+    caminho VARCHAR(255),
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE metrica (
-                         idMetrica INT PRIMARY KEY IDENTITY(1,1),
-                         alertaCpu FLOAT,
-                         alertaCritCpu FLOAT,
-                         alertaRam FLOAT,
-                         alertaCritRam FLOAT,
-                         alertaDisco FLOAT,
-                         alertaCritDisco FLOAT,
-                         fkComputador INT,
-                         fkDepartamento INT,
-                         fkHospital INT,
-                         FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-                         FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital),
-                         FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento)
+    idMetrica INT PRIMARY KEY IDENTITY(1,1),
+    alertaCpu FLOAT,
+    alertaCritCpu FLOAT,
+    alertaRam FLOAT,
+    alertaCritRam FLOAT,
+    alertaDisco FLOAT,
+    alertaCritDisco FLOAT,
+    fkComputador INT,
+    fkDepartamento INT,
+    fkHospital INT,
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento)
 );
 
 CREATE TABLE contaMedtech(
-                             idContaMedtech INT PRIMARY KEY IDENTITY(1,1),
-                             nome VARCHAR(100),
-                             cpf CHAR(11) UNIQUE,
-                             token CHAR(255),
-                             email VARCHAR(100) UNIQUE,
-                             senha VARCHAR(255)
+     idContaMedtech INT PRIMARY KEY IDENTITY(1,1),
+     nome VARCHAR(100),
+     cpf CHAR(11) UNIQUE,
+     token CHAR(255),
+     email VARCHAR(100) UNIQUE,
+     senha VARCHAR(255)
 );
-
 
 -- View
 CREATE VIEW hospitalWithEndereco AS
 SELECT * FROM hospital JOIN endereco ON fkEndereco = idEndereco;
 
--- Procedimento armazenado
+WITH ParesDeEventos AS (
+    SELECT
+        l.fkComputador,
+        CAST(l.dtOcorrencia AS DATE) AS dia,
+        l.dtOcorrencia AS inicio,
+        MIN(ld.dtOcorrencia) AS fim
+    FROM logAtividade l
+             JOIN logAtividade ld
+              ON l.fkComputador = ld.fkComputador
+              AND l.atividade = 1
+              AND ld.atividade = 0
+              AND ld.dtOcorrencia > l.dtOcorrencia
+    WHERE l.dtOcorrencia >= DATEADD(DAY, -8, GETDATE())
+    GROUP BY l.fkComputador, l.dtOcorrencia
+)
+SELECT
+    dia,
+    fkComputador,
+    (SUM(DATEDIFF(SECOND, inicio, fim)) / 3600.0) AS tempo_ligado
+FROM ParesDeEventos
+WHERE fkComputador = 1
+GROUP BY dia, fkComputador
+ORDER BY dia, fkComputador;
+
 CREATE PROCEDURE delete_hospital
 @id INT
 AS
 BEGIN
-    DELETE FROM metrica WHERE fkHospital = @id;
-    DELETE FROM logComputador WHERE fkHospital = @id;
-    DELETE FROM logAtividade WHERE fkHospital = @id;
     DELETE FROM leituraDisco WHERE fkHospital = @id;
     DELETE FROM leituraRamCpu WHERE fkHospital = @id;
     DELETE FROM leituraFerramenta WHERE fkHospital = @id;
@@ -184,21 +210,8 @@ BEGIN
     DELETE FROM acesso WHERE fkHospital = @id;
     DELETE FROM funcionario WHERE fkHospital = @id;
     DELETE FROM departamento WHERE fkHospital = @id;
+    DELETE FROM filtroFerramenta WHERE fkHospital = @id;
     DELETE FROM hospital WHERE idHospital = @id;
-END;
-GO
-
-CREATE PROCEDURE delete_computador
-@id INT
-AS
-BEGIN
-    DELETE FROM metrica WHERE fkComputador = @id;
-    DELETE FROM logComputador WHERE fkComputador = @id;
-    DELETE FROM logAtividade WHERE fkComputador = @id;
-    DELETE FROM leituraDisco WHERE fkComputador = @id;
-    DELETE FROM leituraRamCpu WHERE fkComputador = @id;
-    DELETE FROM leituraFerramenta WHERE fkComputador = @id;
-    DELETE FROM computador WHERE idComputador = @id;
 END;
 GO
 
@@ -458,72 +471,72 @@ GO
 
 -- Inserções
 INSERT INTO contaMedtech (nome, cpf, email, senha) VALUES
-    ('Caique Lucio', '59696032907', 'caiquedeandradelucio@gmail.com', 'medtech88');
+('Caique Lucio', '59696032907', 'caiquedeandradelucio@gmail.com', 'medtech88');
 
 INSERT INTO endereco (cep, rua, numero, complemento, uf) VALUES
-                                                             ('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP'),
-                                                             ('08450160', 'rua antônio thadeo', 372, 'apt04 bl604', 'SP');
+('08450160', 'rua antônio thadeo', 373, 'apt04 bl604', 'SP'),
+('08450160', 'rua antônio thadeo', 372, 'apt04 bl604', 'SP');
 
 INSERT INTO hospital (nomeFantasia, razaoSocial, cnpj, senha, email, verificado, fkEndereco) VALUES
-                                                                                                 ('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', 1, 1),
-                                                                                                 ('Clinica Repolho verde', 'Juliana & Familia', '00000000000001', 'JUJU8978','clinicaRepolho@gmail.com', 1, 2);
+('Clinica Folhas de Outono', 'Gazzoli Silva', '00000000000000', 'gazzoli123','clinicafoutono@outlook.com', 1, 1),
+('Clinica Repolho verde', 'Juliana & Familia', '00000000000001', 'JUJU8978','clinicaRepolho@gmail.com', 1, 2);
 
 UPDATE hospital SET dtCriacao = '2024-04-07' WHERE idHospital = 1;
 
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
-                                                                                   ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
-                                                                                   ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
+('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
+('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
 
 INSERT INTO departamento (nome, fkHospital) VALUES
-                                                ('Triagem', 1),
-                                                ('Guichê', 1),
-                                                ('Farmácia', 1),
-                                                ('Consultório', 1);
+('Triagem', 1),
+('Guichê', 1),
+('Farmácia', 1),
+('Consultório', 1);
 
 INSERT INTO acesso (fkFuncionario, fkDepartamento, fkHospital, responsavel) VALUES
-                                                                                (1001, 1, 1, 1),
-                                                                                (1001, 2, 1, 1),
-                                                                                (1001, 3, 1, 1),
-                                                                                (1001, 4, 1, 1);
+(1001, 1, 1, 1),
+(1001, 2, 1, 1),
+(1001, 3, 1, 1),
+(1001, 4, 1, 1);
 
 INSERT INTO computador (nome, modeloProcessador, codPatrimonio, senha, gbRam, gbDisco, fkDepartamento, fkHospital) VALUES
-    ('PC_triagem01', 'Intel Core I3', 'C056689', 'medtech88', 8, 250, 1, 1);
+('PC_triagem01', 'Intel Core I3', 'C056689', 'medtech88', 8, 250, 1, 1);
 
 INSERT INTO leituraRamCpu (ram, cpu, fkComputador, fkDepartamento, fkHospital) VALUES
-    (100, 100, 1, 1, 1);
+(100, 100, 1, 1, 1);
 
 INSERT INTO leituraDisco (disco, fkComputador, fkDepartamento, fkHospital) VALUES
-    (100, 1, 1, 1);
+(100, 1, 1, 1);
 
 INSERT INTO logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES
-                                                                                                    ('crítico', 'cpu', '2024-06-18 21:47:13', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-06-18 21:47:14', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-06-18 21:47:15', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-04-18 21:47:16', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-04-18 21:47:17', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-04-18 21:47:18', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-10-18 21:47:19', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-10-18 21:47:20', 1, 1, 1),
-                                                                                                    ('crítico', 'cpu', '2024-10-18 21:47:21', 1, 1, 1);
+('crítico', 'cpu', '2024-06-18 21:47:13', 1, 1, 1),
+('crítico', 'cpu', '2024-06-18 21:47:14', 1, 1, 1),
+('crítico', 'cpu', '2024-06-18 21:47:15', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:16', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:17', 1, 1, 1),
+('crítico', 'cpu', '2024-04-18 21:47:18', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:19', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:20', 1, 1, 1),
+('crítico', 'cpu', '2024-10-18 21:47:21', 1, 1, 1);
 
 INSERT INTO logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES
-                                                                                                    ('crítico', 'ram', '2024-06-18 21:49:13', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-06-18 21:49:14', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-06-18 21:49:15', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-04-18 21:49:16', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-04-18 21:49:17', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-04-18 21:49:18', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-10-18 21:49:19', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-10-18 21:49:20', 1, 1, 1),
-                                                                                                    ('crítico', 'ram', '2024-10-18 21:49:21', 1, 1, 1);
+('crítico', 'ram', '2024-06-18 21:49:13', 1, 1, 1),
+('crítico', 'ram', '2024-06-18 21:49:14', 1, 1, 1),
+('crítico', 'ram', '2024-06-18 21:49:15', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:16', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:17', 1, 1, 1),
+('crítico', 'ram', '2024-04-18 21:49:18', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:19', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:20', 1, 1, 1),
+('crítico', 'ram', '2024-10-18 21:49:21', 1, 1, 1);
 
 INSERT INTO logComputador (grau, causa, dtOcorrencia, fkComputador, fkDepartamento, fkHospital) VALUES
-                                                                                                    ('crítico', 'disco', '2024-06-18 21:49:13', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-06-18 21:49:14', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-06-18 21:49:15', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-04-18 21:49:16', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-04-18 21:49:17', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-04-18 21:49:18', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-10-18 21:49:19', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-10-18 21:49:20', 1, 1, 1),
-                                                                                                    ('crítico', 'disco', '2024-10-18 21:49:21', 1, 1, 1);
+('crítico', 'disco', '2024-06-18 21:49:13', 1, 1, 1),
+('crítico', 'disco', '2024-06-18 21:49:14', 1, 1, 1),
+('crítico', 'disco', '2024-06-18 21:49:15', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:16', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:17', 1, 1, 1),
+('crítico', 'disco', '2024-04-18 21:49:18', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:19', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:20', 1, 1, 1),
+('crítico', 'disco', '2024-10-18 21:49:21', 1, 1, 1);
