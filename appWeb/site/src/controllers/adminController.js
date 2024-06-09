@@ -7,9 +7,9 @@ function login(req, res){
 
     if(
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha) ||
-        !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
+        !/^[a-zA-Z0-9._]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z.]{3,}$/.test(email)
     ){
-        res.status(401).send('Dados inválidos');
+        res.status(401).send(utils.BAD_REQUEST);
     } else {
         adminModel.login(email, senha)
         .then((result) => {
@@ -22,14 +22,14 @@ function login(req, res){
                 })
                 .catch(error => {
                     console.log(error);
-                    res.status(500).send('Erro inesperado! entre em contato com o nosso suporte.');
+                    res.status(500).send(utils.UNEXPECTED_ERROR);
                 })
             } else {
-                res.status(400).send('Nenhum registro encontrado com estes dados.')
+                res.status(400).send(utils.NOT_FOUND)
             }
         }).catch(error => {
             console.log(error);
-            res.status(500).send('Erro inesperado! entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
     }
 }
@@ -40,12 +40,12 @@ function chkLogin(req, res){
         if (result.length > 0) {
             res.status(200).send('logado');
         } else {
-            res.status(400).send('não loggado');
+            res.status(400).send('não logado');
         }
     })
     .catch((error) => {
         console.log(error);
-        res.status(500).send('erro inesperado');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     });
 }
 

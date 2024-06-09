@@ -1,5 +1,6 @@
 const hospitalModel = require("../models/hospitalModel");
 const emailController = require("./emailController");
+const utils = require("../../public/script/utils");
 
 function cadastrar(req, res) {
 
@@ -26,7 +27,7 @@ function cadastrar(req, res) {
         !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email) ||
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
     ) {
-        res.status(401).send('Dados Inválidos!');
+        res.status(401).send(utils.BAD_REQUEST);
     } else {
 
         hospitalModel.cadastrar(razaoSocial, nomeFantasia, cnpj, email, senha, cep, rua, numero, complemento, uf)
@@ -39,12 +40,12 @@ function cadastrar(req, res) {
                     .catch((error) => {
                         console.log(error);
                         hospitalModel.deleteHospital(result[0].idHospital);
-                        res.status(401).send('Não foi possível finalizar o cadastro!');
+                        res.status(401).send(utils.UNEXPECTED_ERROR);
                     })
             })
             .catch((error) => {
                 console.error("Erro:", error);
-                res.status(500).send('Erro inesperado! Por favor, tente novamente mais tarde.');
+                res.status(500).send(utils.UNEXPECTED_ERROR);
             });
     }
 }
@@ -58,31 +59,31 @@ function find(req, res) {
         if (result.length > 0) {
             res.status(201).json(result);
         } else {
-            res.status(200).send('Nenhum registro encontrados com estas especificações.');
+            res.status(200).send(utils.NOT_FOUND);
         }
     }).catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     })
 }
 
 function deleteHospital(req, res) {
     hospitalModel.deleteHospital(req.params.idHospital).then((result) => {
         res.status(200);
-        res.send('Registro apagado com sucesso!');
+        res.send(utils.SUCCESSFULLY_DELETED);
     }).catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     })
 }
 
 function updateHospital(req, res) {
     hospitalModel.updateHospital(req.params.idHospital, req.body)
         .then(() => {
-            res.send('Registro alterado com sucesso!');
+            res.send(utils.SUCCESSFULLY_CHANGED);
         }).catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado. Entre em contato com nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
 }
 
@@ -99,12 +100,12 @@ function findDepsByFunc(req, res) {
             if (result.length > 0) {
                 res.status(200).json(result);
             } else {
-                res.status(400).send('Nenhum registro encontrado.');
+                res.status(400).send(utils.NOT_FOUND);
             }
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
 }
 
@@ -114,17 +115,17 @@ function updateMetricas(req,res) {
         req.body.alertaCpu >= req.body.alertaCritCpu ||
         req.body.alertaDisco >= req.body.alertaCritDisco
     ) {
-        res.status(500).send('As porcentagens de alerta devem ser menores do que as de estado crítico!');
+        res.status(500).send(utils.INVALID_ALERT_DATA);
         return;
     }
 
     hospitalModel.updateMetricas(req.body, req.params.fkHospital)
     .then(() => {
-        res.status(200).send('Registro alterado com sucesso!');
+        res.status(200).send(utils.SUCCESSFULLY_CHANGED);
     })
     .catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     });
 }
 

@@ -7,3 +7,5 @@ site/node_modules
 site/package-lock.json
 
 .github
+.idea
+node_modules

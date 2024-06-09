@@ -203,12 +203,14 @@ function printKpis(json = []) {
 
     const prctCrit = (
         json.critUltimaSem === 0 && json.critAtual > 0 ? 200 : 
-        json.critAtual === 0 && json.critUltimaSem > 0 ? 100 :
+        json.critAtual === 0 && json.critUltimaSem > 0 ? json.critUltimaSem * 100 :
+        json.critAtual === 0 && json.critUltimaSem === 0 ? 0:
         json.critAtual * 100 / json.critUltimaSem
     );
     const prctAlerta = (
         json.alertaUltimaSem === 0 && json.alertaAtual > 0 ? 200 : 
-        json.alertaAtual === 0 && json.alertatUltimaSem > 0 ? 100 :
+        json.alertaAtual === 0 && json.alertaUltimaSem > 0 ? json.alertaUltimaSem * 100 :
+        json.alertaAtual === 0 && json.alertaUltimaSem === 0 ? 0 :
         json.alertaAtual * 100 / json.alertaUltimaSem
     );
 
@@ -216,7 +218,7 @@ function printKpis(json = []) {
     <div class="notificationCard statusRed">
         <h3>Crítico</h3>
         <div class="subtextos">
-            <span class="notificationNumber">${json.critAtual}<img ${(json.prctCrit > 100 ? 'class="upArrow"' : null)} src="../assets/img/arrow.png">
+            <span class="notificationNumber">${json.critAtual}${prctCrit > 0 ? `<img ${(prctCrit >= 100 ? 'style="transform: rotate(180deg);"' : null)} src="../assets/img/arrow.png">`: ''}
             </span>
 
             <span class="porcentagem">
@@ -227,7 +229,7 @@ function printKpis(json = []) {
     <div class="notificationCard statusYellow">
         <h3>Alerta</h3>
         <div class="subtextos">
-            <span class="notificationNumber">${json.alertaAtual}<img ${(json.prctAlerta > 100 ? 'class="upArrow"' : null)} src="../assets/img/arrow.png">
+            <span class="notificationNumber">${json.alertaAtual} ${prctAlerta > 0 ? `<img ${(prctAlerta >= 100 ? 'style="transform: rotate(180deg);"' : null)} src="../assets/img/arrow.png">` : ''}
             </span>
 
             <span class="porcentagem">
@@ -258,7 +260,7 @@ function buildKpiText(prct){
         return `Diminuição de ${prct}% em relação aos últimos 7 dias`;
     }
 
-    return `Nenhuma mudança em relação os últimos 7 dias`;
+    return `Nenhuma mudança em relação aos últimos 7 dias`;
 }
 
 searchChartData();

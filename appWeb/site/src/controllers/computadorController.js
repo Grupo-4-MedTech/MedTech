@@ -1,5 +1,5 @@
 const computadoresModel = require('../models/computadoresModel');
-const { update } = require('../models/funcionarioModel');
+const utils = require('../../public/script/utils');
 
 
 function buscarPorId(req, res) {
@@ -9,12 +9,12 @@ function buscarPorId(req, res) {
                 res.status(200).json(result);
             }
             else {
-                res.status(100).send('Nenhuma máquina encontrada');
+                res.status(100).send(utils.NOT_FOUND);
             }
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Erro inesperado! Entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         });
 }
 
@@ -31,7 +31,7 @@ function findLogs(req, res) {
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
 }
 
@@ -46,7 +46,7 @@ function historic(req, res) {
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         });
 }
 
@@ -68,11 +68,11 @@ function adicionarPC(req, res) {
         
             .then(
                 function (result) {
-                    res.status(200).send('Máquina cadastrada com sucesso!')
+                    res.status(200).send(utils.SUCCESSFULLY_CHANGED)
                 }
             ).catch(
                 function (erro) {
-                    res.status(500).send('Não foi possível adicionar a máquina.');
+                    res.status(500).send(utils.UNEXPECTED_ERROR);
                 }
             );
     }
@@ -104,12 +104,12 @@ function historicLeituras(req, res) {
             if (result.length > 0) {
                 res.status(200).json(result);
             } else {
-                res.status(400).send('Nenhum registro encontrado.');
+                res.status(400).send(utils.NOT_FOUND);
             }
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
 }
 
@@ -122,12 +122,12 @@ function historicFerramentas(req, res) {
             if (result.length > 0) {
                 res.status(200).json(result);
             } else {
-                res.status(400).send('Nenhum registro encontrado.');
+                res.status(400).send(utils.NOT_FOUND);
             }
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         })
 }
 
@@ -181,20 +181,20 @@ function historicAtividade(req, res) {
                 })
                 .catch((error) => {
                     console.log(error);
-                    res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+                    res.status(500).send(utils.UNEXPECTED_ERROR);
                 });
             })
             .catch((error) => {
                 console.log(error);
-                res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+                res.status(500).send(utils.UNEXPECTED_ERROR);
             });
         } else {
-            res.status(400).send('Nenhum registro encontrado.');
+            res.status(400).send(utils.NOT_FOUND);
         }
     })
     .catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     });
 }
 
@@ -204,12 +204,12 @@ function findMetrica(req, res) {
         if (result.length > 0) {
             res.status(200).json(result);
         } else {
-            res.status(400).send('Nenhum registro encontrado.');
+            res.status(400).send(utils.NOT_FOUND);
         }
     })
     .catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     });
 }
 
@@ -219,17 +219,17 @@ function updateMetrica(req, res) {
         req.body.alertaCpu >= req.body.alertaCritCpu ||
         req.body.alertaDisco >= req.body.alertaCritDisco
     ) {
-        res.status(500).send('As porcentagens de alerta devem ser menores do que as de estado crítico!');
+        res.status(500).send(utils.INVALID_ALERT_DATA);
         return;
     }
 
     computadoresModel.updateMetrica(req.body, req.params.idComputador)
     .then(() => {
-        res.status(200).send('Registro alterado com sucesso!');
+        res.status(200).send(utils.SUCCESSFULLY_CHANGED);
     })
     .catch((error) => {
         console.log(error);
-        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+        res.status(500).send(utils.UNEXPECTED_ERROR);
     });
 }
 

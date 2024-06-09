@@ -21,7 +21,7 @@ function searchByState(state) {
             })
         }
     })
-    .catch(error => showMessage(true ,error));
+    .catch(error => showMessage(true , UNEXPECTED_ERROR));
 }
 
 function printComputers(json = [], state) {
@@ -76,11 +76,20 @@ function printComputers(json = [], state) {
                     <br>
                     Memória:
                     <br>
-                    ${row.gbRAM}GB
+                    ${
+                        ('' + row.gbRAM).indexOf('.') > - 1 ?
+                        row.gbRAM.toFixed(2).replace('.', ',') :
+                        row.gbRAM
+                    }GB
                     <br>
                     Armazenamento:
                     <br>
-                    ${row.gbDisco}GB
+                    ${
+                        ('' + row.gbDisco).indexOf('.') > - 1 ? 
+                        row.gbDisco.toFixed(2).replace('.', ',') :
+                        row.gbDisco
+                    }GB
+                     
                 </div>
             </span>
             <canvas id="canvas_${row.idComputador}" class="charts"></canvas>
@@ -145,7 +154,6 @@ function edit(idComputador) {
 }
 
 function fillEditScreen(json) {
-    
     card_edit.innerHTML = `
     <div class="top">
     <h2>Editar métricas do computador <div onclick="exitEdit()" class="exit_btn">&#66327;<div></h2>
@@ -163,7 +171,7 @@ function fillEditScreen(json) {
         </div>
     </div>
     <div class="edit_options">
-        <button onclick="applyMetrics('/computador/${json.idComputador}/metrica')">Aplicar</button>
+        <button onclick="applyMetrics('/computador/${json.fkComputador}/metrica')">Aplicar</button>
         <button onclick="applyMetrics('/hospital/${json.fkHospital}/metricas')">Aplicar Globalmente</button>
     </div>
     `;
@@ -215,7 +223,7 @@ function applyMetrics(route) {
     })
     .catch((error) => {
         console.log(error);
-        showMessage(true , 'Houve um erro inesperado! por favor, entre em contato com o nosso suporte.')
+        showMessage(true , UNEXPECTED_ERROR)
     });
 }
 

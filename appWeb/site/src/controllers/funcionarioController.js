@@ -27,13 +27,12 @@ function autenticar(req, res) {
                         })
                         .catch(error => {
                             console.log(error);
-                            res.status(500).send('Erro inesperado! entre em contato com o nosso suporte.');
+                            res.status(500).send(utils.UNEXPECTED_ERROR);
                         })
                 }
             })
             .catch((error) => {
-
-                res.status(500).send('Erro inesperado.');
+                res.status(500).send(utils.UNEXPECTED_ERROR);
                 console.log(error);
             })
     }
@@ -50,7 +49,7 @@ function chkLogin(req, res) {
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('erro inesperado');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         });
 }
 
@@ -61,12 +60,12 @@ function buscarUsuarios(req, res) {
                 res.status(200).json(result);
             }
             else {
-                res.status(100).send('Nenhum funcionário encontrado');
+                res.status(100).send(utils.NOT_FOUND);
             }
         })
         .catch((error) => {
             console.log(error);
-            res.status(500).send('Erro inesperado! Entre em contato com o nosso suporte.');
+            res.status(500).send(utils.UNEXPECTED_ERROR);
         });
 }
 
@@ -80,18 +79,18 @@ function adicionarUsuario(req, res) {
     if (!/^[a-zA-Z\s]{3,100}$/.test(nome) ||
         !/^[a-zA-Z0-9\.\_]{3,}[@][a-zA-Z]{3,}[.][a-zA-Z\.]{3,}$/.test(email)
     ) {
-        res.status(400).send('Dados incorretos');
+        res.status(400).send(utils.BAD_REQUEST);
     } else {
         funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital)
             .then(
                 function (result) {
                     console.log(result);
-                    res.status(200).send("Usuário cadastrado");
+                    res.status(200).send(utils.SUCCESSFULLY_CREATED);
                 }
             ).catch(
                 function (error) {
                     console.log(error);
-                    res.status(500).send('Não foi possível adicionar o usuário.');
+                    res.status(500).send(utils.UNEXPECTED_ERROR);
                 }
             );
     }

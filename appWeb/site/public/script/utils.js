@@ -1,3 +1,10 @@
+const UNEXPECTED_ERROR = 'Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.';
+const NOT_FOUND = 'Nenhum registro encontrado.';
+const SUCCESSFULLY_CHANGED = 'Registro alterado com sucesso!';
+const INVALID_ALERT_DATA = 'As porcentagens de alerta devem ser menores do que as de estado crítico!';
+const BAD_REQUEST = 'Os dados fornecidos são inválidos!';
+const SUCCESSFULLY_CREATED = 'Registro criado com sucesso!';
+const SUCCESSFULLY_DELETED= 'Registro deletado com sucesso!';
 
 function showMessage(error, text) {
     const messageCard = document.getElementById('message');
@@ -65,7 +72,7 @@ function profileOptions() {
     let content = `
     <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações</li>`;
 
-    if (sessionStorage.CARGO == 'GESTOR_TI') {
+    if (sessionStorage.CARGO === 'GESTOR_TI') {
         content += `
         <li onclick="openUserManagement()">
             <img src="../assets/img/config-usuario.png" alt="">
@@ -85,5 +92,12 @@ function profileOptions() {
 }
 
 module.exports = {
-    tokenGenerator
+    tokenGenerator,
+    UNEXPECTED_ERROR,
+    NOT_FOUND,
+    SUCCESSFULLY_CHANGED,
+    INVALID_ALERT_DATA,
+    BAD_REQUEST,
+    SUCCESSFULLY_CREATED,
+    SUCCESSFULLY_DELETED
 }
