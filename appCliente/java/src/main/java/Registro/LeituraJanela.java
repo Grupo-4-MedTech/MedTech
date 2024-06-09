@@ -2,16 +2,17 @@ package Registro;
 
 import com.github.britooo.looca.api.group.janelas.Janela;
 import com.github.britooo.looca.api.group.janelas.JanelaGrupo;
+import log.Log;
+import log.LogLevel;
+import log.LogManager;
 import modelo.Computador;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import Comunicacao.Slack;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
+import org.springframework.jdbc.core.SingleColumnRowMapper;
 
 public class LeituraJanela extends Leitura{
     private List<Janela> listaGuias;
@@ -22,11 +23,7 @@ public class LeituraJanela extends Leitura{
     public LeituraJanela(Computador computador) throws IOException, InterruptedException {
         super(computador);
         this.listaGuias = new ArrayList<>();
-        this.redesSociais = new ArrayList<>();
-        this.redesSociais.add("Youtube");
-        this.redesSociais.add("X");
-        this.redesSociais.add("Facebook");
-        this.redesSociais.add("Instagram");
+        this.redesSociais = buscarJanelas();
         realizarLeitura();
     }
 
@@ -36,10 +33,10 @@ public class LeituraJanela extends Leitura{
         List<Janela> listaJanelas = janelaGrupo.getJanelas();
         for (Janela listaJanela : listaJanelas) {
             if (listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Firefox") || listaJanela.getTitulo().contains("Opera")) {
-                //FAZER OUTRO FOR VERIFICANDO SE O NOME DA JANELA CONTÉM UMA DAS STRINGS EXISTENTES NA LISTA
                 for (String redeSocial : this.redesSociais) {
-//                    System.out.println(listaJanela.getTitulo());
                     if(listaJanela.getTitulo().toUpperCase().contains(redeSocial.toUpperCase())){
+                        System.out.println("Cai no if com: " + redeSocial);
+
                         JSONObject json = new JSONObject();
                         json.put("text","\uD83D\uDEA8" + "o computador acessou " +getComputador().getNome() + " acessou a guia " + redeSocial +  "\n" + "INFORMAÇÕES DO COMPUTADOR: \n"+ getComputador());
                         Slack.enviarMensagem(json);
@@ -69,5 +66,19 @@ public class LeituraJanela extends Leitura{
             executarQuery(conn, queryFerramenta, LeituraJanela.class);
             executarQuery(connSQL, queryFerramenta, LeituraJanela.class);
         }
+    }
+    public List<String> buscarJanelas(){
+        List<String> blackListJanelas = new ArrayList<>();
+        try{
+            blackListJanelas = connSQL.query("SELECT nome FROM filtroFerramenta WHERE fkHospital = ?;",  new SingleColumnRowMapper<>(String.class), super.getComputador().getFkHospital());
+        }catch (CannotGetJdbcConnectionException e){
+            LogManager.salvarLog(new Log(LeituraJanela.class, "ERRO DE CONEXÃO: " + e.getMessage(), LogLevel.INFO));
+            try{
+                blackListJanelas = conn.query("SELECT nome FROM filtroFerramenta WHERE fkHospital = ?;",  new SingleColumnRowMapper<>(String.class), super.getComputador().getFkHospital());
+            }catch (Exception ex){
+                LogManager.salvarLog(new Log(LeituraJanela.class, "Erro ao executar query: " + ex.getMessage(), LogLevel.ERROR));
+            }
+        }
+        return blackListJanelas;
     }
 }

@@ -83,6 +83,12 @@ function profileOptions() {
             Máquinas
         </li>
         `;
+    } else if (sessionStorage.CARGO === 'MEDICO_GERENTE') {
+         content += `
+         <li onclick="window.location.href = 'filtragemJanelas.html'">
+            <img src="../assets/img/config-computador.png" alt="">
+             Alertas Slack
+        </li>`;
     }
 
     content += `
