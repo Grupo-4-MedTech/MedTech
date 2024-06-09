@@ -28,10 +28,21 @@ router.get('/listar/:idHospital', function(req, res){
 
 router.get('/departamentos/:idFuncionario', function(req, res) {
     hospitalController.findDepsByFunc(req, res);
-})
+});
 
 router.put('/:fkHospital/metricas', function(req, res) {
     hospitalController.updateMetricas(req, res)
-})
+});
 
+router.get('/:idHospital/filtrosFerramentas', function(req, res) {
+    hospitalController.findFiltrosFerramentas(req, res);
+});
+
+router.delete('/filtroFerramenta/:idFiltroFerramenta', function(req, res) {
+    hospitalController.deleteFiltroFerramenta(req, res);
+});
+
+router.post('/filtroFerramenta', function(req, res) {
+    hospitalController.createFiltroFerramenta(req, res);
+})
 module.exports = router;

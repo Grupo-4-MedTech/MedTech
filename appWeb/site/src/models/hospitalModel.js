@@ -107,6 +107,35 @@ function updateMetricas(atributes, fkHospital) {
     return database.executar(query);
 }
 
+function findFiltrosFerramentas(idHospital) {
+    const query = `
+        SELECT * FROM filtroFerramenta
+        WHERE fkHospital = ${idHospital};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function deleteFiltroFerramenta(idFiltroFerramenta) {
+    const query = `
+        DELETE FROM filtroFerramenta 
+        WHERE idFiltroFerramenta = ${idFiltroFerramenta};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function createFiltroFerramenta(nome, fkHospital) {
+    const query = `
+        INSERT INTO filtroFerramenta (nome, fkHospital) VALUES
+        ('${nome}', ${fkHospital});
+    `;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
 module.exports = {
     cadastrar,
     buscarPorId,
@@ -115,5 +144,8 @@ module.exports = {
     updateHospital,
     listar,
     findDepsByFunc,
-    updateMetricas
+    updateMetricas,
+    findFiltrosFerramentas,
+    deleteFiltroFerramenta,
+    createFiltroFerramenta
 }
