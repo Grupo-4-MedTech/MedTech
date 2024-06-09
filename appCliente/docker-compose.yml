@@ -16,11 +16,3 @@ services:
       -  SENHA_PC=medtech88 
     depends_on:
       - mysql
-
-networks:
-  default:
-    driver: bridge
-
-
-  
-    
