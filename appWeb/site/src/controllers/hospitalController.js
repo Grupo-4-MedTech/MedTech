@@ -1,5 +1,4 @@
 const hospitalModel = require("../models/hospitalModel");
-const enderecoModel = require("../models/enderecoModel");
 const emailController = require("./emailController");
 
 function cadastrar(req, res) {
@@ -109,11 +108,32 @@ function findDepsByFunc(req, res) {
         })
 }
 
+function updateMetricas(req,res) {
+    if (
+        req.body.alertaRam >= req.body.alertaCritRam ||
+        req.body.alertaCpu >= req.body.alertaCritCpu ||
+        req.body.alertaDisco >= req.body.alertaCritDisco
+    ) {
+        res.status(500).send('As porcentagens de alerta devem ser menores do que as de estado crítico!');
+        return;
+    }
+
+    hospitalModel.updateMetricas(req.body, req.params.fkHospital)
+    .then(() => {
+        res.status(200).send('Registro alterado com sucesso!');
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    });
+}
+
 module.exports = {
     cadastrar,
     find,
     deleteHospital,
     updateHospital,
     listar,
-    findDepsByFunc
+    findDepsByFunc,
+    updateMetricas
 }

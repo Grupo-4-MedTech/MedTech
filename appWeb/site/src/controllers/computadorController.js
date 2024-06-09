@@ -1,4 +1,5 @@
 const computadoresModel = require('../models/computadoresModel');
+const { update } = require('../models/funcionarioModel');
 
 
 function buscarPorId(req, res) {
@@ -25,7 +26,7 @@ function findLogs(req, res) {
             if (result.length > 0) {
                 res.status(200).json(result);
             } else {
-                res.status(400).send('Nenhúm registro encontrado.');
+                res.status(400).send('Nenhum registro encontrado.');
             }
         })
         .catch((error) => {
@@ -46,7 +47,7 @@ function historic(req, res) {
         .catch((error) => {
             console.log(error);
             res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
-        })
+        });
 }
 
 function adicionarPC(req, res) {
@@ -197,6 +198,41 @@ function historicAtividade(req, res) {
     });
 }
 
+function findMetrica(req, res) {
+    computadoresModel.findMetrica(req.params.idComputador)
+    .then((result) => {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).send('Nenhum registro encontrado.');
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    });
+}
+
+function updateMetrica(req, res) {
+    if (
+        req.body.alertaRam >= req.body.alertaCritRam ||
+        req.body.alertaCpu >= req.body.alertaCritCpu ||
+        req.body.alertaDisco >= req.body.alertaCritDisco
+    ) {
+        res.status(500).send('As porcentagens de alerta devem ser menores do que as de estado crítico!');
+        return;
+    }
+
+    computadoresModel.updateMetrica(req.body, req.params.idComputador)
+    .then(() => {
+        res.status(200).send('Registro alterado com sucesso!');
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send('Houve um erro inesperado! Por favor, entre em contato com o nosso suporte.');
+    });
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -206,5 +242,7 @@ module.exports = {
     historicFerramentas,
     historicLeituras,
     historicAtividade,
-    editarPC
+    editarPC,
+    findMetrica,
+    updateMetrica,
 }

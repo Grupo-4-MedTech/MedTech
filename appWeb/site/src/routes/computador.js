@@ -38,4 +38,12 @@ router.get('/historico-atividade/:idDepartamento', function(req, res) {
     computadorController.historicAtividade(req, res);
 });
 
+router.get('/:idComputador/metrica', function(req, res) {
+    computadorController.findMetrica(req, res);
+});
+
+router.put('/:idComputador/metrica', function(req, res) {
+    computadorController.updateMetrica(req, res);
+});
+
 module.exports = router;

@@ -293,3 +293,117 @@ main>nav ul>li {
         padding-right: calc((100vw - 900px)/2);
     }
 }
+
+/* #popup_edit {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    opacity: 1;
+    overflow: hidden;
+} */
+
+#popup_edit {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#card_edit{
+    width: 800px;
+    height: 80%;
+    background: #06a3a8;
+    border-radius: 5em;
+    color: #FFF;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#card_edit .top{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: #d8d8d8 2px solid;
+}
+
+#card_edit .top h2 {
+    display: flex;
+}
+
+#card_edit .top .exit_btn {
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#card_edit .form_edit{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#card_edit .form_edit .column{
+    font-weight: 500;
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 10px;
+    justify-content: space-evenly;
+}
+
+#card_edit .form_edit .column span input{
+    width: 50px;
+    height: 25px;
+    border: solid 2px #000;
+    color: rgb(49, 49, 49);
+    font-weight: 600;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+#card_edit .edit_options{
+    width: 80%;
+    height: 15%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+#card_edit .edit_options button {
+    width: fit-content;
+    height: 50px;
+    font-size: 25px;
+    padding: 3%;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 45px;
+    border: solid #FFF 3px;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

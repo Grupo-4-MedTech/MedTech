@@ -10,4 +10,5 @@
     color: rgb(255, 255, 255);
     font-size: 1.7em;
     text-align: center;
+    z-index: 100;
  }

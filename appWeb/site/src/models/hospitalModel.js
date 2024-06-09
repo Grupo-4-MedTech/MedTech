@@ -89,6 +89,24 @@ function findDepsByFunc(id) {
     return database.executar(query);
 }
 
+function updateMetricas(atributes, fkHospital) {
+    const query = `
+    UPDATE metrica
+    SET 
+        alertaRam = ${atributes.alertaRam},
+        alertaCritRam = ${atributes.alertaCritRam},
+        alertaCpu = ${atributes.alertaCpu},
+        alertaCritCpu = ${atributes.alertaCritCpu},
+        alertaDisco = ${atributes.alertaDisco},
+        alertaCritDisco = ${atributes.alertaCritDisco}
+    WHERE
+        fkComputador = ${fkHospital};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     cadastrar,
     buscarPorId,
@@ -96,5 +114,6 @@ module.exports = {
     find,
     updateHospital,
     listar,
-    findDepsByFunc
+    findDepsByFunc,
+    updateMetricas
 }

@@ -29,4 +29,9 @@ router.get('/listar/:idHospital', function(req, res){
 router.get('/departamentos/:idFuncionario', function(req, res) {
     hospitalController.findDepsByFunc(req, res);
 })
+
+router.put('/:fkHospital/metricas', function(req, res) {
+    hospitalController.updateMetricas(req, res)
+})
+
 module.exports = router;

@@ -1,5 +1,4 @@
 const database = require("../database/config");
-const { update } = require("./funcionarioModel");
 
 function buscarPorId(idHospital) {
     const query = `SELECT * FROM computador WHERE fkHospital = '${idHospital}';`;
@@ -282,6 +281,31 @@ function lastFourFerramentas (idComputador){
     return database.executar(query);
 }
 
+function findMetrica (idComputador) {
+    const query = `SELECT * FROM metrica WHERE fkComputador = ${idComputador};`;
+    
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
+function updateMetrica (atributes, idComputador) {
+    const query = `
+    UPDATE metrica
+    SET 
+        alertaRam = ${atributes.alertaRam},
+        alertaCritRam = ${atributes.alertaCritRam},
+        alertaCpu = ${atributes.alertaCpu},
+        alertaCritCpu = ${atributes.alertaCritCpu},
+        alertaDisco = ${atributes.alertaDisco},
+        alertaCritDisco = ${atributes.alertaCritDisco}
+    WHERE 
+        fkComputador = ${idComputador};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -293,5 +317,7 @@ module.exports = {
     historicAtividade,
     findComputerByDeps,
     lastFourFerramentas,
-    editarPC
+    editarPC,
+    findMetrica,
+    updateMetrica
 }
