@@ -54,10 +54,10 @@ function deleteFiltroFerramenta(idFiltroFerramenta) {
 }
 
 function addFilter() {
-    // if (!input_nomeJanela.value) {
-    //     showMessage(true, BAD_REQUEST);
-    //     return;
-    // }
+    if (!input_nomeJanela.value) {
+        showMessage(true, BAD_REQUEST);
+        return;
+    }
 
     fetch('/hospital/filtroFerramenta', {
         method: 'POST',
