@@ -2,12 +2,14 @@ import Persistencia.Conexao;
 import Persistencia.ConexaoSQL;
 import Registro.Leitura;
 import Registro.LeituraComputador;
+import Registro.LeituraJanela;
 import com.github.britooo.looca.api.group.janelas.Janela;
 import modelo.Departamento;
 import modelo.Hospital;
 import org.springframework.jdbc.core.JdbcTemplate;
 import repositorio.ComputadorRepositorio;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -25,18 +27,13 @@ import java.util.TimerTask;
 public class Main {
 
 
-    static Scanner leitorStr = new Scanner(System.in);
     static Conexao conexao = new Conexao();
     static JdbcTemplate conn = conexao.getConn();
 
     static ConexaoSQL conexaoSQL = new ConexaoSQL();
     static JdbcTemplate connSQL = conexaoSQL.getConn();
 
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("Estamos capturando os dados de sua maquina, jajá poderá ver em seu log.");
-        // Tarefa a ser executada repetidamente
-
-
+    public static void main(String[] args) throws InterruptedException, IOException {
         telaInicial();
     }
 
@@ -67,9 +64,9 @@ public class Main {
         List computadorAutenticado;
         do {
             System.out.println("Código do patrimônio:");
-            String codPatrimonio = leitorStr.next();
+            String codPatrimonio = System.getenv("CODIGO_PATRIMONIO");
             System.out.println("Senha:");
-            String senhaH = leitorStr.next();
+            String senhaH = System.getenv("SENHA_PC");
 
 
             computadorAutenticado = repositorioComputador.autenticarComputador(senhaH, codPatrimonio);
@@ -100,7 +97,9 @@ public class Main {
         try{
             leitura.inserirLeitura();
         } catch (InterruptedException interruptedException){
-            System.out.println("Falha ao inserir dados de leitura (Main)");
+            System.out.println("Erro na Classe Main metodo login()");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     } 
 }

@@ -9,7 +9,10 @@ import log.Log;
 import log.LogLevel;
 import log.LogManager;
 import modelo.Computador;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -40,7 +43,7 @@ public class LeituraComputador extends Leitura{
     }
 
     private Memoria memoria = looca.getMemoria();
-    private int maxDisco;
+    private Double maxDisco = 0.0;
     private DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
     private List<Volume> volumes = grupoDeDiscos.getVolumes();
     private List<Long> porcentagemVolumes;
@@ -80,8 +83,9 @@ public class LeituraComputador extends Leitura{
         this.porcentagemConsumosCpus = looca.getProcessador().getUso();
     }
 
+
     @Override
-    public void inserirLeitura() throws InterruptedException{
+    public void inserirLeitura() throws InterruptedException, IOException {
         for (int i = 1; true; i++) {
 
             this.realizarLeitura();
@@ -97,8 +101,9 @@ public class LeituraComputador extends Leitura{
                     COMANDO DE INSERÇÃO DE LEITURAS DE RAM E CPU:
                     %s \n
                     """, queryRamCpu);
-            conn.execute(queryRamCpu);
-            connSQL.execute(queryRamCpu);
+            executarQuery(conn, queryRamCpu, LeituraComputador.class);
+            executarQuery(connSQL, queryRamCpu, LeituraComputador.class);
+
 
             new LeituraJanela(super.getComputador());
 
@@ -113,19 +118,11 @@ public class LeituraComputador extends Leitura{
                         COMANDO DE INSERÇÃO DE DISCO EM USO: \n
                         %s \n
                         """, queryDisco);
-                conn.execute(queryDisco);
-                connSQL.execute(queryDisco);
+                executarQuery(conn, queryDisco, LeituraComputador.class);
+                executarQuery(connSQL, queryDisco, LeituraComputador.class);
+
                 i = 0;
             }
-
-            if (porcentagemConsumoMemoria >= 70) {
-                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM muito alta", "" + porcentagemConsumoMemoria, LogLevel.PERIGO, HardwareType.RAM), i);
-            } else if (porcentagemConsumoMemoria >= 30) {
-                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.AVISO, HardwareType.RAM), i);
-            } else if (porcentagemConsumoMemoria < 30) {
-                LogManager.salvarLog(new Log(getComputador().getCodPatrimonio() + " consumo de RAM medio", "" + porcentagemConsumoMemoria, LogLevel.BAIXO, HardwareType.RAM), i);
-            }
-
             Thread.sleep(10000);
         }
     }
@@ -134,7 +131,7 @@ public class LeituraComputador extends Leitura{
         Computador comput = super.getComputador();
         comput.setModeloProcessador(this.nomeProcessador);
         comput.setMaxDisco(this.maxDisco);
-        comput.setMaxRam(Integer.parseInt(""+memoria.getTotal()));
+        comput.setMaxRam(Double.parseDouble(""+memoria.getTotal()));
         System.out.println(comput); // DEBUGANDO AINDA :)
     }
 }

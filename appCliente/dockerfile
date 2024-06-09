@@ -1,6 +1,6 @@
 FROM openjdk:17
 WORKDIR /app
-COPY ./ ./
-WORKDIR /app/java/out/artifacts/jar
+COPY /java/out/artifacts/jar/appCliente.jar ./
+
 
 CMD ["java","-jar","appCliente.jar"]

@@ -1,11 +1,26 @@
 version: '3.8'  
 
 services:
+
+  mysql:
+    container_name: bd_medtech
+    image: davifeitosa0/bd_medtech
+    ports:
+      - "3306:3306"
+
   appcliente:  
-    image: nathancavalcante/appcliente:1.0
-    tty: true
-    stdin_open: true
-    command: ["/bin/bash"]
+    container_name: jar_medtech
+    image: davifeitosa0/jar_medtech
+    environment:
+      -  CODIGO_PATRIMONIO=C057689
+      -  SENHA_PC=medtech88 
+    depends_on:
+      - mysql
+
+networks:
+  default:
+    driver: bridge
+
 
   
     

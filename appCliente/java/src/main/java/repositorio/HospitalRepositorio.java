@@ -9,14 +9,17 @@ import java.util.List;
 
 public class HospitalRepositorio {
     
-    final JdbcTemplate conn;// simulando conexão com BD
-    
-    public HospitalRepositorio(JdbcTemplate conn)
+    final JdbcTemplate conn;
+    final JdbcTemplate connSQL;
+
+    public HospitalRepositorio(JdbcTemplate conn, JdbcTemplate connSQL)
     {
         this.conn = conn;
+        this.connSQL = connSQL;
+
     };
 
-    public Hospital buscarHospitalPorId(int id){
-        return conn.queryForObject("SELECT * FROM hospital WHERE idHospital = ?;", new BeanPropertyRowMapper<>(Hospital.class), id);
+    public Hospital buscarHospitalPorId(int id, JdbcTemplate connExec){
+        return connExec.queryForObject("SELECT * FROM hospital WHERE idHospital = ?;", new BeanPropertyRowMapper<>(Hospital.class), id);
     }
 }

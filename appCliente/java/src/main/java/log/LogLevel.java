@@ -1,7 +1,7 @@
 package log;
 
 public enum LogLevel {
-    AVISO,
-    PERIGO,
-    BAIXO;
+    INFO,
+    WARNING,
+    ERROR;
 }

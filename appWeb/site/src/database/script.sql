@@ -84,7 +84,7 @@ CREATE TABLE logAtividade(
 
 CREATE TABLE logComputador (
 	idLogComputador INT PRIMARY KEY AUTO_INCREMENT,
-    grau VARCHAR(7),
+    grau VARCHAR(8),
     causa VARCHAR(50),
     dtOcorrencia DATETIME DEFAULT CURRENT_TIMESTAMP,
 	fkComputador INT NOT NULL,
