@@ -407,3 +407,11 @@ main>nav ul>li {
     justify-content: center;
     cursor: pointer;
 }
+
+.window_name {
+    width: 50%;
+    height: 30px;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 2em;
+}

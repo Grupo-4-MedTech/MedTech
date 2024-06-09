@@ -129,6 +129,48 @@ function updateMetricas(req,res) {
     });
 }
 
+function findFiltrosFerramentas(req, res) {
+    hospitalModel.findFiltrosFerramentas(req.params.idHospital)
+    .then((result) => {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).send(utils.NOT_FOUND);
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send(utils.UNEXPECTED_ERROR);
+    })
+}
+
+function deleteFiltroFerramenta(req, res){
+    hospitalModel.deleteFiltroFerramenta(req.params.idFiltroFerramenta)
+    .then(() => {
+        res.status(200).send(utils.SUCCESSFULLY_DELETED);
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send(utils.UNEXPECTED_ERROR);
+    })
+} 
+
+function createFiltroFerramenta(req, res) {
+    if (!req.body.nome) {
+        res.status(400).send(utils.BAD_REQUEST);
+        return;
+    }
+
+    hospitalModel.createFiltroFerramenta(req.body.nome, req.body.fkHospital)
+    .then(() => {
+        res.status(200).send(utils.SUCCESSFULLY_CREATED);
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send(utils.UNEXPECTED_ERROR);
+    })
+}
+
 module.exports = {
     cadastrar,
     find,
@@ -136,5 +178,8 @@ module.exports = {
     updateHospital,
     listar,
     findDepsByFunc,
-    updateMetricas
+    updateMetricas,
+    findFiltrosFerramentas,
+    deleteFiltroFerramenta,
+    createFiltroFerramenta
 }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários</title>
+  <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/tables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/cards.css">
+  <link rel="stylesheet" href="../css/notification.css">
+  <link rel="stylesheet" href="../CSS/utils.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../script/dashboard.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body onload="loadUser()">
+
+  <header>
+    <div>
+    </div>
+
+    <a href="./geralTI.html">
+      <div class="headerLogo">
+        <img src="../assets/img/medtech-logo2.png">
+      </div>
+    </a>
+    
+    <div class="profileHeader" onclick="toggleOptions()">
+      <div class="profileFrame">
+        <img src="../assets/img/user-avatar.png"> <!--EXEMPLO DE IMG, TROCAR-->
+        <div id="profile_content">
+          <!-- <div class="arrowTop"></div> -->
+          <div class="opContent">
+            <ul>
+              <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
+              </li>
+              <!-- <div id="protectedOptions"> -->
+                <li onclick="window.location.href = 'filtragemJanelas.html'">
+                    <img src="../assets/img/config-computador.png" alt="">
+                    Alertas Slack
+                </li>
+              <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profileName" id="profile_name_header">
+        <span id="profileUserName">
+
+        </span>
+        <i class="fa fa-angle-down"></i>
+      </div>
+      <!-- SUBSTITUIR ONLOAD -->
+    </div>
+  </header>
+
+  <div class="fundo-tabela" id="fundotabela">
+    <div class="row">
+      <div class="tabela">
+        <h1>Configurar filtro de janelas para alerta no slack</h1>
+        <p><a href="#">Nome da janela</a></p>
+        <input class="window_name" id="input_nomeJanela">
+        <button id="add-user" onclick="addFilter()">Adicionar filtro</button>
+
+        <div class="table_scroll">
+          <table id="test-table">
+            <thead>
+              <tr>
+                <th style="background-color: rgb(200, 200, 200); text-align: center;">Nome da Janela</th>
+                <th style="background-color: rgb(200, 200, 200);"></th>
+              </tr>
+            </thead>
+
+            <tbody id="table_body">
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+
+
+
+      <!-- <button class="tiny button right">Add Vehicle</button> -->
+    </div>
+    <div class="escurecerFundo" id="popupDelecao">
+    </div>
+  </div>
+        <div id="message">
+
+        </div>
+    </div>
+  </div>
+
+
+  <button id="btn-voltar" onclick="window.location.href = 'geralGerencia.html'">Voltar</button>
+</body>
+
+</html>
+<script src="../script/utils.js"></script>
+<script src="../script/filtragemJanelas.js">
+</script>
+<script>
+  chkLoginDash();
+  if (sessionStorage.CARGO != 'MEDICO_GERENTE') {
+    sessionStorage.clear();
+    window.location.href = "../index.html";
+  }
+</script>
