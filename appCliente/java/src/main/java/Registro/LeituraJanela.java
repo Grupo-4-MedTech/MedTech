@@ -35,7 +35,7 @@ public class LeituraJanela extends Leitura{
             if (listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Google Chrome") || listaJanela.getTitulo().contains("Firefox") || listaJanela.getTitulo().contains("Opera")) {
                 for (String redeSocial : this.redesSociais) {
                     if(listaJanela.getTitulo().toUpperCase().contains(redeSocial.toUpperCase())){
-                        System.out.println("Cai no if com: " + redeSocial);
+                        System.out.println("Enviando slack referente a guia: " + redeSocial);
 
                         JSONObject json = new JSONObject();
                         json.put("text","\uD83D\uDEA8" + "o computador acessou " +getComputador().getNome() + " acessou a guia " + redeSocial +  "\n" + "INFORMAÇÕES DO COMPUTADOR: \n"+ getComputador());
