@@ -43,7 +43,6 @@ else
 fi
 
 echo "\n Para continuar digite [y] \n"
-read breackpoint
 
 # GitHub
 echo "\n\nBUSCANDO DIRETÓRIO DA APLICAÇÃO...\n\n"
@@ -56,6 +55,7 @@ if [ $? = 0 ]
                 echo "\n\nDIRETÓRIO NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
                 sudo curl -L -H 'Accept: application/vnd.github.v3.raw' -o docker-compose.yml https://api.github.com/repos/Grupo-4-MedTech/MedTech/contents/appCliente/docker-compose.yml?ref=main
 fi
+read breakpoint
 
 cd MedTech
 sudo docker-compose up -d
