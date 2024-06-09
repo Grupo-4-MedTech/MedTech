@@ -23,10 +23,10 @@ public class LeituraJanela extends Leitura{
         super(computador);
         this.listaGuias = new ArrayList<>();
         this.redesSociais = new ArrayList<>();
-        this.redesSociais.add("Google Chrome");
+        this.redesSociais.add("Youtube");
         this.redesSociais.add("X");
-        this.redesSociais.add("Firefox");
-        this.redesSociais.add("Opera");
+        this.redesSociais.add("Facebook");
+        this.redesSociais.add("Instagram");
         realizarLeitura();
     }
 
