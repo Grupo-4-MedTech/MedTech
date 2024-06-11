@@ -45,6 +45,16 @@ CREATE TABLE funcionario(
     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
+CREATE TABLE configEmail (
+    idConfigEmail INT PRIMARY KEY IDENTITY(1000,1),
+    host VARCHAR(100),
+    port INT,
+    email VARCHAR(100),
+    pass VARCHAR(255),
+    fkFuncionario INT,
+    FOREIGN KEY (fkFuncionario) REFERENCES funcionario (idFuncionario) ON DELETE CASCADE
+);
+
 CREATE TABLE departamento(
      idDepartamento INT PRIMARY KEY IDENTITY(1,1),
      nome VARCHAR(45),
@@ -175,29 +185,6 @@ CREATE TABLE contaMedtech(
 CREATE VIEW hospitalWithEndereco AS
 SELECT * FROM hospital JOIN endereco ON fkEndereco = idEndereco;
 
-WITH ParesDeEventos AS (
-    SELECT
-        l.fkComputador,
-        CAST(l.dtOcorrencia AS DATE) AS dia,
-        l.dtOcorrencia AS inicio,
-        MIN(ld.dtOcorrencia) AS fim
-    FROM logAtividade l
-             JOIN logAtividade ld
-              ON l.fkComputador = ld.fkComputador
-              AND l.atividade = 1
-              AND ld.atividade = 0
-              AND ld.dtOcorrencia > l.dtOcorrencia
-    WHERE l.dtOcorrencia >= DATEADD(DAY, -8, GETDATE())
-    GROUP BY l.fkComputador, l.dtOcorrencia
-)
-SELECT
-    dia,
-    fkComputador,
-    (SUM(DATEDIFF(SECOND, inicio, fim)) / 3600.0) AS tempo_ligado
-FROM ParesDeEventos
-WHERE fkComputador = 1
-GROUP BY dia, fkComputador
-ORDER BY dia, fkComputador;
 
 CREATE PROCEDURE delete_hospital
 @id INT
@@ -212,6 +199,42 @@ BEGIN
     DELETE FROM departamento WHERE fkHospital = @id;
     DELETE FROM filtroFerramenta WHERE fkHospital = @id;
     DELETE FROM hospital WHERE idHospital = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_computador
+@id INT
+AS
+BEGIN
+    DELETE FROM metrica WHERE fkComputador = @id;
+    DELETE FROM logComputador WHERE fkComputador = @id;
+    DELETE FROM logAtividade WHERE fkComputador = @id;
+    DELETE FROM leituraDisco WHERE fkComputador = @id;
+    DELETE FROM leituraRamCpu WHERE fkComputador = @id;
+    DELETE FROM leituraFerramenta WHERE fkComputador = @id;
+    DELETE FROM computador WHERE idComputador = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_funcionario
+@id INT
+AS
+BEGIN
+    DELETE FROM acesso WHERE fkComputador = @id;
+    DELETE FROM funcionario WHERE idFuncionario = @id;
+END;
+GO
+
+CREATE TRIGGER insertEmailConfigAfterFunc
+    ON funcionario
+    AFTER
+    INSERT
+    AS
+BEGIN
+    DECLARE @fkFunc INT;
+    SELECT @fkFunc = idFuncionario FROM inserted;
+    INSERT INTO configEmail (host, port, email, pass, fkFuncionario) VALUES
+    ('', 0, '', '', @fkFunc);
 END;
 GO
 
@@ -486,6 +509,9 @@ UPDATE hospital SET dtCriacao = '2024-04-07' WHERE idHospital = 1;
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
 ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
+
+INSERT INTO configEmail (host, port, email, pass, fkFuncionario) VALUES
+('smtp-mail.outlook.com', 587, 'medtech.it.solutions@outlook.com', 'foco1020', 1000);
 
 INSERT INTO departamento (nome, fkHospital) VALUES
 ('Triagem', 1),

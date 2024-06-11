@@ -20,7 +20,7 @@ function buscarUsuarios(){
         }
     })
     .catch((error) => {
-        alert(`Erro inesperado`)
+        showMessage(true,`Erro inesperado`)
     })
 }
 
@@ -36,7 +36,7 @@ function preencherTabela(json){
         conteudo += `<tr>
         <td>${linha.nome}</td>
         <td>${linha.email}</td>
-        <td>${linha.cargo}</td>
+        <td>${listaCargos.nome}</td>
         <td class="editar" onclick="editar(${jsonStringF})"><a> Editar </a></td>
         <td class="deletar" onclick="abrirPopup(${linha.idFuncionario})"><a> Excluir </a></td>
       </tr>`
@@ -44,21 +44,9 @@ function preencherTabela(json){
     });
 
     tabela.innerHTML = conteudo;
-
 }
 
-function editar(funcionario){
-
-        console.log(funcionario)
-    
-        popup.style.display = 'block';
-        fundotabela.style.display = 'none';
-    
-        update_input_nome.value = funcionario.nome;
-        update_input_email.value = funcionario.email;
-        update_select_cargo.value = funcionario.cargo;
-    
-        var listaCargos = [
+var listaCargos = [
             {
             cargo: 'MEDICO_GERENTE',
             nome: 'Médico gerente'
@@ -73,6 +61,18 @@ function editar(funcionario){
             }
         ];
     
+function editar(funcionario){
+
+        console.log(funcionario)
+    
+        popup.style.display = 'block';
+        fundotabela.style.display = 'none';
+    
+        update_input_nome.value = funcionario.nome;
+        update_input_email.value = funcionario.email;
+        update_select_cargo.value = funcionario.cargo;
+    
+        
         update_select_cargo.innerHTML = ""
         for (let i = 0; i < listaCargos.length; i++) {
             if(listaCargos[i].cargo == funcionario.cargo){
@@ -130,16 +130,16 @@ function novoFuncionario() {
             result.text()
             .then(
                 function (text) {
-                message.innerHTML = `Usuário adicionado com sucesso!`
+                showMessage(false,`Usuário adicionado com sucesso!`)
                 window.location.href= './config-usuarios.html'
             })
         }
         else if (result.status == 400 || result.status == 500){
-            message.innerHTML += `Dados inválidos!`
+            showMessage(true,`Dados inválidos!`)
         }
     })
     .catch((erro) => {
-            message.innerHTML = `Não foi possível adicionar o usuário.`
+           showMessage(true, `Não foi possível adicionar o usuário.`)
         }
     )
 }
@@ -152,13 +152,13 @@ function deletarFuncionario(idFuncionario){
         }
     }).then(function (resposta) {
         if (resposta.status == 200) {
-            alert(`Usuário deletado com sucesso!`);
+            showMessage(false,`Usuário deletado com sucesso!`);
             window.location = "./config-usuarios.html"
         } else if (resposta.status == 404) {
-            alert("Não foi possível deletar o funcionário.");
+            showMessage(true,"Não foi possível deletar o funcionário.");
             fecharPopup();
         } else {
-           alert("Erro ao deletar o funcionário. Contate nosso suporte!");
+           showMessage(true, "Erro ao deletar o funcionário. Contate nosso suporte!");
            fecharPopup();
         }
     }).catch(function (resposta) {
@@ -182,11 +182,11 @@ function editarFuncionario(idFuncionario) {
     }).then(function (resposta) {
 
         if (resposta.status == 200) {
-            message.innerHTML += "Alterações salvas com sucesso!"
+            showMessage(false, "Alterações salvas com sucesso!")
         } else if (resposta.status == 400) {
-            message.innerHTML += "Dados inválidos!"
+            showMessage(true,"Dados inválidos!")
         } else {
-            message.innerHTML += "Não foi possível realizar as alterações. Entre em contato com o nosso suporte."
+            showMessage(true,"Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);

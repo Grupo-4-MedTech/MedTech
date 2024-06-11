@@ -131,7 +131,7 @@ function mapOcurrences(json) {
     let disco = 0;
 
     resultsByDate.forEach(element => {
-        data.date.push(element[0].dtOcorrencia);
+        data.date.push(moment(element[0].dtOcorrencia).format('DD/MM/YYYY'));
         data.occurences.push(element.length);
 
         element.forEach(index => {
@@ -162,9 +162,7 @@ function mapOcurrences(json) {
             <td> ${disco} </td>
         </tr>
     `;
-
-    const date = new Date().toISOString();
-    lastUpdate.innerHTML = `Atualizado em: ${date.slice(0, 10).replace(/\-/g, '/')} às ${date.slice(11, 19)}`
+    lastUpdate.innerHTML = `Atualizado em: ${currDateTime()}`;
 
     return data;
 }

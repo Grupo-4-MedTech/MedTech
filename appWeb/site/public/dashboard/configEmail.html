@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelas</title>
+  <title>Cofigurções de Email</title>
   <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/tables.css">
@@ -39,14 +39,20 @@
           <!-- <div class="arrowTop"></div> -->
           <div class="opContent">
             <ul>
-              <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações
-              </li>
-              <!-- <div id="protectedOptions"> -->
-                <li onclick="window.location.href = 'filtragemJanelas.html'">
-                    <img src="../assets/img/config-computador.png" alt="">
-                    Alertas Slack
+                <li onclick="openConfig()"> <img src="../assets/img/engrenagem.png" alt="">Configurações</li>
+                <li onclick="openUserManagement()">
+                    <img src="../assets/img/config-usuario.png" alt="">
+                    Usuários
                 </li>
-              <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
+                <li onclick="openComputerRegistration()">
+                    <img src="../assets/img/config-computador.png" alt="">
+                    Máquinas
+                </li>
+                <li onclick="window.location.href = 'configEmail.html'">
+                    <img style="height: 20px; width: auto" src="../assets/img/white-email.png" alt="email">
+                    Email
+                </li>
+                <li onclick="logout();"><img src="../assets/img/logout.png" alt="">Logout</li>
             </ul>
           </div>
         </div>
@@ -64,31 +70,18 @@
   <div class="fundo-tabela" id="fundotabela">
     <div class="row">
       <div class="tabela">
-        <h1>Configurar filtro de janelas para alerta no slack</h1>
-        <p><a href="#">Nome da janela</a></p>
-        <input class="window_name" id="input_nomeJanela">
-        <button id="add-user" onclick="addFilter()">Adicionar filtro</button>
-
-        <div class="table_scroll">
-          <table id="test-table">
-            <thead>
-              <tr>
-                <th style="background-color: rgb(200, 200, 200); text-align: center;">Nome da Janela</th>
-                <th style="background-color: rgb(200, 200, 200);"></th>
-              </tr>
-            </thead>
-
-            <tbody id="table_body">
-            </tbody>
-
-          </table>
-        </div>
+        <h1>Configurações de enviado de email</h1>
+        <p><a>Host</a></p>
+        <input class="window_name" id="input_host">
+        <p><a>Porta</a></p>
+        <input class="window_name" id="input_porta">
+        <p><a>Email</a></p>
+        <input class="window_name" id="input_email">
+        <p><a>Senha</a></p>
+        <input class="window_name" id="input_senha">
+        <button id="add-user" onclick="updateConfigurations()">Adicionar filtro</button>
 
       </div>
-
-
-
-      <!-- <button class="tiny button right">Add Vehicle</button> -->
     </div>
     <div class="escurecerFundo" id="popupDelecao">
     </div>
@@ -100,16 +93,16 @@
   </div>
 
 
-  <button id="btn-voltar" onclick="window.location.href = 'geralGerencia.html'">Voltar</button>
+  <button id="btn-voltar" onclick="window.location.href = 'geralTI.html'">Voltar</button>
 </body>
 
 </html>
 <script src="../script/utils.js"></script>
-<script src="../script/filtragemJanelas.js">
+<script src="../script/configEmail.js">
 </script>
 <script>
   chkLoginDash();
-  if (sessionStorage.CARGO != 'MEDICO_GERENTE') {
+  if (sessionStorage.CARGO != 'GESTOR_TI') {
     sessionStorage.clear();
     window.location.href = "../index.html";
   }
