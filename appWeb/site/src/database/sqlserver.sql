@@ -211,7 +211,7 @@ BEGIN
     DECLARE @fkFunc INT;
     SELECT @fkFunc = idFuncionario FROM inserted;
     INSERT INTO configEmail (host, port, email, pass, fkFuncionario) VALUES
-    ('', '', '', '', @fkFunc);
+    ('', 0, '', '', @fkFunc);
 END;
 GO
 
@@ -486,6 +486,9 @@ UPDATE hospital SET dtCriacao = '2024-04-07' WHERE idHospital = 1;
 INSERT INTO funcionario (nome, cpf, telefone, cargo, email, senha, fkHospital) VALUES
 ('Fernando Brandão', '12345678910', '11983987068', 'GESTOR_TI', 'fbrandao@sptech.school', 'sptech88', 1),
 ('Verônica Shagas', '59696032908', '11960753138', 'MEDICO_GERENTE', 'veronicaSH@gmail.com', 'sptech88', 1);
+
+INSERT INTO configEmail (host, port, email, pass, fkFuncionario) VALUES
+('smtp-mail.outlook.com', 587, 'medtech.it.solutions@outlook.com', 'foco1020', 1000);
 
 INSERT INTO departamento (nome, fkHospital) VALUES
 ('Triagem', 1),
