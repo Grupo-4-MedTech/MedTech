@@ -46,4 +46,8 @@ router.put('/:idComputador/metrica', function(req, res) {
     computadorController.updateMetrica(req, res);
 });
 
+router.post('/email-manutencao', function(req, res){
+    computadorController.repairMail(req, res);
+})
+
 module.exports = router;

@@ -69,8 +69,7 @@ function fillChart(json = []) {
         }
     });
 
-    const date = new Date().toISOString();
-    lastUpdate.innerHTML = `Atualizado em: ${date.slice(0, 10).replace(/\-/g, '/')} às ${date.slice(11, 19)}`;
+    lastUpdate.innerHTML = `Atualizado em: ${currDateTime()}`;
 
     if (!listeningSelect_data) {
         select_data.addEventListener('change', () => {
@@ -244,7 +243,7 @@ function loadGeral() {
         </div><br><br>
         <div class="att-select">
             <div class="data-atualizacao">
-                <h3 id="lastUpdate"> Atualizado em: 30/04/2024, às 20:32. </h3>
+                <h3 id="lastUpdate"> Atualizado em: ${currDateTime()} </h3>
             </div>
 
             <select class="select-data" id="select_data">
@@ -281,13 +280,12 @@ function loadDepScreen(json, nome){
         compCharts.splice(0, compCharts.length);
     }
 
-    const date = new Date().toISOString();
     dashboard_screendiv.innerHTML = `
     <div class="dashDescription">
         <span class="titulo">
             <h2>${nome}</h2>
         </span>
-        <span>Última atualização: ${date.slice(0, 10).replace(/\-/g, '/')} ${date.slice(11, 19)}</span>
+        <span>Última atualização: ${currDateTime()}</span>
     </div>
     <div class="dashCards">
         <div class="dashLine" id="dash_line">

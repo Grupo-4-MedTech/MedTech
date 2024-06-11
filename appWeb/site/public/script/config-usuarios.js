@@ -44,7 +44,6 @@ function preencherTabela(json){
     });
 
     tabela.innerHTML = conteudo;
-
 }
 
 var listaCargos = [

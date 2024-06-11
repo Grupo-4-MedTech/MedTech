@@ -232,6 +232,16 @@ function findComputerByDeps(fkDepartamento){
     return database.executar(query);
 }
 
+function findComputerById(id) {
+    const query = `
+    SELECT
+    c.*,
+    d.nome nomeDepartamento
+    FROM computador c JOIN departamento d ON c.fkDepartamento = d.idDepartamento WHERE idComputador = ${id};`;
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
+}
+
 function historicAtividade(fkComputador) {
     const query = `
     WITH ParesDeEventos AS (
@@ -319,5 +329,6 @@ module.exports = {
     lastFourFerramentas,
     editarPC,
     findMetrica,
-    updateMetrica
+    updateMetrica,
+    findComputerById
 }

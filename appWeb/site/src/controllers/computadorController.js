@@ -1,6 +1,7 @@
 const computadoresModel = require('../models/computadoresModel');
 const utils = require('../../public/script/utils');
-
+const funcionarioModel = require('../models/funcionarioModel');
+const emailController = require('./emailController')
 
 function buscarPorId(req, res) {
     computadoresModel.buscarPorId(req.params.idHospital)
@@ -233,6 +234,48 @@ function updateMetrica(req, res) {
     });
 }
 
+function repairMail(req, res) {
+    const obj = {
+        date: req.body.date
+    };
+    computadoresModel.findComputerById(req.body.idComputador)
+    .then((result) => {
+        obj.computador = result[0];
+        funcionarioModel.findById(req.body.idFuncionario)
+        .then((result) => {
+            obj.funcionario = result[0];
+            console.log(obj);
+            funcionarioModel.findFuncByAcesso(obj.computador.fkDepartamento)
+            .then((responsaveis) => {
+                let promises = responsaveis.map(row => {
+                    return emailController.repairMail(obj, row)
+                    .then((result) => {
+                        return result;
+                    });
+                });
+    
+                Promise.all(promises)
+                .then((finalResult) => {
+                    console.log(finalResult);
+                    res.status(200).send(utils.SUCCESSFULLY_SENT);
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500).send(utils.UNEXPECTED_ERROR);
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).send(utils.UNEXPECTED_ERROR);
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+        res.status(500).send(utils.UNEXPECTED_ERROR);
+    });
+}
+
 module.exports = {
     buscarPorId,
     findLogs,
@@ -245,4 +288,5 @@ module.exports = {
     editarPC,
     findMetrica,
     updateMetrica,
+    repairMail
 }

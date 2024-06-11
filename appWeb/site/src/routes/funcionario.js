@@ -22,6 +22,14 @@ router.put('/editarFuncionario/:idFuncionario', function(req, res){
 });
 
 router.delete('/deletar/:idFuncionario', function(req, res){
-    funcionarioController.deletarFuncionario(req, res)
+    funcionarioController.deletarFuncionario(req, res);
+});
+
+router.get('/:idFuncionario/configuracoes-email', function(req, res) {
+    funcionarioController.findMailConfig(req, res);
+});
+
+router.put('/:idFuncionario/configuracoes-email', function(req, res) {
+    funcionarioController.updateMailConfig(req, res);
 });
 module.exports = router
