@@ -215,6 +215,29 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE delete_computador
+@id INT
+AS
+BEGIN
+    DELETE FROM metrica WHERE fkComputador = @id;
+    DELETE FROM logComputador WHERE fkComputador = @id;
+    DELETE FROM logAtividade WHERE fkComputador = @id;
+    DELETE FROM leituraDisco WHERE fkComputador = @id;
+    DELETE FROM leituraRamCpu WHERE fkComputador = @id;
+    DELETE FROM leituraFerramenta WHERE fkComputador = @id;
+    DELETE FROM computador WHERE idComputador = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_funcionario
+@id INT
+AS
+BEGIN
+    DELETE FROM acesso WHERE fkComputador = @id;
+    DELETE FROM funcionario WHERE idFuncionario = @id;
+END;
+GO
+
 CREATE PROCEDURE InserirHospital
     @cep VARCHAR(8),
     @rua VARCHAR(100),
