@@ -121,7 +121,7 @@ function editarFuncionario(req, res) {
     const updateNome = req.body.updateNome;
     const updateEmail = req.body.updateEmail;
     const updateCargo = req.body.updateCargo;
-    
+
 
     funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario)
         .then(
@@ -138,6 +138,33 @@ function editarFuncionario(req, res) {
         );
 }
 
+function findMailConfig(req, res) {
+    funcionarioModel.findById(req.params.idFuncionario)
+        .then((result) => {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            }
+            else {
+                res.status(100).send(utils.NOT_FOUND);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).send(utils.UNEXPECTED_ERROR);
+        });
+}
+
+
+function updateMailConfig(req, res) {
+    funcionarioModel.updateMailConfig(req.params.idFuncionario, req.body.host, req.body.port, req.body.email, req.body.pass)
+        .then(() => {
+            res.status(200).send(utils.SUCCESSFULLY_CHANGED);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).send(utils.UNEXPECTED_ERROR);
+        });
+}
 
 module.exports = {
     autenticar,
@@ -145,5 +172,7 @@ module.exports = {
     buscarUsuarios,
     adicionarUsuario,
     deletarFuncionario,
-    editarFuncionario
+    editarFuncionario,
+    findMailConfig,
+    updateMailConfig
 }

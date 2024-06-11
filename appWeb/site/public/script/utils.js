@@ -4,7 +4,13 @@ const SUCCESSFULLY_CHANGED = 'Registro alterado com sucesso!';
 const INVALID_ALERT_DATA = 'As porcentagens de alerta devem ser menores do que as de estado crítico!';
 const BAD_REQUEST = 'Os dados fornecidos são inválidos!';
 const SUCCESSFULLY_CREATED = 'Registro criado com sucesso!';
-const SUCCESSFULLY_DELETED= 'Registro deletado com sucesso!';
+const SUCCESSFULLY_DELETED = 'Registro deletado com sucesso!';
+const SUCCESSFULLY_SENT = 'Enviado com sucesso!';
+
+function currDateTime() {
+    const date = moment();
+    return date.format(`DD/MM/YYYY HH:mm:ss`).replace(' ', ' às ');
+}
 
 function showMessage(error, text) {
     const messageCard = document.getElementById('message');
@@ -82,6 +88,10 @@ function profileOptions() {
             <img src="../assets/img/config-computador.png" alt="">
             Máquinas
         </li>
+        <li onclick="window.location.href = 'configEmail.html'">
+            <img style="height: 20px; width: auto" src="../assets/img/white-email.png" alt="email">
+            Email
+        </li>
         `;
     } else if (sessionStorage.CARGO === 'MEDICO_GERENTE') {
          content += `
@@ -105,5 +115,6 @@ module.exports = {
     INVALID_ALERT_DATA,
     BAD_REQUEST,
     SUCCESSFULLY_CREATED,
-    SUCCESSFULLY_DELETED
+    SUCCESSFULLY_DELETED,
+    SUCCESSFULLY_SENT
 }

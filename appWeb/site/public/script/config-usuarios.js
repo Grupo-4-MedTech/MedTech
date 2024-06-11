@@ -44,10 +44,9 @@ function preencherTabela(json){
     });
 
     tabela.innerHTML = conteudo;
-
 }
 
-function editar(funcionario){
+function editar(funcionario) {
 
         console.log(funcionario)
     
