@@ -116,10 +116,9 @@ function novoComputador() {
     }).then((result) => {
         if (result.status == 200) {
             showMessage(true,`Máquina cadastrada!`)
-
+            window.location.href = '../config-maquinas.html'
             result.json().then(function (json) {
                 
-                window.location.href = '../config-maquinas.html'
             })
 
         } else {
