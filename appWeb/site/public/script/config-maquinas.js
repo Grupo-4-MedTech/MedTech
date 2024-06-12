@@ -116,7 +116,7 @@ function novoComputador() {
     }).then((result) => {
         if (result.status == 200) {
             showMessage(true,`Máquina cadastrada!`)
-            window.location.href = '../config-maquinas.html'
+            window.location = "../dashboard/config-maquinas.html"
             result.json().then(function (json) {
                 
             })
@@ -157,7 +157,7 @@ function deletarPC(idComputador) {
     }).then(function (resposta) {
         if (resposta.status = 200) {
             showMessage(false, `Máquina deletada com sucesso!`)
-            window.location = "../config-maquinas.html"
+            window.location = "../dashboard/config-maquinas.html"
         } else if (resposta.status == 404) {
             showMessage(true, "Não foi possível deletar a máquina.");
         } else {
@@ -185,11 +185,10 @@ function editarPC(idComputador) {
 
     }).then(function (resposta) {
 
-        if (resposta.status == 200) {
+        if (resposta.ok) {
             showMessage(false,"Alterações salvas com sucesso!")
-        } else if (resposta.status == 400) {
-            showMessage(true,"Dados inválidos!")
-        } else {
+            window.location = "../dashboard/config-maquinas.html"
+        }else {
             showMessage(true, "Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
     }).catch(function (resposta) {
