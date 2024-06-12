@@ -156,12 +156,12 @@ function deletarPC(idComputador) {
         }
     }).then(function (resposta) {
         if (resposta.status = 200) {
-            alert(`Máquina deletada com sucesso!`)
-            window.location = "./config-maquinas.html"
+            showMessage(false, `Máquina deletada com sucesso!`)
+            window.location = "../config-maquinas.html"
         } else if (resposta.status == 404) {
-            alert("Não foi possível deletar a máquina.");
+            showMessage(true, "Não foi possível deletar a máquina.");
         } else {
-            alert("Erro ao deletar a máquina. Contate nosso suporte!");
+            showMessage(true, "Erro ao deletar a máquina. Contate nosso suporte!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
@@ -186,11 +186,11 @@ function editarPC(idComputador) {
     }).then(function (resposta) {
 
         if (resposta.status == 200) {
-            message.innerHTML += "Alterações salvas com sucesso!"
+            showMessage(false,"Alterações salvas com sucesso!")
         } else if (resposta.status == 400) {
-            message.innerHTML += "Dados inválidos!"
+            showMessage(true,"Dados inválidos!")
         } else {
-            message.innerHTML += "Não foi possível realizar as alterações. Entre em contato com o nosso suporte."
+            showMessage(true, "Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
