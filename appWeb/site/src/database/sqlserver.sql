@@ -12,16 +12,16 @@ CREATE TABLE endereco(
 );
 
 CREATE TABLE hospital(
-     idHospital INT PRIMARY KEY IDENTITY(1,1),
-     nomeFantasia VARCHAR(100),
-     razaoSocial VARCHAR(100) NOT NULL,
-     cnpj CHAR(14) UNIQUE NOT NULL,
-     senha VARCHAR(255) NOT NULL,
-     email VARCHAR(100) UNIQUE NOT NULL,
-     dtCriacao DATETIME DEFAULT GETDATE(),
-     verificado BIT,
-     fkEndereco INT NOT NULL,
-     FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
+    idHospital INT PRIMARY KEY IDENTITY(1,1),
+    nomeFantasia VARCHAR(100),
+    razaoSocial VARCHAR(100) NOT NULL,
+    cnpj CHAR(14) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    dtCriacao DATETIME DEFAULT GETDATE(),
+    verificado BIT,
+    fkEndereco INT NOT NULL,
+    FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco)
 );
 
 CREATE TABLE filtroFerramenta (
@@ -56,10 +56,10 @@ CREATE TABLE configEmail (
 );
 
 CREATE TABLE departamento(
-     idDepartamento INT PRIMARY KEY IDENTITY(1,1),
-     nome VARCHAR(45),
-     fkHospital INT NOT NULL,
-     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idDepartamento INT PRIMARY KEY IDENTITY(1,1),
+    nome VARCHAR(45),
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE acesso(
@@ -92,55 +92,55 @@ CREATE TABLE computador(
 );
 
 CREATE TABLE logAtividade(
-     idLogAtividade INT PRIMARY KEY IDENTITY(1,1),
-     atividade BIT NOT NULL,
-     dtOcorrencia DATETIME DEFAULT GETDATE(),
-     fkComputador INT NOT NULL,
-     fkDepartamento INT NOT NULL,
-     fkHospital INT NOT NULL,
-     FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-     FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idLogAtividade INT PRIMARY KEY IDENTITY(1,1),
+    atividade BIT NOT NULL,
+    dtOcorrencia DATETIME DEFAULT GETDATE(),
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE logComputador (
-       idLogComputador INT PRIMARY KEY IDENTITY(1,1),
-       grau VARCHAR(7),
-       causa VARCHAR(50),
-       dtOcorrencia DATETIME DEFAULT GETDATE(),
-       fkComputador INT NOT NULL,
-       fkDepartamento INT NOT NULL,
-       fkHospital INT NOT NULL,
-       CHECK (grau IN('crítico', 'alerta', 'estável')),
-       CHECK (causa IN('ram', 'cpu', 'disco')),
-       FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-       FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-       FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idLogComputador INT PRIMARY KEY IDENTITY(1,1),
+    grau VARCHAR(7),
+    causa VARCHAR(50),
+    dtOcorrencia DATETIME DEFAULT GETDATE(),
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    CHECK (grau IN('crítico', 'alerta', 'estável')),
+    CHECK (causa IN('ram', 'cpu', 'disco')),
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraRamCpu(
-      idLeituraRamCpu INT PRIMARY KEY IDENTITY(1,1),
-      ram FLOAT,
-      cpu FLOAT,
-      dataLeitura DATETIME DEFAULT GETDATE(),
-      fkComputador INT NOT NULL,
-      fkDepartamento INT NOT NULL,
-      fkHospital INT NOT NULL,
-      FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-      FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-      FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idLeituraRamCpu INT PRIMARY KEY IDENTITY(1,1),
+    ram FLOAT,
+    cpu FLOAT,
+    dataLeitura DATETIME DEFAULT GETDATE(),
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraDisco(
-     idLeituraDisco INT PRIMARY KEY IDENTITY(1,1),
-     disco FLOAT,
-     dataLeitura DATETIME DEFAULT GETDATE(),
-     fkComputador INT NOT NULL,
-     fkDepartamento INT NOT NULL,
-     fkHospital INT NOT NULL,
-     FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
-     FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
-     FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    idLeituraDisco INT PRIMARY KEY IDENTITY(1,1),
+    disco FLOAT,
+    dataLeitura DATETIME DEFAULT GETDATE(),
+    fkComputador INT NOT NULL,
+    fkDepartamento INT NOT NULL,
+    fkHospital INT NOT NULL,
+    FOREIGN KEY (fkComputador) REFERENCES computador(idComputador),
+    FOREIGN KEY (fkDepartamento) REFERENCES departamento(idDepartamento),
+    FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE leituraFerramenta(
@@ -173,12 +173,12 @@ CREATE TABLE metrica (
 );
 
 CREATE TABLE contaMedtech(
-     idContaMedtech INT PRIMARY KEY IDENTITY(1,1),
-     nome VARCHAR(100),
-     cpf CHAR(11) UNIQUE,
-     token CHAR(255),
-     email VARCHAR(100) UNIQUE,
-     senha VARCHAR(255)
+    idContaMedtech INT PRIMARY KEY IDENTITY(1,1),
+    nome VARCHAR(100),
+    cpf CHAR(11) UNIQUE,
+    token CHAR(255),
+    email VARCHAR(100) UNIQUE,
+    senha VARCHAR(255)
 );
 
 -- View
@@ -193,12 +193,38 @@ BEGIN
     DELETE FROM leituraDisco WHERE fkHospital = @id;
     DELETE FROM leituraRamCpu WHERE fkHospital = @id;
     DELETE FROM leituraFerramenta WHERE fkHospital = @id;
+    DELETE FROM metrica WHERE fkHospital = @id;
+    DELETE FROM logComputador WHERE fkHospital = @id;
+    DELETE FROM logAtividade WHERE fkHospital = @id;
     DELETE FROM computador WHERE fkHospital = @id;
     DELETE FROM acesso WHERE fkHospital = @id;
     DELETE FROM funcionario WHERE fkHospital = @id;
     DELETE FROM departamento WHERE fkHospital = @id;
     DELETE FROM filtroFerramenta WHERE fkHospital = @id;
     DELETE FROM hospital WHERE idHospital = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_computador
+@id INT
+AS
+BEGIN
+    DELETE FROM metrica WHERE fkComputador = @id;
+    DELETE FROM logComputador WHERE fkComputador = @id;
+    DELETE FROM logAtividade WHERE fkComputador = @id;
+    DELETE FROM leituraDisco WHERE fkComputador = @id;
+    DELETE FROM leituraRamCpu WHERE fkComputador = @id;
+    DELETE FROM leituraFerramenta WHERE fkComputador = @id;
+    DELETE FROM computador WHERE idComputador = @id;
+END;
+GO
+
+CREATE PROCEDURE delete_funcionario
+@id INT
+AS
+BEGIN
+    DELETE FROM acesso WHERE fkFuncionario = @id;
+    DELETE FROM funcionario WHERE idFuncionario = @id;
 END;
 GO
 
@@ -396,7 +422,6 @@ GO
 CREATE PROCEDURE dbo.SetComputadorAtividade
 AS
 BEGIN
-    -- Update to set atividade to 0 for inactive computers
     UPDATE c
     SET c.atividade = 0
     FROM computador c
@@ -407,7 +432,6 @@ BEGIN
     ) l ON c.idComputador = l.fkComputador
     WHERE l.ultimaLeitura IS NULL OR l.ultimaLeitura <= DATEADD(HOUR, -1, CURRENT_TIMESTAMP);
 
-    -- Update to set atividade to 1 for active computers
     UPDATE c
     SET c.atividade = 1
     FROM computador c

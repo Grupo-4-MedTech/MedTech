@@ -45,17 +45,18 @@ fi
 echo "\n Para continuar digite [y] \n"
 
 # GitHub
-echo "\n\nBUSCANDO DIRETÓRIO DA APLICAÇÃO...\n\n"
-sudo ls MedTech
+echo "\n\nBUSCANDO COMPOSE DA APLICAÇÃO...\n\n"
+sudo ls docker-compose.yml
 
 if [ $? = 0 ]
         then
-                echo "\n\nDIRETÓRIO ENCONTRADO.\n\n"
+                echo "\n\nCOMPOSE ENCONTRADO.\n\n"
         else
-                echo "\n\nDIRETÓRIO NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
+                echo "\n\nCOMPOSE NÃO ENCONTRADO. INSTALANDO APLICAÇÃO...\n\n"
                 sudo curl -L -H 'Accept: application/vnd.github.v3.raw' -o docker-compose.yml https://api.github.com/repos/Grupo-4-MedTech/MedTech/contents/appCliente/docker-compose.yml?ref=main
 fi
+echo "\n Para subir o compose digite [y] \n"
+
 read breakpoint
 
-cd MedTech
 sudo docker-compose up -d

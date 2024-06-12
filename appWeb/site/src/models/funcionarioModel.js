@@ -57,7 +57,7 @@ function adicionarUsuario(nome, email, cargo, fkHospital){
     return database.executar(query);
 }
 function deletar(idFuncionario){
-    const query = `DELETE FROM funcionario WHERE idFuncionario = ${idFuncionario}`
+    const query = `EXEC delete_funcionario ${idFuncionario};`
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }

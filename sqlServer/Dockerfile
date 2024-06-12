@@ -8,8 +8,8 @@ ENV SA_PASSWORD=medtech123
 ENV ACCEPT_EULA=Y
 ## RUN cp sqlserver.sql /tmp
 
-##  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '#Gf24030085830' -i /tmp/sqlserver.sql
-##  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '#Gf24030085830'
+##  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '' -i /tmp/sqlserver.sql
+##  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P ''
 
 ##  USE medtech;
 ##  GO

@@ -19,7 +19,7 @@ function buscarComputadores() {
             }
         })
         .catch((error) => {
-            alert(`Erro inesperado`)
+            showMessage(true,`Erro inesperado`)
             console.log(error)
         })
 
