@@ -12,7 +12,7 @@ services:
     container_name: jar_medtech
     image: davifeitosa0/jar_medtech
     environment:
-      -  CODIGO_PATRIMONIO=C057689
+      -  CODIGO_PATRIMONIO=C056689
       -  SENHA_PC=medtech88 
     depends_on:
       - mysql
