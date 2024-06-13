@@ -4,8 +4,8 @@ const nodeMailer = require('nodemailer');
 function emailCadastro(hospital){
     const transporter = nodeMailer.createTransport({
         host: "smtp-mail.outlook.com",
-        port: 465,
-        secure: true,
+        port: 587,
+        secure: false,
         auth: {
             user: "medtech.it.solutions@outlook.com",
             pass: "foco1020"
