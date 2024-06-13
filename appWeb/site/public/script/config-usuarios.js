@@ -152,16 +152,16 @@ function deletarFuncionario(idFuncionario){
         headers:{
             "Content-Type":"application/json"
         }
-    }).then(function (resposta) {
-        if (resposta.status == 200) {
+    }).then(function (resultado) {
+        if (resultado.status == 200) {
             showMessage(false,`Usuário deletado com sucesso!`);
             window.location = "./config-usuarios.html"
         }else {
            showMessage(true, "Erro ao deletar o funcionário. Contate nosso suporte!");
            fecharPopup();
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+    }).catch(function (resultado) {
+        console.log(`#ERRO: ${resultado}`);
     });
 }
 
@@ -178,15 +178,16 @@ function editarFuncionario(idFuncionario) {
             updateCargo: update_select_cargo.value
         })
 
-    }).then(function (resposta) {
+    }).then(function (resultado) {
 
-        if (resposta.ok) {
+        if (resultado.status == 200) {
             showMessage(false, "Alterações salvas com sucesso!")
+            window.location = "./config-usuarios.html"
         } else {
             showMessage(true,"Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+    }).catch(function (resultado) {
+        console.log(`#ERRO: ${resultado}`);
     });
 }
 

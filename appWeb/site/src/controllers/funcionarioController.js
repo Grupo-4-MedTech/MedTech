@@ -126,7 +126,7 @@ function editarFuncionario(req, res) {
     funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario)
         .then(
             function (resultado) {
-                res.json(resultado);
+                res.status(200).json(resultado);
             }
         )
         .catch(

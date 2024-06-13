@@ -115,7 +115,7 @@ function novoComputador() {
         },
     }).then((result) => {
         if (result.status == 200) {
-            showMessage(true,`Máquina cadastrada!`)
+            showMessage(false,`Máquina cadastrada!`)
             window.location = "../dashboard/config-maquinas.html"
             result.json().then(function (json) {
                 
@@ -154,17 +154,17 @@ function deletarPC(idComputador) {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(function (resposta) {
-        if (resposta.status = 200) {
+    }).then(function (resultado) {
+        if (resultado.status == 200) {
             showMessage(false, `Máquina deletada com sucesso!`)
             window.location = "../dashboard/config-maquinas.html"
-        } else if (resposta.status == 404) {
+        } else if (resultado.status == 404) {
             showMessage(true, "Não foi possível deletar a máquina.");
         } else {
             showMessage(true, "Erro ao deletar a máquina. Contate nosso suporte!");
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+    }).catch(function (resultado) {
+        console.log(`#ERRO: ${resultado}`);
     });
 }
 
@@ -183,16 +183,16 @@ function editarPC(idComputador) {
             updateSenha: update_input_senha.value
         })
 
-    }).then(function (resposta) {
+    }).then(function (resultado) {
 
-        if (resposta.ok) {
+        if (resultado.status == 200) {
             showMessage(false,"Alterações salvas com sucesso!")
             window.location = "../dashboard/config-maquinas.html"
         }else {
             showMessage(true, "Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+    }).catch(function (resultado) {
+        console.log(`#ERRO: ${resultado}`);
     });
 }
 
