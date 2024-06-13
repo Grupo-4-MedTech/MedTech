@@ -4,7 +4,7 @@ var sql = require('mssql');
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
     user: 'sa',         // Usuário do SQL Server
-    password: '#Gf24030085830',       // Senha do SQL Server
+    password: 'medtech',       // Senha do SQL Server
     server: 'localhost',      // Endereço do servidor SQL
     database: 'medtech', // Nome do banco de dados
     options: {
@@ -29,7 +29,9 @@ function executar(instrucao) {
                 return sql.query(instrucao);
             }).then(function (resultados) {
                 console.log(resultados);
-                resolve(resultados.recordset);
+                const res = resultados.recordset;
+                res.push({extras: resultados});
+                resolve(res);
             }).catch(function (erro) {
                 reject(erro);
                 console.log('ERRO: ', erro);
