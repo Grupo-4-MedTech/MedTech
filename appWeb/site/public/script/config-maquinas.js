@@ -154,7 +154,7 @@ function deletarPC(idComputador) {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(function (resultado) {
+    }).then((resultado) => {
         if (resultado.status == 200) {
             showMessage(false, `Máquina deletada com sucesso!`)
             window.location = "../dashboard/config-maquinas.html"
@@ -163,7 +163,7 @@ function deletarPC(idComputador) {
         } else {
             showMessage(true, "Erro ao deletar a máquina. Contate nosso suporte!");
         }
-    }).catch(function (resultado) {
+    }).catch((resultado) => {
         console.log(`#ERRO: ${resultado}`);
     });
 }
@@ -183,7 +183,7 @@ function editarPC(idComputador) {
             updateSenha: update_input_senha.value
         })
 
-    }).then(function (resultado) {
+    }).then((resultado) => {
 
         if (resultado.status == 200) {
             showMessage(false,"Alterações salvas com sucesso!")
@@ -191,7 +191,7 @@ function editarPC(idComputador) {
         }else {
             showMessage(true, "Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
-    }).catch(function (resultado) {
+    }).catch((resultado) => {
         console.log(`#ERRO: ${resultado}`);
     });
 }
