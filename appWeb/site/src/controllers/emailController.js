@@ -33,8 +33,8 @@ function emailCadastro(hospital){
 function repairMail(obj, responsavel) {
     const transporter = nodeMailer.createTransport({
         host: obj.funcionario.host,
-        port: 465,
-        secure: true,
+        port: 587,
+        secure: false,
         auth: {
             user: obj.funcionario.email,
             pass: obj.funcionario.pass
