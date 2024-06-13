@@ -40,8 +40,3 @@ function closeConfig() {
     profile_content.style.display = 'none';
 
 }
-
-function logout() {
-    /* desconectar usuário antes */
-    window.location = "../index.html";
-}
