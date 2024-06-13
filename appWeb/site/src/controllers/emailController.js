@@ -4,8 +4,8 @@ const nodeMailer = require('nodemailer');
 function emailCadastro(hospital){
     const transporter = nodeMailer.createTransport({
         host: "smtp-mail.outlook.com",
-        port: 587,
-        secure: false,
+        port: 465,
+        secure: true,
         auth: {
             user: "medtech.it.solutions@outlook.com",
             pass: "foco1020"
@@ -33,8 +33,8 @@ function emailCadastro(hospital){
 function repairMail(obj, responsavel) {
     const transporter = nodeMailer.createTransport({
         host: obj.funcionario.host,
-        port: obj.funcionario.port,
-        secure: false,
+        port: 465,
+        secure: true,
         auth: {
             user: obj.funcionario.email,
             pass: obj.funcionario.pass

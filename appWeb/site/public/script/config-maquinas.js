@@ -83,12 +83,19 @@ function btnNovoComputador() {
     PCpopup.style.display = 'block';
     fundotabela.style.display = 'none';
     document.getElementById('btn-voltar').onclick = function () {
-        PCpopup.style.display = 'none';
-        fundotabela.style.display = 'flex';
-        document.getElementById('btn-voltar').onclick = function () {
-            voltar();
-        }
+       updateInfos();
+    document.getElementById('btn-voltar').onclick = function () {
+        voltar();
     }
+    }
+}
+
+function updateInfos() {
+    const popup = document.getElementById('popupDelecao');
+    popup.style.display = 'none';
+    PCpopup.style.display = 'none';
+    fundotabela.style.display = 'flex';
+    buscarComputadores();
 }
 
 function voltar() {
@@ -114,17 +121,12 @@ function novoComputador() {
             "Content-Type": "application/json",
         },
     }).then((result) => {
-        if (result.status == 200) {
-            showMessage(false,`Máquina cadastrada!`)
-            window.location = "../dashboard/config-maquinas.html"
-            result.json().then(function (json) {
-                
-            })
-
-        } else {
-            showMessage(true,`Não foi possível cadastrar a máquina`)
-
-        }
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            if (result.status === 200) {
+                setTimeout(() => {updateInfos()}, 2000);
+            }
+        })
     })
 }
 
@@ -154,15 +156,13 @@ function deletarPC(idComputador) {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then((resultado) => {
-        if (resultado.status == 200) {
-            showMessage(false, `Máquina deletada com sucesso!`)
-            window.location = "../dashboard/config-maquinas.html"
-        } else if (resultado.status == 404) {
-            showMessage(true, "Não foi possível deletar a máquina.");
-        } else {
-            showMessage(true, "Erro ao deletar a máquina. Contate nosso suporte!");
-        }
+    }).then((result) => {
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            if (result.status === 200) {
+                updateInfos();
+            }
+        })
     }).catch((resultado) => {
         console.log(`#ERRO: ${resultado}`);
     });
@@ -183,16 +183,16 @@ function editarPC(idComputador) {
             updateSenha: update_input_senha.value
         })
 
-    }).then((resultado) => {
-
-        if (resultado.status == 200) {
-            showMessage(false,"Alterações salvas com sucesso!")
-            window.location = "../dashboard/config-maquinas.html"
-        }else {
-            showMessage(true, "Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
-        }
-    }).catch((resultado) => {
-        console.log(`#ERRO: ${resultado}`);
+    }).then((result) => {
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            setTimeout(() => {
+                popup.style.display = 'none';
+                fundotabela.style.display = 'flex';
+            }, 1500);
+        });
+    }).catch(() => {
+        showMessage(true, UNEXPECTED_ERROR);
     });
 }
 
@@ -210,10 +210,6 @@ function abrirPopup(idComputador){
       <button class="botaoCancelar" onclick="fecharPopup()">Cancelar</button>
     </div>
   </div>`
-}
-function fecharPopup(){
-    const popup = document.getElementById('popupDelecao');
-    popup.style.display = 'none';
 }
 
 buscarComputadores()

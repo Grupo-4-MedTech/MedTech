@@ -60,7 +60,7 @@ function printComputers(json = [], state) {
         div_dashLine.innerHTML += `
         <div class="dashCard">
             <h3 style="display: flex; flex-direction: row">
-                <span style="margin-right: 150px">${row.nome}</span>
+                <span style="margin-right: 5px">${row.nome}</span>
                 <i style="width: 22px; heigth: 22px; background-color: gray; display: flex; align-items: center; justify-content: center; border: 0px #FFF solid; border-radius: 5px; cursor: pointer">
                     <img onclick="configComp(${row.idComputador})" style="height: 20px; width: auto" src="../assets/img/engrenagem.png" alt="configurar métricas">
                 </i>

@@ -70,13 +70,6 @@ function fillChart(json = []) {
     });
 
     lastUpdate.innerHTML = `Atualizado em: ${currDateTime()}`;
-
-    if (!listeningSelect_data) {
-        select_data.addEventListener('change', () => {
-            searchHistory();
-        });
-        listeningSelect_data = true;
-    }
 }
 
 function searchKpisData() {
@@ -172,7 +165,7 @@ function loadNavBar(json = []) {
 
     json.forEach(row => {
         content += `
-        <a onclick="searchCompByDep(${row.idDepartamento}, '${row.nome}')">
+        <a style="cursor: pointer" onclick="searchCompByDep(${row.idDepartamento}, '${row.nome}')">
             <li>${row.nome}</li>
         </a>
         `;
@@ -264,6 +257,10 @@ function loadGeral() {
 
         </div>
     `;
+
+        select_data.addEventListener('change', () => {
+            searchHistory();
+        });
 
     searchHistory();
     searchDeps();

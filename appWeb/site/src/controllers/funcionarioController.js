@@ -103,15 +103,15 @@ function deletarFuncionario(req, res) {
 
     funcionarioModel.deletar(idFuncionario)
         .then(
-            function (resultado) {
-                res.status(200).json(resultado);
+            function () {
+                res.status(200).send(utils.SUCCESSFULLY_DELETED);
             }
         )
         .catch(
             function (erro) {
                 console.log(erro);
                 console.log("Houve um erro ao deletar o funcionário");
-                res.status(500).json(erro.sqlMessage);
+                res.status(500).send(utils.UNEXPECTED_ERROR);
             }
         );
 }
@@ -126,14 +126,14 @@ function editarFuncionario(req, res) {
     funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario)
         .then(
             function (resultado) {
-                res.status(200).json(resultado);
+                res.status(200).send(utils.SUCCESSFULLY_CHANGED);
             }
         )
         .catch(
             function (erro) {
                 console.log(erro);
                 console.log("Houve um erro ao editar o usuário");
-                res.status(500).json(erro.sqlMessage);
+                res.status(500).send(utils.UNEXPECTED_ERROR);
             }
         );
 }

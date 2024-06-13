@@ -1,7 +1,8 @@
 const computadoresModel = require('../models/computadoresModel');
 const utils = require('../../public/script/utils');
 const funcionarioModel = require('../models/funcionarioModel');
-const emailController = require('./emailController')
+const emailController = require('./emailController');
+const moment = require('moment-timezone');
 
 function buscarPorId(req, res) {
     computadoresModel.buscarPorId(req.params.idHospital)
@@ -63,16 +64,16 @@ function adicionarPC(req, res) {
         !/^[a-zA-Z0-9\s]{7,50}$/.test(codPatrimonio) ||
         !/^[a-zA-Z0-9!@#$%^&*()]{8,25}$/.test(senha)
     ) {
-        res.status(400).send('Dados incorretos');
+        res.status(400).send(utils.BAD_REQUEST);
     } else {
         computadoresModel.adicionarPC(nome, codPatrimonio, departamento, senha, fkHospital)
         
             .then(
-                function (result) {
+                function () {
                     res.status(200).send(utils.SUCCESSFULLY_CHANGED)
                 }
             ).catch(
-                function (erro) {
+                function () {
                     res.status(500).send(utils.UNEXPECTED_ERROR);
                 }
             );
@@ -86,15 +87,13 @@ function deletarPC(req, res) {
 
     computadoresModel.deletar(idComputador)
         .then(
-            function (resultado) {
-                res.status(200).json(resultado);
+            function () {
+                res.status(200).send(utils.SUCCESSFULLY_DELETED);
             }
         )
         .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao deletar a máquina");
-                res.status(500).json(erro.sqlMessage);
+            function () {
+                res.status(500).send(utils.UNEXPECTED_ERROR);
             }
         );
 }
@@ -141,15 +140,15 @@ function editarPC(req, res) {
 
     computadoresModel.editarPC(updateNome, updateCodPatrimonio, updateSenha, updateDepartamento, idComputador)
         .then(
-            function (resultado) {
-                res.json(resultado);
+            function () {
+                res.status(200).send(utils.SUCCESSFULLY_CHANGED);
             }
         )
         .catch(
             function (erro) {
                 console.log(erro);
-                console.log("Houve um erro ao editar o computador");
-                res.status(500).json(erro.sqlMessage);
+                res.send(utils.UNEXPECTED_ERROR);
+                res.status(500)
             }
         );
 }
@@ -171,7 +170,10 @@ function historicAtividade(req, res) {
                 promises = updatedResult.map(row => {
                     return computadoresModel.lastFourFerramentas(row.idComputador)
                     .then((result_) => {
-                        row.ultimasFerramentas = result_;
+                        row.ultimasFerramentas = result_.map((x) => {
+                            x.dtLeitura = moment(x.dtLeitura).tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm');
+                            return x;
+                        });
                         return row;
                     });
                 })

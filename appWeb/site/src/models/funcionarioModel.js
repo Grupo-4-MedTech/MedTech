@@ -12,8 +12,7 @@ function autenticar(senha, email) {
 
 function findById(id) {
     const query = `
-    SELECT c.* FROM funcionario f JOIN configEmail c ON c.fkFuncionario = f.idFuncionario WHERE f.idFuncionario = ${id};
-    `;
+    SELECT c.* FROM funcionario f JOIN configEmail c ON c.fkFuncionario = f.idFuncionario WHERE f.idFuncionario = ${id};`;
 
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);

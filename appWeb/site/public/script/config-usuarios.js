@@ -11,16 +11,15 @@ function buscarUsuarios(){
         if(result.status == 200){
             result.json().then(function(json){
                 preencherTabela(json)
-            })
-        }
-        else{
-            result.text().then(function(text){
-                // alert(text)
-            })
+            });
+        } else {
+            result.text().then((text) => {
+                showMessage(result.status === 500, text);
+            });
         }
     })
-    .catch((error) => {
-        showMessage(true,`Erro inesperado`)
+    .catch(() => {
+        showMessage(true, UNEXPECTED_ERROR);
     })
 }
 
@@ -104,6 +103,13 @@ function btnNovoFuncionario() {
     }
 }
 
+function reload() {
+    popupFuncionario.style.display = 'none';
+    popup.style.display = 'none';
+    fundotabela.style.display = 'flex';
+    buscarUsuarios();
+}
+
 
 function voltar() {
     window.location = "./geralTI.html";
@@ -128,22 +134,17 @@ function novoFuncionario() {
         },
         
     }).then((result) => {
-        if (result.status == 200) {
-            result.text()
-            .then(
-                function (text) {
-                showMessage(false,`Usuário adicionado com sucesso!`)
-                window.location.href= './config-usuarios.html'
-            })
-        }
-        else if (result.status == 400 || result.status == 500){
-            showMessage(true,`Dados inválidos!`)
-        }
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            setTimeout(() => {
+                reload();
+            }, 1500);
+        });
     })
-    .catch((erro) => {
-           showMessage(true, `Não foi possível adicionar o usuário.`)
+    .catch(() => {
+           showMessage(true, UNEXPECTED_ERROR)
         }
-    )
+    );
 }
 
 function deletarFuncionario(idFuncionario){
@@ -152,14 +153,14 @@ function deletarFuncionario(idFuncionario){
         headers:{
             "Content-Type":"application/json"
         }
-    }).then((resultado) => {
-        if (resultado.status == 200) {
-            showMessage(false,`Usuário deletado com sucesso!`);
-            window.location = "./config-usuarios.html"
-        }else {
-           showMessage(true, "Erro ao deletar o funcionário. Contate nosso suporte!");
-           fecharPopup();
-        }
+    }).then((result) => {
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            setTimeout(() => {
+                fecharPopup();
+                reload();
+            }, 1500);
+        });
     }).catch((resultado) => {
         console.log(`#ERRO: ${resultado}`);
     });
@@ -178,17 +179,19 @@ function editarFuncionario(idFuncionario) {
             updateCargo: update_select_cargo.value
         })
 
-    }).then((resultado) => {
-
-        if (resultado.status == 200) {
-            showMessage(false, "Alterações salvas com sucesso!")
-            window.location = "./config-usuarios.html"
-        } else {
-            showMessage(true,"Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
+    }).then((result) => {
+        result.text().then((text) => {
+            showMessage(result.status !== 200, text);
+            setTimeout(() => {
+                fecharPopup();
+                reload();
+            }, 1500);
+        });
+    })
+    .catch(() => {
+           showMessage(true, UNEXPECTED_ERROR)
         }
-    }).catch((resultado) => {
-        console.log(`#ERRO: ${resultado}`);
-    });
+    );
 }
 
 function abrirPopup(idFuncionario){
