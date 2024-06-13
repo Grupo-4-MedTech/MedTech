@@ -36,7 +36,7 @@ function preencherTabela(json){
         conteudo += `<tr>
         <td>${linha.nome}</td>
         <td>${linha.email}</td>
-        <td>${linha.nome}</td>
+        <td>${linha.cargo}</td>
         <td class="editar" onclick="editar(${jsonStringF})"><a> Editar </a></td>
         <td class="deletar" onclick="abrirPopup(${linha.idFuncionario})"><a> Excluir </a></td>
       </tr>`
