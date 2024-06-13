@@ -29,9 +29,7 @@ function executar(instrucao) {
                 return sql.query(instrucao);
             }).then(function (resultados) {
                 console.log(resultados);
-                const res = resultados.recordset;
-                res.push({extras: resultados});
-                resolve(res);
+                resolve(resultados.recordset);
             }).catch(function (erro) {
                 reject(erro);
                 console.log('ERRO: ', erro);
