@@ -36,7 +36,7 @@ function preencherTabela(json){
         conteudo += `<tr>
         <td>${linha.nome}</td>
         <td>${linha.email}</td>
-        <td>${listaCargos.nome}</td>
+        <td>${linha.nome}</td>
         <td class="editar" onclick="editar(${jsonStringF})"><a> Editar </a></td>
         <td class="deletar" onclick="abrirPopup(${linha.idFuncionario})"><a> Excluir </a></td>
       </tr>`
@@ -46,7 +46,10 @@ function preencherTabela(json){
     tabela.innerHTML = conteudo;
 }
 
-var listaCargos = [
+
+function editar(funcionario){
+    
+    var listaCargos = [
             {
             cargo: 'MEDICO_GERENTE',
             nome: 'Médico gerente'
@@ -61,7 +64,6 @@ var listaCargos = [
             }
         ];
     
-function editar(funcionario){
 
         console.log(funcionario)
     
@@ -154,10 +156,7 @@ function deletarFuncionario(idFuncionario){
         if (resposta.status == 200) {
             showMessage(false,`Usuário deletado com sucesso!`);
             window.location = "./config-usuarios.html"
-        } else if (resposta.status == 404) {
-            showMessage(true,"Não foi possível deletar o funcionário.");
-            fecharPopup();
-        } else {
+        }else {
            showMessage(true, "Erro ao deletar o funcionário. Contate nosso suporte!");
            fecharPopup();
         }
@@ -181,10 +180,8 @@ function editarFuncionario(idFuncionario) {
 
     }).then(function (resposta) {
 
-        if (resposta.status == 200) {
+        if (resposta.ok) {
             showMessage(false, "Alterações salvas com sucesso!")
-        } else if (resposta.status == 400) {
-            showMessage(true,"Dados inválidos!")
         } else {
             showMessage(true,"Não foi possível realizar as alterações. Entre em contato com o nosso suporte.")
         }
