@@ -50,8 +50,8 @@ function buscar(idHospital){
     return database.executar(query);
 }
 
-function adicionarUsuario(nome, email, cargo, fkHospital){
-    const query = `INSERT INTO funcionario (nome, email, cargo, fkHospital) VALUES ('${nome}', '${email}', '${cargo}', ${fkHospital});`
+function adicionarUsuario(nome, email, cargo, fkHospital, senha, telefone, cpf){
+    const query = `INSERT INTO funcionario (nome, email, cargo, fkHospital, senha, telefone, cpf) VALUES ('${nome}', '${email}', '${cargo}', ${fkHospital}, '${senha}', '${telefone}', '${cpf}');`;
     console.log("Executando a instrução SQL: \n" + query);
     return database.executar(query);
 }
@@ -61,12 +61,14 @@ function deletar(idFuncionario){
     return database.executar(query);
 }
 
-function editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario) {
+function editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario, telefone, cpf) {
     var instrucaoSql = `
         UPDATE funcionario SET
         nome = '${updateNome}',
         email = '${updateEmail}',
-        cargo = '${updateCargo}'
+        cargo = '${updateCargo}',
+        telefone = '${telefone}',
+        cpf = '${cpf}'
         WHERE idFuncionario = ${idFuncionario};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -87,6 +89,35 @@ function updateMailConfig(id, host, port, email, pass){
     return database.executar(query);
 }
 
+function assignAccess(email, deps) {
+    let query = `SELECT * FROM funcionario WHERE email = '${email}';`;
+
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query)
+        .then((res) => {
+            res = res[0];
+
+            query = `DELETE FROM acesso WHERE fkFuncionario = ${res.idFuncionario};`;
+            console.log("Executando a instrução SQL: \n" + query);
+            return database.executar(query).then(() => {
+                let query2 = `INSERT INTO acesso (fkDepartamento, fkHospital, fkFuncionario, responsavel) VALUES`;
+
+                for (let i = 0; i < deps.length; i++) {
+                    query2 += `
+                    (${deps[i]}, ${res.fkHospital}, ${res.idFuncionario}, 0)`
+                    if (i < deps.length - 1) {
+                        query2 += ','
+                    }
+                }
+
+                query2 += ';';
+                console.log("Executando a instrução SQL: \n" + query2);
+                return database.executar(query2)
+            })
+        })
+}
+
+
 module.exports = {
     autenticar,
     update,
@@ -97,5 +128,6 @@ module.exports = {
     editarFuncionario,
     findById,
     findFuncByAcesso,
-    updateMailConfig
+    updateMailConfig,
+    assignAccess
 }

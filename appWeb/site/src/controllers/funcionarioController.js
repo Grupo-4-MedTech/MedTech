@@ -15,7 +15,7 @@ function autenticar(req, res) {
 
         funcionarioModel.autenticar(senha, email)
             .then((result) => {
-                if (result.length != 1) {
+                if (result.length < 1) {
                     res.status(400).send('Email ou senha incorretos.');
                 } else {
                     result = result[0];
@@ -81,11 +81,19 @@ function adicionarUsuario(req, res) {
     ) {
         res.status(400).send(utils.BAD_REQUEST);
     } else {
-        funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital)
+        funcionarioModel.adicionarUsuario(nome, email, cargo, fkHospital, req.body.senha, req.body.telefone, req.body.cpf)
             .then(
-                function (result) {
-                    console.log(result);
-                    res.status(200).send(utils.SUCCESSFULLY_CREATED);
+                function () {
+                    funcionarioModel.assignAccess(email, req.body.deps)
+                        .then(()=>{
+                        res.status(200).send(utils.SUCCESSFULLY_CREATED);
+                    })
+                        .catch(
+                            function (error) {
+                                console.log(error);
+                                res.status(500).send(utils.UNEXPECTED_ERROR);
+                            }
+                        );
                 }
             ).catch(
                 function (error) {
@@ -123,7 +131,7 @@ function editarFuncionario(req, res) {
     const updateCargo = req.body.updateCargo;
 
 
-    funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario)
+    funcionarioModel.editarFuncionario(updateNome, updateEmail, updateCargo, idFuncionario, req.body.telefone, req.body.cpf)
         .then(
             function (resultado) {
                 res.status(200).send(utils.SUCCESSFULLY_CHANGED);

@@ -206,7 +206,7 @@ td form button.button:hover {
 .conteudo {
     margin-top: 20px;
     display: flex;
-    width: 25%;
+    width: 35%;
     flex-direction: column;
     align-items: left;
     justify-content: space-around;
@@ -268,4 +268,8 @@ th {
 
 .editar {
     width: 50px;
+}
+
+.chkBoxContainer {
+    display: flex; justify-content: space-between; align-items: center; height: 80px;
 }

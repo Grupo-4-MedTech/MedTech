@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="../css/cards.css">
   <link rel="stylesheet" href="../css/notification.css">
   <link rel="stylesheet" href="../CSS/utils.css">
-  <link rel="stylesheet" href="../CSS/utils.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../script/dashboard.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
@@ -68,6 +67,10 @@
 
         <label for="Email">Email:</label>
         <input type="email" id="update_input_email" name="Email">
+        <label>CPF:</label>
+        <input type="email" id="update_input_cpf" name="cpf">
+        <label>Telefone:</label>
+        <input type="email" id="update_input_telefone" name="cpf">
 
         <label for="cargo">Cargo:</label>
         <select id="update_select_cargo" name="cargo">
@@ -76,6 +79,9 @@
           <option value="TECNICO_TI"> Técnico TI </option>
           <option value="GESTOR_TI"> Gestor TI </option>
         </select>
+        <label>Departamentos que acessa:</label>
+        <div id="chkboxEdit" class="chkBoxContainer">
+        </div>
         <div class="buttonsEdit">
           <button id="buttonSalvar">Salvar</button>
           <button onclick="
@@ -143,7 +149,10 @@
 
         <label for="Email">Email:</label>
         <input type="email" id="input_email" name="Email">
-
+        <label>CPF:</label>
+        <input type="email" id="input_cpf" name="cpf">
+        <label>Telefone:</label>
+        <input type="email" id="input_telefone" name="cpf">
         <label for="departamento">Cargo:</label>
         <select id="select_cargo" name="departamento">
           <option selected value="selected">Selecione o cargo</option>
@@ -151,8 +160,9 @@
           <option value="TECNICO_TI"> Técnico TI </option>
           <option value="GESTOR_TI"> Gestor TI </option>
         </select>
-
-
+        <label>Departamentos que acessa:</label>
+        <div id="chkboxCreate" class="chkBoxContainer">
+        </div>
         <button id="btn-add-pc" onclick="novoFuncionario()">Adicionar</button>
       </div>
 
